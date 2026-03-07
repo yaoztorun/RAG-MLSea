@@ -4,6 +4,7 @@ __pycache__/
 *.npy
 stored_embeddings/
 .vscode/
+<<<<<<< HEAD
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
@@ -11,3 +12,5 @@ __pycache__/
 venv/
 env/
 data/intermediate/
+=======
+>>>>>>> e1fd4d7be052cb93eded17673307fc5f16c8c57c
