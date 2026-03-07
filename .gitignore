@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+*.npy
+stored_embeddings/
+.vscode/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+data/intermediate/
