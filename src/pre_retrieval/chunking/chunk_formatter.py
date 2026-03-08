@@ -7,10 +7,17 @@ def clean_literal(value: str | None) -> str:
     return str(value).strip()
 
 
-def split_authors(authors_str: str | None) -> List[str]:
-    if not authors_str:
+def split_pipe_values(value: str | None) -> List[str]:
+    if not value:
         return []
-    return [a.strip() for a in authors_str.split("|") if a.strip()]
+    seen = set()
+    items = []
+    for part in value.split("|"):
+        cleaned = part.strip()
+        if cleaned and cleaned not in seen:
+            seen.add(cleaned)
+            items.append(cleaned)
+    return items
 
 
 def extract_year(year_value: str | None) -> str:
@@ -24,7 +31,10 @@ def format_chunk_text(record: Dict[str, Any]) -> str:
     title = clean_literal(record.get("title"))
     abstract = clean_literal(record.get("abstract"))
     year = extract_year(record.get("year"))
-    authors = split_authors(record.get("authors"))
+    authors = split_pipe_values(record.get("authors"))
+    tasks = split_pipe_values(record.get("tasks"))
+    keywords = split_pipe_values(record.get("keywords"))
+    implementations = split_pipe_values(record.get("implementations"))
 
     parts = []
 
@@ -34,6 +44,12 @@ def format_chunk_text(record: Dict[str, Any]) -> str:
         parts.append(f"Authors: {', '.join(authors)}")
     if year:
         parts.append(f"Year: {year}")
+    if tasks:
+        parts.append(f"Tasks: {', '.join(tasks)}")
+    if keywords:
+        parts.append(f"Keywords: {', '.join(keywords)}")
+    if implementations:
+        parts.append(f"Implementations: {', '.join(implementations)}")
     if abstract:
         parts.append(f"Abstract: {abstract}")
 
@@ -41,7 +57,10 @@ def format_chunk_text(record: Dict[str, Any]) -> str:
 
 
 def build_chunk_record(record: Dict[str, Any]) -> Dict[str, Any]:
-    authors = split_authors(record.get("authors"))
+    authors = split_pipe_values(record.get("authors"))
+    tasks = split_pipe_values(record.get("tasks"))
+    keywords = split_pipe_values(record.get("keywords"))
+    implementations = split_pipe_values(record.get("implementations"))
 
     return {
         "paper_id": clean_literal(record.get("paper")),
@@ -49,5 +68,8 @@ def build_chunk_record(record: Dict[str, Any]) -> Dict[str, Any]:
         "abstract": clean_literal(record.get("abstract")),
         "year": extract_year(record.get("year")),
         "authors": authors,
+        "tasks": tasks,
+        "keywords": keywords,
+        "implementations": implementations,
         "chunk_text": format_chunk_text(record),
     }

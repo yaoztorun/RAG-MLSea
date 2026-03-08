@@ -1,0 +1,61 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX fabio:   <http://purl.org/spar/fabio/>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dcat:    <http://www.w3.org/ns/dcat#>
+PREFIX mlso:    <http://w3id.org/mlso/>
+PREFIX mls:     <http://www.w3.org/ns/mls#>
+PREFIX schema:  <https://schema.org/>
+
+SELECT ?paper ?title ?abstract ?year
+       (GROUP_CONCAT(DISTINCT ?authorName; separator=" | ") AS ?authors)
+       (GROUP_CONCAT(DISTINCT ?taskValue; separator=" | ") AS ?tasks)
+       (GROUP_CONCAT(DISTINCT ?keywordValue; separator=" | ") AS ?keywords)
+       (GROUP_CONCAT(DISTINCT ?implValue; separator=" | ") AS ?implementations)
+WHERE {
+  ?paper rdf:type <http://w3id.org/mlso/ScientificWork> .
+
+  OPTIONAL { ?paper dcterms:title ?title . }
+  OPTIONAL { ?paper fabio:abstract ?abstract . }
+  OPTIONAL { ?paper dcterms:issued ?year . }
+
+  OPTIONAL {
+    ?paper dcterms:creator ?author .
+    OPTIONAL { ?author foaf:name ?foafName . }
+    OPTIONAL { ?author rdfs:label ?rdfsName . }
+    BIND(COALESCE(?foafName, ?rdfsName, STR(?author)) AS ?authorName)
+  }
+
+    OPTIONAL {
+    ?paper mlso:hasTaskType ?task .
+    OPTIONAL { ?task rdfs:label ?taskLabel . }
+    OPTIONAL { ?task foaf:name ?taskFoafName . }
+
+    BIND(
+      IF(
+        BOUND(?taskLabel),
+        STR(?taskLabel),
+        IF(
+          BOUND(?taskFoafName),
+          STR(?taskFoafName),
+          REPLACE(STR(?task), "^.*/", "")
+        )
+      ) AS ?taskValue
+    )
+  }
+
+  OPTIONAL {
+    ?paper dcat:keyword ?keyword .
+    BIND(STR(?keyword) AS ?keywordValue)
+  }
+
+  OPTIONAL {
+    ?paper mlso:hasRelatedImplementation ?impl .
+    OPTIONAL { ?impl rdfs:label ?implLabel . }
+    OPTIONAL { ?impl schema:codeRepository ?repo . }
+    BIND(COALESCE(?implLabel, STR(?repo), STR(?impl)) AS ?implValue)
+  }
+}
+GROUP BY ?paper ?title ?abstract ?year
+LIMIT 100
