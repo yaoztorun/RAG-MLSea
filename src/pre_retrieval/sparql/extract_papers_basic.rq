@@ -1,0 +1,24 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX fabio:   <http://purl.org/spar/fabio/>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?paper ?title ?abstract ?year
+       (GROUP_CONCAT(DISTINCT ?authorName; separator=" | ") AS ?authors)
+WHERE {
+  ?paper rdf:type <http://w3id.org/mlso/ScientificWork> .
+
+  OPTIONAL { ?paper dcterms:title ?title . }
+  OPTIONAL { ?paper fabio:abstract ?abstract . }
+  OPTIONAL { ?paper dcterms:issued ?year . }
+
+  OPTIONAL {
+    ?paper dcterms:creator ?author .
+    OPTIONAL { ?author foaf:name ?foafName . }
+    OPTIONAL { ?author rdfs:label ?rdfsName . }
+    BIND(COALESCE(?foafName, ?rdfsName, STR(?author)) AS ?authorName)
+  }
+}
+GROUP BY ?paper ?title ?abstract ?year
+LIMIT 50

@@ -1,0 +1,7 @@
+SELECT ?predicate (COUNT(*) AS ?count)
+WHERE {
+  ?s ?predicate ?o .
+}
+GROUP BY ?predicate
+ORDER BY DESC(?count)
+LIMIT 30
