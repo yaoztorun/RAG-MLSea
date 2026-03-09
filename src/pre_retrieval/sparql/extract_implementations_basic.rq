@@ -1,0 +1,52 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcat:    <http://www.w3.org/ns/dcat#>
+PREFIX mlso:    <http://w3id.org/mlso/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema:  <https://schema.org/>
+
+SELECT ?impl
+       (SAMPLE(?implLabelFinal) AS ?implementation_label)
+       (GROUP_CONCAT(DISTINCT ?paperTitle; separator=" | ") AS ?papers)
+       (GROUP_CONCAT(DISTINCT ?taskLabelFinal; separator=" | ") AS ?tasks)
+       (GROUP_CONCAT(DISTINCT ?repoValue; separator=" | ") AS ?repositories)
+WHERE {
+  {
+    SELECT ?paper ?impl ?paperTitle ?task ?repoValue
+    WHERE {
+      ?paper rdf:type <http://w3id.org/mlso/ScientificWork> .
+      ?paper mlso:hasRelatedImplementation ?impl .
+
+      OPTIONAL { ?paper dcterms:title ?paperTitle . }
+      OPTIONAL { ?paper mlso:hasTaskType ?task . }
+
+      OPTIONAL {
+        ?impl schema:codeRepository ?repo .
+        BIND(STR(?repo) AS ?repoValue)
+      }
+    }
+    LIMIT 200
+  }
+
+  OPTIONAL { ?impl rdfs:label ?implLabel . }
+
+  BIND(
+    COALESCE(
+      STR(?implLabel),
+      REPLACE(STR(?impl), "^.*/", "")
+    ) AS ?implLabelFinal
+  )
+
+  BIND(
+    IF(
+      BOUND(?task),
+      REPLACE(
+        REPLACE(REPLACE(STR(?task), "^.*/", ""), "([a-z])([A-Z])", "$1 $2"),
+        "_",
+        " "
+      ),
+      ""
+    ) AS ?taskLabelFinal
+  )
+}
+GROUP BY ?impl
