@@ -1,0 +1,41 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcat:    <http://www.w3.org/ns/dcat#>
+PREFIX mlso:    <http://w3id.org/mlso/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema:  <https://schema.org/>
+
+SELECT ?task
+       (SAMPLE(?taskLabelFinal) AS ?task_label)
+       (GROUP_CONCAT(DISTINCT ?paperTitle; separator=" | ") AS ?papers)
+       (GROUP_CONCAT(DISTINCT ?keywordValue; separator=" | ") AS ?keywords)
+       (GROUP_CONCAT(DISTINCT ?implValue; separator=" | ") AS ?implementations)
+WHERE {
+  {
+    SELECT ?paper ?task ?paperTitle ?keywordValue ?implValue
+    WHERE {
+      ?paper rdf:type <http://w3id.org/mlso/ScientificWork> .
+      ?paper mlso:hasTaskType ?task .
+      OPTIONAL { ?paper dcterms:title ?paperTitle . }
+      OPTIONAL { ?paper dcat:keyword ?keyword . BIND(STR(?keyword) AS ?keywordValue) }
+      OPTIONAL {
+        ?paper mlso:hasRelatedImplementation ?impl .
+        OPTIONAL { ?impl rdfs:label ?implLabel . }
+        OPTIONAL { ?impl schema:codeRepository ?repo . }
+        BIND(COALESCE(STR(?implLabel), STR(?repo), STR(?impl)) AS ?implValue)
+      }
+    }
+    LIMIT 200
+  }
+
+  BIND(REPLACE(STR(?task), "^.*/", "") AS ?taskLastSegment)
+
+  BIND(
+    REPLACE(
+      REPLACE(?taskLastSegment, "([a-z])([A-Z])", "$1 $2"),
+      "_",
+      " "
+    ) AS ?taskLabelFinal
+  )
+}
+GROUP BY ?task
