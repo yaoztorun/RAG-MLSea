@@ -1,0 +1,260 @@
+[
+    {
+        "id": "mlsea_q_001",
+        "question": "What specific tasks is the MedDG dataset associated with?",
+        "question_type": "dataset_to_tasks",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedDG",
+        "answer": [
+            "Dialogue Generation",
+            "Response Generation",
+            "Retrieval"
+        ],
+        "answer_type": "list",
+        "text_answer": "The MedDG dataset is associated with the following tasks: Dialogue Generation, Response Generation, and Retrieval."
+    },
+    {
+        "id": "mlsea_q_002",
+        "question": "What is the publication year for the paper \"Capture, Learning, and Synthesis of 3D Speaking Styles\"?",
+        "question_type": "paper_to_publication_year",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FCapture%252C%2520Learning%252C%2520and%2520Synthesis%2520of%25203D%2520Speaking%2520Styles",
+        "answer": "2019",
+        "answer_type": "literal",
+        "text_answer": "The paper \"Capture, Learning, and Synthesis of 3D Speaking Styles\" was published in 2019."
+    },
+    {
+        "id": "mlsea_q_003",
+        "question": "Who are the authors of \u201cCoQA: A Conversational Question Answering Challenge\u201d?",
+        "question_type": "paper_to_authors",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FCoQA%253A%2520A%2520Conversational%2520Question%2520Answering%2520Challenge",
+        "answer": [
+            "Christopher D. Manning",
+            "Danqi Chen",
+            "Siva Reddy"
+        ],
+        "answer_type": "list",
+        "text_answer": "The authors of \"CoQA: A Conversational Question Answering Challenge\" are Christopher D. Manning, Danqi Chen, and Siva Reddy."
+    },
+    {
+        "id": "mlsea_q_004",
+        "question": "Which tasks are associated with the paper \u201cP-ROCKET: Pruning Random Convolution Kernels for Time Series Classification from a Feature Selection Perspective\u201d?",
+        "question_type": "paper_to_tasks",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FP-ROCKET%253A%2520Pruning%2520Random%2520Convolution%2520Kernels%2520for%2520Time%2520Series%2520Classification",
+        "answer": [
+            "Time Series Classification",
+            "Feature Selection"
+        ],
+        "answer_type": "list",
+        "text_answer": "The tasks associated with the paper \"P-ROCKET: Pruning Random Convolution Kernels for Time Series Classification from a Feature Selection Perspective\" are: Time Series Classification and Feature Selection."
+    },
+    {
+        "id": "mlsea_q_005",
+        "question": "Who are the authors of the paper \" Capture, Learning, and Synthesis of 3D Speaking Styles\"?",
+        "question_type": "paper_to_authors",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FCapture%252C%2520Learning%252C%2520and%2520Synthesis%2520of%25203D%2520Speaking%2520Styles",
+        "answer": [
+            "Anurag Ranjan",
+            "Cassidy Laidlaw",
+            "Daniel Cudeiro",
+            "Michael J. Black",
+            "Timo Bolkart"
+        ],
+        "answer_type": "list",
+        "text_answer": "The authors of \" Capture, Learning, and Synthesis of 3D Speaking Styles\" are Anurag Ranjan, Cassidy Laidlaw, Daniel Cudeiro, Michael J. Black, and Timo Bolkart."
+    },
+    {
+        "id": "mlsea_q_006",
+        "question": "Which task is associated with the paper \u201cThe Evolution of football Betting\u201d?",
+        "question_type": "paper_to_tasks",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FThe%2520Evolution%2520of%2520Football%2520Betting-%2520A%2520Machine%2520Learning%2520Approach%2520to%2520Match%2520Outcome%2520Forecasting%2520and%2520Bookmaker%2520Odds%2520Estimation",
+        "answer": [
+            "Decision Making",
+            "Sports Analytics"
+        ],
+        "answer_type": "list",
+        "text_answer": "The tasks associated with the paper \"The Evolution of football Betting\" are: Decision Making and Sports Analytics."
+    },
+    {
+        "id": "mlsea_q_007",
+        "question": "Which task is associated with the paper \u201cA Comparative Study in NBA Sports\u201d?",
+        "question_type": "paper_to_tasks",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FModel-Agnostic%2520Interpretation%2520Framework%2520in%2520Machine%2520Learning%253A%2520A%2520Comparative%2520Study%2520in%2520NBA%2520Sports",
+        "answer": [
+            "Decision Making",
+            "Computational Efficiency"
+        ],
+        "answer_type": "list",
+        "text_answer": "The tasks associated with the paper \"A Comparative Study in NBA Sports\" are: Decision Making and Computational Efficiency."
+    },
+    {
+        "id": "mlsea_q_008",
+        "question": "What is the publication year for the paper \u201cFlying Bird Object Detection Algorithm in Surveillance Video\u201d?",
+        "question_type": "paper_to_publication_year",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FFlying%2520Bird%2520Object%2520Detection%2520Algorithm%2520in%2520Surveillance%2520Video",
+        "answer": "2024",
+        "answer_type": "literal",
+        "text_answer": "The paper \"Flying Bird Object Detection Algorithm in Surveillance Video\" was published in 2024."
+    },
+    {
+        "id": "mlsea_q_009",
+        "question": "Who are the authors of the paper \u201cOverview of the PromptCBLUE Shared Task in CHIP2023\u201d?",
+        "question_type": "paper_to_authors",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FOverview%2520of%2520the%2520PromptCBLUE%2520Shared%2520Task%2520in%2520CHIP2023",
+        "answer": [
+            "Buzhou Tang",
+            "Mosha Chen",
+            "Wei Zhu",
+            "Xiaoling Wang"
+        ],
+        "answer_type": "list",
+        "text_answer": "The authors of \"Overview of the PromptCBLUE Shared Task in CHIP2023\" are Buzhou Tang, Mosha Chen, Wei Zhu, and Xiaoling Wang."
+    },
+    {
+        "id": "mlsea_q_010",
+        "question": "Which task is associated with the paper \u201cBeyond Suspension: A Two-phase Methodology for Concluding Sports Leagues\u201d?",
+        "question_type": "paper_to_tasks",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FBeyond%2520Suspension%253A%2520A%2520Two-phase%2520Methodology%2520for%2520Concluding%2520Sports%2520Leagues",
+        "answer": [
+            "Stochastic Optimization",
+            "Scheduling"
+        ],
+        "answer_type": "list",
+        "text_answer": "The tasks associated with the paper \"Beyond Suspension: A Two-phase Methodology for Concluding Sports Leagues\" are: Stochastic Optimization and Scheduling."
+    },
+    {
+        "id": "mlsea_q_011",
+        "question": "What is the publication year of the paper \"Attention Is All You Need\"?",
+        "question_type": "paper_to_publication_year",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FAttention%2520Is%2520All%2520You%2520Need",
+        "answer": "2017",
+        "answer_type": "literal",
+        "text_answer": "The paper \"Attention Is All You Need\" was published in 2017."
+    },
+    {
+        "id": "mlsea_q_012",
+        "question": "What is the publication year of \"RoBERTa: A Robustly Optimized BERT Pretraining Approach\"?",
+        "question_type": "paper_to_publication_year",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FRoBERTa%253A%2520A%2520Robustly%2520Optimized%2520BERT%2520Pretraining%2520Approach",
+        "answer": "2019",
+        "answer_type": "literal",
+        "text_answer": "The paper \"RoBERTa: A Robustly Optimized BERT Pretraining Approach\" was published in 2019."
+    },
+    {
+        "id": "mlsea_q_013",
+        "question": "Who are the authors of the paper \"GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding\"?",
+        "question_type": "paper_to_authors",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FGLUE%253A%2520A%2520Multi-Task%2520Benchmark%2520and%2520Analysis%2520Platform%2520for%2520Natural%2520Language%2520Understanding",
+        "answer": [
+            "Alex Wang",
+            "Amanpreet Singh",
+            "Felix Hill",
+            "Julian Michael",
+            "Omer Levy",
+            "Samuel R. Bowman"
+        ],
+        "answer_type": "list",
+        "text_answer": "The authors of \"GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding\" are Alex Wang, Amanpreet Singh, Felix Hill, Julian Michael, Omer Levy, and Samuel R. Bowman."
+    },
+    {
+        "id": "mlsea_q_014",
+        "question": "Which tasks are associated with the MultiNLI dataset?",
+        "question_type": "dataset_to_tasks",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI",
+        "answer": [
+            "TextGeneration",
+            "Natural Language Inference"
+        ],
+        "answer_type": "list",
+        "text_answer": "The MultiNLI dataset is associated with the following tasks: TextGeneration and Natural Language Inference."
+    },
+    {
+        "id": "mlsea_q_015",
+        "question": "What keywords are attached to the paper \"GOLF: Goal-Oriented Long-term liFe tasks supported by human-AI collaboration\"?",
+        "question_type": "paper_to_keywords",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FGOLF%253A%2520Goal-Oriented%2520Long-term%2520liFe%2520tasks%2520supported%2520by%2520human-AI%2520collaboration",
+        "answer": [
+            "Decision Making",
+            "Information Retrieval",
+            "Focus"
+        ],
+        "answer_type": "list",
+        "text_answer": "The keywords attached to the paper \"GOLF: Goal-Oriented Long-term liFe tasks supported by human-AI collaboration\" are: Decision Making, Information Retrieval, and Focus."
+    },
+    {
+        "id": "mlsea_q_016",
+        "question": "Which authors wrote the paper \u201cFlying Bird Object Detection Algorithm in Surveillance Video\u201d?",
+        "question_type": "paper_to_authors",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FFlying%2520Bird%2520Object%2520Detection%2520Algorithm%2520in%2520Surveillance%2520Video",
+        "answer": [
+            "Shreyasi Mandal"
+        ],
+        "answer_type": "list",
+        "text_answer": "The authors of \"Flying Bird Object Detection Algorithm in Surveillance Video\" are Shreyasi Mandal."
+    },
+    {
+        "id": "mlsea_q_017",
+        "question": "What tasks are associated with the SNLI dataset?",
+        "question_type": "dataset_to_tasks",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI",
+        "answer": [
+            "Cross-Lingual Transfer",
+            "Zero-Shot Learning",
+            "Natural Language Understanding",
+            "Translation",
+            "XLM-R",
+            "Reading Comprehension",
+            "Natural Language Inference",
+            "counterfactual",
+            "Few-Shot Learning",
+            "BASE",
+            "Multimodal Reasoning",
+            "Test",
+            "Sentence"
+        ],
+        "answer_type": "list",
+        "text_answer": "The SNLI dataset is associated with the following tasks: Cross-Lingual Transfer, Zero-Shot Learning, Natural Language Understanding, Translation, XLM-R, Reading Comprehension, Natural Language Inference, counterfactual, Few-Shot Learning, BASE, Multimodal Reasoning, Test, and Sentence."
+    },
+    {
+        "id": "mlsea_q_018",
+        "question": "What specific tasks are associated with the SQuAD dataset?",
+        "question_type": "dataset_to_tasks",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD",
+        "answer": [
+            "Question Answering",
+            "Sequence-to-sequence Language Modeling",
+            "Reading Comprehension",
+            "Question Generation",
+            "Domain Question Answering",
+            "Text2TextGeneration"
+        ],
+        "answer_type": "list",
+        "text_answer": "The SQuAD dataset is associated with the following tasks: Question Answering, Sequence-to-sequence Language Modeling, Reading Comprehension, Question Generation, Domain Question Answering, and Text2TextGeneration."
+    },
+    {
+        "id": "mlsea_q_019",
+        "question": "Which authors contributed to the paper \u201cAttacking Byzantine Robust Aggregation in High Dimensions\u201d?",
+        "question_type": "paper_to_authors",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FAttacking%2520Byzantine%2520Robust%2520Aggregation%2520in%2520High%2520Dimensions",
+        "answer": [
+            "Prateek Saxena",
+            "Aashish Kolluri",
+            "Sarthak Choudhary"
+        ],
+        "answer_type": "list",
+        "text_answer": "The authors of \"Attacking Byzantine Robust Aggregation in High Dimensions\" are Prateek Saxena, Aashish Kolluri, and Sarthak Choudhary."
+    },
+    {
+        "id": "mlsea_q_020",
+        "question": "Which scientific works contain \"transformer networks\" in their title and were published in 2017?",
+        "question_type": "title_and_year_filter_to_papers",
+        "target_entity_iri": "http://localhost:7200/resource?uri=http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2FscientificWork%2FFlying%2520Bird%2520Object%2520Detection%2520Algorithm%2520in%2520Surveillance%2520Video",
+        "answer": [
+            "3D Morphable Models as Spatial Transformer Networks",
+            "Dense Transformer Networks",
+            "Modeling Image Virality with Pairwise Spatial Transformer Networks",
+            "Polar Transformer Networks",
+            "Unconstrained Fashion Landmark Detection via Hierarchical Recurrent Transformer Networks"
+        ],
+        "answer_type": "list",
+        "text_answer": "The scientific works that contain \"transformer networks\" in their title and were published in 2017 are: 3D Morphable Models as Spatial Transformer Networks, Dense Transformer Networks, Modeling Image Virality with Pairwise Spatial Transformer Networks, Polar Transformer Networks, and Unconstrained Fashion Landmark Detection via Hierarchical Recurrent Transformer Networks."
+    }
+]
