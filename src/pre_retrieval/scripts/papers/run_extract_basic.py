@@ -14,7 +14,7 @@ GRAPHDB_ENDPOINT = os.getenv(
 )
 
 QUERY_PATH = Path("src/pre_retrieval/sparql/extract_papers_basic.rq")
-OUTPUT_PATH = Path("data/intermediate/chunks/papers_basic_sample.jsonl")
+OUTPUT_PATH = Path("data/intermediate/chunks/papers/papers_basic_sample.jsonl")
 
 
 def load_query(path: Path) -> str:
