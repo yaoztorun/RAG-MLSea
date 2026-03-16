@@ -5,7 +5,6 @@ PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcat:    <http://www.w3.org/ns/dcat#>
 PREFIX mlso:    <http://w3id.org/mlso/>
-PREFIX mls:     <http://www.w3.org/ns/mls#>
 PREFIX schema:  <https://schema.org/>
 
 SELECT ?paper ?title ?abstract ?year
@@ -14,33 +13,38 @@ SELECT ?paper ?title ?abstract ?year
        (GROUP_CONCAT(DISTINCT ?keywordValue; separator=" | ") AS ?keywords)
        (GROUP_CONCAT(DISTINCT ?implValue; separator=" | ") AS ?implementations)
 WHERE {
-  ?paper rdf:type <http://w3id.org/mlso/ScientificWork> .
+  ?paper rdf:type mlso:ScientificWork .
 
   OPTIONAL { ?paper dcterms:title ?title . }
   OPTIONAL { ?paper fabio:abstract ?abstract . }
-  OPTIONAL { ?paper dcterms:issued ?year . }
+
+  OPTIONAL {
+    ?paper dcterms:issued ?issuedRaw .
+    BIND(SUBSTR(STR(?issuedRaw), 1, 4) AS ?year)
+  }
 
   OPTIONAL {
     ?paper dcterms:creator ?author .
     OPTIONAL { ?author foaf:name ?foafName . }
     OPTIONAL { ?author rdfs:label ?rdfsName . }
-    BIND(COALESCE(?foafName, ?rdfsName, STR(?author)) AS ?authorName)
+    BIND(
+      COALESCE(
+        STR(?foafName),
+        STR(?rdfsName),
+        REPLACE(STR(?author), "^.*[/#]", "")
+      ) AS ?authorName
+    )
   }
 
-    OPTIONAL {
+  OPTIONAL {
     ?paper mlso:hasTaskType ?task .
     OPTIONAL { ?task rdfs:label ?taskLabel . }
     OPTIONAL { ?task foaf:name ?taskFoafName . }
-
     BIND(
-      IF(
-        BOUND(?taskLabel),
+      COALESCE(
         STR(?taskLabel),
-        IF(
-          BOUND(?taskFoafName),
-          STR(?taskFoafName),
-          REPLACE(STR(?task), "^.*/", "")
-        )
+        STR(?taskFoafName),
+        REPLACE(STR(?task), "^.*[/#]", "")
       ) AS ?taskValue
     )
   }
@@ -54,7 +58,13 @@ WHERE {
     ?paper mlso:hasRelatedImplementation ?impl .
     OPTIONAL { ?impl rdfs:label ?implLabel . }
     OPTIONAL { ?impl schema:codeRepository ?repo . }
-    BIND(COALESCE(?implLabel, STR(?repo), STR(?impl)) AS ?implValue)
+    BIND(
+      COALESCE(
+        STR(?implLabel),
+        STR(?repo),
+        REPLACE(STR(?impl), "^.*[/#]", "")
+      ) AS ?implValue
+    )
   }
 }
 GROUP BY ?paper ?title ?abstract ?year

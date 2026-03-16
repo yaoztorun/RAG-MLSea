@@ -3,8 +3,8 @@ from pathlib import Path
 from typing import Dict, Any, List
 
 
-INPUT_PATH = Path("data/intermediate/chunks/papers_enriched_sample.jsonl")
-OUTPUT_PATH = Path("data/intermediate/chunks/predicate_filtered_paper_sample.jsonl")
+INPUT_PATH = Path("data/intermediate/chunks/papers/papers_enriched_sample.jsonl")
+OUTPUT_PATH = Path("data/intermediate/chunks/papers/papers_predicate_filtered_sample.jsonl")
 
 
 def load_jsonl(path: Path) -> List[Dict[str, Any]]:
@@ -24,17 +24,35 @@ def save_jsonl(records: List[Dict[str, Any]], path: Path) -> None:
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
+def ensure_list(value: Any) -> List[str]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [str(v) for v in value if v]
+    return [str(value)]
+
+
+def unique_preserve_order(values: List[str]) -> List[str]:
+    seen = set()
+    result = []
+    for v in values:
+        if v and v not in seen:
+            seen.add(v)
+            result.append(v)
+    return result
+
+
 def join_list(values: List[str]) -> str:
-    return ", ".join(v for v in values if v)
+    return ", ".join(unique_preserve_order(values))
 
 
 def build_filtered_chunk(record: Dict[str, Any]) -> str:
     parts = []
 
     title = record.get("title", "")
-    tasks = record.get("tasks", [])
-    keywords = record.get("keywords", [])
-    implementations = record.get("implementations", [])
+    tasks = ensure_list(record.get("tasks"))
+    keywords = ensure_list(record.get("keywords"))
+    implementations = ensure_list(record.get("implementations"))
 
     if title:
         parts.append(f"Title: {title}")
@@ -60,7 +78,10 @@ def main() -> None:
             continue
 
         new_record = dict(record)
+        new_record["entity_type"] = "paper"
+        new_record["chunk_strategy"] = "predicate_filtered"
         new_record["chunk_variant"] = "predicate_filtered_paper"
+        new_record["retained_fields"] = ["title", "tasks", "keywords", "implementations"]
         new_record["chunk_text"] = chunk_text
         output_records.append(new_record)
 

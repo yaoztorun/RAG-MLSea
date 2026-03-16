@@ -3,8 +3,8 @@ from pathlib import Path
 from typing import Dict, Any, List
 
 
-INPUT_PATH = Path("data/intermediate/chunks/papers_enriched_sample.jsonl")
-OUTPUT_PATH = Path("data/intermediate/chunks/one_hop_paper_sample.jsonl")
+INPUT_PATH = Path("data/intermediate/chunks/papers/papers_enriched_sample.jsonl")
+OUTPUT_PATH = Path("data/intermediate/chunks/papers/papers_one_hop_sample.jsonl")
 
 
 def load_jsonl(path: Path) -> List[Dict[str, Any]]:
@@ -24,30 +24,47 @@ def save_jsonl(records: List[Dict[str, Any]], path: Path) -> None:
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
+def ensure_list(value: Any) -> List[str]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [str(v) for v in value if v]
+    return [str(value)]
+
+
+def unique_preserve_order(values: List[str]) -> List[str]:
+    seen = set()
+    result = []
+    for v in values:
+        if v and v not in seen:
+            seen.add(v)
+            result.append(v)
+    return result
+
+
 def join_list(values: List[str]) -> str:
-    return ", ".join(v for v in values if v)
+    return ", ".join(unique_preserve_order(values))
 
 
 def build_one_hop_chunk(record: Dict[str, Any]) -> str:
     parts = []
 
     title = record.get("title", "")
-    tasks = record.get("tasks", [])
-    keywords = record.get("keywords", [])
-    implementations = record.get("implementations", [])
-    abstract = record.get("abstract", "")
+    authors = ensure_list(record.get("authors"))
+    tasks = ensure_list(record.get("tasks"))
+    keywords = ensure_list(record.get("keywords"))
+    implementations = ensure_list(record.get("implementations"))
 
     if title:
         parts.append(f"Paper: {title}")
+    if authors:
+        parts.append(f"Authors: {join_list(authors)}")
     if tasks:
-        parts.append(f"Connected Tasks: {join_list(tasks)}")
+        parts.append(f"Tasks: {join_list(tasks)}")
     if keywords:
-        parts.append(f"Connected Keywords: {join_list(keywords)}")
+        parts.append(f"Keywords: {join_list(keywords)}")
     if implementations:
-        parts.append(f"Connected Implementations: {join_list(implementations)}")
-    if abstract:
-        short_abstract = abstract.split(". ")
-        parts.append(f"Summary: {'. '.join(short_abstract[:2]).strip()}")
+        parts.append(f"Implementations: {join_list(implementations)}")
 
     return "\n".join(parts).strip()
 
@@ -64,7 +81,10 @@ def main() -> None:
             continue
 
         new_record = dict(record)
+        new_record["entity_type"] = "paper"
+        new_record["chunk_strategy"] = "one_hop"
         new_record["chunk_variant"] = "one_hop_paper"
+        new_record["retained_fields"] = ["title", "authors", "tasks", "keywords", "implementations"]
         new_record["chunk_text"] = chunk_text
         output_records.append(new_record)
 
