@@ -10,6 +10,8 @@ from src.evaluation.utils.normalize import normalize_target_iri, normalize_chunk
 from src.evaluation.utils.reporting import print_results_table
 
 
+# ---------------- CONFIG ---------------- #
+
 QUESTIONS_PATH = Path("data/questions/ml_questions.json")
 
 CHUNK_FILES = {
@@ -22,13 +24,13 @@ CHUNK_FILES = {
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 
+# ---------------- HELPERS ---------------- #
+
 def filter_paper_questions(questions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    filtered = []
-    for q in questions:
-        qtype = q.get("question_type", "")
-        if qtype.startswith("paper_"):
-            filtered.append(q)
-    return filtered
+    return [
+        q for q in questions
+        if q.get("question_type", "").startswith("paper_")
+    ]
 
 
 def cosine_similarity_matrix(query_vec: np.ndarray, doc_matrix: np.ndarray) -> np.ndarray:
@@ -42,14 +44,20 @@ def cosine_similarity_matrix(query_vec: np.ndarray, doc_matrix: np.ndarray) -> n
     return np.dot(doc_matrix, query_vec) / (safe_doc_norms * query_norm)
 
 
+# ---------------- CORE EVALUATION ---------------- #
+
 def evaluate_strategy(
     strategy_name: str,
     chunk_records: List[Dict[str, Any]],
     questions: List[Dict[str, Any]],
     model: SentenceTransformer,
 ) -> Dict[str, float]:
+
     chunk_texts = [record.get("chunk_text", "") for record in chunk_records]
-    chunk_ids = [normalize_chunk_paper_id(record.get("paper_id", "")) for record in chunk_records]
+    chunk_ids = [
+        normalize_chunk_paper_id(record.get("paper_id", ""))
+        for record in chunk_records
+    ]
 
     print(f"\nEncoding chunks for strategy: {strategy_name}")
     chunk_embeddings = model.encode(
@@ -59,10 +67,7 @@ def evaluate_strategy(
         normalize_embeddings=False,
     )
 
-    hit1_scores: List[float] = []
-    hit5_scores: List[float] = []
-    hit10_scores: List[float] = []
-    mrr_scores: List[float] = []
+    hit1_scores, hit5_scores, hit10_scores, mrr_scores = [], [], [], []
 
     for q in questions:
         question_text = q.get("question", "")
@@ -85,6 +90,7 @@ def evaluate_strategy(
         mrr_scores.append(reciprocal_rank(ranked_ids, gold_id))
 
     n = len(questions)
+
     return {
         "hit@1": sum(hit1_scores) / n if n else 0.0,
         "hit@5": sum(hit5_scores) / n if n else 0.0,
@@ -92,6 +98,8 @@ def evaluate_strategy(
         "mrr": sum(mrr_scores) / n if n else 0.0,
     }
 
+
+# ---------------- MAIN ---------------- #
 
 def main() -> None:
     print("Loading questions...")
@@ -101,7 +109,17 @@ def main() -> None:
     print(f"Total questions loaded: {len(questions)}")
     print(f"Paper questions selected: {len(paper_questions)}")
 
-    print(f"\nLoading embedding model: {MODEL_NAME}")
+    # ---- DEBUG NORMALIZATION CHECK ---- #
+    print("\n--- DEBUG: IRI NORMALIZATION ---")
+    if paper_questions:
+        sample_q = paper_questions[0]
+        print("Raw target_entity_iri:")
+        print(sample_q["target_entity_iri"])
+        print("Normalized target:")
+        print(normalize_target_iri(sample_q["target_entity_iri"]))
+    print("--------------------------------\n")
+
+    print(f"Loading embedding model: {MODEL_NAME}")
     model = SentenceTransformer(MODEL_NAME)
 
     results: Dict[str, Dict[str, float]] = {}
@@ -111,7 +129,21 @@ def main() -> None:
         chunk_records = load_jsonl(chunk_path)
         print(f"Chunk count: {len(chunk_records)}")
 
-        metrics = evaluate_strategy(strategy_name, chunk_records, paper_questions, model)
+        # ---- DEBUG CHUNK ID ---- #
+        if chunk_records:
+            print("Sample chunk paper_id:")
+            print(chunk_records[0]["paper_id"])
+            print("Normalized chunk ID:")
+            print(normalize_chunk_paper_id(chunk_records[0]["paper_id"]))
+        print("--------------------------------")
+
+        metrics = evaluate_strategy(
+            strategy_name,
+            chunk_records,
+            paper_questions,
+            model
+        )
+
         results[strategy_name] = metrics
 
     print_results_table(results)
