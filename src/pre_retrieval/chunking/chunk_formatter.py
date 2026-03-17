@@ -7,12 +7,23 @@ def clean_literal(value: str | None) -> str:
     return str(value).strip()
 
 
-def split_pipe_values(value: str | None) -> List[str]:
+def split_pipe_values(value: str | List[str] | None) -> List[str]:
     if not value:
         return []
+
+    if isinstance(value, list):
+        seen = set()
+        items = []
+        for part in value:
+            cleaned = str(part).strip()
+            if cleaned and cleaned not in seen:
+                seen.add(cleaned)
+                items.append(cleaned)
+        return items
+
     seen = set()
     items = []
-    for part in value.split("|"):
+    for part in str(value).split("|"):
         cleaned = part.strip()
         if cleaned and cleaned not in seen:
             seen.add(cleaned)

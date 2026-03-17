@@ -7,65 +7,83 @@ PREFIX dcat:    <http://www.w3.org/ns/dcat#>
 PREFIX mlso:    <http://w3id.org/mlso/>
 PREFIX schema:  <https://schema.org/>
 
-SELECT ?paper ?title ?abstract ?year
-       (GROUP_CONCAT(DISTINCT ?authorName; separator=" | ") AS ?authors)
-       (GROUP_CONCAT(DISTINCT ?taskValue; separator=" | ") AS ?tasks)
-       (GROUP_CONCAT(DISTINCT ?keywordValue; separator=" | ") AS ?keywords)
-       (GROUP_CONCAT(DISTINCT ?implValue; separator=" | ") AS ?implementations)
+SELECT ?paper ?title ?abstract ?year ?authors ?tasks ?keywords ?implementations
 WHERE {
-  ?paper rdf:type mlso:ScientificWork .
 
-  OPTIONAL { ?paper dcterms:title ?title . }
-  OPTIONAL { ?paper fabio:abstract ?abstract . }
-
-  OPTIONAL {
-    ?paper dcterms:issued ?issuedRaw .
-    BIND(SUBSTR(STR(?issuedRaw), 1, 4) AS ?year)
+  {
+    SELECT ?paper ?title ?abstract ?year
+    WHERE {
+      ?paper rdf:type mlso:ScientificWork .
+      OPTIONAL { ?paper dcterms:title ?title . }
+      OPTIONAL { ?paper fabio:abstract ?abstract . }
+      OPTIONAL {
+        ?paper dcterms:issued ?issuedRaw .
+        BIND(SUBSTR(STR(?issuedRaw), 1, 4) AS ?year)
+      }
+    }
+    LIMIT 50
   }
 
   OPTIONAL {
-    ?paper dcterms:creator ?author .
-    OPTIONAL { ?author foaf:name ?foafName . }
-    OPTIONAL { ?author rdfs:label ?rdfsName . }
-    BIND(
-      COALESCE(
-        STR(?foafName),
-        STR(?rdfsName),
-        REPLACE(STR(?author), "^.*[/#]", "")
-      ) AS ?authorName
-    )
+    SELECT ?paper
+           (GROUP_CONCAT(DISTINCT ?authorName; separator=" | ") AS ?authors)
+    WHERE {
+      ?paper dcterms:creator ?author .
+      OPTIONAL { ?author foaf:name ?foafName . }
+      OPTIONAL { ?author rdfs:label ?rdfsName . }
+      BIND(
+        COALESCE(
+          STR(?foafName),
+          STR(?rdfsName),
+          REPLACE(STR(?author), "^.*[/#]", "")
+        ) AS ?authorName
+      )
+    }
+    GROUP BY ?paper
   }
 
   OPTIONAL {
-    ?paper mlso:hasTaskType ?task .
-    OPTIONAL { ?task rdfs:label ?taskLabel . }
-    OPTIONAL { ?task foaf:name ?taskFoafName . }
-    BIND(
-      COALESCE(
-        STR(?taskLabel),
-        STR(?taskFoafName),
-        REPLACE(STR(?task), "^.*[/#]", "")
-      ) AS ?taskValue
-    )
+    SELECT ?paper
+           (GROUP_CONCAT(DISTINCT ?taskValue; separator=" | ") AS ?tasks)
+    WHERE {
+      ?paper mlso:hasTaskType ?task .
+      OPTIONAL { ?task rdfs:label ?taskLabel . }
+      OPTIONAL { ?task foaf:name ?taskFoafName . }
+      BIND(
+        COALESCE(
+          STR(?taskLabel),
+          STR(?taskFoafName),
+          REPLACE(STR(?task), "^.*[/#]", "")
+        ) AS ?taskValue
+      )
+    }
+    GROUP BY ?paper
   }
 
   OPTIONAL {
-    ?paper dcat:keyword ?keyword .
-    BIND(STR(?keyword) AS ?keywordValue)
+    SELECT ?paper
+           (GROUP_CONCAT(DISTINCT STR(?keyword); separator=" | ") AS ?keywords)
+    WHERE {
+      ?paper dcat:keyword ?keyword .
+    }
+    GROUP BY ?paper
   }
 
   OPTIONAL {
-    ?paper mlso:hasRelatedImplementation ?impl .
-    OPTIONAL { ?impl rdfs:label ?implLabel . }
-    OPTIONAL { ?impl schema:codeRepository ?repo . }
-    BIND(
-      COALESCE(
-        STR(?implLabel),
-        STR(?repo),
-        REPLACE(STR(?impl), "^.*[/#]", "")
-      ) AS ?implValue
-    )
+    SELECT ?paper
+           (GROUP_CONCAT(DISTINCT ?implValue; separator=" | ") AS ?implementations)
+    WHERE {
+      ?paper mlso:hasRelatedImplementation ?impl .
+      OPTIONAL { ?impl rdfs:label ?implLabel . }
+      OPTIONAL { ?impl schema:codeRepository ?repo . }
+      BIND(
+        COALESCE(
+          STR(?implLabel),
+          STR(?repo),
+          REPLACE(STR(?impl), "^.*[/#]", "")
+        ) AS ?implValue
+      )
+    }
+    GROUP BY ?paper
   }
 }
-GROUP BY ?paper ?title ?abstract ?year
-LIMIT 100

@@ -1,4 +1,4 @@
-from src.pre_retrieval.chunking.build_predicate_filtered_chunks import main
+from src.pre_retrieval.chunking.papers.build_predicate_filtered_chunks import main
 
 
 if __name__ == "__main__":

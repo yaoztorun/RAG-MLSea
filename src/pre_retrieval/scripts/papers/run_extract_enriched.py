@@ -13,8 +13,8 @@ GRAPHDB_ENDPOINT = os.getenv(
     "http://localhost:7200/repositories/MLSea_Thesis"
 )
 
-QUERY_PATH = Path("src/pre_retrieval/sparql/extract_papers_enriched.rq")
-OUTPUT_PATH = Path("data/intermediate/chunks/papers_enriched_sample.jsonl")
+QUERY_PATH = Path("src/pre_retrieval/sparql/papers/extract_papers_enriched.rq")
+OUTPUT_PATH = Path("data/intermediate/chunks/papers/papers_enriched_sample.jsonl")
 
 
 def load_query(path: Path) -> str:
@@ -29,7 +29,7 @@ def run_sparql_query(endpoint: str, query: str) -> Dict[str, Any]:
         endpoint,
         data={"query": query},
         headers=headers,
-        timeout=300
+        timeout=600
     )
     response.raise_for_status()
     return response.json()

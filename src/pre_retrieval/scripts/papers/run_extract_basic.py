@@ -13,7 +13,7 @@ GRAPHDB_ENDPOINT = os.getenv(
     "http://localhost:7200/repositories/MLSea_Thesis"
 )
 
-QUERY_PATH = Path("src/pre_retrieval/sparql/extract_papers_basic.rq")
+QUERY_PATH = Path("src/pre_retrieval/sparql/papers/extract_papers_basic.rq")
 OUTPUT_PATH = Path("data/intermediate/chunks/papers/papers_basic_sample.jsonl")
 
 
@@ -35,6 +35,12 @@ def run_sparql_query(endpoint: str, query: str) -> Dict[str, Any]:
     return response.json()
 
 
+def split_grouped_values(value: str) -> List[str]:
+    if not value:
+        return []
+    return [v.strip() for v in value.split("|") if v.strip()]
+
+
 def parse_bindings(results: Dict[str, Any]) -> List[Dict[str, Any]]:
     bindings = results.get("results", {}).get("bindings", [])
     parsed = []
@@ -43,9 +49,8 @@ def parse_bindings(results: Dict[str, Any]) -> List[Dict[str, Any]]:
         parsed.append({
             "paper": row.get("paper", {}).get("value", ""),
             "title": row.get("title", {}).get("value", ""),
-            "abstract": row.get("abstract", {}).get("value", ""),
             "year": row.get("year", {}).get("value", ""),
-            "authors": row.get("authors", {}).get("value", ""),
+            "authors": split_grouped_values(row.get("authors", {}).get("value", "")),
         })
 
     return parsed
