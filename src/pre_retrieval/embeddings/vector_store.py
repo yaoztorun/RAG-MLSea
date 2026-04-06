@@ -85,7 +85,7 @@ class ChromaVectorStore(VectorStore):
     def reset(self) -> None:
         try:
             self._client.delete_collection(self._collection_name)
-        except Exception:
+        except ValueError:
             pass
         self._collection = self._client.get_or_create_collection(
             name=self._collection_name,

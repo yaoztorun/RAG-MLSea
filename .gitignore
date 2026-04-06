@@ -7,7 +7,7 @@ stored_embeddings/
 data/raw/*.nt
 data/raw/
 data/intermediate/
-chroma/
+/chroma/
 .venv/
 env/
 .ipynb_checkpoints/
