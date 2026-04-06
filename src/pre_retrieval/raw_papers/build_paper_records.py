@@ -259,10 +259,9 @@ def first_value_for_predicates(
     predicates: Iterable[str],
     node_cache: Dict[str, Dict[str, Any]],
 ) -> Optional[str]:
-    predicate_set = set(predicates)
     for predicate in predicates:
         for triple in triples:
-            if triple["predicate"] != predicate or triple["predicate"] not in predicate_set:
+            if triple["predicate"] != predicate:
                 continue
             value = resolve_node_text(triple["object"], triple["is_literal"], node_cache)
             if value:
