@@ -118,7 +118,7 @@ chroma run --path data/intermediate/chroma
 Or with Docker:
 
 ```bash
-docker run -v ./chroma-data:/data -p 8000:8000 chromadb/chroma
+docker run -v ./data/intermediate/chroma:/data -p 8000:8000 chromadb/chroma
 ```
 
 ## Baseline workflow
@@ -135,7 +135,7 @@ Build the first representation baseline:
 python -m src.pre_retrieval.scripts.run_build_representations --representation title_only
 ```
 
-Embed once and persist in Chroma. The first end-to-end validation should stay `title_only`:
+Embed once and persist in Chroma. The first end-to-end validation should use `title_only`:
 
 ```bash
 python -m src.pre_retrieval.scripts.run_embed_store --representation title_only
