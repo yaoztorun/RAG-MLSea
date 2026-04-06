@@ -49,9 +49,17 @@ class ChromaConnectionConfig:
 
     @classmethod
     def from_dict(cls, config: Dict[str, Any]) -> "ChromaConnectionConfig":
+        raw_mode = config.get("chroma_mode", "http")
+        raw_host = config.get("chroma_host", "localhost")
+        chroma_mode = str(raw_mode).strip().lower()
+        chroma_host = str(raw_host).strip()
+        if not chroma_mode:
+            raise ValueError("vector_store.chroma_mode must not be empty.")
+        if not chroma_host:
+            raise ValueError("vector_store.chroma_host must not be empty.")
         return cls(
-            chroma_mode=str(config.get("chroma_mode", "http")).strip().lower() or "http",
-            chroma_host=str(config.get("chroma_host", "localhost")).strip() or "localhost",
+            chroma_mode=chroma_mode,
+            chroma_host=chroma_host,
             chroma_port=int(config.get("chroma_port", 8000)),
             persist_directory=str(config.get("persist_directory") or config.get("db_path") or "data/intermediate/chroma"),
         )
