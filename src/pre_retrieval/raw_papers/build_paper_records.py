@@ -50,8 +50,10 @@ CATEGORY_TOKEN_MAP = {
 CORE_METADATA_PREDICATES = set(LABEL_PREDICATES + ABSTRACT_PREDICATES + YEAR_PREDICATES + AUTHOR_PREDICATES + KEYWORD_PREDICATES)
 NTRIPLE_PATTERN = re.compile(r'^<(?P<subject>[^>]*)>\s+<(?P<predicate>[^>]*)>\s+(?P<object>.+?)\s*\.\s*$')
 LITERAL_PATTERN = re.compile(r'^"(?P<value>(?:[^"\\]|\\.)*)"(?:@(?P<language>[A-Za-z0-9\-]+)|\^\^<(?P<datatype>[^>]*)>)?$')
+# Use sparse progress updates for multi-GB production dumps and more frequent updates for sample/debug files.
 PROGRESS_INTERVAL = 500_000
 DEBUG_PROGRESS_INTERVAL = 10_000
+# Treat small files as debug/sample inputs so progress stays chatty during development but quieter on large dumps.
 DEBUG_FILE_SIZE_BYTES = 25 * 1024 * 1024
 
 
@@ -63,7 +65,7 @@ def local_name(uri: str) -> str:
     return uri
 
 
-def _decode_literal(value: str) -> str:
+def _decode_escaped_literal(value: str) -> str:
     return bytes(value, "utf-8").decode("unicode_escape")
 
 
@@ -92,7 +94,7 @@ def parse_ntriple_line(line: str) -> Optional[Dict[str, Any]]:
         return {
             "subject": subject,
             "predicate": predicate,
-            "object": _decode_literal(literal_match.group("value")),
+            "object": _decode_escaped_literal(literal_match.group("value")),
             "is_literal": True,
         }
 

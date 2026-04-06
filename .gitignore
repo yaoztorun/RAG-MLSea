@@ -4,7 +4,6 @@ __pycache__/
 *.npy
 stored_embeddings/
 .vscode/
-data/raw/*.nt
 data/raw/
 /data/intermediate/
 /.venv/
