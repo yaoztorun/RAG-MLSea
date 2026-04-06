@@ -6,7 +6,7 @@ stored_embeddings/
 .vscode/
 data/raw/*.nt
 data/raw/
-data/intermediate/
+/data/intermediate/
 /chroma/
 .venv/
 env/

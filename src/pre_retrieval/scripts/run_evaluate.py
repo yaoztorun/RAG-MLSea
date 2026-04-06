@@ -15,10 +15,8 @@ def main() -> int:
     parser.add_argument("--input-path", default=None)
     parser.add_argument("--output", default=None)
     parser.add_argument("--limit", type=int, default=None)
-    parser.add_argument("--force-rebuild", action="store_true")
     args = parser.parse_args()
 
-    del args.force_rebuild
     config = load_pipeline_config(args.config)
     input_path = args.input_path or config["evaluation"]["questions_path"]
     questions_path = resolve_repo_path(input_path)
