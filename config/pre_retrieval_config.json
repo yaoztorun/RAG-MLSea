@@ -1,0 +1,46 @@
+{
+  "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "vector_store": {
+    "provider": "chroma",
+    "db_path": "data/intermediate/chroma"
+  },
+  "evaluation": {
+    "questions_path": "data/questions/ml_questions_dataset.json",
+    "top_k": [1, 5, 10],
+    "representation_order": [
+      "title_only",
+      "abstract_only",
+      "title_abstract",
+      "enriched_metadata",
+      "one_hop"
+    ]
+  },
+  "representations": {
+    "title_only": {
+      "max_characters": 512
+    },
+    "abstract_only": {
+      "max_characters": 1600
+    },
+    "title_abstract": {
+      "title_max_characters": 512,
+      "abstract_max_characters": 1400,
+      "max_characters": 1800
+    },
+    "enriched_metadata": {
+      "title_max_characters": 512,
+      "abstract_max_characters": 900,
+      "list_item_limit": 5,
+      "list_value_max_characters": 120,
+      "author_limit": 6,
+      "implementation_limit": 3,
+      "max_characters": 2200
+    },
+    "one_hop": {
+      "title_max_characters": 512,
+      "abstract_max_characters": 700,
+      "linked_entity_limit": 12,
+      "max_characters": 2200
+    }
+  }
+}

@@ -1,0 +1,81 @@
+from __future__ import annotations
+
+import json
+from copy import deepcopy
+from pathlib import Path
+from typing import Any, Dict
+
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_CONFIG_PATH = REPO_ROOT / "config" / "pre_retrieval_config.json"
+
+DEFAULT_CONFIG: Dict[str, Any] = {
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "vector_store": {
+        "provider": "chroma",
+        "db_path": "data/intermediate/chroma",
+    },
+    "evaluation": {
+        "questions_path": "data/questions/ml_questions_dataset.json",
+        "top_k": [1, 5, 10],
+        "representation_order": [
+            "title_only",
+            "abstract_only",
+            "title_abstract",
+            "enriched_metadata",
+            "one_hop",
+        ],
+    },
+    "representations": {
+        "title_only": {"max_characters": 512},
+        "abstract_only": {"max_characters": 1600},
+        "title_abstract": {
+            "title_max_characters": 512,
+            "abstract_max_characters": 1400,
+            "max_characters": 1800,
+        },
+        "enriched_metadata": {
+            "title_max_characters": 512,
+            "abstract_max_characters": 900,
+            "list_item_limit": 5,
+            "list_value_max_characters": 120,
+            "author_limit": 6,
+            "implementation_limit": 3,
+            "max_characters": 2200,
+        },
+        "one_hop": {
+            "title_max_characters": 512,
+            "abstract_max_characters": 700,
+            "linked_entity_limit": 12,
+            "max_characters": 2200,
+        },
+    },
+}
+
+
+def _deep_merge(base: Dict[str, Any], overrides: Dict[str, Any]) -> Dict[str, Any]:
+    merged = deepcopy(base)
+    for key, value in overrides.items():
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            merged[key] = _deep_merge(merged[key], value)
+        else:
+            merged[key] = value
+    return merged
+
+
+def resolve_repo_path(path_value: str | Path) -> Path:
+    path = Path(path_value)
+    return path if path.is_absolute() else REPO_ROOT / path
+
+
+def load_pipeline_config(config_path: str | Path | None = None) -> Dict[str, Any]:
+    path = resolve_repo_path(config_path or DEFAULT_CONFIG_PATH)
+    if path.exists():
+        with path.open("r", encoding="utf-8") as handle:
+            loaded = json.load(handle)
+    else:
+        loaded = {}
+
+    config = _deep_merge(DEFAULT_CONFIG, loaded)
+    config["_config_path"] = str(path)
+    return config
