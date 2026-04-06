@@ -11,7 +11,7 @@ GRAPHDB_ENDPOINT = os.getenv(
     "http://localhost:7200/repositories/MLSea_Thesis"
 )
 
-QUERY_PATH = Path("src/pre_retrieval/sparql/extract_datasets_basic.rq")
+QUERY_PATH = Path("src/pre_retrieval/legacy/graphdb/sparql/datasets/extract_datasets_basic.rq")
 OUTPUT_PATH = Path("data/intermediate/chunks/dataset_chunks_sample.jsonl")
 
 

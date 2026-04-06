@@ -55,7 +55,7 @@ The first complete baseline is `title_only`.
 
 ## Configuration
 
-Pipeline defaults live in `/home/runner/work/RAG-MLSea/RAG-MLSea/config/pre_retrieval_config.json`.
+Pipeline defaults live in `config/pre_retrieval_config.json`.
 
 Config covers:
 
