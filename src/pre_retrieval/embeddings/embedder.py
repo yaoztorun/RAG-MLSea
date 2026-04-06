@@ -29,7 +29,8 @@ class HashingEmbedder:
 
         for row_index, text in enumerate(rows):
             for token in TOKEN_PATTERN.findall(text.lower()):
-                # MD5 is used here only for deterministic feature hashing in the offline fallback embedder.
+                # MD5 is acceptable here because this offline fallback embedder only needs fast,
+                # deterministic, non-cryptographic hashing for reproducible feature bucketing.
                 bucket = int(hashlib.md5(token.encode("utf-8")).hexdigest(), 16) % self.dimensions
                 embeddings[row_index, bucket] += 1.0
 

@@ -62,7 +62,7 @@ def _write_summary_files(output_dir: Path) -> None:
         )
 
     save_json({"rows": rows}, output_dir / SUMMARY_FILE_NAME)
-    ensure_directory(output_dir / SUMMARY_MARKDOWN_FILE_NAME)
+    output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / SUMMARY_MARKDOWN_FILE_NAME).write_text(_build_summary_markdown(rows), encoding="utf-8")
 
 
