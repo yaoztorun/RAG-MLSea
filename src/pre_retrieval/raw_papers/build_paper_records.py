@@ -6,7 +6,7 @@ from typing import Any, Dict, Iterable, List, Optional, Set
 
 from rdflib import Graph, Literal, URIRef
 
-from src.pre_retrieval.io_utils import save_json, save_jsonl, truncate_text, unique_preserve_order
+from src.pre_retrieval.utils import paper_id_from_uri, require_existing_input, save_json, save_jsonl, truncate_text, unique_preserve_order
 
 
 RDF_TYPE = URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
@@ -33,7 +33,14 @@ ABSTRACT_PREDICATES = (FABIO_ABSTRACT, SCHEMA_DESCRIPTION)
 YEAR_PREDICATES = (DCTERMS_ISSUED, SCHEMA_DATE_PUBLISHED)
 AUTHOR_PREDICATES = (DCTERMS_CREATOR, SCHEMA_AUTHOR)
 KEYWORD_PREDICATES = (DCAT_KEYWORD,)
-
+FIELD_CANDIDATES: Dict[str, tuple[URIRef, ...]] = {
+    "title": LABEL_PREDICATES,
+    "abstract": ABSTRACT_PREDICATES,
+    "authors": AUTHOR_PREDICATES,
+    "keywords": KEYWORD_PREDICATES,
+    "tasks": (MLSO_HAS_TASK_TYPE,),
+    "implementations": (MLSO_HAS_RELATED_IMPLEMENTATION, SCHEMA_CODE_REPOSITORY),
+}
 CATEGORY_TOKEN_MAP = {
     "tasks": {"task"},
     "datasets": {"dataset", "benchmark", "corpus"},
@@ -45,9 +52,7 @@ CORE_METADATA_PREDICATES = set(LABEL_PREDICATES + ABSTRACT_PREDICATES + YEAR_PRE
 
 
 def load_graph(nt_path: Path) -> Graph:
-    if not nt_path.exists():
-        raise FileNotFoundError(f"NT file not found: {nt_path.resolve()}")
-
+    require_existing_input(nt_path)
     graph = Graph()
     graph.parse(str(nt_path), format="nt")
     return graph
@@ -67,16 +72,17 @@ def extract_year(value: str) -> str:
     return cleaned[:4] if len(cleaned) >= 4 else cleaned
 
 
-def _first_literal(graph: Graph, subject: URIRef, predicates: Iterable[URIRef]) -> str:
+def _first_literal(graph: Graph, subject: URIRef, predicates: Iterable[URIRef]) -> Optional[str]:
     for predicate in predicates:
         for obj in graph.objects(subject, predicate):
             if isinstance(obj, Literal):
-                return str(obj).strip()
+                value = str(obj).strip()
+                return value or None
             if isinstance(obj, URIRef):
                 resolved = resolve_node_text(graph, obj)
                 if resolved:
                     return resolved
-    return ""
+    return None
 
 
 def resolve_node_text(graph: Graph, node: URIRef | Literal | Any) -> str:
@@ -89,13 +95,11 @@ def resolve_node_text(graph: Graph, node: URIRef | Literal | Any) -> str:
         for obj in graph.objects(node, predicate):
             if isinstance(obj, Literal):
                 return str(obj).strip()
-
     return local_name(node).replace("_", " ").strip()
 
 
 def resolve_node_types(graph: Graph, node: URIRef) -> List[str]:
-    types = [local_name(obj).lower() for obj in graph.objects(node, RDF_TYPE) if isinstance(obj, URIRef)]
-    return unique_preserve_order(types)
+    return unique_preserve_order(local_name(obj).lower() for obj in graph.objects(node, RDF_TYPE) if isinstance(obj, URIRef))
 
 
 def iter_paper_subjects(graph: Graph) -> List[URIRef]:
@@ -104,7 +108,6 @@ def iter_paper_subjects(graph: Graph) -> List[URIRef]:
         for subject in graph.subjects(RDF_TYPE, MLSO_SCIENTIFIC_WORK)
         if isinstance(subject, URIRef)
     }
-
     subjects.update(
         subject
         for subject in graph.subjects()
@@ -116,12 +119,10 @@ def iter_paper_subjects(graph: Graph) -> List[URIRef]:
 def infer_bucket(predicate: URIRef, object_node: URIRef, object_types: List[str]) -> Optional[str]:
     predicate_tokens = local_name(predicate).lower()
     object_tokens = f"{local_name(object_node).lower()} {' '.join(object_types)}"
-
     if predicate == MLSO_HAS_TASK_TYPE:
         return "tasks"
-    if predicate == MLSO_HAS_RELATED_IMPLEMENTATION or predicate == SCHEMA_CODE_REPOSITORY:
+    if predicate in {MLSO_HAS_RELATED_IMPLEMENTATION, SCHEMA_CODE_REPOSITORY}:
         return "implementations"
-
     for bucket, tokens in CATEGORY_TOKEN_MAP.items():
         if any(token in predicate_tokens or token in object_tokens for token in tokens):
             return bucket
@@ -129,31 +130,26 @@ def infer_bucket(predicate: URIRef, object_node: URIRef, object_types: List[str]
 
 
 def collect_paper_record(graph: Graph, paper: URIRef) -> Dict[str, Any]:
+    paper_uri = str(paper)
     title = _first_literal(graph, paper, LABEL_PREDICATES)
     abstract = _first_literal(graph, paper, ABSTRACT_PREDICATES)
-    year = extract_year(_first_literal(graph, paper, YEAR_PREDICATES))
 
     authors: List[str] = []
-    keywords: List[str] = []
     tasks: List[str] = []
     datasets: List[str] = []
     methods: List[str] = []
     metrics: List[str] = []
     implementations: List[str] = []
-    linked_entities: List[Dict[str, str]] = []
-    predicate_counter: Counter[str] = Counter()
+    linked_entities: List[Dict[str, Any]] = []
+    raw_predicates: List[str] = []
 
     for predicate, obj in graph.predicate_objects(paper):
-        predicate_counter[str(predicate)] += 1
+        predicate_str = str(predicate)
+        raw_predicates.append(predicate_str)
 
         if predicate in AUTHOR_PREDICATES:
             authors.append(resolve_node_text(graph, obj))
             continue
-
-        if predicate in KEYWORD_PREDICATES:
-            keywords.append(resolve_node_text(graph, obj))
-            continue
-
         if predicate in CORE_METADATA_PREDICATES or predicate == RDF_TYPE:
             continue
 
@@ -163,101 +159,94 @@ def collect_paper_record(graph: Graph, paper: URIRef) -> Dict[str, Any]:
 
         if isinstance(obj, URIRef):
             object_types = resolve_node_types(graph, obj)
-            bucket = infer_bucket(predicate, obj, object_types)
-            if bucket == "tasks":
+            category = infer_bucket(predicate, obj, object_types)
+            if category == "tasks":
                 tasks.append(resolved_object)
-            elif bucket == "datasets":
+            elif category == "datasets":
                 datasets.append(resolved_object)
-            elif bucket == "methods":
+            elif category == "methods":
                 methods.append(resolved_object)
-            elif bucket == "metrics":
+            elif category == "metrics":
                 metrics.append(resolved_object)
-            elif bucket == "implementations":
+            elif category == "implementations":
                 implementations.append(resolved_object)
 
             linked_entities.append(
                 {
-                    "predicate": str(predicate),
+                    "predicate": predicate_str,
                     "predicate_label": local_name(predicate),
-                    "object_id": str(obj),
+                    "object_uri": str(obj),
                     "object_label": truncate_text(resolved_object, 180),
-                    "object_types": ", ".join(object_types),
-                    "category": bucket or "linked_entity",
+                    "object_types": object_types,
+                    "category": category or "linked_entity",
                 }
             )
         elif predicate == SCHEMA_CODE_REPOSITORY:
             implementations.append(resolved_object)
 
-    authors = unique_preserve_order(authors)
-    keywords = unique_preserve_order(keywords)
-    tasks = unique_preserve_order(tasks)
-    datasets = unique_preserve_order(datasets)
-    methods = unique_preserve_order(methods)
-    metrics = unique_preserve_order(metrics)
-    implementations = unique_preserve_order(implementations)
-
-    return {
-        "paper_id": str(paper),
+    record = {
+        "paper_id": paper_id_from_uri(paper_uri),
+        "paper_uri": paper_uri,
         "title": title,
         "abstract": abstract,
-        "year": year,
-        "authors": authors,
-        "tasks": tasks,
-        "datasets": datasets,
-        "methods": methods,
-        "metrics": metrics,
-        "implementations": implementations,
-        "keywords": keywords,
+        "authors": unique_preserve_order(authors),
+        "tasks": unique_preserve_order(tasks),
+        "datasets": unique_preserve_order(datasets),
+        "methods": unique_preserve_order(methods),
+        "metrics": unique_preserve_order(metrics),
+        "implementations": unique_preserve_order(implementations),
         "linked_entities": linked_entities,
-        "field_stats": {
-            "author_count": len(authors),
-            "task_count": len(tasks),
-            "dataset_count": len(datasets),
-            "method_count": len(methods),
-            "metric_count": len(metrics),
-            "implementation_count": len(implementations),
-            "keyword_count": len(keywords),
-            "linked_entity_count": len(linked_entities),
-            "title_length": len(title),
-            "abstract_length": len(abstract),
-        },
-        "predicate_counts": dict(sorted(predicate_counter.items())),
+        "raw_predicates": sorted(set(raw_predicates)),
+    }
+    return record
+
+
+def compute_extraction_stats(records: List[Dict[str, Any]], nt_path: Path, graph: Graph) -> Dict[str, Any]:
+    title_lengths = [len(record["title"]) for record in records if record.get("title")]
+    abstract_lengths = [len(record["abstract"]) for record in records if record.get("abstract")]
+    empty_records = sum(
+        1
+        for record in records
+        if not any(
+            [
+                record.get("title"),
+                record.get("abstract"),
+                record.get("authors"),
+                record.get("tasks"),
+                record.get("datasets"),
+                record.get("methods"),
+                record.get("metrics"),
+                record.get("implementations"),
+                record.get("linked_entities"),
+            ]
+        )
+    )
+    return {
+        "input_path": str(nt_path),
+        "total_triples": len(graph),
+        "total_papers": len(records),
+        "papers_with_title": sum(1 for record in records if record.get("title")),
+        "papers_with_abstract": sum(1 for record in records if record.get("abstract")),
+        "empty_records": empty_records,
+        "avg_title_length": (sum(title_lengths) / len(title_lengths)) if title_lengths else 0.0,
+        "avg_abstract_length": (sum(abstract_lengths) / len(abstract_lengths)) if abstract_lengths else 0.0,
     }
 
 
 def build_paper_records(
     nt_path: Path,
     output_path: Path,
-    predicate_stats_path: Optional[Path] = None,
+    extraction_stats_path: Path,
     limit: Optional[int] = None,
 ) -> Dict[str, Any]:
     graph = load_graph(nt_path)
-    subjects = iter_paper_subjects(graph)
+    papers = iter_paper_subjects(graph)
     if limit is not None:
-        subjects = subjects[:limit]
+        papers = papers[:limit]
 
-    records = [collect_paper_record(graph, paper) for paper in subjects]
+    records = [collect_paper_record(graph, paper) for paper in papers]
     save_jsonl(records, output_path)
 
-    overall_predicates: Counter[str] = Counter()
-    coverage: Counter[str] = Counter()
-    for record in records:
-        overall_predicates.update(record.get("predicate_counts", {}))
-        for field in ("title", "abstract", "authors", "tasks", "datasets", "methods", "metrics", "implementations", "keywords"):
-            value = record.get(field)
-            if value:
-                coverage[field] += 1
-
-    summary = {
-        "nt_path": str(nt_path),
-        "paper_count": len(records),
-        "graph_triple_count": len(graph),
-        "field_coverage": dict(sorted(coverage.items())),
-        "top_predicates": [
-            {"predicate": predicate, "count": count}
-            for predicate, count in overall_predicates.most_common(50)
-        ],
-    }
-    if predicate_stats_path is not None:
-        save_json(summary, predicate_stats_path)
-    return summary
+    extraction_stats = compute_extraction_stats(records, nt_path, graph)
+    save_json(extraction_stats, extraction_stats_path)
+    return extraction_stats

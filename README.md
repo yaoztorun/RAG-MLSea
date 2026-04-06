@@ -20,12 +20,22 @@ Key rules:
 
 ```text
 src/pre_retrieval/
+  config.py
+  utils.py
   raw_papers/
     inspect_paper_predicates.py
     build_paper_records.py
   chunking/
     build_representations.py
+    papers/
+      build_title_only_chunks.py
+      build_abstract_only_chunks.py
+      build_title_abstract_chunks.py
+      build_enriched_paper_chunks.py
+      build_predicate_filtered_chunks.py
+      build_one_hop_paper_chunks.py
   embeddings/
+    embedder.py
     embed_and_store.py
     vector_store.py
   retrieval/
@@ -49,9 +59,17 @@ Run and evaluate these progressively:
 2. `abstract_only`
 3. `title_abstract`
 4. `enriched_metadata`
-5. `one_hop`
+5. `predicate_filtered`
+6. `one_hop`
 
 The first complete baseline is `title_only`.
+
+## Data
+
+- `data/raw/pwc_1.nt` is not included in the repository
+- place the full RDF dump there manually before running the full pipeline locally
+- for development or debugging, you can optionally use `data/raw/pwc_1_sample.nt`
+- every script accepts a custom `--input-path`
 
 ## Configuration
 
@@ -59,6 +77,7 @@ Pipeline defaults live in `config/pre_retrieval_config.json`.
 
 Config covers:
 
+- embedder backend (`sentence_transformer` or `hashing`)
 - embedding model name
 - Chroma database path
 - evaluation top-k values
@@ -72,7 +91,7 @@ Install the offline pipeline dependencies in your environment:
 pip install rdflib sentence-transformers chromadb numpy
 ```
 
-Place the local RDF dump at `data/raw/pwc_1.nt`, or pass `--nt-path` explicitly.
+Place the local RDF dump at `data/raw/pwc_1.nt`, or pass `--input-path` explicitly.
 
 ## Baseline workflow
 
@@ -111,10 +130,14 @@ python -m src.pre_retrieval.scripts.run_build_representations --representation a
 The pipeline writes to:
 
 - `data/intermediate/raw_papers/papers_master.jsonl`
+- `data/intermediate/raw_papers/extraction_stats.json`
 - `data/intermediate/raw_papers/predicate_stats.json`
 - `data/intermediate/representations/*.jsonl`
+- `data/intermediate/representations/*_stats.json`
 - `data/intermediate/chroma/`
-- `data/intermediate/retrieval_results/*_results.json`
+- `data/retrieval_results/*_results.json`
+- `data/retrieval_results/summary.json`
+- `data/retrieval_results/summary.md`
 
 ## Migration notes
 

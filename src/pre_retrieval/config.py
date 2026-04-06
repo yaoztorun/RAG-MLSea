@@ -10,19 +10,22 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CONFIG_PATH = REPO_ROOT / "config" / "pre_retrieval_config.json"
 
 DEFAULT_CONFIG: Dict[str, Any] = {
-    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedder_type": "sentence_transformer",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
     "vector_store": {
         "provider": "chroma",
         "db_path": "data/intermediate/chroma",
     },
     "evaluation": {
         "questions_path": "data/questions/ml_questions_dataset.json",
+        "output_dir": "data/retrieval_results",
         "top_k": [1, 5, 10],
         "representation_order": [
             "title_only",
             "abstract_only",
             "title_abstract",
             "enriched_metadata",
+            "predicate_filtered",
             "one_hop",
         ],
     },
@@ -43,10 +46,18 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "implementation_limit": 3,
             "max_characters": 2200,
         },
+        "predicate_filtered": {
+            "title_max_characters": 512,
+            "abstract_max_characters": 500,
+            "list_item_limit": 5,
+            "list_value_max_characters": 100,
+            "max_characters": 1800,
+        },
         "one_hop": {
             "title_max_characters": 512,
             "abstract_max_characters": 700,
             "linked_entity_limit": 12,
+            "list_value_max_characters": 100,
             "max_characters": 2200,
         },
     },
@@ -70,11 +81,10 @@ def resolve_repo_path(path_value: str | Path) -> Path:
 
 def load_pipeline_config(config_path: str | Path | None = None) -> Dict[str, Any]:
     path = resolve_repo_path(config_path or DEFAULT_CONFIG_PATH)
+    loaded: Dict[str, Any] = {}
     if path.exists():
         with path.open("r", encoding="utf-8") as handle:
             loaded = json.load(handle)
-    else:
-        loaded = {}
 
     config = _deep_merge(DEFAULT_CONFIG, loaded)
     config["_config_path"] = str(path)

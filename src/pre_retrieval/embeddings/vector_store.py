@@ -2,13 +2,13 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Sequence, Set
+from typing import Any, Dict, Sequence, Set
 
 import chromadb
 import numpy as np
 from chromadb.api.models.Collection import Collection
 
-from src.pre_retrieval.io_utils import chunked
+from src.pre_retrieval.utils import chunked
 
 
 class VectorStore(ABC):
@@ -51,6 +51,8 @@ class ChromaVectorStore(VectorStore):
 
     def get_existing_ids(self, ids: Sequence[str]) -> Set[str]:
         existing: Set[str] = set()
+        if not ids:
+            return existing
         for batch in chunked(list(ids), 500):
             result = self._collection.get(ids=list(batch), include=[])
             existing.update(result.get("ids", []))
@@ -81,7 +83,10 @@ class ChromaVectorStore(VectorStore):
         return self._collection.count()
 
     def reset(self) -> None:
-        self._client.delete_collection(self._collection_name)
+        try:
+            self._client.delete_collection(self._collection_name)
+        except Exception:
+            pass
         self._collection = self._client.get_or_create_collection(
             name=self._collection_name,
             metadata={"hnsw:space": "cosine"},

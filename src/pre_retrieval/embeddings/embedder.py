@@ -29,8 +29,7 @@ class HashingEmbedder:
 
         for row_index, text in enumerate(rows):
             for token in TOKEN_PATTERN.findall(text.lower()):
-                digest = hashlib.md5(token.encode("utf-8")).hexdigest()
-                bucket = int(digest, 16) % self.dimensions
+                bucket = int(hashlib.md5(token.encode("utf-8")).hexdigest(), 16) % self.dimensions
                 embeddings[row_index, bucket] += 1.0
 
         if normalize_embeddings and len(rows) > 0:
@@ -60,11 +59,15 @@ class SentenceTransformerEmbedder:
         )
 
 
-def load_embedder(model_name: str) -> SentenceTransformerEmbedder | HashingEmbedder:
-    if model_name.startswith("hashing://"):
-        suffix = model_name.split("://", 1)[1].strip()
-        dimensions = int(suffix) if suffix else 768
+def load_embedder(embedder_type: str, model_name: str) -> SentenceTransformerEmbedder | HashingEmbedder:
+    embedder_type = embedder_type.strip().lower()
+    if embedder_type == "hashing":
+        dimensions = 768
+        if model_name.startswith("hashing://"):
+            suffix = model_name.split("://", 1)[1].strip()
+            if suffix:
+                dimensions = int(suffix)
         return HashingEmbedder(dimensions=dimensions)
-    if model_name == "hashing":
-        return HashingEmbedder()
+    if embedder_type != "sentence_transformer":
+        raise ValueError(f"Unsupported embedder_type: {embedder_type}")
     return SentenceTransformerEmbedder(model_name)
