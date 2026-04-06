@@ -27,10 +27,7 @@ def main() -> int:
     parser.add_argument("--input-path", default="data/raw/pwc_1.nt")
     parser.add_argument("--output", default="data/intermediate/raw_papers/predicate_stats.json")
     parser.add_argument("--limit", type=int, default=None)
-    parser.add_argument("--force-rebuild", action="store_true")
     args = parser.parse_args()
-
-    del args.force_rebuild
     input_path = resolve_repo_path(args.input_path)
     output_path = resolve_repo_path(args.output)
 
