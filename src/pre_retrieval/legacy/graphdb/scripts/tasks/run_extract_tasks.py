@@ -11,8 +11,8 @@ GRAPHDB_ENDPOINT = os.getenv(
     "http://localhost:7200/repositories/MLSea_Thesis"
 )
 
-QUERY_PATH = Path("src/pre_retrieval/sparql/extract_implementations_basic.rq")
-OUTPUT_PATH = Path("data/intermediate/chunks/implementation_chunks_sample.jsonl")
+QUERY_PATH = Path("src/pre_retrieval/legacy/graphdb/sparql/tasks/extract_tasks_basic.rq")
+OUTPUT_PATH = Path("data/intermediate/chunks/task_chunks_sample.jsonl")
 
 
 def load_query(path: Path) -> str:
@@ -47,14 +47,14 @@ def split_pipe_values(value: str | None) -> List[str]:
 def build_chunk_text(record: Dict[str, Any]) -> str:
     parts = []
 
-    if record.get("implementation_label"):
-        parts.append(f"Implementation: {record['implementation_label']}")
+    if record.get("task_label"):
+        parts.append(f"Task: {record['task_label']}")
     if record.get("papers"):
         parts.append(f"Related Papers: {', '.join(record['papers'])}")
-    if record.get("tasks"):
-        parts.append(f"Tasks: {', '.join(record['tasks'])}")
-    if record.get("repositories"):
-        parts.append(f"Repositories: {', '.join(record['repositories'])}")
+    if record.get("keywords"):
+        parts.append(f"Keywords: {', '.join(record['keywords'])}")
+    if record.get("implementations"):
+        parts.append(f"Implementations: {', '.join(record['implementations'])}")
 
     return "\n".join(parts)
 
@@ -65,16 +65,16 @@ def parse_bindings(results: Dict[str, Any]) -> List[Dict[str, Any]]:
 
     for row in bindings:
         record = {
-            "implementation_id": row.get("impl", {}).get("value", ""),
-            "implementation_label": row.get("implementation_label", {}).get("value", ""),
+            "task_id": row.get("task", {}).get("value", ""),
+            "task_label": row.get("task_label", {}).get("value", ""),
             "papers": split_pipe_values(row.get("papers", {}).get("value", "")),
-            "tasks": split_pipe_values(row.get("tasks", {}).get("value", "")),
-            "repositories": split_pipe_values(row.get("repositories", {}).get("value", "")),
+            "keywords": split_pipe_values(row.get("keywords", {}).get("value", "")),
+            "implementations": split_pipe_values(row.get("implementations", {}).get("value", "")),
         }
 
         record["chunk_text"] = build_chunk_text(record)
 
-        if record["implementation_id"] and record["chunk_text"]:
+        if record["task_id"] and record["chunk_text"]:
             parsed.append(record)
 
     return parsed
@@ -95,7 +95,7 @@ def main() -> None:
     results = run_sparql_query(GRAPHDB_ENDPOINT, query)
     records = parse_bindings(results)
 
-    print(f"Implementation chunk records built: {len(records)}")
+    print(f"Task chunk records built: {len(records)}")
     save_jsonl(records, OUTPUT_PATH)
     print(f"Saved to: {OUTPUT_PATH}")
 

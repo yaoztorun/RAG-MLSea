@@ -1,0 +1,60 @@
+{
+  "embedder_type": "sentence_transformer",
+  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "vector_store": {
+    "provider": "chroma",
+    "chroma_mode": "http",
+    "chroma_host": "localhost",
+    "chroma_port": 8000,
+    "persist_directory": "data/intermediate/chroma"
+  },
+  "evaluation": {
+    "questions_path": "data/questions/ml_questions_dataset.json",
+    "output_dir": "data/retrieval_results",
+    "top_k": [1, 5, 10],
+    "representation_order": [
+      "title_only",
+      "abstract_only",
+      "title_abstract",
+      "enriched_metadata",
+      "predicate_filtered",
+      "one_hop"
+    ]
+  },
+  "representations": {
+    "title_only": {
+      "max_characters": 512
+    },
+    "abstract_only": {
+      "max_characters": 1600
+    },
+    "title_abstract": {
+      "title_max_characters": 512,
+      "abstract_max_characters": 1400,
+      "max_characters": 1800
+    },
+    "enriched_metadata": {
+      "title_max_characters": 512,
+      "abstract_max_characters": 900,
+      "list_item_limit": 5,
+      "list_value_max_characters": 120,
+      "author_limit": 6,
+      "implementation_limit": 3,
+      "max_characters": 2200
+    },
+    "predicate_filtered": {
+      "title_max_characters": 512,
+      "abstract_max_characters": 500,
+      "list_item_limit": 5,
+      "list_value_max_characters": 100,
+      "max_characters": 1800
+    },
+    "one_hop": {
+      "title_max_characters": 512,
+      "abstract_max_characters": 700,
+      "linked_entity_limit": 12,
+      "list_value_max_characters": 100,
+      "max_characters": 2200
+    }
+  }
+}

@@ -4,17 +4,9 @@ __pycache__/
 *.npy
 stored_embeddings/
 .vscode/
-data/raw/*.nt
 data/raw/
-*.npy
-chroma/
-<<<<<<< HEAD
-__pycache__/
-*.py[cod]
+/data/intermediate/
+/.venv/
+/env/
 .ipynb_checkpoints/
-.venv/
-venv/
-env/
-data/intermediate/
-=======
->>>>>>> e1fd4d7be052cb93eded17673307fc5f16c8c57c
+*.py[cod]
