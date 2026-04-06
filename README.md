@@ -12,6 +12,7 @@ Key rules:
 
 - `data/raw/pwc_1.nt` is the source of truth for paper metadata
 - the active pipeline does not depend on live GraphDB / SPARQL queries
+- the raw-paper extraction step streams N-Triples instead of loading the full RDF dump into memory
 - one embedding model is used across all representation strategies
 - document embeddings are stored once and reused
 - only questions are embedded at runtime
