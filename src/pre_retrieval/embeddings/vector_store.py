@@ -12,6 +12,10 @@ from chromadb.api.models.Collection import Collection
 from src.pre_retrieval.utils import chunked
 
 
+def _deduplicate_ids(ids: Sequence[str]) -> list[str]:
+    return list(dict.fromkeys(ids))
+
+
 class VectorStore(ABC):
     @abstractmethod
     def get_existing_ids(self, ids: Sequence[str]) -> Set[str]:
@@ -105,8 +109,8 @@ class ChromaVectorStore(VectorStore):
         existing: Set[str] = set()
         if not ids:
             return existing
-        for batch in chunked(list(ids), 500):
-            result = self._collection.get(ids=list(batch), include=[])
+        for batch in chunked(_deduplicate_ids(ids), 500):
+            result = self._collection.get(ids=batch, include=[])
             existing.update(result.get("ids", []))
         return existing
 
