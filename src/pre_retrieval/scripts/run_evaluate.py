@@ -31,7 +31,7 @@ def main() -> int:
     payload = evaluate_representation(
         representation_type=args.representation,
         questions_path=questions_path,
-        db_path=resolve_repo_path(config["vector_store"]["db_path"]),
+        vector_store_config=config["vector_store"],
         embedder_type=config["embedder_type"],
         model_name=config["model_name"],
         top_k_values=config["evaluation"]["top_k"],

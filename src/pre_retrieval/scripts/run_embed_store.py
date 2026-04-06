@@ -22,7 +22,7 @@ def main() -> int:
     try:
         summary = embed_and_store_representations(
             representation_path=resolve_repo_path(input_path),
-            db_path=resolve_repo_path(config["vector_store"]["db_path"]),
+            vector_store_config=config["vector_store"],
             representation_type=args.representation,
             embedder_type=config["embedder_type"],
             model_name=config["model_name"],

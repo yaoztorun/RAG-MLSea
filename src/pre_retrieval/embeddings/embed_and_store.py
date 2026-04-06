@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from src.pre_retrieval.config import REPO_ROOT
 from src.pre_retrieval.embeddings.embedder import load_embedder
 from src.pre_retrieval.embeddings.vector_store import ChromaVectorStore
 from src.pre_retrieval.utils import chunked, collection_name_for_representation, load_jsonl, require_existing_input
@@ -19,7 +20,7 @@ def _build_store_metadata(record: Dict[str, Any]) -> Dict[str, Any]:
 
 def embed_and_store_representations(
     representation_path: Path,
-    db_path: Path,
+    vector_store_config: Dict[str, Any],
     representation_type: str,
     embedder_type: str,
     model_name: str,
@@ -33,7 +34,11 @@ def embed_and_store_representations(
         records = records[:limit]
 
     collection_name = collection_name_for_representation(representation_type)
-    store = ChromaVectorStore(db_path=db_path, collection_name=collection_name)
+    store = ChromaVectorStore.from_config(
+        collection_name=collection_name,
+        vector_store_config=vector_store_config,
+        repo_root=REPO_ROOT,
+    )
     if force_rebuild:
         store.reset()
 

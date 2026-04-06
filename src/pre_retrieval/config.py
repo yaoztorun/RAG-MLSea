@@ -14,7 +14,10 @@ DEFAULT_CONFIG: Dict[str, Any] = {
     "model_name": "sentence-transformers/all-MiniLM-L6-v2",
     "vector_store": {
         "provider": "chroma",
-        "db_path": "data/intermediate/chroma",
+        "chroma_mode": "http",
+        "chroma_host": "localhost",
+        "chroma_port": 8000,
+        "persist_directory": "data/intermediate/chroma",
     },
     "evaluation": {
         "questions_path": "data/questions/ml_questions_dataset.json",
@@ -87,5 +90,8 @@ def load_pipeline_config(config_path: str | Path | None = None) -> Dict[str, Any
             loaded = json.load(handle)
 
     config = _deep_merge(DEFAULT_CONFIG, loaded)
+    vector_store_config = config.get("vector_store", {})
+    if "db_path" in vector_store_config and "persist_directory" not in vector_store_config:
+        vector_store_config["persist_directory"] = vector_store_config["db_path"]
     config["_config_path"] = str(path)
     return config

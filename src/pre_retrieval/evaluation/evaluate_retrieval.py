@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence
 
+from src.pre_retrieval.config import REPO_ROOT
 from src.pre_retrieval.embeddings.vector_store import ChromaVectorStore
 from src.pre_retrieval.retrieval.retrieve import retrieve_queries
 from src.pre_retrieval.utils import build_item_id, collection_name_for_representation, load_json, normalize_identifier, save_json, ensure_directory
@@ -69,7 +70,7 @@ def _write_summary_files(output_dir: Path) -> None:
 def evaluate_representation(
     representation_type: str,
     questions_path: Path,
-    db_path: Path,
+    vector_store_config: Dict[str, Any],
     embedder_type: str,
     model_name: str,
     top_k_values: Sequence[int],
@@ -87,14 +88,18 @@ def evaluate_representation(
     top_k = max(top_k_values)
     retrieval_results = retrieve_queries(
         queries=[question.get("question", "") for question in answerable_questions],
-        db_path=db_path,
+        vector_store_config=vector_store_config,
         representation_type=representation_type,
         embedder_type=embedder_type,
         model_name=model_name,
         top_k=top_k,
     )
 
-    store = ChromaVectorStore(db_path=db_path, collection_name=collection_name_for_representation(representation_type))
+    store = ChromaVectorStore.from_config(
+        collection_name=collection_name_for_representation(representation_type),
+        vector_store_config=vector_store_config,
+        repo_root=REPO_ROOT,
+    )
     gold_item_ids = [build_item_id(representation_type, normalize_identifier(question.get("target_entity_iri", ""))) for question in answerable_questions]
     matched_item_ids = store.get_existing_ids(gold_item_ids)
 

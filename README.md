@@ -6,7 +6,7 @@ Master thesis repository for pre-retrieval and RAG experiments on MLSea / PwC pa
 
 The active pipeline is now offline-first:
 
-`data/raw/pwc_1.nt` → canonical paper records → representation files → one-time embeddings → persistent Chroma collections → retrieval evaluation
+`data/raw/pwc_1.nt` → canonical paper records → representation files → one-time embeddings → Chroma collections → retrieval evaluation
 
 Key rules:
 
@@ -16,6 +16,7 @@ Key rules:
 - one embedding model is used across all representation strategies
 - document embeddings are stored once and reused
 - only questions are embedded at runtime
+- Chroma is intended to run in client-server mode by default to avoid local PersistentClient HNSW issues
 
 ## Active pipeline layout
 
@@ -80,9 +81,23 @@ Config covers:
 
 - embedder backend (`sentence_transformer` or `hashing`)
 - embedding model name
-- Chroma database path
+- Chroma mode (`http` or `persistent`)
+- Chroma host and port for server-backed usage
+- Chroma persist directory for local persistent usage
 - evaluation top-k values
 - max text lengths per representation
+
+Default Chroma settings now use HTTP mode:
+
+```json
+"vector_store": {
+  "provider": "chroma",
+  "chroma_mode": "http",
+  "chroma_host": "localhost",
+  "chroma_port": 8000,
+  "persist_directory": "data/intermediate/chroma"
+}
+```
 
 ## Setup
 
@@ -93,6 +108,18 @@ pip install rdflib sentence-transformers chromadb numpy
 ```
 
 Place the local RDF dump at `data/raw/pwc_1.nt`, or pass `--input-path` explicitly.
+
+Start Chroma in server mode before embedding or evaluation:
+
+```bash
+chroma run --path data/intermediate/chroma
+```
+
+Or with Docker:
+
+```bash
+docker run -v ./chroma-data:/data -p 8000:8000 chromadb/chroma
+```
 
 ## Baseline workflow
 
@@ -108,13 +135,13 @@ Build the first representation baseline:
 python -m src.pre_retrieval.scripts.run_build_representations --representation title_only
 ```
 
-Embed once and persist in Chroma:
+Embed once and persist in Chroma. The first end-to-end validation should stay `title_only`:
 
 ```bash
 python -m src.pre_retrieval.scripts.run_embed_store --representation title_only
 ```
 
-Evaluate retrieval:
+Evaluate retrieval against the same server-backed Chroma instance:
 
 ```bash
 python -m src.pre_retrieval.scripts.run_evaluate --representation title_only
@@ -135,7 +162,7 @@ The pipeline writes to:
 - `data/intermediate/raw_papers/predicate_stats.json`
 - `data/intermediate/representations/*.jsonl`
 - `data/intermediate/representations/*_stats.json`
-- `data/intermediate/chroma/`
+- `data/intermediate/chroma/` (when `chroma_mode` is `persistent` or when used as the server data path)
 - `data/retrieval_results/*_results.json`
 - `data/retrieval_results/summary.json`
 - `data/retrieval_results/summary.md`

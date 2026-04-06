@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
+from src.pre_retrieval.config import REPO_ROOT
 from src.pre_retrieval.embeddings.embedder import load_embedder
 from src.pre_retrieval.embeddings.vector_store import ChromaVectorStore
 from src.pre_retrieval.utils import collection_name_for_representation
@@ -41,7 +41,7 @@ def _parse_query_result(query_result: Dict[str, Any], top_k: int) -> List[List[D
 
 def retrieve_queries(
     queries: Iterable[str],
-    db_path: Path,
+    vector_store_config: Dict[str, Any],
     representation_type: str,
     embedder_type: str,
     model_name: str,
@@ -58,6 +58,10 @@ def retrieve_queries(
         normalize_embeddings=True,
         show_progress_bar=False,
     )
-    store = ChromaVectorStore(db_path=db_path, collection_name=collection_name_for_representation(representation_type))
+    store = ChromaVectorStore.from_config(
+        collection_name=collection_name_for_representation(representation_type),
+        vector_store_config=vector_store_config,
+        repo_root=REPO_ROOT,
+    )
     query_result = store.query(query_embeddings=query_embeddings, n_results=top_k)
     return _parse_query_result(query_result, top_k)
