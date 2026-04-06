@@ -1,24 +1,46 @@
 from pathlib import Path
+import json
 from typing import Dict, List, Any
 
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
 from src.evaluation.utils.loaders import load_json, load_jsonl
-from src.evaluation.utils.metrics import hit_at_k, reciprocal_rank
+from src.evaluation.utils.metrics import hit_at_k, ndcg, reciprocal_rank
 from src.evaluation.utils.normalize import normalize_target_iri, normalize_chunk_paper_id
 from src.evaluation.utils.reporting import print_results_table
+from src.retrieval.embedding.embed_chunks import (
+    extract_texts_and_metadata,
+    save_embeddings,
+    save_metadata,
+)
 
 
 # ---------------- CONFIG ---------------- #
 
-QUESTIONS_PATH = Path("data/questions/ml_questions.json")
+QUESTIONS_PATH = Path("data/questions/ml_questions_dataset.json")
 
-CHUNK_FILES = {
-    "basic": Path("data/intermediate/chunks/papers/papers_basic_sample.jsonl"),
-    "enriched": Path("data/intermediate/chunks/papers/papers_enriched_sample.jsonl"),
-    "one_hop": Path("data/intermediate/chunks/papers/papers_one_hop_sample.jsonl"),
-    "predicate_filtered": Path("data/intermediate/chunks/papers/papers_predicate_filtered_sample.jsonl"),
+STRATEGY_CONFIGS = {
+    "basic": {
+        "chunk_path": Path("data/intermediate/chunks/papers/papers_basic_sample.jsonl"),
+        "embeddings_path": Path("data/intermediate/embeddings/papers_basic_sample_embeddings.npy"),
+        "metadata_path": Path("data/intermediate/embeddings/papers_basic_sample_metadata.json"),
+    },
+    "enriched": {
+        "chunk_path": Path("data/intermediate/chunks/papers/papers_enriched_sample.jsonl"),
+        "embeddings_path": Path("data/intermediate/embeddings/papers_enriched_sample_embeddings.npy"),
+        "metadata_path": Path("data/intermediate/embeddings/papers_enriched_sample_metadata.json"),
+    },
+    "one_hop": {
+        "chunk_path": Path("data/intermediate/chunks/papers/papers_one_hop_sample.jsonl"),
+        "embeddings_path": Path("data/intermediate/embeddings/papers_one_hop_sample_embeddings.npy"),
+        "metadata_path": Path("data/intermediate/embeddings/papers_one_hop_sample_metadata.json"),
+    },
+    "predicate_filtered": {
+        "chunk_path": Path("data/intermediate/chunks/papers/papers_predicate_filtered_sample.jsonl"),
+        "embeddings_path": Path("data/intermediate/embeddings/papers_predicate_filtered_sample_embeddings.npy"),
+        "metadata_path": Path("data/intermediate/embeddings/papers_predicate_filtered_sample_metadata.json"),
+    },
 }
 
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
@@ -29,73 +51,89 @@ MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 def filter_paper_questions(questions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return [
         q for q in questions
-        if q.get("question_type", "").startswith("paper_")
+        if q.get("question_type", "").startswith("paper_") and q.get("is_answerable", True) is True
     ]
 
 
-def cosine_similarity_matrix(query_vec: np.ndarray, doc_matrix: np.ndarray) -> np.ndarray:
-    query_norm = np.linalg.norm(query_vec)
-    doc_norms = np.linalg.norm(doc_matrix, axis=1)
+def load_metadata(path: Path) -> List[Dict[str, Any]]:
+    with path.open("r", encoding="utf-8") as f:
+        payload = json.load(f)
+    if not isinstance(payload, list):
+        raise ValueError(f"Expected list metadata in {path}, got {type(payload)}")
+    return payload
 
-    if query_norm == 0:
-        return np.zeros(len(doc_matrix), dtype=float)
 
-    safe_doc_norms = np.where(doc_norms == 0, 1e-12, doc_norms)
-    return np.dot(doc_matrix, query_vec) / (safe_doc_norms * query_norm)
+def ensure_embedding_cache(
+    strategy_name: str,
+    config: Dict[str, Path],
+    model: SentenceTransformer,
+) -> tuple[np.ndarray, List[str]]:
+    chunk_path = config["chunk_path"]
+    embeddings_path = config["embeddings_path"]
+    metadata_path = config["metadata_path"]
+
+    if embeddings_path.exists() and metadata_path.exists():
+        print(f"Using cached embeddings for strategy: {strategy_name}")
+        embeddings = np.load(embeddings_path, mmap_mode="r")
+        metadata = load_metadata(metadata_path)
+    else:
+        print(f"Cache not found for strategy: {strategy_name}. Building from {chunk_path}")
+        chunk_records = load_jsonl(chunk_path)
+        texts, metadata = extract_texts_and_metadata(chunk_records)
+
+        embeddings = model.encode(
+            texts,
+            convert_to_numpy=True,
+            show_progress_bar=True,
+            normalize_embeddings=True,
+        )
+
+        save_embeddings(embeddings, embeddings_path)
+        save_metadata(metadata, metadata_path)
+
+    if embeddings.shape[0] != len(metadata):
+        raise ValueError(
+            f"Embeddings/metadata size mismatch for {strategy_name}: "
+            f"{embeddings.shape[0]} != {len(metadata)}"
+        )
+
+    chunk_ids = [
+        normalize_chunk_paper_id(record.get("paper_id", ""))
+        for record in metadata
+    ]
+
+    return embeddings, chunk_ids
 
 
 # ---------------- CORE EVALUATION ---------------- #
 
 def evaluate_strategy(
     strategy_name: str,
-    chunk_records: List[Dict[str, Any]],
-    questions: List[Dict[str, Any]],
-    model: SentenceTransformer,
+    chunk_embeddings: np.ndarray,
+    chunk_ids: List[str],
+    question_embeddings: np.ndarray,
+    gold_ids: List[str],
 ) -> Dict[str, float]:
+    hit1_scores, hit5_scores, mrr_scores, ndcg_scores = [], [], [], []
 
-    chunk_texts = [record.get("chunk_text", "") for record in chunk_records]
-    chunk_ids = [
-        normalize_chunk_paper_id(record.get("paper_id", ""))
-        for record in chunk_records
-    ]
-
-    print(f"\nEncoding chunks for strategy: {strategy_name}")
-    chunk_embeddings = model.encode(
-        chunk_texts,
-        convert_to_numpy=True,
-        show_progress_bar=True,
-        normalize_embeddings=False,
-    )
-
-    hit1_scores, hit5_scores, hit10_scores, mrr_scores = [], [], [], []
-
-    for q in questions:
-        question_text = q.get("question", "")
-        gold_id = normalize_target_iri(q.get("target_entity_iri", ""))
-
-        query_embedding = model.encode(
-            question_text,
-            convert_to_numpy=True,
-            show_progress_bar=False,
-            normalize_embeddings=False,
-        )
-
-        scores = cosine_similarity_matrix(query_embedding, chunk_embeddings)
+    for idx, gold_id in enumerate(gold_ids):
+        query_embedding = question_embeddings[idx]
+        scores = np.dot(chunk_embeddings, query_embedding)
         ranked_indices = np.argsort(scores)[::-1]
         ranked_ids = [chunk_ids[i] for i in ranked_indices]
 
         hit1_scores.append(hit_at_k(ranked_ids, gold_id, 1))
         hit5_scores.append(hit_at_k(ranked_ids, gold_id, 5))
-        hit10_scores.append(hit_at_k(ranked_ids, gold_id, 10))
         mrr_scores.append(reciprocal_rank(ranked_ids, gold_id))
+        ndcg_scores.append(ndcg(ranked_ids, gold_id))
 
-    n = len(questions)
+    n = len(gold_ids)
 
     return {
         "hit@1": sum(hit1_scores) / n if n else 0.0,
         "hit@5": sum(hit5_scores) / n if n else 0.0,
-        "hit@10": sum(hit10_scores) / n if n else 0.0,
         "mrr": sum(mrr_scores) / n if n else 0.0,
+        "ndcg": sum(ndcg_scores) / n if n else 0.0,
     }
 
 
@@ -122,26 +160,33 @@ def main() -> None:
     print(f"Loading embedding model: {MODEL_NAME}")
     model = SentenceTransformer(MODEL_NAME)
 
+    question_texts = [q.get("question", "") for q in paper_questions]
+    gold_ids = [
+        normalize_target_iri(q.get("target_entity_iri", ""))
+        for q in paper_questions
+    ]
+
+    print("Encoding all questions once...")
+    question_embeddings = model.encode(
+        question_texts,
+        convert_to_numpy=True,
+        show_progress_bar=True,
+        normalize_embeddings=True,
+    )
+
     results: Dict[str, Dict[str, float]] = {}
 
-    for strategy_name, chunk_path in CHUNK_FILES.items():
-        print(f"\nLoading chunks for strategy '{strategy_name}' from {chunk_path}")
-        chunk_records = load_jsonl(chunk_path)
-        print(f"Chunk count: {len(chunk_records)}")
-
-        # ---- DEBUG CHUNK ID ---- #
-        if chunk_records:
-            print("Sample chunk paper_id:")
-            print(chunk_records[0]["paper_id"])
-            print("Normalized chunk ID:")
-            print(normalize_chunk_paper_id(chunk_records[0]["paper_id"]))
-        print("--------------------------------")
+    for strategy_name, config in STRATEGY_CONFIGS.items():
+        print(f"\nPreparing retrieval data for strategy: {strategy_name}")
+        chunk_embeddings, chunk_ids = ensure_embedding_cache(strategy_name, config, model)
+        print(f"Chunk count: {len(chunk_ids)}")
 
         metrics = evaluate_strategy(
             strategy_name,
-            chunk_records,
-            paper_questions,
-            model
+            chunk_embeddings,
+            chunk_ids,
+            question_embeddings,
+            gold_ids,
         )
 
         results[strategy_name] = metrics

@@ -1,3 +1,4 @@
+import math
 from typing import List
 
 
@@ -9,4 +10,11 @@ def reciprocal_rank(ranked_ids: List[str], gold_id: str) -> float:
     for idx, doc_id in enumerate(ranked_ids, start=1):
         if doc_id == gold_id:
             return 1.0 / idx
+    return 0.0
+
+
+def ndcg(ranked_ids: List[str], gold_id: str) -> float:
+    for idx, doc_id in enumerate(ranked_ids, start=1):
+        if doc_id == gold_id:
+            return 1.0 / math.log2(idx + 1)
     return 0.0
