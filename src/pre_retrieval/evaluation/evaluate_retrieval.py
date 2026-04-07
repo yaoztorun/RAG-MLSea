@@ -1,16 +1,13 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Sequence
+from typing import Any, Dict, List, Optional, Sequence
 
-from src.pre_retrieval.config import REPO_ROOT
+from src.pre_retrieval.config import REPO_ROOT, load_pipeline_config
+from src.pre_retrieval.evaluation.aggregate_results import aggregate_result_files
 from src.pre_retrieval.embeddings.vector_store import ChromaVectorStore
 from src.pre_retrieval.retrieval.retrieve import retrieve_queries
-from src.pre_retrieval.utils import build_item_id, collection_name_for_representation, load_json, normalize_identifier, save_json, ensure_directory
-
-
-SUMMARY_FILE_NAME = "summary.json"
-SUMMARY_MARKDOWN_FILE_NAME = "summary.md"
+from src.pre_retrieval.utils import build_item_id, collection_name_for_representation, load_json, normalize_identifier, save_json
 
 
 def hit_at_k(ranked_ids: Sequence[str], gold_id: str, k: int) -> float:
@@ -33,40 +30,6 @@ def ndcg(ranked_ids: Sequence[str], gold_id: str) -> float:
     return 0.0
 
 
-def _build_summary_markdown(rows: List[Dict[str, Any]]) -> str:
-    lines = [
-        "| representation | Hit@1 | Hit@5 | Hit@10 | MRR | NDCG |",
-        "| --- | ---: | ---: | ---: | ---: | ---: |",
-    ]
-    for row in rows:
-        lines.append(
-            f"| {row['representation']} | {row['Hit@1']:.4f} | {row['Hit@5']:.4f} | {row['Hit@10']:.4f} | {row['MRR']:.4f} | {row['NDCG']:.4f} |"
-        )
-    return "\n".join(lines) + "\n"
-
-
-def _write_summary_files(output_dir: Path) -> None:
-    result_files = sorted(output_dir.glob("*_results.json"))
-    rows: List[Dict[str, Any]] = []
-    for result_file in result_files:
-        payload = load_json(result_file)
-        summary = payload.get("metrics", {})
-        rows.append(
-            {
-                "representation": payload.get("representation_type", result_file.stem.replace("_results", "")),
-                "Hit@1": float(summary.get("Hit@1", 0.0)),
-                "Hit@5": float(summary.get("Hit@5", 0.0)),
-                "Hit@10": float(summary.get("Hit@10", 0.0)),
-                "MRR": float(summary.get("MRR", 0.0)),
-                "NDCG": float(summary.get("NDCG", 0.0)),
-            }
-        )
-
-    save_json({"rows": rows}, output_dir / SUMMARY_FILE_NAME)
-    output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / SUMMARY_MARKDOWN_FILE_NAME).write_text(_build_summary_markdown(rows), encoding="utf-8")
-
-
 def evaluate_representation(
     representation_type: str,
     questions_path: Path,
@@ -76,6 +39,7 @@ def evaluate_representation(
     top_k_values: Sequence[int],
     output_path: Path,
     limit: Optional[int] = None,
+    representation_order: Optional[Sequence[str]] = None,
 ) -> Dict[str, Any]:
     all_questions = load_json(questions_path)
     total_questions = len(all_questions)
@@ -164,5 +128,8 @@ def evaluate_representation(
         "per_question": per_question,
     }
     save_json(payload, output_path)
-    _write_summary_files(output_path.parent)
+    aggregate_result_files(
+        output_dir=output_path.parent,
+        representation_order=representation_order or load_pipeline_config()["evaluation"]["representation_order"],
+    )
     return payload
