@@ -1,0 +1,6 @@
+rdflib
+sentence-transformers
+chromadb
+numpy
+tqdm
+scikit-learn
