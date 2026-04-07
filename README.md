@@ -166,6 +166,21 @@ The pipeline writes to:
 - `data/retrieval_results/*_results.json`
 - `data/retrieval_results/summary.json`
 - `data/retrieval_results/summary.md`
+- `data/retrieval_results/summary.csv`
+
+## Run all experiment comparisons
+
+After validating the `title_only` baseline, run the remaining representations in the thesis comparison order:
+
+```bash
+python -m src.pre_retrieval.scripts.run_all_experiments
+```
+
+Optional flags:
+
+- `--force-rebuild` resets each target collection before re-embedding
+- `--limit N` restricts representation building, embedding, and evaluation to the first `N` records/questions
+- `--skip-existing` skips representations that already have `data/retrieval_results/{representation}_results.json`
 
 ## Migration notes
 

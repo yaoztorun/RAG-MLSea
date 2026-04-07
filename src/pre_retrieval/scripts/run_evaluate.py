@@ -37,6 +37,7 @@ def main() -> int:
         top_k_values=config["evaluation"]["top_k"],
         output_path=output_path,
         limit=args.limit,
+        representation_order=config["evaluation"]["representation_order"],
     )
     print(payload["metrics"])
     return 0
