@@ -1,61 +1,98 @@
 # RAG-MLSea
 
-Master thesis repository for pre-retrieval and RAG experiments on MLSea / PwC paper metadata.
+Master thesis repository for offline MLSea / PwC retrieval and RAG experiments.
 
-## Active pre-retrieval pipeline
+## Active architecture
 
-The active pipeline is now offline-first:
+The active repository is fully offline-first:
 
-`data/raw/pwc_1.nt` → canonical paper records → representation files → one-time embeddings → Chroma collections → retrieval evaluation
+`data/raw/pwc_1.nt` → canonical paper records → representation files → embeddings / vector store → retrieval outputs → post-retrieval context building → generation / evaluation
 
-Key rules:
+Core rules:
 
-- `data/raw/pwc_1.nt` is the source of truth for paper metadata
-- the active pipeline does not depend on live GraphDB / SPARQL queries
-- the raw-paper extraction step streams N-Triples instead of loading the full RDF dump into memory
-- one embedding model is used across all representation strategies
-- document embeddings are stored once and reused
-- only questions are embedded at runtime
-- Chroma is intended to run in client-server mode by default to avoid local PersistentClient HNSW issues
+- `data/raw/pwc_1.nt` is the source of truth
+- no active stage depends on GraphDB or live SPARQL endpoints
+- canonical paper records are built first and stored at `data/intermediate/raw_papers/papers_master.jsonl`
+- retrieval writes offline result payloads to `data/retrieval_results/{representation}_results.json`
+- post-retrieval consumes those retrieval outputs plus canonical records and representation rows
 
-## Active pipeline layout
+## Repository layout
 
 ```text
-src/pre_retrieval/
-  config.py
-  utils.py
-  raw_papers/
-    inspect_paper_predicates.py
-    build_paper_records.py
-  chunking/
-    build_representations.py
-    papers/
-      build_title_only_chunks.py
-      build_abstract_only_chunks.py
-      build_title_abstract_chunks.py
-      build_enriched_paper_chunks.py
-      build_predicate_filtered_chunks.py
-      build_one_hop_paper_chunks.py
-  embeddings/
-    embedder.py
-    embed_and_store.py
-    vector_store.py
+src/
+  pre_retrieval/
+    raw_papers/
+    chunking/
+    embeddings/
+    retrieval/
+    evaluation/
+    scripts/
   retrieval/
-    retrieve.py
-  evaluation/
-    evaluate_retrieval.py
-  scripts/
-    run_build_records.py
-    run_build_representations.py
-    run_embed_store.py
-    run_evaluate.py
+    embedding/
+    indexing/
+    scripts/
+    search/
+  post_retrieval/
+    generation/
+    evaluation/
+    pipeline/
+    scripts/
+
+docs/
+  post_retrieval/
 ```
 
-Archived GraphDB / SPARQL assets live under `src/pre_retrieval/legacy/graphdb/`.
+## Stage responsibilities
+
+### 1. Pre-retrieval
+
+Builds the offline artifacts derived from `pwc_1.nt`:
+
+- canonical paper records
+- representation files
+- vector-store-ready documents
+
+Primary entry points:
+
+```bash
+python -m src.pre_retrieval.scripts.run_build_records
+python -m src.pre_retrieval.scripts.run_build_representations --representation title_only
+python -m src.pre_retrieval.scripts.run_embed_store --representation title_only
+python -m src.pre_retrieval.scripts.run_evaluate --representation title_only
+```
+
+### 2. Retrieval
+
+Uses the existing offline experiment design to retrieve top-k papers for each question. Results are stored under `data/retrieval_results/`.
+
+The current retrieval experiment design is unchanged.
+
+### 3. Post-retrieval
+
+Takes retrieval outputs that already contain:
+
+- the question
+- top-k retrieved papers
+- `paper_id`
+- optional `source_text`
+
+Then it:
+
+- loads canonical paper records from `data/intermediate/raw_papers/papers_master.jsonl`
+- resolves representation text from `data/intermediate/representations/{representation}.jsonl` when needed
+- filters / reranks the offline candidates
+- builds a `<CONTEXT>` block for generation
+- evaluates reranking or generated answers without any GraphDB/SPARQL dependency
+
+Example entry points:
+
+```bash
+python -m src.post_retrieval.scripts.run_post_retrieval_pipeline --representation title_only --question-id mlsea_q_003
+python -m src.post_retrieval.scripts.run_evaluate_retrieval --representation title_only
+python -m src.post_retrieval.scripts.run_generate --representation title_only --question-id mlsea_q_003
+```
 
 ## Representation strategies
-
-Run and evaluate these progressively:
 
 1. `title_only`
 2. `abstract_only`
@@ -64,14 +101,12 @@ Run and evaluate these progressively:
 5. `predicate_filtered`
 6. `one_hop`
 
-The first complete baseline is `title_only`.
-
 ## Data
 
-- `data/raw/pwc_1.nt` is not included in the repository
-- place the full RDF dump there manually before running the full pipeline locally
-- for development or debugging, you can optionally use `data/raw/pwc_1_sample.nt`
-- every script accepts a custom `--input-path`
+- `data/raw/pwc_1.nt` is local-only and not committed
+- optional development input: `data/raw/pwc_1_sample.nt`
+- generated artifacts live under `data/intermediate/`
+- question datasets live under `data/questions/`
 
 ## Configuration
 
@@ -79,15 +114,13 @@ Pipeline defaults live in `config/pre_retrieval_config.json`.
 
 Config covers:
 
-- embedder backend (`sentence_transformer` or `hashing`)
+- embedder backend
 - embedding model name
-- Chroma mode (`http` or `persistent`)
-- Chroma host and port for server-backed usage
-- Chroma persist directory for local persistent usage
+- Chroma mode / host / port / persistence path
 - evaluation top-k values
-- max text lengths per representation
+- representation-specific text limits
 
-Default Chroma settings now use HTTP mode:
+Default vector-store settings use Chroma HTTP mode:
 
 ```json
 "vector_store": {
@@ -101,89 +134,32 @@ Default Chroma settings now use HTTP mode:
 
 ## Setup
 
-Install the offline pipeline dependencies in your environment:
+Install dependencies:
 
 ```bash
-pip install rdflib sentence-transformers chromadb numpy
+python -m pip install -r requirements.txt
 ```
 
-Place the local RDF dump at `data/raw/pwc_1.nt`, or pass `--input-path` explicitly.
-
-Start Chroma in server mode before embedding or evaluation:
+Start Chroma before embedding or retrieval evaluation:
 
 ```bash
 chroma run --path data/intermediate/chroma
 ```
 
-Or with Docker:
-
-```bash
-docker run -v ./data/intermediate/chroma:/data -p 8000:8000 chromadb/chroma
-```
-
-## Baseline workflow
-
-Build canonical paper records:
-
-```bash
-python -m src.pre_retrieval.scripts.run_build_records
-```
-
-Build the first representation baseline:
-
-```bash
-python -m src.pre_retrieval.scripts.run_build_representations --representation title_only
-```
-
-Embed once and persist in Chroma. The first end-to-end validation should use `title_only`:
-
-```bash
-python -m src.pre_retrieval.scripts.run_embed_store --representation title_only
-```
-
-Evaluate retrieval against the same server-backed Chroma instance:
-
-```bash
-python -m src.pre_retrieval.scripts.run_evaluate --representation title_only
-```
-
-To generate all scaffolded representations:
-
-```bash
-python -m src.pre_retrieval.scripts.run_build_representations --representation all
-```
-
-## Data outputs
-
-The pipeline writes to:
+## Key offline outputs
 
 - `data/intermediate/raw_papers/papers_master.jsonl`
 - `data/intermediate/raw_papers/extraction_stats.json`
 - `data/intermediate/raw_papers/predicate_stats.json`
 - `data/intermediate/representations/*.jsonl`
 - `data/intermediate/representations/*_stats.json`
-- `data/intermediate/chroma/` (when `chroma_mode` is `persistent` or when used as the server data path)
 - `data/retrieval_results/*_results.json`
 - `data/retrieval_results/summary.json`
 - `data/retrieval_results/summary.md`
 - `data/retrieval_results/summary.csv`
 
-## Run all experiment comparisons
+## Notes
 
-After validating the `title_only` baseline, run the remaining representations in the thesis comparison order:
-
-```bash
-python -m src.pre_retrieval.scripts.run_all_experiments
-```
-
-Optional flags:
-
-- `--force-rebuild` resets each target collection before re-embedding
-- `--limit N` restricts representation building, embedding, and evaluation to the first `N` records/questions
-- `--skip-existing` skips representations that already have `data/retrieval_results/{representation}_results.json`
-
-## Migration notes
-
-- active execution should use the new `src/pre_retrieval/scripts/` entry points
-- legacy GraphDB / SPARQL extraction code has been removed from the active path but kept for reference
-- the offline extractor builds canonical paper records first, then derives representation variants from those records
+- the active pipeline no longer uses GraphDB or SPARQL for post-retrieval
+- legacy generated artifacts such as embedding dumps and evaluation logs should stay out of version control
+- post-retrieval strategy notes now live in `docs/post_retrieval/`
