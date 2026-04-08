@@ -104,17 +104,26 @@ def resolve_question_retrieval_entry(
     payload: Dict[str, Any] | List[Dict[str, Any]],
     *,
     question_id: Optional[str] = None,
+    question_index: Optional[int] = None,
     question_text: Optional[str] = None,
+    default_to_first: bool = False,
 ) -> Optional[Dict[str, Any]]:
+    entries = get_per_question_entries(payload)
     if question_id:
-        entry = build_retrieval_question_lookup(payload).get(str(question_id))
+        entry = build_retrieval_question_lookup(entries).get(str(question_id))
         if entry is not None:
             return entry
+    if question_index is not None:
+        if 0 <= question_index < len(entries):
+            return entries[question_index]
+        return None
     if question_text:
         normalized_text = question_text.strip()
-        for entry in get_per_question_entries(payload):
+        for entry in entries:
             if str(entry.get("question", "")).strip() == normalized_text:
                 return entry
+    if default_to_first and entries:
+        return entries[0]
     return None
 
 

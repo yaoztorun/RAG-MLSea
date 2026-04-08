@@ -12,6 +12,7 @@ from src.post_retrieval.pipeline.data_loading import (
     load_question_dataset,
     load_representation_records,
     load_retrieval_payload,
+    get_per_question_entries,
     resolve_question_retrieval_entry,
     resolve_retrieval_results_path,
 )
@@ -29,6 +30,7 @@ __all__ = [
     "load_question_dataset",
     "load_representation_records",
     "load_retrieval_payload",
+    "get_per_question_entries",
     "post_retrieval_pipeline",
     "rerank_candidates",
     "resolve_question_retrieval_entry",

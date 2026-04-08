@@ -20,6 +20,7 @@ def main() -> None:
     parser.add_argument("--representation", default="title_only")
     parser.add_argument("--retrieval-results-path")
     parser.add_argument("--question-id")
+    parser.add_argument("--question-index", type=int)
     parser.add_argument("--question-text")
     parser.add_argument("--papers-path", default="data/intermediate/raw_papers/papers_master.jsonl")
     parser.add_argument("--representations-dir", default="data/intermediate/representations")
@@ -33,19 +34,27 @@ def main() -> None:
     question_entry = resolve_question_retrieval_entry(
         retrieval_payload,
         question_id=args.question_id,
+        question_index=args.question_index,
         question_text=args.question_text,
+        default_to_first=True,
     )
     if question_entry is None:
         raise ValueError("Could not resolve a question entry from the retrieval results payload.")
 
+    question = question_entry["question"]
+    question_id = question_entry.get("question_id", "")
+    target_entity_iri = question_entry.get("target_entity_iri", "")
+    results = question_entry.get("results", [])
+    print(f"# question_id: {question_id}")
+    print(f"# target_entity_iri: {target_entity_iri}")
     paper_lookup = build_paper_id_lookup(load_canonical_paper_records(args.papers_path))
     representation_lookup = build_representation_lookup(
         load_representation_records(args.representation, representations_dir=args.representations_dir)
     )
     cross_encoder = None if args.skip_cross_encoder else load_cross_encoder()
     payload = build_context_payload(
-        question_entry["question"],
-        question_entry.get("results", []),
+        question,
+        results,
         paper_lookup,
         representation_lookup=representation_lookup,
         cross_encoder=cross_encoder,
