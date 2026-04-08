@@ -12,6 +12,11 @@ DEFAULT_CONFIG_PATH = REPO_ROOT / "config" / "pre_retrieval_config.json"
 DEFAULT_CONFIG: Dict[str, Any] = {
     "embedder_type": "sentence_transformer",
     "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "corpus_subset": {
+        "enabled": True,
+        "max_papers": 200000,
+        "include_gold_targets": True,
+    },
     "vector_store": {
         "provider": "chroma",
         "chroma_mode": "http",
@@ -27,8 +32,8 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "title_only",
             "abstract_only",
             "title_abstract",
-            "enriched_metadata",
             "predicate_filtered",
+            "enriched_metadata",
             "one_hop",
         ],
     },
@@ -80,6 +85,38 @@ def _deep_merge(base: Dict[str, Any], overrides: Dict[str, Any]) -> Dict[str, An
 def resolve_repo_path(path_value: str | Path) -> Path:
     path = Path(path_value)
     return path if path.is_absolute() else REPO_ROOT / path
+
+
+def format_paper_count_suffix(max_papers: int) -> str:
+    if max_papers % 1_000 == 0:
+        return f"{max_papers // 1_000}k"
+    return str(max_papers)
+
+
+def default_subset_records_path(max_papers: int) -> str:
+    return f"data/intermediate/raw_papers/papers_subset_{format_paper_count_suffix(max_papers)}.jsonl"
+
+
+def default_subset_stats_path() -> str:
+    return "data/intermediate/raw_papers/subset_stats.json"
+
+
+def resolve_records_path(
+    config: Dict[str, Any],
+    input_path: str | Path | None = None,
+    *,
+    disable_subset: bool = False,
+    max_papers: int | None = None,
+) -> Path:
+    if input_path is not None:
+        return resolve_repo_path(input_path)
+
+    subset_config = config.get("corpus_subset", {})
+    subset_enabled = bool(subset_config.get("enabled", False)) and not disable_subset
+    if subset_enabled:
+        subset_max_papers = int(max_papers or subset_config.get("max_papers", 200000))
+        return resolve_repo_path(default_subset_records_path(subset_max_papers))
+    return resolve_repo_path("data/intermediate/raw_papers/papers_master.jsonl")
 
 
 def load_pipeline_config(config_path: str | Path | None = None) -> Dict[str, Any]:

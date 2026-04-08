@@ -4,22 +4,29 @@ import argparse
 import sys
 
 from src.pre_retrieval.chunking.build_representations import SUPPORTED_REPRESENTATIONS, build_representations
-from src.pre_retrieval.config import load_pipeline_config, resolve_repo_path
+from src.pre_retrieval.config import load_pipeline_config, resolve_records_path, resolve_repo_path
 from src.pre_retrieval.utils import require_existing_input
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build paper text representations from canonical records.")
     parser.add_argument("--config", default=None)
-    parser.add_argument("--input-path", default="data/intermediate/raw_papers/papers_master.jsonl")
+    parser.add_argument("--input-path", default=None)
     parser.add_argument("--output-dir", default="data/intermediate/representations")
     parser.add_argument("--representation", choices=SUPPORTED_REPRESENTATIONS + ["all"], default="title_only")
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--max-papers", type=int, default=None)
+    parser.add_argument("--disable-subset", action="store_true")
     parser.add_argument("--force-rebuild", action="store_true")
     args = parser.parse_args()
 
     config = load_pipeline_config(args.config)
-    input_path = resolve_repo_path(args.input_path)
+    input_path = resolve_records_path(
+        config,
+        args.input_path,
+        disable_subset=args.disable_subset,
+        max_papers=args.max_papers,
+    )
     try:
         require_existing_input(input_path)
     except FileNotFoundError as error:

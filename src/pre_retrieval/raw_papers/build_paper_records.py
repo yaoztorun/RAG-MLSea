@@ -289,8 +289,10 @@ def finalize_paper_record(accumulator: Dict[str, Any], node_cache: Dict[str, Dic
     triples = accumulator["triples"]
     title = first_value_for_predicates(triples, LABEL_PREDICATES, node_cache)
     abstract = first_value_for_predicates(triples, ABSTRACT_PREDICATES, node_cache)
+    publication_year = first_value_for_predicates(triples, YEAR_PREDICATES, node_cache)
 
     authors: List[str] = []
+    keywords: List[str] = []
     tasks: List[str] = []
     datasets: List[str] = []
     methods: List[str] = []
@@ -305,6 +307,9 @@ def finalize_paper_record(accumulator: Dict[str, Any], node_cache: Dict[str, Dic
 
         if predicate in AUTHOR_PREDICATES:
             authors.append(resolve_node_text(object_value, is_literal, node_cache))
+            continue
+        if predicate in KEYWORD_PREDICATES:
+            keywords.append(resolve_node_text(object_value, is_literal, node_cache))
             continue
         if predicate in CORE_METADATA_PREDICATES or predicate == RDF_TYPE:
             continue
@@ -345,7 +350,9 @@ def finalize_paper_record(accumulator: Dict[str, Any], node_cache: Dict[str, Dic
         "paper_uri": paper_uri,
         "title": title,
         "abstract": abstract,
+        "publication_year": publication_year,
         "authors": unique_preserve_order(authors),
+        "keywords": unique_preserve_order(keywords),
         "tasks": unique_preserve_order(tasks),
         "datasets": unique_preserve_order(datasets),
         "methods": unique_preserve_order(methods),
@@ -366,7 +373,9 @@ def compute_extraction_stats(records: Sequence[Dict[str, Any]], nt_path: Path, t
             [
                 record.get("title"),
                 record.get("abstract"),
+                record.get("publication_year"),
                 record.get("authors"),
+                record.get("keywords"),
                 record.get("tasks"),
                 record.get("datasets"),
                 record.get("methods"),

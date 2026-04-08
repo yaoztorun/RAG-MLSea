@@ -12,6 +12,7 @@ from src.pre_retrieval.utils import load_json, save_json
 SUMMARY_FILE_NAME = "summary.json"
 SUMMARY_MARKDOWN_FILE_NAME = "summary.md"
 SUMMARY_CSV_FILE_NAME = "summary.csv"
+RESULTS_FILE_NAME = "results.json"
 METRIC_NAMES = ("Hit@1", "Hit@5", "Hit@10", "MRR", "NDCG")
 
 
@@ -48,17 +49,24 @@ def _write_summary_csv(rows: List[Dict[str, Any]], output_path: Path) -> None:
 def _extract_summary_row(result_file: Path) -> Dict[str, Any]:
     payload = load_json(result_file)
     summary = payload.get("metrics", {})
-    representation = payload.get("representation_type", result_file.stem.replace("_results", ""))
+    representation = payload.get("representation_type", result_file.parent.name or result_file.stem.replace("_results", ""))
     return {
         "representation": representation,
         **{metric_name: float(summary.get(metric_name, 0.0)) for metric_name in METRIC_NAMES},
     }
 
 
+def _discover_result_files(output_dir: Path) -> List[Path]:
+    nested_results = sorted(output_dir.glob(f"*/{RESULTS_FILE_NAME}"))
+    if nested_results:
+        return nested_results
+    return sorted(output_dir.glob("*_results.json"))
+
+
 def aggregate_result_files(output_dir: Path, representation_order: Sequence[str] | None = None) -> Dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     order_map = _representation_order_map(representation_order or [])
-    rows = [_extract_summary_row(result_file) for result_file in output_dir.glob("*_results.json")]
+    rows = [_extract_summary_row(result_file) for result_file in _discover_result_files(output_dir)]
     rows.sort(key=lambda row: (order_map.get(row["representation"], len(order_map)), row["representation"]))
 
     summary_payload = {"rows": rows}

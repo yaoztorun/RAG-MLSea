@@ -1,6 +1,11 @@
 {
   "embedder_type": "sentence_transformer",
   "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "corpus_subset": {
+    "enabled": true,
+    "max_papers": 200000,
+    "include_gold_targets": true
+  },
   "vector_store": {
     "provider": "chroma",
     "chroma_mode": "http",
@@ -16,8 +21,8 @@
       "title_only",
       "abstract_only",
       "title_abstract",
-      "enriched_metadata",
       "predicate_filtered",
+      "enriched_metadata",
       "one_hop"
     ]
   },

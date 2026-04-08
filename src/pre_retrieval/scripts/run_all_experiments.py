@@ -5,24 +5,50 @@ from pathlib import Path
 from typing import Any, Dict
 
 from src.pre_retrieval.chunking.build_representations import build_representations
-from src.pre_retrieval.config import load_pipeline_config, resolve_repo_path
+from src.pre_retrieval.config import default_subset_records_path, default_subset_stats_path, load_pipeline_config, resolve_repo_path
 from src.pre_retrieval.evaluation.aggregate_results import aggregate_result_files
-from src.pre_retrieval.evaluation.evaluate_retrieval import evaluate_representation
+from src.pre_retrieval.evaluation.evaluate_retrieval import evaluate_representation, representation_results_path
 from src.pre_retrieval.embeddings.embed_and_store import embed_and_store_representations
+from src.pre_retrieval.raw_papers.build_curated_subset import build_curated_subset
 from src.pre_retrieval.utils import require_existing_input
-
-
-EXPERIMENT_REPRESENTATIONS = [
-    "abstract_only",
-    "title_abstract",
-    "enriched_metadata",
-    "predicate_filtered",
-    "one_hop",
-]
 
 
 def _should_skip_representation(result_path: Path, skip_existing: bool, force_rebuild: bool) -> bool:
     return skip_existing and not force_rebuild and result_path.exists()
+
+
+def _resolve_records_path(
+    config: Dict[str, Any],
+    *,
+    records_path: str | None,
+    papers_path: Path,
+    questions_path: Path,
+    disable_subset: bool,
+    max_papers: int | None,
+) -> Path:
+    if records_path:
+        resolved = resolve_repo_path(records_path)
+        require_existing_input(resolved)
+        return resolved
+
+    subset_config = config.get("corpus_subset", {})
+    use_subset = bool(subset_config.get("enabled", False)) and not disable_subset
+    if not use_subset:
+        require_existing_input(papers_path)
+        return papers_path
+
+    subset_max_papers = int(max_papers or subset_config.get("max_papers", 200000))
+    subset_output_path = resolve_repo_path(default_subset_records_path(subset_max_papers))
+    subset_stats_path = resolve_repo_path(default_subset_stats_path())
+    build_curated_subset(
+        papers_master_path=papers_path,
+        questions_path=questions_path,
+        output_path=subset_output_path,
+        stats_output_path=subset_stats_path,
+        max_papers=subset_max_papers,
+        include_gold_targets=bool(subset_config.get("include_gold_targets", True)),
+    )
+    return subset_output_path
 
 
 def _maybe_build_representation(
@@ -59,7 +85,7 @@ def _run_representation(
     skip_existing: bool,
     force_rebuild: bool,
 ) -> None:
-    result_path = results_dir / f"{representation}_results.json"
+    result_path = representation_results_path(results_dir, representation)
     print(f"[{representation}] starting")
     if _should_skip_representation(result_path, skip_existing=skip_existing, force_rebuild=force_rebuild):
         print(f"[{representation}] skipped existing evaluation output")
@@ -93,6 +119,7 @@ def _run_representation(
     evaluate_representation(
         representation_type=representation,
         questions_path=questions_path,
+        records_path=records_path,
         vector_store_config=config["vector_store"],
         embedder_type=config["embedder_type"],
         model_name=config["model_name"],
@@ -105,27 +132,38 @@ def _run_representation(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Run all remaining pre-retrieval experiments and aggregate results.")
+    parser = argparse.ArgumentParser(description="Run the active local pre-retrieval experiments and aggregate results.")
     parser.add_argument("--config", default=None)
-    parser.add_argument("--records-path", default="data/intermediate/raw_papers/papers_master.jsonl")
+    parser.add_argument("--papers-path", default="data/intermediate/raw_papers/papers_master.jsonl")
+    parser.add_argument("--records-path", default=None)
     parser.add_argument("--representation-dir", default="data/intermediate/representations")
     parser.add_argument("--questions-path", default=None)
     parser.add_argument("--results-dir", default=None)
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--max-papers", type=int, default=None)
+    parser.add_argument("--disable-subset", action="store_true")
     parser.add_argument("--force-rebuild", action="store_true")
     parser.add_argument("--skip-existing", action="store_true")
     args = parser.parse_args()
 
     config = load_pipeline_config(args.config)
-    records_path = resolve_repo_path(args.records_path)
+    papers_path = resolve_repo_path(args.papers_path)
     representation_dir = resolve_repo_path(args.representation_dir)
     questions_path = resolve_repo_path(args.questions_path or config["evaluation"]["questions_path"])
     results_dir = resolve_repo_path(args.results_dir or config["evaluation"]["output_dir"])
 
-    require_existing_input(records_path)
+    require_existing_input(papers_path)
     require_existing_input(questions_path)
+    records_path = _resolve_records_path(
+        config,
+        records_path=args.records_path,
+        papers_path=papers_path,
+        questions_path=questions_path,
+        disable_subset=args.disable_subset,
+        max_papers=args.max_papers,
+    )
 
-    for representation in EXPERIMENT_REPRESENTATIONS:
+    for representation in config["evaluation"]["representation_order"]:
         _run_representation(
             representation=representation,
             config=config,

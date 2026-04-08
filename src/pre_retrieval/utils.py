@@ -12,6 +12,8 @@ import numpy as np
 GRAPHDB_WRAPPER_PREFIX = "http://localhost:7200/resource?uri="
 DEFAULT_RDF_INPUT_PATH = "data/raw/pwc_1.nt"
 DEFAULT_SAMPLE_RDF_INPUT_PATH = "data/raw/pwc_1_sample.nt"
+MLSEA_PWC_PREFIX = "http://w3id.org/mlsea/pwc/"
+PAPER_ENTITY_PREFIX = f"{MLSEA_PWC_PREFIX}scientificWork/"
 T = TypeVar("T")
 
 
@@ -123,6 +125,18 @@ def normalize_identifier(value: str) -> str:
 
 def paper_id_from_uri(paper_uri: str) -> str:
     return normalize_identifier(paper_uri)
+
+
+def entity_type_from_id(entity_id: str) -> str:
+    normalized = normalize_identifier(entity_id)
+    if not normalized.startswith(MLSEA_PWC_PREFIX):
+        return ""
+    suffix = normalized[len(MLSEA_PWC_PREFIX) :]
+    return suffix.split("/", 1)[0].strip()
+
+
+def is_paper_entity_id(entity_id: str) -> bool:
+    return normalize_identifier(entity_id).startswith(PAPER_ENTITY_PREFIX)
 
 
 def build_item_id(representation_type: str, paper_id: str) -> str:
