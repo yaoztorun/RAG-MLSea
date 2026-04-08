@@ -76,10 +76,12 @@ Default local subset config:
 Subset builder behavior:
 
 - normalize each `target_entity_iri` from the question dataset to a canonical `paper_id`
-- include all gold-target papers found in the canonical records first
+- distinguish paper (`scientificWork`) targets from non-paper targets
+- include all paper gold-target papers found in the canonical records first
 - fill the remaining capacity from the canonical records in their existing order
 - stop at 200,000 papers total unless the gold-target set is already larger
 - reuse the same subset for all representations to keep comparisons fair
+- report non-paper gold targets separately instead of treating them as missing papers
 
 Outputs:
 
@@ -185,6 +187,8 @@ Aggregate summaries remain at:
 - `data/retrieval_results/summary.csv`
 
 `top10.json` stores the top-10 retrieved documents per question together with retrieval scores, source text, and canonical metadata fields such as authors, publication year, tasks, datasets, methods, metrics, implementations, and keywords when available.
+
+Current retrieval evaluation is paper-centered: it evaluates only answerable questions whose gold target is a `scientificWork` / paper and explicitly skips answerable non-paper targets.
 
 ## Archive policy
 

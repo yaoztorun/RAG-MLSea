@@ -10,6 +10,7 @@ from src.pre_retrieval.retrieval.retrieve import retrieve_queries
 from src.pre_retrieval.utils import (
     build_item_id,
     collection_name_for_representation,
+    is_paper_entity_id,
     load_json,
     load_jsonl,
     normalize_identifier,
@@ -106,9 +107,15 @@ def evaluate_representation(
 ) -> Dict[str, Any]:
     all_questions = load_json(questions_path)
     total_questions = len(all_questions)
-    paper_questions = [question for question in all_questions if question.get("question_type", "").startswith("paper_")]
-    answerable_questions_all = [question for question in paper_questions if question.get("is_answerable", True) is True]
-    answerable_questions = list(answerable_questions_all)
+    answerable_questions_all = [question for question in all_questions if question.get("is_answerable", True) is True]
+    paper_target_questions_all: List[Dict[str, Any]] = []
+    skipped_non_paper_target_questions: List[Dict[str, Any]] = []
+    for question in answerable_questions_all:
+        if is_paper_entity_id(str(question.get("target_entity_iri", ""))):
+            paper_target_questions_all.append(question)
+        else:
+            skipped_non_paper_target_questions.append(question)
+    answerable_questions = list(paper_target_questions_all)
     if limit is not None:
         answerable_questions = answerable_questions[:limit]
 
@@ -200,6 +207,8 @@ def evaluate_representation(
         "diagnostics": {
             "total_questions": total_questions,
             "answerable_questions": len(answerable_questions_all),
+            "paper_target_questions": len(paper_target_questions_all),
+            "skipped_non_paper_target_questions": len(skipped_non_paper_target_questions),
             "evaluated_questions": evaluated_count,
             "skipped_questions": total_questions - evaluated_count,
             "unmatched_targets": unmatched_targets,
