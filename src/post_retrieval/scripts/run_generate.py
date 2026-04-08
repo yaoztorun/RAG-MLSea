@@ -20,6 +20,7 @@ def main() -> None:
     parser.add_argument("--representation", default="title_only")
     parser.add_argument("--retrieval-results-path")
     parser.add_argument("--question-id")
+    parser.add_argument("--question-index", type=int)
     parser.add_argument("--question-text")
     parser.add_argument("--papers-path", default="data/intermediate/raw_papers/papers_master.jsonl")
     parser.add_argument("--representations-dir", default="data/intermediate/representations")
@@ -35,7 +36,9 @@ def main() -> None:
     question_entry = resolve_question_retrieval_entry(
         retrieval_payload,
         question_id=args.question_id,
+        question_index=args.question_index,
         question_text=args.question_text,
+        default_to_first=True,
     )
     if question_entry is None:
         raise ValueError("Could not resolve a question entry from the retrieval results payload.")

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 
 from src.pre_retrieval.config import REPO_ROOT, resolve_repo_path
 from src.pre_retrieval.utils import load_json, load_jsonl, normalize_identifier
@@ -65,7 +65,13 @@ def load_representation_records(
     return load_jsonl(resolve_representation_path(representation_type, representations_dir))
 
 
-def build_representation_lookup(records: Iterable[Dict[str, Any]]) -> Dict[str, Dict[Any, Dict[str, Any]]]:
+RepresentationLookup = Dict[
+    str,
+    Union[Dict[str, Dict[str, Any]], Dict[Tuple[str, str], Dict[str, Any]]],
+]
+
+
+def build_representation_lookup(records: Iterable[Dict[str, Any]]) -> RepresentationLookup:
     item_lookup: Dict[str, Dict[str, Any]] = {}
     paper_lookup: Dict[tuple[str, str], Dict[str, Any]] = {}
     for record in records:
@@ -129,7 +135,7 @@ def resolve_question_retrieval_entry(
 
 def resolve_representation_text(
     result: Dict[str, Any],
-    representation_lookup: Optional[Dict[str, Dict[Any, Dict[str, Any]]]] = None,
+    representation_lookup: Optional[RepresentationLookup] = None,
 ) -> str:
     if result.get("source_text"):
         return str(result["source_text"])

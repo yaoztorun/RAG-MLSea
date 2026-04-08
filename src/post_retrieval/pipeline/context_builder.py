@@ -6,6 +6,8 @@ from src.post_retrieval.pipeline.data_loading import resolve_representation_text
 from src.pre_retrieval.utils import normalize_identifier, truncate_text
 
 DEFAULT_MIN_RETRIEVAL_SCORE = 0.20
+MAX_ABSTRACT_CONTEXT_CHARS = 1200
+MAX_REPRESENTATION_CONTEXT_CHARS = 1400
 UNANSWERABLE_RESPONSE = "The question is unanswerable from the available offline MLSea context."
 
 
@@ -30,8 +32,8 @@ def build_candidate_context(
 ) -> str:
     title = canonical_record.get("title") or result.get("title") or "Unknown"
     year = canonical_record.get("year") or "Unknown"
-    abstract = truncate_text(canonical_record.get("abstract", ""), 1200)
-    representation_excerpt = truncate_text(representation_text, 1400)
+    abstract = truncate_text(canonical_record.get("abstract", ""), MAX_ABSTRACT_CONTEXT_CHARS)
+    representation_excerpt = truncate_text(representation_text, MAX_REPRESENTATION_CONTEXT_CHARS)
 
     lines = [
         f"Title: {title}",
