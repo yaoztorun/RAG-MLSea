@@ -95,8 +95,8 @@ All local experiments use the same curated subset for:
 1. `title_only`
 2. `abstract_only`
 3. `title_abstract`
-4. `enriched_metadata`
-5. `predicate_filtered`
+4. `predicate_filtered`
+5. `enriched_metadata`
 6. `one_hop`
 
 ## Setup
@@ -147,6 +147,12 @@ Evaluate one representation and export top-10 documents:
 python -m src.pre_retrieval.scripts.run_evaluate --representation title_only
 ```
 
+Regenerate the shared comparison summaries from whatever per-representation results already exist:
+
+```bash
+python -m src.pre_retrieval.scripts.run_aggregate_results
+```
+
 Run the full local comparison workflow in the active order:
 
 ```bash
@@ -187,6 +193,8 @@ Aggregate summaries remain at:
 - `data/retrieval_results/summary.csv`
 
 `top10.json` stores the top-10 retrieved documents per question together with retrieval scores, source text, and canonical metadata fields such as authors, publication year, tasks, datasets, methods, metrics, implementations, and keywords when available.
+
+`run_aggregate_results` reads only existing `data/retrieval_results/{representation}/results.json` files, preserves the configured representation order, skips missing results gracefully, and does not rerun embedding or evaluation.
 
 Current retrieval evaluation is paper-centered: it evaluates only answerable questions whose gold target is a `scientificWork` / paper and explicitly skips answerable non-paper targets.
 

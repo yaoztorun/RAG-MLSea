@@ -13,16 +13,6 @@ from src.pre_retrieval.raw_papers.build_curated_subset import build_curated_subs
 from src.pre_retrieval.utils import require_existing_input
 
 
-EXPERIMENT_REPRESENTATIONS = [
-    "title_only",
-    "abstract_only",
-    "title_abstract",
-    "enriched_metadata",
-    "predicate_filtered",
-    "one_hop",
-]
-
-
 def _should_skip_representation(result_path: Path, skip_existing: bool, force_rebuild: bool) -> bool:
     return skip_existing and not force_rebuild and result_path.exists()
 
@@ -173,7 +163,7 @@ def main() -> int:
         max_papers=args.max_papers,
     )
 
-    for representation in EXPERIMENT_REPRESENTATIONS:
+    for representation in config["evaluation"]["representation_order"]:
         _run_representation(
             representation=representation,
             config=config,
