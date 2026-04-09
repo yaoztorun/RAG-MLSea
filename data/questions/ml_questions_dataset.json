@@ -1,632 +1,2938 @@
 [
-    {
-        "id": "mlsea_q_001",
-        "question": "What specific tasks is the MedDG dataset associated with?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
-        "answer": [
-            "Dialogue Generation",
-            "Response Generation",
-            "Retrieval"
-        ],
-        "answer_type": "list",
-        "text_answer": "The MedDG dataset is associated with the following tasks: Dialogue Generation, Response Generation, and Retrieval.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_002",
-        "question": "What is the publication year for the paper \"Capture, Learning, and Synthesis of 3D Speaking Styles\"?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Capture%2C%20Learning%2C%20and%20Synthesis%20of%203D%20Speaking%20Styles",
-        "answer": "2019",
-        "answer_type": "literal",
-        "text_answer": "The paper \"Capture, Learning, and Synthesis of 3D Speaking Styles\" was published in 2019.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_003",
-        "question": "Who are the authors of \u201cCoQA: A Conversational Question Answering Challenge\u201d?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/CoQA%3A%20A%20Conversational%20Question%20Answering%20Challenge",
-        "answer": [
-            "Christopher D. Manning",
-            "Danqi Chen",
-            "Siva Reddy"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \"CoQA: A Conversational Question Answering Challenge\" are Christopher D. Manning, Danqi Chen, and Siva Reddy.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_004",
-        "question": "Which tasks are associated with the paper \u201cP-ROCKET: Pruning Random Convolution Kernels for Time Series Classification from a Feature Selection Perspective\u201d?",
-        "question_type": "paper_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/P-ROCKET%3A%20Pruning%20Random%20Convolution%20Kernels%20for%20Time%20Series%20Classification",
-        "answer": [
-            "Time Series Classification",
-            "Feature Selection"
-        ],
-        "answer_type": "list",
-        "text_answer": "The tasks associated with the paper \"P-ROCKET: Pruning Random Convolution Kernels for Time Series Classification from a Feature Selection Perspective\" are: Time Series Classification and Feature Selection.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_005",
-        "question": "Who are the authors of the paper \" Capture, Learning, and Synthesis of 3D Speaking Styles\"?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Capture%2C%20Learning%2C%20and%20Synthesis%20of%203D%20Speaking%20Styles",
-        "answer": [
-            "Anurag Ranjan",
-            "Cassidy Laidlaw",
-            "Daniel Cudeiro",
-            "Michael J. Black",
-            "Timo Bolkart"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \" Capture, Learning, and Synthesis of 3D Speaking Styles\" are Anurag Ranjan, Cassidy Laidlaw, Daniel Cudeiro, Michael J. Black, and Timo Bolkart.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_006",
-        "question": "Which task is associated with the paper \u201cThe Evolution of football Betting\u201d?",
-        "question_type": "paper_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/The%20Evolution%20of%20Football%20Betting-%20A%20Machine%20Learning%20Approach%20to%20Match%20Outcome%20Forecasting%20and%20Bookmaker%20Odds%20Estimation",
-        "answer": [
-            "Decision Making",
-            "Sports Analytics"
-        ],
-        "answer_type": "list",
-        "text_answer": "The tasks associated with the paper \"The Evolution of football Betting\" are: Decision Making and Sports Analytics.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_007",
-        "question": "Which task is associated with the paper \u201cA Comparative Study in NBA Sports\u201d?",
-        "question_type": "paper_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Model-Agnostic%20Interpretation%20Framework%20in%20Machine%20Learning%3A%20A%20Comparative%20Study%20in%20NBA%20Sports",
-        "answer": [
-            "Decision Making",
-            "Computational Efficiency"
-        ],
-        "answer_type": "list",
-        "text_answer": "The tasks associated with the paper \"A Comparative Study in NBA Sports\" are: Decision Making and Computational Efficiency.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_008",
-        "question": "What is the publication year for the paper \u201cFlying Bird Object Detection Algorithm in Surveillance Video\u201d?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Flying%20Bird%20Object%20Detection%20Algorithm%20in%20Surveillance%20Video",
-        "answer": "2024",
-        "answer_type": "literal",
-        "text_answer": "The paper \"Flying Bird Object Detection Algorithm in Surveillance Video\" was published in 2024.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_009",
-        "question": "Who are the authors of the paper \u201cOverview of the PromptCBLUE Shared Task in CHIP2023\u201d?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Overview%20of%20the%20PromptCBLUE%20Shared%20Task%20in%20CHIP2023",
-        "answer": [
-            "Buzhou Tang",
-            "Mosha Chen",
-            "Wei Zhu",
-            "Xiaoling Wang"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \"Overview of the PromptCBLUE Shared Task in CHIP2023\" are Buzhou Tang, Mosha Chen, Wei Zhu, and Xiaoling Wang.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_010",
-        "question": "Which task is associated with the paper \u201cBeyond Suspension: A Two-phase Methodology for Concluding Sports Leagues\u201d?",
-        "question_type": "paper_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Beyond%20Suspension%3A%20A%20Two-phase%20Methodology%20for%20Concluding%20Sports%20Leagues",
-        "answer": [
-            "Stochastic Optimization",
-            "Scheduling"
-        ],
-        "answer_type": "list",
-        "text_answer": "The tasks associated with the paper \"Beyond Suspension: A Two-phase Methodology for Concluding Sports Leagues\" are: Stochastic Optimization and Scheduling.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_011",
-        "question": "What is the publication year of the paper \"Attention Is All You Need\"?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Attention%20Is%20All%20You%20Need",
-        "answer": "2017",
-        "answer_type": "literal",
-        "text_answer": "The paper \"Attention Is All You Need\" was published in 2017.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_012",
-        "question": "What is the publication year of \"RoBERTa: A Robustly Optimized BERT Pretraining Approach\"?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/RoBERTa%3A%20A%20Robustly%20Optimized%20BERT%20Pretraining%20Approach",
-        "answer": "2019",
-        "answer_type": "literal",
-        "text_answer": "The paper \"RoBERTa: A Robustly Optimized BERT Pretraining Approach\" was published in 2019.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_013",
-        "question": "Who are the authors of the paper \"GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding\"?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/GLUE%3A%20A%20Multi-Task%20Benchmark%20and%20Analysis%20Platform%20for%20Natural%20Language%20Understanding",
-        "answer": [
-            "Alex Wang",
-            "Amanpreet Singh",
-            "Felix Hill",
-            "Julian Michael",
-            "Omer Levy",
-            "Samuel R. Bowman"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \"GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding\" are Alex Wang, Amanpreet Singh, Felix Hill, Julian Michael, Omer Levy, and Samuel R. Bowman.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_014",
-        "question": "Which tasks are associated with the MultiNLI dataset?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
-        "answer": [
-            "TextGeneration",
-            "Natural Language Inference"
-        ],
-        "answer_type": "list",
-        "text_answer": "The MultiNLI dataset is associated with the following tasks: TextGeneration and Natural Language Inference.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_015",
-        "question": "What keywords are attached to the paper \"GOLF: Goal-Oriented Long-term liFe tasks supported by human-AI collaboration\"?",
-        "question_type": "paper_to_keywords",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/GOLF%3A%20Goal-Oriented%20Long-term%20liFe%20tasks%20supported%20by%20human-AI%20collaboration",
-        "answer": [
-            "Decision Making",
-            "Information Retrieval",
-            "Focus"
-        ],
-        "answer_type": "list",
-        "text_answer": "The keywords attached to the paper \"GOLF: Goal-Oriented Long-term liFe tasks supported by human-AI collaboration\" are: Decision Making, Information Retrieval, and Focus.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_016",
-        "question": "Which authors wrote the paper \u201cFlying Bird Object Detection Algorithm in Surveillance Video\u201d?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Flying%20Bird%20Object%20Detection%20Algorithm%20in%20Surveillance%20Video",
-        "answer": [
-            "Shreyasi Mandal"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \"Flying Bird Object Detection Algorithm in Surveillance Video\" are Shreyasi Mandal.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_017",
-        "question": "What tasks are associated with the SNLI dataset?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
-        "answer": [
-            "Cross-Lingual Transfer",
-            "Zero-Shot Learning",
-            "Natural Language Understanding",
-            "Translation",
-            "XLM-R",
-            "Reading Comprehension",
-            "Natural Language Inference",
-            "counterfactual",
-            "Few-Shot Learning",
-            "BASE",
-            "Multimodal Reasoning",
-            "Test",
-            "Sentence"
-        ],
-        "answer_type": "list",
-        "text_answer": "The SNLI dataset is associated with the following tasks: Cross-Lingual Transfer, Zero-Shot Learning, Natural Language Understanding, Translation, XLM-R, Reading Comprehension, Natural Language Inference, counterfactual, Few-Shot Learning, BASE, Multimodal Reasoning, Test, and Sentence.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_018",
-        "question": "What specific tasks are associated with the SQuAD dataset?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
-        "answer": [
-            "Question Answering",
-            "Sequence-to-sequence Language Modeling",
-            "Reading Comprehension",
-            "Question Generation",
-            "Domain Question Answering",
-            "Text2TextGeneration"
-        ],
-        "answer_type": "list",
-        "text_answer": "The SQuAD dataset is associated with the following tasks: Question Answering, Sequence-to-sequence Language Modeling, Reading Comprehension, Question Generation, Domain Question Answering, and Text2TextGeneration.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_019",
-        "question": "Which authors contributed to the paper \u201cAttacking Byzantine Robust Aggregation in High Dimensions\u201d?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Attacking%20Byzantine%20Robust%20Aggregation%20in%20High%20Dimensions",
-        "answer": [
-            "Prateek Saxena",
-            "Aashish Kolluri",
-            "Sarthak Choudhary"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \"Attacking Byzantine Robust Aggregation in High Dimensions\" are Prateek Saxena, Aashish Kolluri, and Sarthak Choudhary.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_020",
-        "question": "Which scientific works contain \"transformer networks\" in their title and were published in 2017?",
-        "question_type": "title_and_year_filter_to_papers",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Flying%20Bird%20Object%20Detection%20Algorithm%20in%20Surveillance%20Video",
-        "answer": [
-            "3D Morphable Models as Spatial Transformer Networks",
-            "Dense Transformer Networks",
-            "Modeling Image Virality with Pairwise Spatial Transformer Networks",
-            "Polar Transformer Networks",
-            "Unconstrained Fashion Landmark Detection via Hierarchical Recurrent Transformer Networks"
-        ],
-        "answer_type": "list",
-        "text_answer": "The scientific works that contain \"transformer networks\" in their title and were published in 2017 are: 3D Morphable Models as Spatial Transformer Networks, Dense Transformer Networks, Modeling Image Virality with Pairwise Spatial Transformer Networks, Polar Transformer Networks, and Unconstrained Fashion Landmark Detection via Hierarchical Recurrent Transformer Networks.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_021",
-        "question": "How is the weather today?",
-        "question_type": "unanswerable",
-        "target_entity_iri": null,
-        "answer": null,
-        "answer_type": "none",
-        "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
-        "is_answerable": false
-    },
-    {
-        "id": "mlsea_q_022",
-        "question": "What are the winning lottery numbers for next week?",
-        "question_type": "unanswerable",
-        "target_entity_iri": null,
-        "answer": null,
-        "answer_type": "none",
-        "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
-        "is_answerable": false
-    },
-    {
-        "id": "mlsea_q_023",
-        "question": "Who will win the next World Cup?",
-        "question_type": "unanswerable",
-        "target_entity_iri": null,
-        "answer": null,
-        "answer_type": "none",
-        "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
-        "is_answerable": false
-    },
-    {
-        "id": "mlsea_q_024",
-        "question": "What is the meaning of life?",
-        "question_type": "unanswerable",
-        "target_entity_iri": null,
-        "answer": null,
-        "answer_type": "none",
-        "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
-        "is_answerable": false
-    },
-    {
-        "id": "mlsea_q_025",
-        "question": "How do I bake a chocolate cake?",
-        "question_type": "unanswerable",
-        "target_entity_iri": null,
-        "answer": null,
-        "answer_type": "none",
-        "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
-        "is_answerable": false
-    },
-    {
-        "id": "mlsea_q_026",
-        "question": "What tasks are associated with the NVGesture dataset?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/%20NVGesture",
-        "answer": [],
-        "answer_type": "list",
-        "text_answer": "The dataset is associated with the following tasks: Not found in DB.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_027",
-        "question": "Which tasks are associated with the 30MQA dataset?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/30MQA",
-        "answer": [
-            "QuestionGeneration"
-        ],
-        "answer_type": "list",
-        "text_answer": "The 30MQA dataset is associated with the following tasks: QuestionGeneration.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_028",
-        "question": "What is the publication year of the A Dataset of State-Censored Tweets dataset?",
-        "question_type": "dataset_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/A%20Dataset%20of%20State-Censored%20Tweets",
-        "answer": "2021",
-        "answer_type": "literal",
-        "text_answer": "The publication year of the A dataset was published in 2021.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_029",
-        "question": "What tasks are associated with the LLAMAS dataset?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/LLAMAS",
-        "answer": [
-            "Lane Detection"
-        ],
-        "answer_type": "list",
-        "text_answer": "The LLAMAS dataset is associated with the following tasks: Lane Detection.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_030",
-        "question": "Which tasks is the Spotify Podcast dataset associated with?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/Spotify%20Podcast",
-        "answer": [
-            "Abstractive Text Summarization"
-        ],
-        "answer_type": "list",
-        "text_answer": "The Spotify Podcast dataset is associated with the following tasks: Abstractive Text Summarization.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_031",
-        "question": "What tasks are associated with the Wiki dataset?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/Wiki",
-        "answer": [
-            "Link Prediction",
-            "Node Classification",
-            "Node Clustering"
-        ],
-        "answer_type": "list",
-        "text_answer": "The Wiki dataset is associated with the following tasks: Link Prediction, Node Classification, and Node Clustering.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_032",
-        "question": "What is the publication year of the wikiHow-image dataset?",
-        "question_type": "dataset_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/wikiHow-image",
-        "answer": "2021",
-        "answer_type": "literal",
-        "text_answer": "The publication year of the wikiHow-image dataset was published in 2021.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_033",
-        "question": "What tasks are associated with the Twitter Sentiment Analysis dataset?",
-        "question_type": "dataset_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/Twitter%20Sentiment%20Analysis",
-        "answer": [
-            "Aspect-BasedSentimentAnalysis(ABSA)",
-            "TextClassification",
-            "TwitterSentimentAnalysis"
-        ],
-        "answer_type": "list",
-        "text_answer": "The Twitter Sentiment Analysis dataset is associated with the following tasks: Aspect-BasedSentimentAnalysis(ABSA), TextClassification, and TwitterSentimentAnalysis.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_034",
-        "question": "What is the publication year of the paper \"USCL: Pretraining Deep Ultrasound Image Diagnosis Model through Video Contrastive Representation Learning\"?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/USCL%3A%20Pretraining%20Deep%20Ultrasound%20Image%20Diagnosis%20Model%20through%20Video%20Contrastive%20Representation%20Learning",
-        "answer": "2020",
-        "answer_type": "literal",
-        "text_answer": "The paper \"USCL: Pretraining Deep Ultrasound Image Diagnosis Model through Video Contrastive Representation Learning\" was published in 2020.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_035",
-        "question": "Who are the authors of the paper \"Topics evolution through multilayer networks; Analysing 2M tweets from 2022 Qatar FIFA World Cup\"?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Topics%20evolution%20through%20multilayer%20networks%3B%20Analysing%202M%20tweets%20from%202022%20Qatar%20FIFA%20World%20Cup",
-        "answer": [
-            "Andrea Russo",
-            "Antonio Picone",
-            "Vincenzo Miracula"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \"Topics evolution through multilayer networks; Analysing 2M tweets from 2022 Qatar FIFA World Cup\" are Andrea Russo, Antonio Picone, and Vincenzo Miracula.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_036",
-        "question": "What is the publication year of the paper \"Sensor-Independent Illumination Estimation for DNN Models\"?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Sensor-Independent%20Illumination%20Estimation%20for%20DNN%20Models",
-        "answer": "2019",
-        "answer_type": "literal",
-        "text_answer": "The paper \"Sensor-Independent Illumination Estimation for DNN Models\" was published in 2019.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_037",
-        "question": "What keywords are attached to the paper \"Slowly Varying Regression under Sparsity\"?",
-        "question_type": "paper_to_keywords",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Slowly%20Varying%20Regression%20under%20Sparsity",
-        "answer": [
-            "Regression"
-        ],
-        "answer_type": "list",
-        "text_answer": "The keywords attached to the paper \"Slowly Varying Regression under Sparsity\" are: Regression.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_038",
-        "question": "What is the publication year of the paper \"Adversarial Attacks on Time Series\"?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Adversarial%20Attacks%20on%20Time%20Series",
-        "answer": "2019",
-        "answer_type": "literal",
-        "text_answer": "The paper \"Adversarial Attacks on Time Series\" was published in 2019.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_039",
-        "question": "Who are the authors of the paper \"Shedding some light on Light Up with Artificial Intelligence\"?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Shedding%20some%20light%20on%20Light%20Up%20with%20Artificial%20Intelligence",
-        "answer": [
-            "James Browning",
-            "Libo Sun",
-            "Roberto Perera"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \"Shedding some light on Light Up with Artificial Intelligence\" are James Browning, Libo Sun, and Roberto Perera.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_040",
-        "question": "Which tasks are associated with the paper \"Multi-scale GANs for Memory-efficient Generation of High Resolution Medical Images\"?",
-        "question_type": "paper_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Multi-scale%20GANs%20for%20Memory-efficient%20Generation%20of%20High%20Resolution%20Medical%20Images",
-        "answer": [
-            "Translation"
-        ],
-        "answer_type": "list",
-        "text_answer": "The task associated with the paper \"Multi-scale GANs for Memory-efficient Generation of High Resolution Medical Images\" is: Translation.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_041",
-        "question": "What is the publication year of the paper \"A High Coverage Method for Automatic False Friends Detection for Spanish and Portuguese\"?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A%20High%20Coverage%20Method%20for%20Automatic%20False%20Friends%20Detection%20for%20Spanish%20and%20Portuguese",
-        "answer": "2018",
-        "answer_type": "literal",
-        "text_answer": "The paper \"A High Coverage Method for Automatic False Friends Detection for Spanish and Portuguese\" was published in 2018.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_042",
-        "question": "Who are the authors of the paper \"Deep Depth From Focus\"?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Deep%20Depth%20From%20Focus",
-        "answer": [
-            "Caner Hazirbas",
-            "Daniel Cremers",
-            "Laura Leal-Taix\u00e9",
-            "Maximilian Christian Staab",
-            "Sebastian Georg Soyer"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \"Deep Depth From Focus\" are Caner Hazirbas, Daniel Cremers, Laura Leal-Taix\u00e9, Maximilian Christian Staab, and Sebastian Georg Soyer.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_043",
-        "question": "Which tasks are associated with the paper \"Probabilistic Matrix Factorization for Automated Machine Learning\"?",
-        "question_type": "paper_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Probabilistic%20Matrix%20Factorization%20for%20Automated%20Machine%20Learning",
-        "answer": [
-            "Bayesian Optimization",
-            "Collaborative Filtering",
-            "Meta-Learning",
-            "Model Selection"
-        ],
-        "answer_type": "list",
-        "text_answer": "The tasks associated with the paper \"Probabilistic Matrix Factorization for Automated Machine Learning\" are: Bayesian Optimization, Collaborative Filtering, Meta-Learning, and Model Selection.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_044",
-        "question": "What tasks are associated with the paper \"Measuring Intersectional Biases in Historical Documents\"?",
-        "question_type": "paper_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Measuring%20Intersectional%20Biases%20in%20Historical%20Documents",
-        "answer": [
-            "Optical Character Recognition (OCR)",
-            "Word Embeddings"
-        ],
-        "answer_type": "list",
-        "text_answer": "The tasks associated with the paper \"Measuring Intersectional Biases in Historical Documents\" are: Optical Character Recognition (OCR) and Word Embeddings.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_045",
-        "question": "What keywords are attached to the paper \"The allocation of FIFA World Cup slots based on the ranking of confederations\"?",
-        "question_type": "paper_to_keywords",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/The%20allocation%20of%20FIFA%20World%20Cup%20slots%20based%20on%20the%20ranking%20of%20confederations",
-        "answer": [
-            "Focus"
-        ],
-        "answer_type": "list",
-        "text_answer": "The keywords attached to the paper \"The allocation of FIFA World Cup slots based on the ranking of confederations\" are: Focus.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_046",
-        "question": "What tasks are associated with the paper \"USCL: Pretraining Deep Ultrasound Image Diagnosis Model through Video Contrastive Representation Learning\"?",
-        "question_type": "paper_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/USCL%3A%20Pretraining%20Deep%20Ultrasound%20Image%20Diagnosis%20Model%20through%20Video%20Contrastive%20Representation%20Learning",
-        "answer": [
-            "Contrastive Learning",
-            "Representation Learning"
-        ],
-        "answer_type": "list",
-        "text_answer": "The tasks associated with the paper \"USCL: Pretraining Deep Ultrasound Image Diagnosis Model through Video Contrastive Representation Learning\" are: Contrastive Learning and Representation Learning.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_047",
-        "question": "Who are the authors of the paper \"Sensor-Independent Illumination Estimation for DNN Models\"?",
-        "question_type": "paper_to_authors",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Sensor-Independent%20Illumination%20Estimation%20for%20DNN%20Models",
-        "answer": [
-            "Mahmoud Afifi",
-            "Michael S. Brown"
-        ],
-        "answer_type": "list",
-        "text_answer": "The authors of \"Sensor-Independent Illumination Estimation for DNN Models\" are Mahmoud Afifi and Michael S. Brown.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_048",
-        "question": "What is the publication year of the paper \"Measuring Intersectional Biases in Historical Documents\"?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Measuring%20Intersectional%20Biases%20in%20Historical%20Documents",
-        "answer": "2023",
-        "answer_type": "literal",
-        "text_answer": "The paper \"Measuring Intersectional Biases in Historical Documents\" was published in 2023.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_049",
-        "question": "What is the publication year of the paper \"Topics evolution through multilayer networks; Analysing 2M tweets from 2022 Qatar FIFA World Cup\"?",
-        "question_type": "paper_to_publication_year",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Topics%20evolution%20through%20multilayer%20networks%3B%20Analysing%202M%20tweets%20from%202022%20Qatar%20FIFA%20World%20Cup",
-        "answer": "2024",
-        "answer_type": "literal",
-        "text_answer": "The paper \"Topics evolution through multilayer networks; Analysing 2M tweets from 2022 Qatar FIFA World Cup\" was published in 2024.",
-        "is_answerable": true
-    },
-    {
-        "id": "mlsea_q_050",
-        "question": "Which tasks are associated with the paper \"Adversarial Attacks on Time Series\"?",
-        "question_type": "paper_to_tasks",
-        "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Adversarial%20Attacks%20on%20Time%20Series",
-        "answer": [
-            "Classification",
-            "Time Series Analysis",
-            "Time Series Classification"
-        ],
-        "answer_type": "list",
-        "text_answer": "The tasks associated with the paper \"Adversarial Attacks on Time Series\" are: Classification, Time Series Analysis, and Time Series Classification.",
-        "is_answerable": true
-    }
+  {
+    "id": "mlsea_q_001",
+    "question": "What specific tasks is the MedDG dataset associated with?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+    "answer": [
+      "Dialogue Generation",
+      "Response Generation",
+      "Retrieval"
+    ],
+    "answer_type": "list",
+    "text_answer": "The MedDG dataset is associated with the following tasks: Dialogue Generation, Response Generation, and Retrieval.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_002",
+    "question": "What is the publication year for the paper \"Capture, Learning, and Synthesis of 3D Speaking Styles\"?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Capture%2C%20Learning%2C%20and%20Synthesis%20of%203D%20Speaking%20Styles",
+    "answer": "2019",
+    "answer_type": "literal",
+    "text_answer": "The paper \"Capture, Learning, and Synthesis of 3D Speaking Styles\" was published in 2019.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_003",
+    "question": "Who are the authors of “CoQA: A Conversational Question Answering Challenge”?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/CoQA%3A%20A%20Conversational%20Question%20Answering%20Challenge",
+    "answer": [
+      "Christopher D. Manning",
+      "Danqi Chen",
+      "Siva Reddy"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"CoQA: A Conversational Question Answering Challenge\" are Christopher D. Manning, Danqi Chen, and Siva Reddy.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_004",
+    "question": "Which tasks are associated with the paper “P-ROCKET: Pruning Random Convolution Kernels for Time Series Classification from a Feature Selection Perspective”?",
+    "question_type": "paper_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/P-ROCKET%3A%20Pruning%20Random%20Convolution%20Kernels%20for%20Time%20Series%20Classification",
+    "answer": [
+      "Time Series Classification",
+      "Feature Selection"
+    ],
+    "answer_type": "list",
+    "text_answer": "The tasks associated with the paper \"P-ROCKET: Pruning Random Convolution Kernels for Time Series Classification from a Feature Selection Perspective\" are: Time Series Classification and Feature Selection.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_005",
+    "question": "Who are the authors of the paper \" Capture, Learning, and Synthesis of 3D Speaking Styles\"?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Capture%2C%20Learning%2C%20and%20Synthesis%20of%203D%20Speaking%20Styles",
+    "answer": [
+      "Anurag Ranjan",
+      "Cassidy Laidlaw",
+      "Daniel Cudeiro",
+      "Michael J. Black",
+      "Timo Bolkart"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \" Capture, Learning, and Synthesis of 3D Speaking Styles\" are Anurag Ranjan, Cassidy Laidlaw, Daniel Cudeiro, Michael J. Black, and Timo Bolkart.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_006",
+    "question": "Which task is associated with the paper “The Evolution of football Betting”?",
+    "question_type": "paper_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/The%20Evolution%20of%20Football%20Betting-%20A%20Machine%20Learning%20Approach%20to%20Match%20Outcome%20Forecasting%20and%20Bookmaker%20Odds%20Estimation",
+    "answer": [
+      "Decision Making",
+      "Sports Analytics"
+    ],
+    "answer_type": "list",
+    "text_answer": "The tasks associated with the paper \"The Evolution of football Betting\" are: Decision Making and Sports Analytics.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_007",
+    "question": "Which task is associated with the paper “A Comparative Study in NBA Sports”?",
+    "question_type": "paper_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Model-Agnostic%20Interpretation%20Framework%20in%20Machine%20Learning%3A%20A%20Comparative%20Study%20in%20NBA%20Sports",
+    "answer": [
+      "Decision Making",
+      "Computational Efficiency"
+    ],
+    "answer_type": "list",
+    "text_answer": "The tasks associated with the paper \"A Comparative Study in NBA Sports\" are: Decision Making and Computational Efficiency.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_008",
+    "question": "What is the publication year for the paper “Flying Bird Object Detection Algorithm in Surveillance Video”?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Flying%20Bird%20Object%20Detection%20Algorithm%20in%20Surveillance%20Video",
+    "answer": "2024",
+    "answer_type": "literal",
+    "text_answer": "The paper \"Flying Bird Object Detection Algorithm in Surveillance Video\" was published in 2024.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_009",
+    "question": "Who are the authors of the paper “Overview of the PromptCBLUE Shared Task in CHIP2023”?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Overview%20of%20the%20PromptCBLUE%20Shared%20Task%20in%20CHIP2023",
+    "answer": [
+      "Buzhou Tang",
+      "Mosha Chen",
+      "Wei Zhu",
+      "Xiaoling Wang"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"Overview of the PromptCBLUE Shared Task in CHIP2023\" are Buzhou Tang, Mosha Chen, Wei Zhu, and Xiaoling Wang.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_010",
+    "question": "Which task is associated with the paper “Beyond Suspension: A Two-phase Methodology for Concluding Sports Leagues”?",
+    "question_type": "paper_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Beyond%20Suspension%3A%20A%20Two-phase%20Methodology%20for%20Concluding%20Sports%20Leagues",
+    "answer": [
+      "Stochastic Optimization",
+      "Scheduling"
+    ],
+    "answer_type": "list",
+    "text_answer": "The tasks associated with the paper \"Beyond Suspension: A Two-phase Methodology for Concluding Sports Leagues\" are: Stochastic Optimization and Scheduling.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_011",
+    "question": "What is the publication year of the paper \"Attention Is All You Need\"?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Attention%20Is%20All%20You%20Need",
+    "answer": "2017",
+    "answer_type": "literal",
+    "text_answer": "The paper \"Attention Is All You Need\" was published in 2017.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_012",
+    "question": "What is the publication year of \"RoBERTa: A Robustly Optimized BERT Pretraining Approach\"?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/RoBERTa%3A%20A%20Robustly%20Optimized%20BERT%20Pretraining%20Approach",
+    "answer": "2019",
+    "answer_type": "literal",
+    "text_answer": "The paper \"RoBERTa: A Robustly Optimized BERT Pretraining Approach\" was published in 2019.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_013",
+    "question": "Who are the authors of the paper \"GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding\"?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/GLUE%3A%20A%20Multi-Task%20Benchmark%20and%20Analysis%20Platform%20for%20Natural%20Language%20Understanding",
+    "answer": [
+      "Alex Wang",
+      "Amanpreet Singh",
+      "Felix Hill",
+      "Julian Michael",
+      "Omer Levy",
+      "Samuel R. Bowman"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding\" are Alex Wang, Amanpreet Singh, Felix Hill, Julian Michael, Omer Levy, and Samuel R. Bowman.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_014",
+    "question": "Which tasks are associated with the MultiNLI dataset?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+    "answer": [
+      "TextGeneration",
+      "Natural Language Inference"
+    ],
+    "answer_type": "list",
+    "text_answer": "The MultiNLI dataset is associated with the following tasks: TextGeneration and Natural Language Inference.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_015",
+    "question": "What keywords are attached to the paper \"GOLF: Goal-Oriented Long-term liFe tasks supported by human-AI collaboration\"?",
+    "question_type": "paper_to_keywords",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/GOLF%3A%20Goal-Oriented%20Long-term%20liFe%20tasks%20supported%20by%20human-AI%20collaboration",
+    "answer": [
+      "Decision Making",
+      "Information Retrieval",
+      "Focus"
+    ],
+    "answer_type": "list",
+    "text_answer": "The keywords attached to the paper \"GOLF: Goal-Oriented Long-term liFe tasks supported by human-AI collaboration\" are: Decision Making, Information Retrieval, and Focus.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_016",
+    "question": "Which authors wrote the paper “Flying Bird Object Detection Algorithm in Surveillance Video”?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Flying%20Bird%20Object%20Detection%20Algorithm%20in%20Surveillance%20Video",
+    "answer": [
+      "Shreyasi Mandal"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"Flying Bird Object Detection Algorithm in Surveillance Video\" are Shreyasi Mandal.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_017",
+    "question": "What tasks are associated with the SNLI dataset?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+    "answer": [
+      "Cross-Lingual Transfer",
+      "Zero-Shot Learning",
+      "Natural Language Understanding",
+      "Translation",
+      "XLM-R",
+      "Reading Comprehension",
+      "Natural Language Inference",
+      "counterfactual",
+      "Few-Shot Learning",
+      "BASE",
+      "Multimodal Reasoning",
+      "Test",
+      "Sentence"
+    ],
+    "answer_type": "list",
+    "text_answer": "The SNLI dataset is associated with the following tasks: Cross-Lingual Transfer, Zero-Shot Learning, Natural Language Understanding, Translation, XLM-R, Reading Comprehension, Natural Language Inference, counterfactual, Few-Shot Learning, BASE, Multimodal Reasoning, Test, and Sentence.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_018",
+    "question": "What specific tasks are associated with the SQuAD dataset?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+    "answer": [
+      "Question Answering",
+      "Sequence-to-sequence Language Modeling",
+      "Reading Comprehension",
+      "Question Generation",
+      "Domain Question Answering",
+      "Text2TextGeneration"
+    ],
+    "answer_type": "list",
+    "text_answer": "The SQuAD dataset is associated with the following tasks: Question Answering, Sequence-to-sequence Language Modeling, Reading Comprehension, Question Generation, Domain Question Answering, and Text2TextGeneration.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_019",
+    "question": "Which authors contributed to the paper “Attacking Byzantine Robust Aggregation in High Dimensions”?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Attacking%20Byzantine%20Robust%20Aggregation%20in%20High%20Dimensions",
+    "answer": [
+      "Prateek Saxena",
+      "Aashish Kolluri",
+      "Sarthak Choudhary"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"Attacking Byzantine Robust Aggregation in High Dimensions\" are Prateek Saxena, Aashish Kolluri, and Sarthak Choudhary.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_020",
+    "question": "Which scientific works contain \"transformer networks\" in their title and were published in 2017?",
+    "question_type": "title_and_year_filter_to_papers",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Flying%20Bird%20Object%20Detection%20Algorithm%20in%20Surveillance%20Video",
+    "answer": [
+      "3D Morphable Models as Spatial Transformer Networks",
+      "Dense Transformer Networks",
+      "Modeling Image Virality with Pairwise Spatial Transformer Networks",
+      "Polar Transformer Networks",
+      "Unconstrained Fashion Landmark Detection via Hierarchical Recurrent Transformer Networks"
+    ],
+    "answer_type": "list",
+    "text_answer": "The scientific works that contain \"transformer networks\" in their title and were published in 2017 are: 3D Morphable Models as Spatial Transformer Networks, Dense Transformer Networks, Modeling Image Virality with Pairwise Spatial Transformer Networks, Polar Transformer Networks, and Unconstrained Fashion Landmark Detection via Hierarchical Recurrent Transformer Networks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_021",
+    "question": "How is the weather today?",
+    "question_type": "unanswerable",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_022",
+    "question": "What are the winning lottery numbers for next week?",
+    "question_type": "unanswerable",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_023",
+    "question": "Who will win the next World Cup?",
+    "question_type": "unanswerable",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_024",
+    "question": "What is the meaning of life?",
+    "question_type": "unanswerable",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_025",
+    "question": "How do I bake a chocolate cake?",
+    "question_type": "unanswerable",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The question is unanswerable from the available MLSea knowledge graph context.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_026",
+    "question": "What tasks are associated with the NVGesture dataset?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/%20NVGesture",
+    "answer": [],
+    "answer_type": "list",
+    "text_answer": "The dataset is associated with the following tasks: Not found in DB.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_027",
+    "question": "Which tasks are associated with the 30MQA dataset?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/30MQA",
+    "answer": [
+      "QuestionGeneration"
+    ],
+    "answer_type": "list",
+    "text_answer": "The 30MQA dataset is associated with the following tasks: QuestionGeneration.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_028",
+    "question": "What is the publication year of the A Dataset of State-Censored Tweets dataset?",
+    "question_type": "dataset_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/A%20Dataset%20of%20State-Censored%20Tweets",
+    "answer": "2021",
+    "answer_type": "literal",
+    "text_answer": "The publication year of the A dataset was published in 2021.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_029",
+    "question": "What tasks are associated with the LLAMAS dataset?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/LLAMAS",
+    "answer": [
+      "Lane Detection"
+    ],
+    "answer_type": "list",
+    "text_answer": "The LLAMAS dataset is associated with the following tasks: Lane Detection.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_030",
+    "question": "Which tasks is the Spotify Podcast dataset associated with?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/Spotify%20Podcast",
+    "answer": [
+      "Abstractive Text Summarization"
+    ],
+    "answer_type": "list",
+    "text_answer": "The Spotify Podcast dataset is associated with the following tasks: Abstractive Text Summarization.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_031",
+    "question": "What tasks are associated with the Wiki dataset?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/Wiki",
+    "answer": [
+      "Link Prediction",
+      "Node Classification",
+      "Node Clustering"
+    ],
+    "answer_type": "list",
+    "text_answer": "The Wiki dataset is associated with the following tasks: Link Prediction, Node Classification, and Node Clustering.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_032",
+    "question": "What is the publication year of the wikiHow-image dataset?",
+    "question_type": "dataset_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/wikiHow-image",
+    "answer": "2021",
+    "answer_type": "literal",
+    "text_answer": "The publication year of the wikiHow-image dataset was published in 2021.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_033",
+    "question": "What tasks are associated with the Twitter Sentiment Analysis dataset?",
+    "question_type": "dataset_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/Twitter%20Sentiment%20Analysis",
+    "answer": [
+      "Aspect-BasedSentimentAnalysis(ABSA)",
+      "TextClassification",
+      "TwitterSentimentAnalysis"
+    ],
+    "answer_type": "list",
+    "text_answer": "The Twitter Sentiment Analysis dataset is associated with the following tasks: Aspect-BasedSentimentAnalysis(ABSA), TextClassification, and TwitterSentimentAnalysis.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_034",
+    "question": "What is the publication year of the paper \"USCL: Pretraining Deep Ultrasound Image Diagnosis Model through Video Contrastive Representation Learning\"?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/USCL%3A%20Pretraining%20Deep%20Ultrasound%20Image%20Diagnosis%20Model%20through%20Video%20Contrastive%20Representation%20Learning",
+    "answer": "2020",
+    "answer_type": "literal",
+    "text_answer": "The paper \"USCL: Pretraining Deep Ultrasound Image Diagnosis Model through Video Contrastive Representation Learning\" was published in 2020.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_035",
+    "question": "Who are the authors of the paper \"Topics evolution through multilayer networks; Analysing 2M tweets from 2022 Qatar FIFA World Cup\"?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Topics%20evolution%20through%20multilayer%20networks%3B%20Analysing%202M%20tweets%20from%202022%20Qatar%20FIFA%20World%20Cup",
+    "answer": [
+      "Andrea Russo",
+      "Antonio Picone",
+      "Vincenzo Miracula"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"Topics evolution through multilayer networks; Analysing 2M tweets from 2022 Qatar FIFA World Cup\" are Andrea Russo, Antonio Picone, and Vincenzo Miracula.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_036",
+    "question": "What is the publication year of the paper \"Sensor-Independent Illumination Estimation for DNN Models\"?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Sensor-Independent%20Illumination%20Estimation%20for%20DNN%20Models",
+    "answer": "2019",
+    "answer_type": "literal",
+    "text_answer": "The paper \"Sensor-Independent Illumination Estimation for DNN Models\" was published in 2019.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_037",
+    "question": "What keywords are attached to the paper \"Slowly Varying Regression under Sparsity\"?",
+    "question_type": "paper_to_keywords",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Slowly%20Varying%20Regression%20under%20Sparsity",
+    "answer": [
+      "Regression"
+    ],
+    "answer_type": "list",
+    "text_answer": "The keywords attached to the paper \"Slowly Varying Regression under Sparsity\" are: Regression.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_038",
+    "question": "What is the publication year of the paper \"Adversarial Attacks on Time Series\"?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Adversarial%20Attacks%20on%20Time%20Series",
+    "answer": "2019",
+    "answer_type": "literal",
+    "text_answer": "The paper \"Adversarial Attacks on Time Series\" was published in 2019.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_039",
+    "question": "Who are the authors of the paper \"Shedding some light on Light Up with Artificial Intelligence\"?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Shedding%20some%20light%20on%20Light%20Up%20with%20Artificial%20Intelligence",
+    "answer": [
+      "James Browning",
+      "Libo Sun",
+      "Roberto Perera"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"Shedding some light on Light Up with Artificial Intelligence\" are James Browning, Libo Sun, and Roberto Perera.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_040",
+    "question": "Which tasks are associated with the paper \"Multi-scale GANs for Memory-efficient Generation of High Resolution Medical Images\"?",
+    "question_type": "paper_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Multi-scale%20GANs%20for%20Memory-efficient%20Generation%20of%20High%20Resolution%20Medical%20Images",
+    "answer": [
+      "Translation"
+    ],
+    "answer_type": "list",
+    "text_answer": "The task associated with the paper \"Multi-scale GANs for Memory-efficient Generation of High Resolution Medical Images\" is: Translation.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_041",
+    "question": "What is the publication year of the paper \"A High Coverage Method for Automatic False Friends Detection for Spanish and Portuguese\"?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A%20High%20Coverage%20Method%20for%20Automatic%20False%20Friends%20Detection%20for%20Spanish%20and%20Portuguese",
+    "answer": "2018",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A High Coverage Method for Automatic False Friends Detection for Spanish and Portuguese\" was published in 2018.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_042",
+    "question": "Who are the authors of the paper \"Deep Depth From Focus\"?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Deep%20Depth%20From%20Focus",
+    "answer": [
+      "Caner Hazirbas",
+      "Daniel Cremers",
+      "Laura Leal-Taixé",
+      "Maximilian Christian Staab",
+      "Sebastian Georg Soyer"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"Deep Depth From Focus\" are Caner Hazirbas, Daniel Cremers, Laura Leal-Taixé, Maximilian Christian Staab, and Sebastian Georg Soyer.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_043",
+    "question": "Which tasks are associated with the paper \"Probabilistic Matrix Factorization for Automated Machine Learning\"?",
+    "question_type": "paper_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Probabilistic%20Matrix%20Factorization%20for%20Automated%20Machine%20Learning",
+    "answer": [
+      "Bayesian Optimization",
+      "Collaborative Filtering",
+      "Meta-Learning",
+      "Model Selection"
+    ],
+    "answer_type": "list",
+    "text_answer": "The tasks associated with the paper \"Probabilistic Matrix Factorization for Automated Machine Learning\" are: Bayesian Optimization, Collaborative Filtering, Meta-Learning, and Model Selection.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_044",
+    "question": "What tasks are associated with the paper \"Measuring Intersectional Biases in Historical Documents\"?",
+    "question_type": "paper_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Measuring%20Intersectional%20Biases%20in%20Historical%20Documents",
+    "answer": [
+      "Optical Character Recognition (OCR)",
+      "Word Embeddings"
+    ],
+    "answer_type": "list",
+    "text_answer": "The tasks associated with the paper \"Measuring Intersectional Biases in Historical Documents\" are: Optical Character Recognition (OCR) and Word Embeddings.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_045",
+    "question": "What keywords are attached to the paper \"The allocation of FIFA World Cup slots based on the ranking of confederations\"?",
+    "question_type": "paper_to_keywords",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/The%20allocation%20of%20FIFA%20World%20Cup%20slots%20based%20on%20the%20ranking%20of%20confederations",
+    "answer": [
+      "Focus"
+    ],
+    "answer_type": "list",
+    "text_answer": "The keywords attached to the paper \"The allocation of FIFA World Cup slots based on the ranking of confederations\" are: Focus.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_046",
+    "question": "What tasks are associated with the paper \"USCL: Pretraining Deep Ultrasound Image Diagnosis Model through Video Contrastive Representation Learning\"?",
+    "question_type": "paper_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/USCL%3A%20Pretraining%20Deep%20Ultrasound%20Image%20Diagnosis%20Model%20through%20Video%20Contrastive%20Representation%20Learning",
+    "answer": [
+      "Contrastive Learning",
+      "Representation Learning"
+    ],
+    "answer_type": "list",
+    "text_answer": "The tasks associated with the paper \"USCL: Pretraining Deep Ultrasound Image Diagnosis Model through Video Contrastive Representation Learning\" are: Contrastive Learning and Representation Learning.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_047",
+    "question": "Who are the authors of the paper \"Sensor-Independent Illumination Estimation for DNN Models\"?",
+    "question_type": "paper_to_authors",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Sensor-Independent%20Illumination%20Estimation%20for%20DNN%20Models",
+    "answer": [
+      "Mahmoud Afifi",
+      "Michael S. Brown"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"Sensor-Independent Illumination Estimation for DNN Models\" are Mahmoud Afifi and Michael S. Brown.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_048",
+    "question": "What is the publication year of the paper \"Measuring Intersectional Biases in Historical Documents\"?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Measuring%20Intersectional%20Biases%20in%20Historical%20Documents",
+    "answer": "2023",
+    "answer_type": "literal",
+    "text_answer": "The paper \"Measuring Intersectional Biases in Historical Documents\" was published in 2023.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_049",
+    "question": "What is the publication year of the paper \"Topics evolution through multilayer networks; Analysing 2M tweets from 2022 Qatar FIFA World Cup\"?",
+    "question_type": "paper_to_publication_year",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Topics%20evolution%20through%20multilayer%20networks%3B%20Analysing%202M%20tweets%20from%202022%20Qatar%20FIFA%20World%20Cup",
+    "answer": "2024",
+    "answer_type": "literal",
+    "text_answer": "The paper \"Topics evolution through multilayer networks; Analysing 2M tweets from 2022 Qatar FIFA World Cup\" was published in 2024.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_050",
+    "question": "Which tasks are associated with the paper \"Adversarial Attacks on Time Series\"?",
+    "question_type": "paper_to_tasks",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/Adversarial%20Attacks%20on%20Time%20Series",
+    "answer": [
+      "Classification",
+      "Time Series Analysis",
+      "Time Series Classification"
+    ],
+    "answer_type": "list",
+    "text_answer": "The tasks associated with the paper \"Adversarial Attacks on Time Series\" are: Classification, Time Series Analysis, and Time Series Classification.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_051",
+    "question": "Who wrote the paper \"$ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/$ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens",
+    "answer": [
+      "Shengding Hu",
+      "JunHao Chen",
+      "Zhen Leng Thai",
+      "Yingfa Chen",
+      "Maosong Sun",
+      "Zihang Xu",
+      "Xinrong Zhang",
+      "Shuo Wang",
+      "Zhiyuan Liu",
+      "Moo Khai Hao",
+      "Xu Han"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"$ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens\" are Shengding Hu, JunHao Chen, Zhen Leng Thai, Yingfa Chen, Maosong Sun, Zihang Xu, Xinrong Zhang, Shuo Wang, Zhiyuan Liu, Moo Khai Hao, and Xu Han.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_052",
+    "question": "Who wrote the paper \"$ varepsilon$-fractional Core Stability in Hedonic Games\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/$ varepsilon$-fractional Core Stability in Hedonic Games",
+    "answer": [
+      "Giovanna Varricchio",
+      "Simone Fioravanti",
+      "Michele Flammini",
+      "Bojana Kodric"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"$ varepsilon$-fractional Core Stability in Hedonic Games\" are Giovanna Varricchio, Simone Fioravanti, Michele Flammini, and Bojana Kodric.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_053",
+    "question": "Who wrote the paper \"$E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/$E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI",
+    "answer": [
+      "Neel Dey",
+      "Guido Gerig",
+      "Axel Elaldi"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"$E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI\" are Neel Dey, Guido Gerig, and Axel Elaldi.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_054",
+    "question": "Who wrote the paper \"'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset",
+    "answer": [
+      "David Schlangen",
+      "Brielen Madureira"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset\" are David Schlangen and Brielen Madureira.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_055",
+    "question": "Who wrote the paper \"'Attention' for Detecting Unreliable News in the Information Age\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Attention' for Detecting Unreliable News in the Information Age",
+    "answer": [
+      "Venkatesh Duppada"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Attention' for Detecting Unreliable News in the Information Age\" are Venkatesh Duppada.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_056",
+    "question": "Who wrote the paper \"'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations",
+    "answer": [
+      "Robert Rein",
+      "Eric Müller-Budack",
+      "Ralph Ewerth",
+      "Jonas Theiner"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations\" are Robert Rein, Eric Müller-Budack, Ralph Ewerth, and Jonas Theiner.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_057",
+    "question": "Who wrote the paper \"'Ergodicity Economics' is Pseudoscience\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Ergodicity Economics' is Pseudoscience",
+    "answer": [
+      "Alexis Akira Toda"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Ergodicity Economics' is Pseudoscience\" are Alexis Akira Toda.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_058",
+    "question": "Who wrote the paper \"'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent",
+    "answer": [
+      "Jeffrey P. Bigham",
+      "Ting-Hao Kenneth Huang",
+      "Amos Azaria",
+      "Walter S. Lasecki"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent\" are Jeffrey P. Bigham, Ting-Hao Kenneth Huang, Amos Azaria, and Walter S. Lasecki.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_059",
+    "question": "Who wrote the paper \"'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT",
+    "answer": [
+      "Giorgio Pietro Biondetti",
+      "Christopher P. Bridge",
+      "Katherine P. Andriole",
+      "Romane Gauriau",
+      "Charles Lu"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT\" are Giorgio Pietro Biondetti, Christopher P. Bridge, Katherine P. Andriole, Romane Gauriau, and Charles Lu.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_060",
+    "question": "Who wrote the paper \"'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice",
+    "answer": [
+      "David Freeman",
+      "Kevin A. Roundy",
+      "Fabio Pierazzi",
+      "Savino Dambra",
+      "Hyrum S. Anderson",
+      "Giovanni Apruzzese"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice\" are David Freeman, Kevin A. Roundy, Fabio Pierazzi, Savino Dambra, Hyrum S. Anderson, and Giovanni Apruzzese.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_061",
+    "question": "Who wrote the paper \"'Seeing' Electric Network Frequency From Events\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Seeing' Electric Network Frequency From Events",
+    "answer": [
+      "Haijian Zhang",
+      "Guang Hua",
+      "Ning Qiao",
+      "Lexuan Xu",
+      "Lei Yu"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Seeing' Electric Network Frequency From Events\" are Haijian Zhang, Guang Hua, Ning Qiao, Lexuan Xu, and Lei Yu.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_062",
+    "question": "Who wrote the paper \"'Seeing'' Electric Network Frequency from Events\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Seeing'' Electric Network Frequency from Events",
+    "answer": [
+      "Ning Qiao",
+      "Haijian Zhang",
+      "Guang Hua",
+      "Lexuan Xu",
+      "Lei Yu"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Seeing'' Electric Network Frequency from Events\" are Ning Qiao, Haijian Zhang, Guang Hua, Lexuan Xu, and Lei Yu.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_063",
+    "question": "Who wrote the paper \"'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness",
+    "answer": [
+      "Jeffrey Brown",
+      "Alice Xiang",
+      "McKane Andrus",
+      "Elena Spitzer"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness\" are Jeffrey Brown, Alice Xiang, McKane Andrus, and Elena Spitzer.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_064",
+    "question": "Who wrote the paper \"'What's my model inside of?': Exploring the role of environments for grounded natural language understanding\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'What's my model inside of?': Exploring the role of environments for grounded natural language understanding",
+    "answer": [
+      "Ronen Tamari"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'What's my model inside of?': Exploring the role of environments for grounded natural language understanding\" are Ronen Tamari.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_065",
+    "question": "Who wrote the paper \"'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer",
+    "answer": [
+      "Jan Van Haaren"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer\" are Jan Van Haaren.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_066",
+    "question": "Who wrote the paper \"(In)Stability for the Blockchain: Deleveraging Spirals and Stablecoin Attacks\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/(In)Stability for the Blockchain: Deleveraging Spirals and Stablecoin Attacks",
+    "answer": [
+      "Andreea Minca",
+      "Ariah Klages-Mundt"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"(In)Stability for the Blockchain: Deleveraging Spirals and Stablecoin Attacks\" are Andreea Minca and Ariah Klages-Mundt.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_067",
+    "question": "Who wrote the paper \"(Re)ranking Meets Morphosyntax: State-of-the-art Results from the SPMRL 2013 Shared Task\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/(Re)ranking Meets Morphosyntax: State-of-the-art Results from the SPMRL 2013 Shared Task",
+    "answer": [
+      "Anders Bj{ 'o}rkelund",
+      "Rich{ 'a}rd Farkas",
+      "Wolfgang Seeker",
+      "Thomas Mueller",
+      "{ 'O}zlem { c{C}}etino{ u{g}}lu"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"(Re)ranking Meets Morphosyntax: State-of-the-art Results from the SPMRL 2013 Shared Task\" are Anders Bj{ 'o}rkelund, Rich{ 'a}rd Farkas, Wolfgang Seeker, Thomas Mueller, and { 'O}zlem { c{C}}etino{ u{g}}lu.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_068",
+    "question": "Who wrote the paper \"(S)GD over Diagonal Linear Networks: Implicit Regularisation, Large Stepsizes and Edge of Stability\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/(S)GD over Diagonal Linear Networks: Implicit Regularisation, Large Stepsizes and Edge of Stability",
+    "answer": [
+      "Suriya Gunasekar",
+      "Nicolas Flammarion",
+      "Mathieu Even",
+      "Scott Pesme"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"(S)GD over Diagonal Linear Networks: Implicit Regularisation, Large Stepsizes and Edge of Stability\" are Suriya Gunasekar, Nicolas Flammarion, Mathieu Even, and Scott Pesme.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_069",
+    "question": "Who wrote the paper \"1-bit Matrix Completion: PAC-Bayesian Analysis of a Variational Approximation\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/1-bit Matrix Completion: PAC-Bayesian Analysis of a Variational Approximation",
+    "answer": [
+      "Pierre Alquier",
+      "Vincent Cottet"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"1-bit Matrix Completion: PAC-Bayesian Analysis of a Variational Approximation\" are Pierre Alquier and Vincent Cottet.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_070",
+    "question": "Who wrote the paper \"1A-Team / Martin-Luther-Universität Halle-Wittenberg@CLSciSumm 20\"?",
+    "question_type": "paper_to_authors",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/1A-Team / Martin-Luther-Universität Halle-Wittenberg@CLSciSumm 20",
+    "answer": [
+      "Anja Fischer",
+      "Lorna Ulbrich",
+      "Maik Boltze",
+      "Artur Jurk",
+      "Georg Keller"
+    ],
+    "answer_type": "list",
+    "text_answer": "The authors of \"1A-Team / Martin-Luther-Universität Halle-Wittenberg@CLSciSumm 20\" are Anja Fischer, Lorna Ulbrich, Maik Boltze, Artur Jurk, and Georg Keller.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_071",
+    "question": "Which tasks are linked to the paper \"3D Lip Event Detection via Interframe Motion Divergence at Multiple Temporal Resolutions\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D Lip Event Detection via Interframe Motion Divergence at Multiple Temporal Resolutions",
+    "answer": [
+      "MotionDetection",
+      "EventDetection"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"3D Lip Event Detection via Interframe Motion Divergence at Multiple Temporal Resolutions\" is linked to the following tasks: MotionDetection and EventDetection.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_072",
+    "question": "Which tasks are linked to the paper \"3D-Aware Talking-Head Video Motion Transfer\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-Aware Talking-Head Video Motion Transfer",
+    "answer": [
+      "NovelViewSynthesis"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"3D-Aware Talking-Head Video Motion Transfer\" is linked to the following tasks: NovelViewSynthesis.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_073",
+    "question": "Which tasks are linked to the paper \"3D-Speaker-Toolkit: An Open Source Toolkit for Multi-modal Speaker Verification and Diarization\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-Speaker-Toolkit: An Open Source Toolkit for Multi-modal Speaker Verification and Diarization",
+    "answer": [
+      "Self-SupervisedLearning",
+      "SpeakerRecognition",
+      "SpeakerDiarization",
+      "SpeakerVerification"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"3D-Speaker-Toolkit: An Open Source Toolkit for Multi-modal Speaker Verification and Diarization\" is linked to the following tasks: Self-SupervisedLearning, SpeakerRecognition, SpeakerDiarization, and SpeakerVerification.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_074",
+    "question": "Which tasks are linked to the paper \"3D-Speaker: A Large-Scale Multi-Device, Multi-Distance, and Multi-Dialect Corpus for Speech Representation Disentanglement\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-Speaker: A Large-Scale Multi-Device, Multi-Distance, and Multi-Dialect Corpus for Speech Representation Disentanglement",
+    "answer": [
+      "Disentanglement",
+      "Self-SupervisedLearning"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"3D-Speaker: A Large-Scale Multi-Device, Multi-Distance, and Multi-Dialect Corpus for Speech Representation Disentanglement\" is linked to the following tasks: Disentanglement and Self-SupervisedLearning.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_075",
+    "question": "Which tasks are linked to the paper \"3D-StyleGAN: A Style-Based Generative Adversarial Network for Generative Modeling of Three-Dimensional Medical Images\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-StyleGAN: A Style-Based Generative Adversarial Network for Generative Modeling of Three-Dimensional Medical Images",
+    "answer": [
+      "ImageGeneration",
+      "ImageEnhancement"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"3D-StyleGAN: A Style-Based Generative Adversarial Network for Generative Modeling of Three-Dimensional Medical Images\" is linked to the following tasks: ImageGeneration and ImageEnhancement.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_076",
+    "question": "Which tasks are linked to the paper \"3D-TalkEmo: Learning to Synthesize 3D Emotional Talking Head\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-TalkEmo: Learning to Synthesize 3D Emotional Talking Head",
+    "answer": [
+      "3DFaceReconstruction",
+      "TalkingFaceGeneration",
+      "FaceReconstruction"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"3D-TalkEmo: Learning to Synthesize 3D Emotional Talking Head\" is linked to the following tasks: 3DFaceReconstruction, TalkingFaceGeneration, and FaceReconstruction.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_077",
+    "question": "Which tasks are linked to the paper \"3DGEN: A GAN-based approach for generating novel 3D models from image data\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3DGEN: A GAN-based approach for generating novel 3D models from image data",
+    "answer": [
+      "ObjectReconstruction",
+      "ImageGeneration"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"3DGEN: A GAN-based approach for generating novel 3D models from image data\" is linked to the following tasks: ObjectReconstruction and ImageGeneration.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_078",
+    "question": "Which tasks are linked to the paper \"3DTINC: Time-Equivariant Non-Contrastive Learning for Predicting Disease Progression from Longitudinal OCTs\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3DTINC: Time-Equivariant Non-Contrastive Learning for Predicting Disease Progression from Longitudinal OCTs",
+    "answer": [
+      "Self-SupervisedLearning",
+      "ContrastiveLearning"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"3DTINC: Time-Equivariant Non-Contrastive Learning for Predicting Disease Progression from Longitudinal OCTs\" is linked to the following tasks: Self-SupervisedLearning and ContrastiveLearning.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_079",
+    "question": "Which tasks are linked to the paper \"``Making the News'': Identifying Noteworthy Events in News Articles\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/``Making the News'': Identifying Noteworthy Events in News Articles",
+    "answer": [
+      "DocumentSummarization"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"``Making the News'': Identifying Noteworthy Events in News Articles\" is linked to the following tasks: DocumentSummarization.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_080",
+    "question": "Which tasks are linked to the paper \"A 3D generative model of pathological multi-modal MR images and segmentations\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A 3D generative model of pathological multi-modal MR images and segmentations",
+    "answer": [
+      "MRIsegmentation",
+      "DataAugmentation"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A 3D generative model of pathological multi-modal MR images and segmentations\" is linked to the following tasks: MRIsegmentation and DataAugmentation.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_081",
+    "question": "Which tasks are linked to the paper \"A Bag of Receptive Fields for Time Series Extrinsic Predictions\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Bag of Receptive Fields for Time Series Extrinsic Predictions",
+    "answer": [
+      "TimeSeriesClassification"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Bag of Receptive Fields for Time Series Extrinsic Predictions\" is linked to the following tasks: TimeSeriesClassification.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_082",
+    "question": "Which tasks are linked to the paper \"A Bayes-Optimal View on Adversarial Examples\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Bayes-Optimal View on Adversarial Examples",
+    "answer": [
+      "AdversarialAttack"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Bayes-Optimal View on Adversarial Examples\" is linked to the following tasks: AdversarialAttack.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_083",
+    "question": "Which tasks are linked to the paper \"A Bayesian Active Learning Approach to Comparative Judgement\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Bayesian Active Learning Approach to Comparative Judgement",
+    "answer": [
+      "ActiveLearning"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Bayesian Active Learning Approach to Comparative Judgement\" is linked to the following tasks: ActiveLearning.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_084",
+    "question": "Which tasks are linked to the paper \"A Bayesian Approach to In-Game Win Probability in Soccer\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Bayesian Approach to In-Game Win Probability in Soccer",
+    "answer": [
+      "DecisionMaking"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Bayesian Approach to In-Game Win Probability in Soccer\" is linked to the following tasks: DecisionMaking.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_085",
+    "question": "Which tasks are linked to the paper \"A Bayesian sparse factor model with adaptive posterior concentration\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Bayesian sparse factor model with adaptive posterior concentration",
+    "answer": [
+      "BayesianInference"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Bayesian sparse factor model with adaptive posterior concentration\" is linked to the following tasks: BayesianInference.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_086",
+    "question": "Which tasks are linked to the paper \"A Benchmark and a Baseline for Robust Multi-view Depth Estimation\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Benchmark and a Baseline for Robust Multi-view Depth Estimation",
+    "answer": [
+      "DepthEstimation"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Benchmark and a Baseline for Robust Multi-view Depth Estimation\" is linked to the following tasks: DepthEstimation.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_087",
+    "question": "Which tasks are linked to the paper \"A Benchmark for Iris Location and a Deep Learning Detector Evaluation\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Benchmark for Iris Location and a Deep Learning Detector Evaluation",
+    "answer": [
+      "IrisRecognition"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Benchmark for Iris Location and a Deep Learning Detector Evaluation\" is linked to the following tasks: IrisRecognition.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_088",
+    "question": "Which tasks are linked to the paper \"A Benchmark for Learning to Translate a New Language from One Grammar Book\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Benchmark for Learning to Translate a New Language from One Grammar Book",
+    "answer": [
+      "Translation",
+      "MachineTranslation"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Benchmark for Learning to Translate a New Language from One Grammar Book\" is linked to the following tasks: Translation and MachineTranslation.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_089",
+    "question": "Which tasks are linked to the paper \"A Benchmark Study of Machine Learning Models for Online Fake News Detection\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Benchmark Study of Machine Learning Models for Online Fake News Detection",
+    "answer": [
+      "FakeNewsDetection"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Benchmark Study of Machine Learning Models for Online Fake News Detection\" is linked to the following tasks: FakeNewsDetection.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_090",
+    "question": "Which tasks are linked to the paper \"A Berkeley View of Systems Challenges for AI\"?",
+    "question_type": "paper_to_tasks",
+    "category": "paper",
+    "difficulty": "easy",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Berkeley View of Systems Challenges for AI",
+    "answer": [
+      "SpeechRecognition",
+      "MachineTranslation"
+    ],
+    "answer_type": "list",
+    "text_answer": "The paper \"A Berkeley View of Systems Challenges for AI\" is linked to the following tasks: SpeechRecognition and MachineTranslation.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_091",
+    "question": "How many authors are credited on the paper \"2020 U.S. presidential election in swing states: Gender differences in Twitter conversations\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/2020 U.S. presidential election in swing states: Gender differences in Twitter conversations",
+    "answer": "7",
+    "answer_type": "literal",
+    "text_answer": "The paper \"2020 U.S. presidential election in swing states: Gender differences in Twitter conversations\" has 7 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_092",
+    "question": "How many authors are credited on the paper \"2021 Drexel Society of Artificial Intelligence Research Conference\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/2021 Drexel Society of Artificial Intelligence Research Conference",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The paper \"2021 Drexel Society of Artificial Intelligence Research Conference\" has 2 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_093",
+    "question": "How many authors are credited on the paper \"365 Dots in 2019: Quantifying Attention of News Sources\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/365 Dots in 2019: Quantifying Attention of News Sources",
+    "answer": "3",
+    "answer_type": "literal",
+    "text_answer": "The paper \"365 Dots in 2019: Quantifying Attention of News Sources\" has 3 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_094",
+    "question": "How many authors are credited on the paper \"3D Bird Reconstruction: a Dataset, Model, and Shape Recovery from a Single View\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D Bird Reconstruction: a Dataset, Model, and Shape Recovery from a Single View",
+    "answer": "8",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3D Bird Reconstruction: a Dataset, Model, and Shape Recovery from a Single View\" has 8 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_095",
+    "question": "How many authors are credited on the paper \"3D Former: Monocular Scene Reconstruction with 3D SDF Transformers\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D Former: Monocular Scene Reconstruction with 3D SDF Transformers",
+    "answer": "5",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3D Former: Monocular Scene Reconstruction with 3D SDF Transformers\" has 5 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_096",
+    "question": "How many authors are credited on the paper \"3D Lip Event Detection via Interframe Motion Divergence at Multiple Temporal Resolutions\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D Lip Event Detection via Interframe Motion Divergence at Multiple Temporal Resolutions",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3D Lip Event Detection via Interframe Motion Divergence at Multiple Temporal Resolutions\" has 2 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_097",
+    "question": "How many authors are credited on the paper \"3D Volumetric Super-Resolution in Radiology Using 3D RRDB-GAN\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D Volumetric Super-Resolution in Radiology Using 3D RRDB-GAN",
+    "answer": "4",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3D Volumetric Super-Resolution in Radiology Using 3D RRDB-GAN\" has 4 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_098",
+    "question": "How many authors are credited on the paper \"3D-Aware Talking-Head Video Motion Transfer\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-Aware Talking-Head Video Motion Transfer",
+    "answer": "4",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3D-Aware Talking-Head Video Motion Transfer\" has 4 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_099",
+    "question": "How many authors are credited on the paper \"3D-Speaker-Toolkit: An Open Source Toolkit for Multi-modal Speaker Verification and Diarization\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-Speaker-Toolkit: An Open Source Toolkit for Multi-modal Speaker Verification and Diarization",
+    "answer": "11",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3D-Speaker-Toolkit: An Open Source Toolkit for Multi-modal Speaker Verification and Diarization\" has 11 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_100",
+    "question": "How many authors are credited on the paper \"3D-Speaker: A Large-Scale Multi-Device, Multi-Distance, and Multi-Dialect Corpus for Speech Representation Disentanglement\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-Speaker: A Large-Scale Multi-Device, Multi-Distance, and Multi-Dialect Corpus for Speech Representation Disentanglement",
+    "answer": "5",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3D-Speaker: A Large-Scale Multi-Device, Multi-Distance, and Multi-Dialect Corpus for Speech Representation Disentanglement\" has 5 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_101",
+    "question": "How many authors are credited on the paper \"3D-StyleGAN: A Style-Based Generative Adversarial Network for Generative Modeling of Three-Dimensional Medical Images\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-StyleGAN: A Style-Based Generative Adversarial Network for Generative Modeling of Three-Dimensional Medical Images",
+    "answer": "7",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3D-StyleGAN: A Style-Based Generative Adversarial Network for Generative Modeling of Three-Dimensional Medical Images\" has 7 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_102",
+    "question": "How many authors are credited on the paper \"3D-TalkEmo: Learning to Synthesize 3D Emotional Talking Head\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-TalkEmo: Learning to Synthesize 3D Emotional Talking Head",
+    "answer": "3",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3D-TalkEmo: Learning to Synthesize 3D Emotional Talking Head\" has 3 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_103",
+    "question": "How many authors are credited on the paper \"3DGEN: A GAN-based approach for generating novel 3D models from image data\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3DGEN: A GAN-based approach for generating novel 3D models from image data",
+    "answer": "3",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3DGEN: A GAN-based approach for generating novel 3D models from image data\" has 3 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_104",
+    "question": "How many authors are credited on the paper \"3DiFACE: Diffusion-based Speech-driven 3D Facial Animation and Editing\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3DiFACE: Diffusion-based Speech-driven 3D Facial Animation and Editing",
+    "answer": "4",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3DiFACE: Diffusion-based Speech-driven 3D Facial Animation and Editing\" has 4 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_105",
+    "question": "How many authors are credited on the paper \"3DTINC: Time-Equivariant Non-Contrastive Learning for Predicting Disease Progression from Longitudinal OCTs\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3DTINC: Time-Equivariant Non-Contrastive Learning for Predicting Disease Progression from Longitudinal OCTs",
+    "answer": "13",
+    "answer_type": "literal",
+    "text_answer": "The paper \"3DTINC: Time-Equivariant Non-Contrastive Learning for Predicting Disease Progression from Longitudinal OCTs\" has 13 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_106",
+    "question": "How many authors are credited on the paper \"6th International Symposium on Attention in Cognitive Systems 2013\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/6th International Symposium on Attention in Cognitive Systems 2013",
+    "answer": "4",
+    "answer_type": "literal",
+    "text_answer": "The paper \"6th International Symposium on Attention in Cognitive Systems 2013\" has 4 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_107",
+    "question": "How many authors are credited on the paper \"[Re] Badder Seeds: Reproducing the Evaluation of Lexical Methods for Bias Measurement\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/[Re] Badder Seeds: Reproducing the Evaluation of Lexical Methods for Bias Measurement",
+    "answer": "4",
+    "answer_type": "literal",
+    "text_answer": "The paper \"[Re] Badder Seeds: Reproducing the Evaluation of Lexical Methods for Bias Measurement\" has 4 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_108",
+    "question": "How many authors are credited on the paper \"[Re] Reproducibility study - Does enforcing diversity in hidden states of LSTM-Attention models improve transparency?\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/[Re] Reproducibility study - Does enforcing diversity in hidden states of LSTM-Attention models improve transparency?",
+    "answer": "4",
+    "answer_type": "literal",
+    "text_answer": "The paper \"[Re] Reproducibility study - Does enforcing diversity in hidden states of LSTM-Attention models improve transparency?\" has 4 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_109",
+    "question": "How many authors are credited on the paper \"``I Want to Talk About, Again, My Record On Energy ...'': Modeling Agendas and Framing in Political Debates and Other Conversations\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/``I Want to Talk About, Again, My Record On Energy ...'': Modeling Agendas and Framing in Political Debates and Other Conversations",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"``I Want to Talk About, Again, My Record On Energy ...'': Modeling Agendas and Framing in Political Debates and Other Conversations\" has 1 credited author.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_110",
+    "question": "How many authors are credited on the paper \"``Love ya, jerkface'': Using Sparse Log-Linear Models to Build Positive and Impolite Relationships with Teens\"?",
+    "question_type": "paper_to_author_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/``Love ya, jerkface'': Using Sparse Log-Linear Models to Build Positive and Impolite Relationships with Teens",
+    "answer": "5",
+    "answer_type": "literal",
+    "text_answer": "The paper \"``Love ya, jerkface'': Using Sparse Log-Linear Models to Build Positive and Impolite Relationships with Teens\" has 5 credited authors.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_111",
+    "question": "How many tasks are linked to the paper \"A Benchmark for Learning to Translate a New Language from One Grammar Book\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Benchmark for Learning to Translate a New Language from One Grammar Book",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Benchmark for Learning to Translate a New Language from One Grammar Book\" is linked to 2 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_112",
+    "question": "How many tasks are linked to the paper \"A Benchmark Study of Machine Learning Models for Online Fake News Detection\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Benchmark Study of Machine Learning Models for Online Fake News Detection",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Benchmark Study of Machine Learning Models for Online Fake News Detection\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_113",
+    "question": "How many tasks are linked to the paper \"A Berkeley View of Systems Challenges for AI\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Berkeley View of Systems Challenges for AI",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Berkeley View of Systems Challenges for AI\" is linked to 2 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_114",
+    "question": "How many tasks are linked to the paper \"A BERT Baseline for the Natural Questions\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A BERT Baseline for the Natural Questions",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A BERT Baseline for the Natural Questions\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_115",
+    "question": "How many tasks are linked to the paper \"A BERT-based Siamese-structured Retrieval Model\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A BERT-based Siamese-structured Retrieval Model",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A BERT-based Siamese-structured Retrieval Model\" is linked to 2 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_116",
+    "question": "How many tasks are linked to the paper \"A Brief Guide to Designing and Evaluating Human-Centered Interactive Machine Learning\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Brief Guide to Designing and Evaluating Human-Centered Interactive Machine Learning",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Brief Guide to Designing and Evaluating Human-Centered Interactive Machine Learning\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_117",
+    "question": "How many tasks are linked to the paper \"A Brief History of Prompt: Leveraging Language Models. (Through Advanced Prompting)\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Brief History of Prompt: Leveraging Language Models. (Through Advanced Prompting)",
+    "answer": "5",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Brief History of Prompt: Leveraging Language Models. (Through Advanced Prompting)\" is linked to 5 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_118",
+    "question": "How many tasks are linked to the paper \"A Byzantine-Resilient Aggregation Scheme for Federated Learning via Matrix Autoregression on Client Updates\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Byzantine-Resilient Aggregation Scheme for Federated Learning via Matrix Autoregression on Client Updates",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Byzantine-Resilient Aggregation Scheme for Federated Learning via Matrix Autoregression on Client Updates\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_119",
+    "question": "How many tasks are linked to the paper \"A Case for Backward Compatibility for Human-AI Teams\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Case for Backward Compatibility for Human-AI Teams",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Case for Backward Compatibility for Human-AI Teams\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_120",
+    "question": "How many tasks are linked to the paper \"A Case Study in Text Mining: Interpreting Twitter Data From World Cup Tweets\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Case Study in Text Mining: Interpreting Twitter Data From World Cup Tweets",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Case Study in Text Mining: Interpreting Twitter Data From World Cup Tweets\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_121",
+    "question": "How many tasks are linked to the paper \"A Challenge to the Third Hoshi Shinichi Award\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Challenge to the Third Hoshi Shinichi Award",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Challenge to the Third Hoshi Shinichi Award\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_122",
+    "question": "How many tasks are linked to the paper \"A Clarifying Question Selection System from NTES_ALONG in Convai3 Challenge\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Clarifying Question Selection System from NTES_ALONG in Convai3 Challenge",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Clarifying Question Selection System from NTES_ALONG in Convai3 Challenge\" is linked to 2 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_123",
+    "question": "How many tasks are linked to the paper \"A Classification-Based Perspective on GAN Distributions\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Classification-Based Perspective on GAN Distributions",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Classification-Based Perspective on GAN Distributions\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_124",
+    "question": "How many tasks are linked to the paper \"A Classification-Based Study of Covariate Shift in GAN Distributions\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Classification-Based Study of Covariate Shift in GAN Distributions",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Classification-Based Study of Covariate Shift in GAN Distributions\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_125",
+    "question": "How many tasks are linked to the paper \"A Clinical-oriented Multi-level Contrastive Learning Method for Disease Diagnosis in Low-quality Medical Images\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Clinical-oriented Multi-level Contrastive Learning Method for Disease Diagnosis in Low-quality Medical Images",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Clinical-oriented Multi-level Contrastive Learning Method for Disease Diagnosis in Low-quality Medical Images\" is linked to 2 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_126",
+    "question": "How many tasks are linked to the paper \"A CNN adapted to time series for the classification of Supernovae\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A CNN adapted to time series for the classification of Supernovae",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A CNN adapted to time series for the classification of Supernovae\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_127",
+    "question": "How many tasks are linked to the paper \"A Communication Theory Perspective on Prompting Engineering Methods for Large Language Models\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Communication Theory Perspective on Prompting Engineering Methods for Large Language Models",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Communication Theory Perspective on Prompting Engineering Methods for Large Language Models\" is linked to 2 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_128",
+    "question": "How many tasks are linked to the paper \"A Community Detection and Graph Neural Network Based Link Prediction Approach for Scientific Literature\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Community Detection and Graph Neural Network Based Link Prediction Approach for Scientific Literature",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Community Detection and Graph Neural Network Based Link Prediction Approach for Scientific Literature\" is linked to 2 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_129",
+    "question": "How many tasks are linked to the paper \"A Compact Light Field Camera for Real-Time Depth Estimation\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Compact Light Field Camera for Real-Time Depth Estimation",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Compact Light Field Camera for Real-Time Depth Estimation\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_130",
+    "question": "How many tasks are linked to the paper \"A Comparative Study of Question Answering over Knowledge Bases\"?",
+    "question_type": "paper_to_task_count",
+    "category": "paper",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Comparative Study of Question Answering over Knowledge Bases",
+    "answer": "1",
+    "answer_type": "literal",
+    "text_answer": "The paper \"A Comparative Study of Question Answering over Knowledge Bases\" is linked to 1 task.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_131",
+    "question": "Which paper is associated with the task \"NaturalLanguageUnderstanding\" and lists \"Ronen Tamari\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'What's my model inside of?': Exploring the role of environments for grounded natural language understanding",
+    "answer": "'What's my model inside of?': Exploring the role of environments for grounded natural language understanding",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"NaturalLanguageUnderstanding\" and authored by \"Ronen Tamari\" is \"'What's my model inside of?': Exploring the role of environments for grounded natural language understanding\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_132",
+    "question": "Which paper is associated with the task \"ConstituencyParsing\" and lists \"Anders Bj{ 'o}rkelund\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/(Re)ranking Meets Morphosyntax: State-of-the-art Results from the SPMRL 2013 Shared Task",
+    "answer": "(Re)ranking Meets Morphosyntax: State-of-the-art Results from the SPMRL 2013 Shared Task",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"ConstituencyParsing\" and authored by \"Anders Bj{ 'o}rkelund\" is \"(Re)ranking Meets Morphosyntax: State-of-the-art Results from the SPMRL 2013 Shared Task\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_133",
+    "question": "Which paper is associated with the task \"CollaborativeFiltering\" and lists \"Pierre Alquier\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/1-bit Matrix Completion: PAC-Bayesian Analysis of a Variational Approximation",
+    "answer": "1-bit Matrix Completion: PAC-Bayesian Analysis of a Variational Approximation",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"CollaborativeFiltering\" and authored by \"Pierre Alquier\" is \"1-bit Matrix Completion: PAC-Bayesian Analysis of a Variational Approximation\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_134",
+    "question": "Which paper is associated with the task \"EventDetection\" and lists \"Jie Zhang\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D Lip Event Detection via Interframe Motion Divergence at Multiple Temporal Resolutions",
+    "answer": "3D Lip Event Detection via Interframe Motion Divergence at Multiple Temporal Resolutions",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"EventDetection\" and authored by \"Jie Zhang\" is \"3D Lip Event Detection via Interframe Motion Divergence at Multiple Temporal Resolutions\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_135",
+    "question": "Which paper is associated with the task \"NovelViewSynthesis\" and lists \"Haomiao Ni\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-Aware Talking-Head Video Motion Transfer",
+    "answer": "3D-Aware Talking-Head Video Motion Transfer",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"NovelViewSynthesis\" and authored by \"Haomiao Ni\" is \"3D-Aware Talking-Head Video Motion Transfer\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_136",
+    "question": "Which paper is associated with the task \"Self-SupervisedLearning\" and lists \"Changhe Song\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-Speaker-Toolkit: An Open Source Toolkit for Multi-modal Speaker Verification and Diarization",
+    "answer": "3D-Speaker-Toolkit: An Open Source Toolkit for Multi-modal Speaker Verification and Diarization",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"Self-SupervisedLearning\" and authored by \"Changhe Song\" is \"3D-Speaker-Toolkit: An Open Source Toolkit for Multi-modal Speaker Verification and Diarization\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_137",
+    "question": "Which paper is associated with the task \"Disentanglement\" and lists \"Hui Wang\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-Speaker: A Large-Scale Multi-Device, Multi-Distance, and Multi-Dialect Corpus for Speech Representation Disentanglement",
+    "answer": "3D-Speaker: A Large-Scale Multi-Device, Multi-Distance, and Multi-Dialect Corpus for Speech Representation Disentanglement",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"Disentanglement\" and authored by \"Hui Wang\" is \"3D-Speaker: A Large-Scale Multi-Device, Multi-Distance, and Multi-Dialect Corpus for Speech Representation Disentanglement\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_138",
+    "question": "Which paper is associated with the task \"ImageEnhancement\" and lists \"Adrian V. Dalca\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-StyleGAN: A Style-Based Generative Adversarial Network for Generative Modeling of Three-Dimensional Medical Images",
+    "answer": "3D-StyleGAN: A Style-Based Generative Adversarial Network for Generative Modeling of Three-Dimensional Medical Images",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"ImageEnhancement\" and authored by \"Adrian V. Dalca\" is \"3D-StyleGAN: A Style-Based Generative Adversarial Network for Generative Modeling of Three-Dimensional Medical Images\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_139",
+    "question": "Which paper is associated with the task \"3DFaceReconstruction\" and lists \"Qianyun Wang\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D-TalkEmo: Learning to Synthesize 3D Emotional Talking Head",
+    "answer": "3D-TalkEmo: Learning to Synthesize 3D Emotional Talking Head",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"3DFaceReconstruction\" and authored by \"Qianyun Wang\" is \"3D-TalkEmo: Learning to Synthesize 3D Emotional Talking Head\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_140",
+    "question": "Which paper is associated with the task \"ImageGeneration\" and lists \"Antoine Schnepf\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3DGEN: A GAN-based approach for generating novel 3D models from image data",
+    "answer": "3DGEN: A GAN-based approach for generating novel 3D models from image data",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"ImageGeneration\" and authored by \"Antoine Schnepf\" is \"3DGEN: A GAN-based approach for generating novel 3D models from image data\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_141",
+    "question": "Which paper is associated with the task \"ContrastiveLearning\" and lists \"Andrew Lotery\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3DTINC: Time-Equivariant Non-Contrastive Learning for Predicting Disease Progression from Longitudinal OCTs",
+    "answer": "3DTINC: Time-Equivariant Non-Contrastive Learning for Predicting Disease Progression from Longitudinal OCTs",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"ContrastiveLearning\" and authored by \"Andrew Lotery\" is \"3DTINC: Time-Equivariant Non-Contrastive Learning for Predicting Disease Progression from Longitudinal OCTs\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_142",
+    "question": "Which paper is associated with the task \"DocumentSummarization\" and lists \"Christos Christodoulopoulos\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/``Making the News'': Identifying Noteworthy Events in News Articles",
+    "answer": "``Making the News'': Identifying Noteworthy Events in News Articles",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"DocumentSummarization\" and authored by \"Christos Christodoulopoulos\" is \"``Making the News'': Identifying Noteworthy Events in News Articles\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_143",
+    "question": "Which paper is associated with the task \"DataAugmentation\" and lists \"M. Jorge Cardoso\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A 3D generative model of pathological multi-modal MR images and segmentations",
+    "answer": "A 3D generative model of pathological multi-modal MR images and segmentations",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"DataAugmentation\" and authored by \"M. Jorge Cardoso\" is \"A 3D generative model of pathological multi-modal MR images and segmentations\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_144",
+    "question": "Which paper is associated with the task \"TimeSeriesClassification\" and lists \"Anna Monreale\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Bag of Receptive Fields for Time Series Extrinsic Predictions",
+    "answer": "A Bag of Receptive Fields for Time Series Extrinsic Predictions",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"TimeSeriesClassification\" and authored by \"Anna Monreale\" is \"A Bag of Receptive Fields for Time Series Extrinsic Predictions\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_145",
+    "question": "Which paper is associated with the task \"AdversarialAttack\" and lists \"Eitan Richardson\" as an author?",
+    "question_type": "paper_by_author_and_task",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Bayes-Optimal View on Adversarial Examples",
+    "answer": "A Bayes-Optimal View on Adversarial Examples",
+    "answer_type": "literal",
+    "text_answer": "The paper associated with the task \"AdversarialAttack\" and authored by \"Eitan Richardson\" is \"A Bayes-Optimal View on Adversarial Examples\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_146",
+    "question": "Which paper is linked to both \"InformationRetrieval\" and \"PromptEngineering\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Brief History of Prompt: Leveraging Language Models. (Through Advanced Prompting)",
+    "answer": "A Brief History of Prompt: Leveraging Language Models. (Through Advanced Prompting)",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"InformationRetrieval\" and \"PromptEngineering\" is \"A Brief History of Prompt: Leveraging Language Models. (Through Advanced Prompting)\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_147",
+    "question": "Which paper is linked to both \"Multi-TaskLearning\" and \"PromptEngineering\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Communication Theory Perspective on Prompting Engineering Methods for Large Language Models",
+    "answer": "A Communication Theory Perspective on Prompting Engineering Methods for Large Language Models",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"Multi-TaskLearning\" and \"PromptEngineering\" is \"A Communication Theory Perspective on Prompting Engineering Methods for Large Language Models\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_148",
+    "question": "Which paper is linked to both \"CommunityDetection\" and \"LinkPrediction\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Community Detection and Graph Neural Network Based Link Prediction Approach for Scientific Literature",
+    "answer": "A Community Detection and Graph Neural Network Based Link Prediction Approach for Scientific Literature",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"CommunityDetection\" and \"LinkPrediction\" is \"A Community Detection and Graph Neural Network Based Link Prediction Approach for Scientific Literature\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_149",
+    "question": "Which paper is linked to both \"AnomalyDetection\" and \"FraudDetection\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Comparative Study on Unsupervised Anomaly Detection for Time Series: Experiments and Analysis",
+    "answer": "A Comparative Study on Unsupervised Anomaly Detection for Time Series: Experiments and Analysis",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"AnomalyDetection\" and \"FraudDetection\" is \"A Comparative Study on Unsupervised Anomaly Detection for Time Series: Experiments and Analysis\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_150",
+    "question": "Which paper is linked to both \"IntentClassification\" and \"TextClassification\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Comparison of LSTM and BERT for Small Corpus",
+    "answer": "A Comparison of LSTM and BERT for Small Corpus",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"IntentClassification\" and \"TextClassification\" is \"A Comparison of LSTM and BERT for Small Corpus\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_151",
+    "question": "Which paper is linked to both \"MedicalVisualQuestionAnswering\" and \"QuestionAnswering\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Comparison of Pre-trained Vision-and-Language Models for Multimodal Representation Learning across Medical Images and Reports",
+    "answer": "A Comparison of Pre-trained Vision-and-Language Models for Multimodal Representation Learning across Medical Images and Reports",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"MedicalVisualQuestionAnswering\" and \"QuestionAnswering\" is \"A Comparison of Pre-trained Vision-and-Language Models for Multimodal Representation Learning across Medical Images and Reports\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_152",
+    "question": "Which paper is linked to both \"RelationExtraction\" and \"SemanticParsing\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Comparison of the Events and Relations Across ACE, ERE, TAC-KBP, and FrameNet Annotation Standards",
+    "answer": "A Comparison of the Events and Relations Across ACE, ERE, TAC-KBP, and FrameNet Annotation Standards",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"RelationExtraction\" and \"SemanticParsing\" is \"A Comparison of the Events and Relations Across ACE, ERE, TAC-KBP, and FrameNet Annotation Standards\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_153",
+    "question": "Which paper is linked to both \"Denoising\" and \"imagesmoothing\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Complementary Global and Local Knowledge Network for Ultrasound denoising with Fine-grained Refinement",
+    "answer": "A Complementary Global and Local Knowledge Network for Ultrasound denoising with Fine-grained Refinement",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"Denoising\" and \"imagesmoothing\" is \"A Complementary Global and Local Knowledge Network for Ultrasound denoising with Fine-grained Refinement\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_154",
+    "question": "Which paper is linked to both \"Classification\" and \"DimensionalityReduction\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Comprehensive Filter Feature Selection for Improving Document Classification",
+    "answer": "A Comprehensive Filter Feature Selection for Improving Document Classification",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"Classification\" and \"DimensionalityReduction\" is \"A Comprehensive Filter Feature Selection for Improving Document Classification\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_155",
+    "question": "Which paper is linked to both \"Image-to-ImageTranslation\" and \"ImageClassification\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Comprehensive Review of Generative AI in Healthcare",
+    "answer": "A Comprehensive Review of Generative AI in Healthcare",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"Image-to-ImageTranslation\" and \"ImageClassification\" is \"A Comprehensive Review of Generative AI in Healthcare\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_156",
+    "question": "Which paper is linked to both \"ChangeDetection\" and \"ObjectDetection\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Comprehensive Review on Computer Vision Analysis of Aerial Data",
+    "answer": "A Comprehensive Review on Computer Vision Analysis of Aerial Data",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"ChangeDetection\" and \"ObjectDetection\" is \"A Comprehensive Review on Computer Vision Analysis of Aerial Data\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_157",
+    "question": "Which paper is linked to both \"GraphLearning\" and \"LanguageModelling\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT",
+    "answer": "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"GraphLearning\" and \"LanguageModelling\" is \"A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_158",
+    "question": "Which paper is linked to both \"InformationRetrieval\" and \"Open-DomainQuestionAnswering\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A dataset and baselines for sequential open-domain question answering",
+    "answer": "A dataset and baselines for sequential open-domain question answering",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"InformationRetrieval\" and \"Open-DomainQuestionAnswering\" is \"A dataset and baselines for sequential open-domain question answering\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_159",
+    "question": "Which paper is linked to both \"Explainableartificialintelligence\" and \"TimeSeriesAnalysis\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Deep Dive into Perturbations as Evaluation Technique for Time Series XAI",
+    "answer": "A Deep Dive into Perturbations as Evaluation Technique for Time Series XAI",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"Explainableartificialintelligence\" and \"TimeSeriesAnalysis\" is \"A Deep Dive into Perturbations as Evaluation Technique for Time Series XAI\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_160",
+    "question": "Which paper is linked to both \"DialogueManagement\" and \"SpeechRecognition\"?",
+    "question_type": "paper_by_task_pair",
+    "category": "multihop",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/A Demonstration of Dialogue Processing in SimSensei Kiosk",
+    "answer": "A Demonstration of Dialogue Processing in SimSensei Kiosk",
+    "answer_type": "literal",
+    "text_answer": "The paper linked to both \"DialogueManagement\" and \"SpeechRecognition\" is \"A Demonstration of Dialogue Processing in SimSensei Kiosk\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_161",
+    "question": "Which paper matches this description: Despite recent strides in making LLMs process contexts with more than 100K tokens, there is currently a lack of a standardized benchmark to evaluate this long-context capability?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/$ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens",
+    "answer": "$ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"$ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_162",
+    "question": "Which paper matches this description: According to these preferences, it is desirable that a coalition structure (i.e?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/$ varepsilon$-fractional Core Stability in Hedonic Games",
+    "answer": "$ varepsilon$-fractional Core Stability in Hedonic Games",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"$ varepsilon$-fractional Core Stability in Hedonic Games\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_163",
+    "question": "Which paper matches this description: Such 6D data naturally arises in diffusion MRI (dMRI), a medical imaging modality widely used to measure microstructure and structural connectivity?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/$E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI",
+    "answer": "$E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"$E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_164",
+    "question": "Which paper matches this description: Recent work has argued that the CoDraw dataset is a valuable source of naturally occurring iCRs?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset",
+    "answer": "'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_165",
+    "question": "Which paper matches this description: For this reason, every professional football club employs a team of game analysts?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations",
+    "answer": "'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_166",
+    "question": "Which paper matches this description: This paper argues that 'ergodicity economics' is pseudoscience because it has not produced falsifiable implications and should be taken with skepticism?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Ergodicity Economics' is Pseudoscience",
+    "answer": "'Ergodicity Economics' is Pseudoscience",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"'Ergodicity Economics' is Pseudoscience\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_167",
+    "question": "Which paper matches this description: However, these assistants have major limitations, which prevents users from conversing with them as they would with human dialog partners?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent",
+    "answer": "'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_168",
+    "question": "Which paper matches this description: In the clinical AI model development lifecycle (described by Lu et al?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT",
+    "answer": "'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_169",
+    "question": "Which paper matches this description: Numerous papers demonstrate powerful algorithmic attacks against a wide variety of machine learning (ML) models, and numerous other papers propose defenses that can withstand most attacks?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice",
+    "answer": "'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_170",
+    "question": "Which paper matches this description: Nevertheless, the performance of Video-based ENF (V-ENF) estimation largely relies on the imaging quality and thus may suffer from significant interference caused by non-ideal sampling, motion, and extreme lighting conditions?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Seeing' Electric Network Frequency From Events",
+    "answer": "'Seeing' Electric Network Frequency From Events",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"'Seeing' Electric Network Frequency From Events\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_171",
+    "question": "Which paper matches this description: However, these practitioners often do not have access to the demographic data they feel they need to detect bias in practice?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness",
+    "answer": "'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_172",
+    "question": "Which paper matches this description: Since player performances are challenging to quantify directly due to the low-scoring nature of soccer, most approaches estimate the expected impact of the players' on-the-ball actions on the scoreline?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer",
+    "answer": "'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_173",
+    "question": "Which paper matches this description: Such stablecoins are popular methods for bootstrapping price stability within public blockchain settings?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/(In)Stability for the Blockchain: Deleveraging Spirals and Stablecoin Attacks",
+    "answer": "(In)Stability for the Blockchain: Deleveraging Spirals and Stablecoin Attacks",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"(In)Stability for the Blockchain: Deleveraging Spirals and Stablecoin Attacks\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_174",
+    "question": "Which paper matches this description: We prove the convergence of GD and SGD with macroscopic stepsizes in an overparametrised regression setting and characterise their solutions through an implicit regularisation problem?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/(S)GD over Diagonal Linear Networks: Implicit bias, Large Stepsizes and Edge of Stability",
+    "answer": "(S)GD over Diagonal Linear Networks: Implicit bias, Large Stepsizes and Edge of Stability",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"(S)GD over Diagonal Linear Networks: Implicit bias, Large Stepsizes and Edge of Stability\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_175",
+    "question": "Which paper matches this description: Different approaches rely on different structure assumptions on the matrix in hand?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/1-bit Matrix Completion: PAC-Bayesian Analysis of a Variational Approximation",
+    "answer": "1-bit Matrix Completion: PAC-Bayesian Analysis of a Variational Approximation",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"1-bit Matrix Completion: PAC-Bayesian Analysis of a Variational Approximation\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_176",
+    "question": "Which paper matches this description: three tasks in CL-SciSumm 2020. In Task 1a, we apply a Siamese neural network to identify the spans of text in the reference paper?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/1A-Team / Martin-Luther-Universität Halle-Wittenberg@CLSciSumm 20",
+    "answer": "1A-Team / Martin-Luther-Universität Halle-Wittenberg@CLSciSumm 20",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"1A-Team / Martin-Luther-Universität Halle-Wittenberg@CLSciSumm 20\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_177",
+    "question": "Which paper matches this description: Among various social media channels, Twitter provides an efficient platform for researchers and politicians to explore public opinion regarding a wide range of topics such as the economy and foreign policy?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/2020 U.S. presidential election in swing states: Gender differences in Twitter conversations",
+    "answer": "2020 U.S. presidential election in swing states: Gender differences in Twitter conversations",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"2020 U.S. presidential election in swing states: Gender differences in Twitter conversations\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_178",
+    "question": "Which paper matches this description: broad set of papers in machine learning. This was our organizations' first annual conference. It was conducted virtually via Zoom. The highlights are currently?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/2021 Drexel Society of Artificial Intelligence Research Conference",
+    "answer": "2021 Drexel Society of Artificial Intelligence Research Conference",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"2021 Drexel Society of Artificial Intelligence Research Conference\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_179",
+    "question": "Which paper matches this description: To do this, we provide a platform for studying the news by measuring this overlap and scoring news stories according to the degree of attention in near-real time?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/365 Dots in 2019: Quantifying Attention of News Sources",
+    "answer": "365 Dots in 2019: Quantifying Attention of News Sources",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"365 Dots in 2019: Quantifying Attention of News Sources\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_180",
+    "question": "Which paper matches this description: Movements carry important social cues, but current methods are not able to robustly estimate pose and shape of animals, particularly for social animals such as birds, which are often occluded by each other and objects in the environment?",
+    "question_type": "paper_description_to_title",
+    "category": "semantic",
+    "difficulty": "hard",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/3D Bird Reconstruction: a Dataset, Model, and Shape Recovery from a Single View",
+    "answer": "3D Bird Reconstruction: a Dataset, Model, and Shape Recovery from a Single View",
+    "answer_type": "literal",
+    "text_answer": "The paper that matches this description is \"3D Bird Reconstruction: a Dataset, Model, and Shape Recovery from a Single View\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_181",
+    "question": "What related implementation is listed for the paper \"$ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/$ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens",
+    "answer": [
+      "implemenation of $ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"$ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens\" is implemenation of $ infty$Bench: Extending Long Context Evaluation Beyond 100K Tokens.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_182",
+    "question": "What related implementation is listed for the paper \"$ varepsilon$-fractional Core Stability in Hedonic Games\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/$ varepsilon$-fractional Core Stability in Hedonic Games",
+    "answer": [
+      "implemenation of $ varepsilon$-fractional Core Stability in Hedonic Games"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"$ varepsilon$-fractional Core Stability in Hedonic Games\" is implemenation of $ varepsilon$-fractional Core Stability in Hedonic Games.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_183",
+    "question": "What related implementation is listed for the paper \"$E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/$E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI",
+    "answer": [
+      "implemenation of $E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"$E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI\" is implemenation of $E(3) times SO(3)$-Equivariant Networks for Spherical Deconvolution in Diffusion MRI.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_184",
+    "question": "What related implementation is listed for the paper \"'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset",
+    "answer": [
+      "implemenation of 'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset\" is implemenation of 'Are you telling me to put glasses on the dog?'' Content-Grounded Annotation of Instruction Clarification Requests in the CoDraw Dataset.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_185",
+    "question": "What related implementation is listed for the paper \"'Attention' for Detecting Unreliable News in the Information Age\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Attention' for Detecting Unreliable News in the Information Age",
+    "answer": [
+      "implemenation of 'Attention' for Detecting Unreliable News in the Information Age"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Attention' for Detecting Unreliable News in the Information Age\" is implemenation of 'Attention' for Detecting Unreliable News in the Information Age.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_186",
+    "question": "What related implementation is listed for the paper \"'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations",
+    "answer": [
+      "implemenation of 'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations\" is implemenation of 'Does 4-4-2 exist?' -- An Analytics Approach to Understand and Classify Football Team Formations in Single Match Situations.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_187",
+    "question": "What related implementation is listed for the paper \"'Ergodicity Economics' is Pseudoscience\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Ergodicity Economics' is Pseudoscience",
+    "answer": [
+      "implemenation of 'Ergodicity Economics' is Pseudoscience"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Ergodicity Economics' is Pseudoscience\" is implemenation of 'Ergodicity Economics' is Pseudoscience.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_188",
+    "question": "What related implementation is listed for the paper \"'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent",
+    "answer": [
+      "implemenation of 'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent\" is implemenation of 'Is there anything else I can help you with?': Challenges in Deploying an On-Demand Crowd-Powered Conversational Agent.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_189",
+    "question": "What related implementation is listed for the paper \"'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT",
+    "answer": [
+      "implemenation of 'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT\" is implemenation of 'Name that manufacturer'. Relating image acquisition bias with task complexity when training deep learning models: experiments on head CT.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_190",
+    "question": "What related implementation is listed for the paper \"'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice",
+    "answer": [
+      "implemenation of 'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice\" is implemenation of 'Real Attackers Don't Compute Gradients': Bridging the Gap Between Adversarial ML Research and Practice.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_191",
+    "question": "What related implementation is listed for the paper \"'Seeing' Electric Network Frequency From Events\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Seeing' Electric Network Frequency From Events",
+    "answer": [
+      "implemenation of 'Seeing' Electric Network Frequency From Events"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Seeing' Electric Network Frequency From Events\" is implemenation of 'Seeing' Electric Network Frequency From Events.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_192",
+    "question": "What related implementation is listed for the paper \"'Seeing'' Electric Network Frequency from Events\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Seeing'' Electric Network Frequency from Events",
+    "answer": [
+      "implemenation of 'Seeing'' Electric Network Frequency from Events"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Seeing'' Electric Network Frequency from Events\" is implemenation of 'Seeing'' Electric Network Frequency from Events.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_193",
+    "question": "What related implementation is listed for the paper \"'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness",
+    "answer": [
+      "implemenation of 'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness\" is implemenation of 'What We Can't Measure, We Can't Understand': Challenges to Demographic Data Procurement in the Pursuit of Fairness.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_194",
+    "question": "What related implementation is listed for the paper \"'What's my model inside of?': Exploring the role of environments for grounded natural language understanding\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'What's my model inside of?': Exploring the role of environments for grounded natural language understanding",
+    "answer": [
+      "implemenation of 'What's my model inside of?': Exploring the role of environments for grounded natural language understanding"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'What's my model inside of?': Exploring the role of environments for grounded natural language understanding\" is implemenation of 'What's my model inside of?': Exploring the role of environments for grounded natural language understanding.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_195",
+    "question": "What related implementation is listed for the paper \"'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer\"?",
+    "question_type": "paper_to_implementation",
+    "category": "implementation",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/scientificWork/'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer",
+    "answer": [
+      "implemenation of 'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer"
+    ],
+    "answer_type": "list",
+    "text_answer": "The related implementation listed for \"'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer\" is implemenation of 'Why Would I Trust Your Numbers?' On the Explainability of Expected Values in Soccer.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_196",
+    "question": "List the tasks recorded for the dataset \"MedDG\".",
+    "question_type": "dataset_to_tasks",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+    "answer": [
+      "Dialogue Generation",
+      "Response Generation",
+      "Retrieval"
+    ],
+    "answer_type": "list",
+    "text_answer": "The dataset \"MedDG\" is recorded with the following tasks: Dialogue Generation, Response Generation, and Retrieval.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_197",
+    "question": "How many tasks are associated with the dataset \"MedDG\"?",
+    "question_type": "dataset_to_task_count",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+    "answer": "3",
+    "answer_type": "literal",
+    "text_answer": "The dataset \"MedDG\" is associated with 3 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_198",
+    "question": "Is \"Dialogue Generation\" one of the tasks linked to the dataset \"MedDG\"?",
+    "question_type": "dataset_to_task_membership",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+    "answer": true,
+    "answer_type": "boolean",
+    "text_answer": "Yes, \"Dialogue Generation\" is one of the tasks linked to the dataset \"MedDG\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_199",
+    "question": "Is \"TextGeneration\" one of the tasks linked to the dataset \"MedDG\"?",
+    "question_type": "dataset_to_task_membership",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+    "answer": false,
+    "answer_type": "boolean",
+    "text_answer": "No, \"TextGeneration\" is not listed as a task for the dataset \"MedDG\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_200",
+    "question": "Which dataset is associated with the tasks Dialogue Generation and Response Generation?",
+    "question_type": "tasks_to_dataset",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+    "answer": "MedDG",
+    "answer_type": "literal",
+    "text_answer": "The dataset associated with the tasks Dialogue Generation and Response Generation is \"MedDG\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_201",
+    "question": "List the tasks recorded for the dataset \"MultiNLI\".",
+    "question_type": "dataset_to_tasks",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+    "answer": [
+      "TextGeneration",
+      "Natural Language Inference"
+    ],
+    "answer_type": "list",
+    "text_answer": "The dataset \"MultiNLI\" is recorded with the following tasks: TextGeneration and Natural Language Inference.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_202",
+    "question": "How many tasks are associated with the dataset \"MultiNLI\"?",
+    "question_type": "dataset_to_task_count",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+    "answer": "2",
+    "answer_type": "literal",
+    "text_answer": "The dataset \"MultiNLI\" is associated with 2 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_203",
+    "question": "Is \"TextGeneration\" one of the tasks linked to the dataset \"MultiNLI\"?",
+    "question_type": "dataset_to_task_membership",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+    "answer": true,
+    "answer_type": "boolean",
+    "text_answer": "Yes, \"TextGeneration\" is one of the tasks linked to the dataset \"MultiNLI\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_204",
+    "question": "Is \"Cross-Lingual Transfer\" one of the tasks linked to the dataset \"MultiNLI\"?",
+    "question_type": "dataset_to_task_membership",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+    "answer": false,
+    "answer_type": "boolean",
+    "text_answer": "No, \"Cross-Lingual Transfer\" is not listed as a task for the dataset \"MultiNLI\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_205",
+    "question": "Which dataset is associated with the tasks TextGeneration and Natural Language Inference?",
+    "question_type": "tasks_to_dataset",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+    "answer": "MultiNLI",
+    "answer_type": "literal",
+    "text_answer": "The dataset associated with the tasks TextGeneration and Natural Language Inference is \"MultiNLI\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_206",
+    "question": "List the tasks recorded for the dataset \"SNLI\".",
+    "question_type": "dataset_to_tasks",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+    "answer": [
+      "Cross-Lingual Transfer",
+      "Zero-Shot Learning",
+      "Natural Language Understanding",
+      "Translation",
+      "XLM-R",
+      "Reading Comprehension",
+      "Natural Language Inference",
+      "counterfactual",
+      "Few-Shot Learning",
+      "BASE",
+      "Multimodal Reasoning",
+      "Test",
+      "Sentence"
+    ],
+    "answer_type": "list",
+    "text_answer": "The dataset \"SNLI\" is recorded with the following tasks: Cross-Lingual Transfer, Zero-Shot Learning, Natural Language Understanding, Translation, XLM-R, Reading Comprehension, Natural Language Inference, counterfactual, Few-Shot Learning, BASE, Multimodal Reasoning, Test, and Sentence.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_207",
+    "question": "How many tasks are associated with the dataset \"SNLI\"?",
+    "question_type": "dataset_to_task_count",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+    "answer": "13",
+    "answer_type": "literal",
+    "text_answer": "The dataset \"SNLI\" is associated with 13 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_208",
+    "question": "Is \"Cross-Lingual Transfer\" one of the tasks linked to the dataset \"SNLI\"?",
+    "question_type": "dataset_to_task_membership",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+    "answer": true,
+    "answer_type": "boolean",
+    "text_answer": "Yes, \"Cross-Lingual Transfer\" is one of the tasks linked to the dataset \"SNLI\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_209",
+    "question": "Is \"Question Answering\" one of the tasks linked to the dataset \"SNLI\"?",
+    "question_type": "dataset_to_task_membership",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+    "answer": false,
+    "answer_type": "boolean",
+    "text_answer": "No, \"Question Answering\" is not listed as a task for the dataset \"SNLI\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_210",
+    "question": "Which dataset is associated with the tasks Cross-Lingual Transfer and Zero-Shot Learning?",
+    "question_type": "tasks_to_dataset",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+    "answer": "SNLI",
+    "answer_type": "literal",
+    "text_answer": "The dataset associated with the tasks Cross-Lingual Transfer and Zero-Shot Learning is \"SNLI\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_211",
+    "question": "List the tasks recorded for the dataset \"SQuAD\".",
+    "question_type": "dataset_to_tasks",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+    "answer": [
+      "Question Answering",
+      "Sequence-to-sequence Language Modeling",
+      "Reading Comprehension",
+      "Question Generation",
+      "Domain Question Answering",
+      "Text2TextGeneration"
+    ],
+    "answer_type": "list",
+    "text_answer": "The dataset \"SQuAD\" is recorded with the following tasks: Question Answering, Sequence-to-sequence Language Modeling, Reading Comprehension, Question Generation, Domain Question Answering, and Text2TextGeneration.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_212",
+    "question": "How many tasks are associated with the dataset \"SQuAD\"?",
+    "question_type": "dataset_to_task_count",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+    "answer": "6",
+    "answer_type": "literal",
+    "text_answer": "The dataset \"SQuAD\" is associated with 6 tasks.",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_213",
+    "question": "Is \"Question Answering\" one of the tasks linked to the dataset \"SQuAD\"?",
+    "question_type": "dataset_to_task_membership",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+    "answer": true,
+    "answer_type": "boolean",
+    "text_answer": "Yes, \"Question Answering\" is one of the tasks linked to the dataset \"SQuAD\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_214",
+    "question": "Is \"QuestionGeneration\" one of the tasks linked to the dataset \"SQuAD\"?",
+    "question_type": "dataset_to_task_membership",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+    "answer": false,
+    "answer_type": "boolean",
+    "text_answer": "No, \"QuestionGeneration\" is not listed as a task for the dataset \"SQuAD\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_215",
+    "question": "Which dataset is associated with the tasks Question Answering and Sequence-to-sequence Language Modeling?",
+    "question_type": "tasks_to_dataset",
+    "category": "dataset",
+    "difficulty": "medium",
+    "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+    "answer": "SQuAD",
+    "answer_type": "literal",
+    "text_answer": "The dataset associated with the tasks Question Answering and Sequence-to-sequence Language Modeling is \"SQuAD\".",
+    "is_answerable": true
+  },
+  {
+    "id": "mlsea_q_216",
+    "question": "What is the DOI of the paper \"Attention Is All You Need\"?",
+    "question_type": "unanswerable_paper_doi",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_217",
+    "question": "Which conference accepted the paper \"RoBERTa: A Robustly Optimized BERT Pretraining Approach\"?",
+    "question_type": "unanswerable_paper_venue",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_218",
+    "question": "What is the official code repository URL for the paper \"GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding\"?",
+    "question_type": "unanswerable_paper_repository_url",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_219",
+    "question": "What is the license of the dataset \"SQuAD\"?",
+    "question_type": "unanswerable_dataset_license",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_220",
+    "question": "How many examples are in the test split of the dataset \"MultiNLI\"?",
+    "question_type": "unanswerable_dataset_split_size",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_221",
+    "question": "Which institution funded the paper \"Capture, Learning, and Synthesis of 3D Speaking Styles\"?",
+    "question_type": "unanswerable_paper_funding",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_222",
+    "question": "What email address is listed for the corresponding author of \"CoQA: A Conversational Question Answering Challenge\"?",
+    "question_type": "unanswerable_paper_email",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_223",
+    "question": "Which GPU model was used to train the paper \"FaceFormer: Speech-Driven 3D Facial Animation with Transformers\"?",
+    "question_type": "unanswerable_paper_hardware",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_224",
+    "question": "What annotation license is provided for the dataset \"SNLI\"?",
+    "question_type": "unanswerable_dataset_annotation_license",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  },
+  {
+    "id": "mlsea_q_225",
+    "question": "What is the exact validation split size for the dataset \"MedDG\"?",
+    "question_type": "unanswerable_dataset_validation_split",
+    "category": "unanswerable",
+    "difficulty": "hard",
+    "target_entity_iri": null,
+    "answer": null,
+    "answer_type": "none",
+    "text_answer": "The knowledge graph does not provide this information.",
+    "is_answerable": false
+  }
 ]
