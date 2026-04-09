@@ -131,6 +131,15 @@ def _segment_counts(segment_output: Dict[str, Any], top_k_values: Sequence[int])
     return {key: value for key, value in segment_output.items() if key not in metric_names}
 
 
+def _unanswerable_diagnostics(total_unanswerable_questions: int) -> Dict[str, int]:
+    """Keep both legacy/general skip keys and the explicit unanswerable alias in sync."""
+    return {
+        "total_unanswerable_questions": total_unanswerable_questions,
+        "skipped_unanswerable": total_unanswerable_questions,
+        "unanswerable_questions_skipped": total_unanswerable_questions,
+    }
+
+
 def _build_segment_maps(questions: Sequence[Dict[str, Any]], top_k_values: Sequence[int], field_name: str) -> Dict[str, Dict[str, Any]]:
     segment_values = []
     for question in questions:
@@ -277,9 +286,7 @@ def build_evaluation_payload(
         "paper_target_questions": len(paper_target_questions_all),
         "skipped_non_paper_target_questions": len(skipped_non_paper_target_questions),
         "skipped_non_paper_targets": len(skipped_non_paper_target_questions),
-        "total_unanswerable_questions": len(unanswerable_questions),
-        "skipped_unanswerable": len(unanswerable_questions),
-        "unanswerable_questions_skipped": len(unanswerable_questions),
+        **_unanswerable_diagnostics(len(unanswerable_questions)),
         "evaluated_questions": evaluated_count,
         "skipped_questions": len(all_questions) - evaluated_count,
         "unmatched_targets": unmatched_targets,

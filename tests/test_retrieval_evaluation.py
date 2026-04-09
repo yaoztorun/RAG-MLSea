@@ -128,6 +128,51 @@ class RetrievalEvaluationTests(unittest.TestCase):
         self.assertEqual(payload["per_question"][1]["category"], "multihop")
         self.assertEqual(len(top10_payload["entries"]), 3)
 
+    def test_build_evaluation_payload_reports_unanswerable_false_accept_rate(self) -> None:
+        questions = [
+            {
+                "id": "q_unanswerable_low",
+                "question": "unanswerable low score",
+                "difficulty": "easy",
+                "category": "unanswerable",
+                "target_entity_iri": None,
+                "is_answerable": False,
+            },
+            {
+                "id": "q_unanswerable_high",
+                "question": "unanswerable high score",
+                "difficulty": "hard",
+                "category": "unanswerable",
+                "target_entity_iri": None,
+                "is_answerable": False,
+            },
+        ]
+
+        payload, _ = build_evaluation_payload(
+            representation_type="title_only",
+            collection_name="papers_title_only",
+            records_path=Path("/tmp/papers_subset.jsonl"),
+            embedder_type="sentence_transformer",
+            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            top_k_values=TOP_K_VALUES,
+            all_questions=questions,
+            evaluated_questions=[],
+            retrieval_results=[],
+            matched_item_ids=[],
+            collection_size=42,
+            record_index={},
+            abstention_score_threshold=0.4,
+            unanswerable_results=[
+                [_result(1, PAPER_1, 0.35)],
+                [_result(1, PAPER_1, 0.75)],
+            ],
+        )
+
+        self.assertAlmostEqual(payload["diagnostics"]["abstention"]["unanswerable_rejection_rate"], 0.5)
+        self.assertAlmostEqual(payload["diagnostics"]["abstention"]["false_accept_rate"], 0.5)
+        self.assertAlmostEqual(payload["metrics_by_category"]["unanswerable"]["unanswerable_rejection_rate"], 0.5)
+        self.assertAlmostEqual(payload["metrics_by_category"]["unanswerable"]["false_accept_rate"], 0.5)
+
     def test_aggregate_result_files_writes_segment_summaries(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             results_dir = Path(temp_dir)

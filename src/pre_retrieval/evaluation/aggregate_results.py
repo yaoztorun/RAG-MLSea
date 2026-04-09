@@ -18,6 +18,10 @@ RESULTS_FILE_NAME = "results.json"
 METRIC_NAMES = ("Hit@1", "Hit@5", "Hit@10", "MRR", "NDCG")
 DIFFICULTY_ORDER = ("easy", "medium", "hard")
 CATEGORY_ORDER = ("paper", "dataset", "implementation", "multihop", "semantic", "unanswerable")
+SEGMENT_PREFERRED_ORDERS = {
+    "difficulty": DIFFICULTY_ORDER,
+    "category": CATEGORY_ORDER,
+}
 
 
 def _representation_order_map(representation_order: Sequence[str]) -> Dict[str, int]:
@@ -106,7 +110,7 @@ def _aggregate_segment_rows(
     for rows in segments.values():
         rows.sort(key=lambda row: (order_map.get(row["representation"], len(order_map)), row["representation"]))
 
-    preferred_segment_order = DIFFICULTY_ORDER if segment_name == "difficulty" else CATEGORY_ORDER
+    preferred_segment_order = SEGMENT_PREFERRED_ORDERS.get(segment_name, ())
     preferred_order_map = {segment: index for index, segment in enumerate(preferred_segment_order)}
     ordered_segments = {
         segment: {"rows": segments[segment]}
