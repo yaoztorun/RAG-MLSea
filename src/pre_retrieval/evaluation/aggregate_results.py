@@ -12,8 +12,16 @@ from src.pre_retrieval.utils import load_json, save_json
 SUMMARY_FILE_NAME = "summary.json"
 SUMMARY_MARKDOWN_FILE_NAME = "summary.md"
 SUMMARY_CSV_FILE_NAME = "summary.csv"
+SUMMARY_BY_DIFFICULTY_FILE_NAME = "summary_by_difficulty.json"
+SUMMARY_BY_CATEGORY_FILE_NAME = "summary_by_category.json"
 RESULTS_FILE_NAME = "results.json"
 METRIC_NAMES = ("Hit@1", "Hit@5", "Hit@10", "MRR", "NDCG")
+DIFFICULTY_ORDER = ("easy", "medium", "hard")
+CATEGORY_ORDER = ("paper", "dataset", "implementation", "multihop", "semantic", "unanswerable")
+SEGMENT_PREFERRED_ORDERS = {
+    "difficulty": DIFFICULTY_ORDER,
+    "category": CATEGORY_ORDER,
+}
 
 
 def _representation_order_map(representation_order: Sequence[str]) -> Dict[str, int]:
@@ -56,6 +64,61 @@ def _extract_summary_row(result_file: Path) -> Dict[str, Any]:
     }
 
 
+def _extract_segment_rows(result_file: Path, section_name: str, segment_name: str) -> List[Dict[str, Any]]:
+    payload = load_json(result_file)
+    representation = payload.get("representation_type", result_file.parent.name or result_file.stem.replace("_results", ""))
+    segment_payload = payload.get(section_name, {})
+    rows: List[Dict[str, Any]] = []
+    for segment_value, segment_summary in segment_payload.items():
+        row = {
+            segment_name: segment_value,
+            "representation": representation,
+            **{metric_name: float(segment_summary.get(metric_name, 0.0)) for metric_name in METRIC_NAMES},
+        }
+        for count_name in (
+            "total_questions",
+            "answerable_questions",
+            "paper_target_questions",
+            "evaluated_questions",
+            "skipped_questions",
+            "skipped_non_paper_targets",
+            "skipped_unanswerable",
+        ):
+            if count_name in segment_summary:
+                row[count_name] = int(segment_summary.get(count_name, 0))
+        if "unanswerable_rejection_rate" in segment_summary:
+            row["unanswerable_rejection_rate"] = float(segment_summary.get("unanswerable_rejection_rate", 0.0))
+        if "false_accept_rate" in segment_summary:
+            row["false_accept_rate"] = float(segment_summary.get("false_accept_rate", 0.0))
+        rows.append(row)
+    return rows
+
+
+def _aggregate_segment_rows(
+    result_files: Sequence[Path],
+    *,
+    section_name: str,
+    segment_name: str,
+    representation_order: Sequence[str],
+) -> Dict[str, Any]:
+    order_map = _representation_order_map(representation_order)
+    segments: Dict[str, List[Dict[str, Any]]] = {}
+    for result_file in result_files:
+        for row in _extract_segment_rows(result_file, section_name, segment_name):
+            segments.setdefault(str(row[segment_name]), []).append(row)
+
+    for rows in segments.values():
+        rows.sort(key=lambda row: (order_map.get(row["representation"], len(order_map)), row["representation"]))
+
+    preferred_segment_order = SEGMENT_PREFERRED_ORDERS.get(segment_name, ())
+    preferred_order_map = {segment: index for index, segment in enumerate(preferred_segment_order)}
+    ordered_segments = {
+        segment: {"rows": segments[segment]}
+        for segment in sorted(segments, key=lambda value: (preferred_order_map.get(value, len(preferred_order_map)), value))
+    }
+    return {"segments": ordered_segments}
+
+
 def _discover_result_files(output_dir: Path) -> List[Path]:
     nested_results = sorted(output_dir.glob(f"*/{RESULTS_FILE_NAME}"))
     if nested_results:
@@ -65,15 +128,35 @@ def _discover_result_files(output_dir: Path) -> List[Path]:
 
 def aggregate_result_files(output_dir: Path, representation_order: Sequence[str] | None = None) -> Dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
-    order_map = _representation_order_map(representation_order or [])
-    rows = [_extract_summary_row(result_file) for result_file in _discover_result_files(output_dir)]
+    ordered_representations = representation_order or []
+    order_map = _representation_order_map(ordered_representations)
+    result_files = _discover_result_files(output_dir)
+    rows = [_extract_summary_row(result_file) for result_file in result_files]
     rows.sort(key=lambda row: (order_map.get(row["representation"], len(order_map)), row["representation"]))
 
     summary_payload = {"rows": rows}
+    summary_by_difficulty_payload = _aggregate_segment_rows(
+        result_files,
+        section_name="metrics_by_difficulty",
+        segment_name="difficulty",
+        representation_order=ordered_representations,
+    )
+    summary_by_category_payload = _aggregate_segment_rows(
+        result_files,
+        section_name="metrics_by_category",
+        segment_name="category",
+        representation_order=ordered_representations,
+    )
     save_json(summary_payload, output_dir / SUMMARY_FILE_NAME)
+    save_json(summary_by_difficulty_payload, output_dir / SUMMARY_BY_DIFFICULTY_FILE_NAME)
+    save_json(summary_by_category_payload, output_dir / SUMMARY_BY_CATEGORY_FILE_NAME)
     (output_dir / SUMMARY_MARKDOWN_FILE_NAME).write_text(_build_summary_markdown(rows), encoding="utf-8")
     _write_summary_csv(rows, output_dir / SUMMARY_CSV_FILE_NAME)
-    return summary_payload
+    return {
+        **summary_payload,
+        "summary_by_difficulty": summary_by_difficulty_payload,
+        "summary_by_category": summary_by_category_payload,
+    }
 
 
 def main() -> int:
