@@ -186,17 +186,30 @@ Each representation folder contains:
 - `top10.json`
 - any future representation-specific summaries
 
+`results.json` now keeps the existing overall metrics and additionally records:
+
+- `diagnostics`
+- `metrics_by_difficulty`
+- `metrics_by_category`
+- `per_question`
+
+The segmented outputs keep the paper-centered evaluation rule for retrieval metrics: only answerable paper-target questions contribute to `Hit@k`, `MRR`, and `NDCG`, while non-paper targets and unanswerable questions are reported explicitly in diagnostics and segmented counts.
+
 Aggregate summaries remain at:
 
 - `data/retrieval_results/summary.json`
 - `data/retrieval_results/summary.md`
 - `data/retrieval_results/summary.csv`
+- `data/retrieval_results/summary_by_difficulty.json`
+- `data/retrieval_results/summary_by_category.json`
 
 `top10.json` stores the top-10 retrieved documents per question together with retrieval scores, source text, and canonical metadata fields such as authors, publication year, tasks, datasets, methods, metrics, implementations, and keywords when available.
 
 `run_aggregate_results` reads only existing `data/retrieval_results/{representation}/results.json` files, preserves the configured representation order, skips missing results gracefully, and does not rerun embedding or evaluation.
 
 Current retrieval evaluation is paper-centered: it evaluates only answerable questions whose gold target is a `scientificWork` / paper and explicitly skips answerable non-paper targets.
+
+If you want optional abstention analysis for unanswerable questions, set `evaluation.abstention_score_threshold` in `config/pre_retrieval_config.json` or pass `--abstention-score-threshold` to `run_evaluate`.
 
 ## Archive policy
 

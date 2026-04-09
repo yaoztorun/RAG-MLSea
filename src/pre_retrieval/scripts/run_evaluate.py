@@ -18,6 +18,7 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--max-papers", type=int, default=None)
     parser.add_argument("--disable-subset", action="store_true")
+    parser.add_argument("--abstention-score-threshold", type=float, default=None)
     args = parser.parse_args()
 
     config = load_pipeline_config(args.config)
@@ -52,6 +53,11 @@ def main() -> int:
         output_path=output_path,
         limit=args.limit,
         representation_order=config["evaluation"]["representation_order"],
+        abstention_score_threshold=(
+            args.abstention_score_threshold
+            if args.abstention_score_threshold is not None
+            else config["evaluation"].get("abstention_score_threshold")
+        ),
     )
     print(payload["metrics"])
     return 0

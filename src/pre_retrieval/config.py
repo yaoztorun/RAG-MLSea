@@ -28,6 +28,7 @@ DEFAULT_CONFIG: Dict[str, Any] = {
         "questions_path": "data/questions/ml_questions_dataset.json",
         "output_dir": "data/retrieval_results",
         "top_k": [1, 5, 10],
+        "abstention_score_threshold": None,
         "representation_order": [
             "title_only",
             "abstract_only",
