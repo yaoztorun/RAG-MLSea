@@ -27,7 +27,7 @@ def main() -> None:
     parser.add_argument("--top-k", type=int, default=3)
     parser.add_argument("--min-score", type=float, default=0.20)
     parser.add_argument("--skip-cross-encoder", action="store_true")
-    parser.add_argument("--model-id", default="meta-llama/Meta-Llama-3-8B-Instruct")
+    parser.add_argument("--model-id", default="TinyLlama/TinyLlama-1.1B-Chat-v1.0")
     parser.add_argument("--device")
     args = parser.parse_args()
 

@@ -29,6 +29,7 @@ except ImportError:  # pragma: no cover - optional dependency
 
 GeneratorFn = Callable[[str, str], str]
 BaselineGeneratorFn = Callable[[str], str]
+JudgeFn = Callable[[str, str], tuple[int, str]]
 
 
 def evaluate_generation(
@@ -36,6 +37,7 @@ def evaluate_generation(
     retrieval_results_path: str | Path,
     generator_fn: GeneratorFn,
     baseline_generator_fn: Optional[BaselineGeneratorFn] = None,
+    judge_fn: Optional[JudgeFn] = None,
     canonical_records_path: str | Path = DEFAULT_CANONICAL_PAPERS_PATH,
     questions_path: str | Path = DEFAULT_QUESTIONS_PATH,
     representation_type: Optional[str] = None,
@@ -69,6 +71,7 @@ def evaluate_generation(
     baseline_sas_scores = []
     rag_rouge_scores = []
     baseline_rouge_scores = []
+    llm_judge_scores = []
 
     entries = get_per_question_entries(retrieval_payload)
     if limit is not None:
@@ -115,6 +118,12 @@ def evaluate_generation(
                 baseline_rouge = rouge.score(ground_truth, baseline_answer)["rougeL"].fmeasure
                 baseline_rouge_scores.append(baseline_rouge)
 
+        llm_judge_score = None
+        llm_judge_raw = None
+        if judge_fn is not None:
+            llm_judge_score, llm_judge_raw = judge_fn(ground_truth, rag_answer)
+            llm_judge_scores.append(llm_judge_score)
+
         per_question.append(
             {
                 "question_id": question_id,
@@ -128,6 +137,8 @@ def evaluate_generation(
                     "baseline_sas": baseline_sas,
                     "rag_rougeL": rag_rouge,
                     "baseline_rougeL": baseline_rouge,
+                    "llm_judge_score": llm_judge_score,
+                    "llm_judge_raw_response": llm_judge_raw,
                 },
             }
         )
@@ -141,6 +152,7 @@ def evaluate_generation(
             "baseline_sas": (sum(baseline_sas_scores) / len(baseline_sas_scores)) if baseline_sas_scores else None,
             "rag_rougeL": (sum(rag_rouge_scores) / len(rag_rouge_scores)) if rag_rouge_scores else None,
             "baseline_rougeL": (sum(baseline_rouge_scores) / len(baseline_rouge_scores)) if baseline_rouge_scores else None,
+            "llm_judge_accuracy": (sum(llm_judge_scores) / len(llm_judge_scores)) if llm_judge_scores else None,
         },
         "per_question": per_question,
     }

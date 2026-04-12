@@ -4,7 +4,7 @@ import argparse
 import json
 
 from src.post_retrieval.evaluation import evaluate_generation
-from src.post_retrieval.generation import generate_rag_answer, load_generation_model
+from src.post_retrieval.generation import generate_rag_answer, judge_rag_answer, load_generation_model
 from src.post_retrieval.pipeline import resolve_retrieval_results_path
 
 
@@ -18,7 +18,7 @@ def main() -> None:
     parser.add_argument("--top-k", type=int, default=3)
     parser.add_argument("--min-score", type=float, default=0.20)
     parser.add_argument("--skip-cross-encoder", action="store_true")
-    parser.add_argument("--model-id", default="meta-llama/Meta-Llama-3-8B-Instruct")
+    parser.add_argument("--model-id", default="TinyLlama/TinyLlama-1.1B-Chat-v1.0")
     parser.add_argument("--device")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--output-path", default="data/intermediate/post_retrieval/generation_evaluation.json")
@@ -30,9 +30,13 @@ def main() -> None:
     def generator(question: str, context: str) -> str:
         return generate_rag_answer(question, context, model=model, tokenizer=tokenizer, device=device)
 
+    def judge(ground_truth: str, generated_answer: str) -> int:
+        return judge_rag_answer(ground_truth, generated_answer, model=model, tokenizer=tokenizer, device=device)
+
     payload = evaluate_generation(
         retrieval_results_path=retrieval_results_path,
         generator_fn=generator,
+        judge_fn=judge,
         canonical_records_path=args.papers_path,
         questions_path=args.questions_path,
         representation_type=args.representation,

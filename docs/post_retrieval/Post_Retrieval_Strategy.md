@@ -1,45 +1,40 @@
 # Offline Post-Retrieval Strategy
 
-The post-retrieval stage now starts **after** the active retrieval pipeline has already produced top-k results from offline representations.
+The post-retrieval stage covers the journey from raw retrieval results to a final, evaluated answer.
 
 ## Inputs
 
 The offline contract is:
-
 - canonical paper records from `data/intermediate/raw_papers/papers_master.jsonl`
 - retrieval outputs from `data/retrieval_results/{representation}_results.json`
 - optional representation rows from `data/intermediate/representations/{representation}.jsonl`
 
-No step in this stage talks to GraphDB or sends SPARQL queries.
-
-## Pipeline phases
+## Pipeline Phases
 
 1. **Load canonical records**
-   - build a `paper_id -> canonical record` lookup from `papers_master.jsonl`
-   - treat that lookup as the source of truth for paper metadata
+   - Build a `paper_id -> canonical record` lookup from `papers_master.jsonl`.
 
 2. **Resolve retrieved context**
-   - take the retrieval stage's top-k results for a question
-   - use the returned `paper_id` values to attach canonical metadata
-   - reuse `source_text` from retrieval outputs when present, or resolve it from the matching representation file
+   - Resolve metadata and representation text for the top-k results.
 
 3. **Hard filtering**
-   - drop low-confidence retrieval hits using the retrieval score threshold
-   - short-circuit if nothing survives
+   - Drop low-confidence retrieval hits using the retrieval score threshold.
 
 4. **Cross-encoder re-ranking**
-   - re-rank the offline candidates with the MS MARCO cross-encoder
-   - preserve the ablation option to skip the cross-encoder when needed
+   - Re-rank candidates using a cross-encoder (e.g., `cross-encoder/ms-marco-MiniLM-L-6-v2`).
 
 5. **Generation context formatting**
-   - serialize only the highest-ranked candidates into a `<CONTEXT>` block
-   - include canonical metadata such as title, year, authors, tasks, keywords, and abstract
-   - include the retrieved representation text so generation stays aligned with the retrieval view of the document
+   - Serialize the highest-ranked candidates into a `<CONTEXT>` block.
 
-## Output contract
+6. **Answer Evaluation**
+   - **Quantitative**: Calculate SAS (Semantic Answer Similarity) and ROUGE-L.
+   - **Qualitative (LLM-as-a-Judge)**: Use a separate LLM pass to verify factual correctness against the ground truth.
+   - **Audit Trail**: Save raw judge responses for manual spot-checking and verification.
 
-The post-retrieval pipeline produces:
+## Output Contract
 
-- a filtered and optionally re-ranked candidate list
-- a `<CONTEXT>` string for answer generation
-- no direct dependency on GraphDB, SPARQL endpoints, or live graph services
+The pipeline produces:
+- A final generated answer.
+- A suite of metrics (SAS, ROUGE, Judge Accuracy).
+- A trace of the judge's reasoning for every question.
+- No direct dependency on GraphDB or live graph services.

@@ -5,7 +5,7 @@ from typing import Any, Dict, Iterable, Optional
 from src.post_retrieval.pipeline.context_builder import UNANSWERABLE_RESPONSE
 from src.post_retrieval.pipeline.post_retrieval_pipeline import build_context_payload
 
-DEFAULT_GENERATION_MODEL = "meta-llama/Meta-Llama-3-8B-Instruct"
+DEFAULT_GENERATION_MODEL = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 
 
 def load_generation_model(
@@ -20,9 +20,9 @@ def load_generation_model(
     runtime_device = device or ("cuda" if torch.cuda.is_available() else "cpu")
     model_kwargs: Dict[str, Any] = {}
     if torch_dtype == "auto":
-        model_kwargs["torch_dtype"] = "auto"
+        model_kwargs["dtype"] = "auto"
     elif hasattr(torch, torch_dtype):
-        model_kwargs["torch_dtype"] = getattr(torch, torch_dtype)
+        model_kwargs["dtype"] = getattr(torch, torch_dtype)
 
     tokenizer = AutoTokenizer.from_pretrained(model_id)
     model = AutoModelForCausalLM.from_pretrained(model_id, **model_kwargs).to(runtime_device)
@@ -67,6 +67,44 @@ def generate_rag_answer(
     )
     response = outputs[0][inputs["input_ids"].shape[-1] :]
     return tokenizer.decode(response, skip_special_tokens=True).strip()
+
+
+def judge_rag_answer(
+    ground_truth: str,
+    generated_answer: str,
+    *,
+    model: Any,
+    tokenizer: Any,
+    device: str,
+    max_new_tokens: int = 64,
+    temperature: float = 0.0,
+) -> tuple[int, str]:
+    # Ultra-minimal prompt for small models
+    prompt = (
+        f"Goal: Does the answer match the ground truth factually?\n"
+        f"Ground Truth: {ground_truth}\n"
+        f"Generated Answer: {generated_answer}\n"
+        f"Correct (1) or Incorrect (0)? Result:"
+    )
+    
+    inputs = tokenizer(prompt, return_tensors="pt").to(device)
+    outputs = model.generate(
+        **inputs, 
+        max_new_tokens=5, 
+        do_sample=False,
+        pad_token_id=tokenizer.eos_token_id
+    )
+    
+    # Extract only the new tokens
+    response = outputs[0][inputs["input_ids"].shape[-1] :]
+    text_response = tokenizer.decode(response, skip_special_tokens=True).strip()
+
+    # Robust parsing: look for a leading digit 0 or 1 specifically
+    import re
+    # Look for the first 0 or 1 that appears as a standalone token or at the start
+    match = re.search(r"(?:^|\s|:)([01])(?:\s|$|\.)", text_response)
+    score = int(match.group(1)) if match else 0
+    return score, text_response
 
 
 def generate_answer_from_retrieval(
