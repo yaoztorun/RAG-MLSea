@@ -10,3 +10,4 @@ data/raw/
 /env/
 .ipynb_checkpoints/
 *.py[cod]
+claude.md
