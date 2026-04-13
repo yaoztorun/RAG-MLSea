@@ -18,14 +18,11 @@ MODEL_PREDICATE_WHITELIST = [
     "http://w3id.org/mlso/hasRelatedImplementation",
     "http://w3id.org/mlso/hasEvaluation",
     "http://w3id.org/mlso/hasRun",
+    "http://schema.org/codeRepository",
 ]
 
 
 def build_model_predicate_filtered_text(record: Dict[str, Any], config: Dict[str, Any]) -> str | None:
-    """Build predicate-filtered model representation.
-
-    Drops models with NO meaningful predicate information beyond a bare label.
-    """
     max_characters = int(config.get("max_characters", 1800))
     title_max = int(config.get("title_max_characters", 512))
     description_max = int(config.get("description_max_characters", 500))
@@ -39,9 +36,10 @@ def build_model_predicate_filtered_text(record: Dict[str, Any], config: Dict[str
     related_impls: List[str] = record.get("related_implementations") or []
     runs: List[str] = record.get("runs") or []
     metrics_list: List[str] = record.get("metrics") or []
+    linked_entities: List[Dict[str, Any]] = record.get("linked_entities") or []
 
-    if not (keywords or tasks or datasets or related_papers or related_impls or runs or metrics_list):
-        return None  # DROP model completely
+    if not (keywords or tasks or datasets or related_papers or related_impls or runs or metrics_list or linked_entities):
+        return None
 
     parts: List[str] = []
 
@@ -80,6 +78,19 @@ def build_model_predicate_filtered_text(record: Dict[str, Any], config: Dict[str
     if metrics_list:
         items = [truncate_text(m, list_value_max) for m in metrics_list[:list_item_limit]]
         parts.append(f"Metrics: {', '.join(items)}")
+
+    if runs:
+        items = [truncate_text(r, list_value_max) for r in runs[:list_item_limit]]
+        parts.append(f"Runs: {', '.join(items)}")
+
+    if linked_entities:
+        linked_labels: List[str] = []
+        for ent in linked_entities[:list_item_limit]:
+            label = normalize_whitespace(ent.get("object_label") or ent.get("predicate_label") or "")
+            if label:
+                linked_labels.append(truncate_text(label, list_value_max))
+        if linked_labels:
+            parts.append(f"Linked Entities: {', '.join(linked_labels)}")
 
     text = "\n".join(parts)
     return truncate_text(text, max_characters)

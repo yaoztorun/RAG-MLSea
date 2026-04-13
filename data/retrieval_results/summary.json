@@ -37,6 +37,42 @@
       "NDCG": 0.3822408579946063
     },
     {
+      "entity_type": "model",
+      "representation": "model_enriched_metadata",
+      "Hit@1": 0.6,
+      "Hit@5": 0.7333333333333333,
+      "Hit@10": 0.7666666666666667,
+      "MRR": 0.6666666666666666,
+      "NDCG": 0.6916332149274133
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_metadata",
+      "Hit@1": 0.3333333333333333,
+      "Hit@5": 0.5333333333333333,
+      "Hit@10": 0.6333333333333333,
+      "MRR": 0.4228174603174603,
+      "NDCG": 0.47325138208144646
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_predicate_filtered",
+      "Hit@1": 0.8,
+      "Hit@5": 0.9,
+      "Hit@10": 0.9333333333333333,
+      "MRR": 0.8555555555555556,
+      "NDCG": 0.8749665482607465
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_title_only",
+      "Hit@1": 0.36666666666666664,
+      "Hit@5": 0.5,
+      "Hit@10": 0.5333333333333333,
+      "MRR": 0.41865079365079366,
+      "NDCG": 0.44649798816593944
+    },
+    {
       "entity_type": "paper",
       "representation": "title_only",
       "Hit@1": 0.702247191011236,
