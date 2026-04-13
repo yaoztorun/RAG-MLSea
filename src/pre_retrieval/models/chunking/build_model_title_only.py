@@ -6,6 +6,9 @@ from src.pre_retrieval.shared.utils import normalize_whitespace, truncate_text
 
 
 def build_model_title_only_text(record: Dict[str, Any], config: Dict[str, Any]) -> str:
+    """Minimal model representation: ``Model: <label>``."""
     max_characters = int(config.get("max_characters", 512))
     label = normalize_whitespace(record.get("label") or record.get("title") or "")
-    return truncate_text(label, max_characters)
+    if not label:
+        return ""
+    return truncate_text(f"Model: {label}", max_characters)
