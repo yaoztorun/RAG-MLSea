@@ -6,6 +6,7 @@ from typing import Any, Callable, Dict, Iterable, List, Optional
 from src.pre_retrieval.datasets.chunking.build_dataset_title_only import build_dataset_title_only_text
 from src.pre_retrieval.datasets.chunking.build_dataset_metadata import build_dataset_metadata_text
 from src.pre_retrieval.datasets.chunking.build_dataset_predicate_filtered import build_dataset_predicate_filtered_text
+from src.pre_retrieval.datasets.chunking.build_dataset_enriched_metadata import build_dataset_enriched_metadata_text
 from src.pre_retrieval.shared.utils import approx_token_count, build_item_id, compute_distribution_stats, load_jsonl, save_json, save_jsonl
 
 
@@ -13,12 +14,14 @@ SUPPORTED_DATASET_REPRESENTATIONS = [
     "dataset_title_only",
     "dataset_metadata",
     "dataset_predicate_filtered",
+    "dataset_enriched_metadata",
 ]
 
 DATASET_BUILDER_MAP: Dict[str, Callable[[Dict[str, Any], Dict[str, Any]], str]] = {
     "dataset_title_only": build_dataset_title_only_text,
     "dataset_metadata": build_dataset_metadata_text,
     "dataset_predicate_filtered": build_dataset_predicate_filtered_text,
+    "dataset_enriched_metadata": build_dataset_enriched_metadata_text,
 }
 
 

@@ -41,6 +41,7 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "dataset_title_only",
             "dataset_metadata",
             "dataset_predicate_filtered",
+            "dataset_enriched_metadata",
         ],
     },
     "representations": {
@@ -90,6 +91,16 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "list_item_limit": 5,
             "list_value_max_characters": 100,
             "max_characters": 1800,
+        },
+        "dataset_enriched_metadata": {
+            "title_max_characters": 512,
+            "description_max_characters": 600,
+            "list_item_limit": 8,
+            "list_value_max_characters": 120,
+            "related_paper_limit": 6,
+            "implementation_limit": 4,
+            "linked_entity_limit": 6,
+            "max_characters": 2400,
         },
     },
 }
