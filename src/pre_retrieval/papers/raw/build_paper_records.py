@@ -311,6 +311,9 @@ def finalize_paper_record(accumulator: Dict[str, Any], node_cache: Dict[str, Dic
         if predicate in KEYWORD_PREDICATES:
             keywords.append(resolve_node_text(object_value, is_literal, node_cache))
             continue
+        if predicate in KEYWORD_PREDICATES:
+            keywords.append(resolve_node_text(object_value, is_literal, node_cache))
+            continue
         if predicate in CORE_METADATA_PREDICATES or predicate == RDF_TYPE:
             continue
 
@@ -349,9 +352,11 @@ def finalize_paper_record(accumulator: Dict[str, Any], node_cache: Dict[str, Dic
         "paper_id": paper_id_from_uri(paper_uri),
         "paper_uri": paper_uri,
         "title": title,
+        "year": year,
         "abstract": abstract,
         "publication_year": publication_year,
         "authors": unique_preserve_order(authors),
+        "keywords": unique_preserve_order(keywords),
         "keywords": unique_preserve_order(keywords),
         "tasks": unique_preserve_order(tasks),
         "datasets": unique_preserve_order(datasets),
