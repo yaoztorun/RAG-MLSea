@@ -46,6 +46,7 @@ def retrieve_queries(
     embedder_type: str,
     model_name: str,
     top_k: int,
+    collection_name: str | None = None,
 ) -> List[List[Dict[str, Any]]]:
     query_list = list(queries)
     if not query_list:
@@ -58,8 +59,9 @@ def retrieve_queries(
         normalize_embeddings=True,
         show_progress_bar=False,
     )
+    resolved_collection_name = collection_name or collection_name_for_representation(representation_type)
     store = ChromaVectorStore.from_config(
-        collection_name=collection_name_for_representation(representation_type),
+        collection_name=resolved_collection_name,
         vector_store_config=vector_store_config,
         repo_root=REPO_ROOT,
     )

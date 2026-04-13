@@ -33,6 +33,7 @@ def main() -> int:
     output_path = resolve_repo_path(args.output) if args.output else representation_results_path(
         resolve_repo_path(config["evaluation"]["output_dir"]),
         args.representation,
+        entity_type="paper",
     )
 
     try:

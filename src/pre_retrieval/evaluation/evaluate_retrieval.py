@@ -54,20 +54,31 @@ def ndcg(ranked_ids: Sequence[str], gold_id: str) -> float:
     return 0.0
 
 
-def representation_results_dir(output_dir: Path, representation_type: str) -> Path:
-    return output_dir / representation_type
+ENTITY_TYPE_RESULT_FOLDERS = {
+    "paper": "paper_results",
+    "dataset": "dataset_results",
+}
 
 
-def representation_results_path(output_dir: Path, representation_type: str) -> Path:
-    return representation_results_dir(output_dir, representation_type) / RESULTS_FILE_NAME
+def entity_results_dir(output_dir: Path, entity_type: str) -> Path:
+    folder = ENTITY_TYPE_RESULT_FOLDERS.get(entity_type, f"{entity_type}_results")
+    return output_dir / folder
 
 
-def representation_top10_path(output_dir: Path, representation_type: str) -> Path:
-    return representation_results_dir(output_dir, representation_type) / TOP10_FILE_NAME
+def representation_results_dir(output_dir: Path, representation_type: str, entity_type: str = "paper") -> Path:
+    return entity_results_dir(output_dir, entity_type) / representation_type
 
 
-def _load_record_index(records_path: Path) -> Dict[str, Dict[str, Any]]:
-    return {normalize_identifier(str(record.get("paper_id", ""))): record for record in load_jsonl(records_path)}
+def representation_results_path(output_dir: Path, representation_type: str, entity_type: str = "paper") -> Path:
+    return representation_results_dir(output_dir, representation_type, entity_type) / RESULTS_FILE_NAME
+
+
+def representation_top10_path(output_dir: Path, representation_type: str, entity_type: str = "paper") -> Path:
+    return representation_results_dir(output_dir, representation_type, entity_type) / TOP10_FILE_NAME
+
+
+def _load_record_index(records_path: Path, id_field: str = "paper_id") -> Dict[str, Dict[str, Any]]:
+    return {normalize_identifier(str(record.get(id_field, ""))): record for record in load_jsonl(records_path)}
 
 
 def _clean_segment_value(value: Any) -> str | None:
@@ -198,6 +209,8 @@ def build_evaluation_payload(
     record_index: Dict[str, Dict[str, Any]],
     abstention_score_threshold: float | None = None,
     unanswerable_results: Sequence[Sequence[Dict[str, Any]]] | None = None,
+    entity_type: str = "paper",
+    id_field: str = "paper_id",
 ) -> tuple[Dict[str, Any], Dict[str, Any]]:
     difficulty_segments = _build_segment_maps(all_questions, top_k_values, "difficulty")
     category_segments = _build_segment_maps(all_questions, top_k_values, "category")
@@ -222,15 +235,15 @@ def build_evaluation_payload(
     top10_entries: List[Dict[str, Any]] = []
 
     for question, results in zip(evaluated_questions, retrieval_results):
-        gold_paper_id = normalize_identifier(question.get("target_entity_iri", ""))
-        ranked_ids = [normalize_identifier(result.get("paper_id", "")) for result in results]
-        gold_item_id = build_item_id(representation_type, gold_paper_id)
+        gold_entity_id = normalize_identifier(question.get("target_entity_iri", ""))
+        ranked_ids = [normalize_identifier(result.get(id_field, "")) for result in results]
+        gold_item_id = build_item_id(representation_type, gold_entity_id)
         if gold_item_id not in matched_item_ids_set:
-            unmatched_targets.append(gold_paper_id)
+            unmatched_targets.append(gold_entity_id)
 
-        question_metrics = {f"Hit@{k}": hit_at_k(ranked_ids, gold_paper_id, k) for k in top_k_values}
-        question_metrics["MRR"] = reciprocal_rank(ranked_ids, gold_paper_id)
-        question_metrics["NDCG"] = ndcg(ranked_ids, gold_paper_id)
+        question_metrics = {f"Hit@{k}": hit_at_k(ranked_ids, gold_entity_id, k) for k in top_k_values}
+        question_metrics["MRR"] = reciprocal_rank(ranked_ids, gold_entity_id)
+        question_metrics["NDCG"] = ndcg(ranked_ids, gold_entity_id)
         for metric_name, value in question_metrics.items():
             metric_lists[metric_name].append(value)
 
@@ -242,7 +255,8 @@ def build_evaluation_payload(
                 question=question,
                 representation_type=representation_type,
                 result=result,
-                record=record_index.get(normalize_identifier(result.get("paper_id", ""))),
+                record=record_index.get(normalize_identifier(result.get(id_field, ""))),
+                id_field=id_field,
             )
             for result in results[:TOP_DOCUMENT_LIMIT]
         ]
@@ -250,7 +264,7 @@ def build_evaluation_payload(
             {
                 "question_id": question.get("id", ""),
                 "question": question.get("question", ""),
-                "gold_paper_id": gold_paper_id,
+                f"gold_{id_field}": gold_entity_id,
                 "documents": top_documents,
             }
         )
@@ -262,7 +276,7 @@ def build_evaluation_payload(
                 "category": _clean_segment_value(question.get("category")),
                 "is_answerable": question.get("is_answerable", True),
                 "target_entity_iri": question.get("target_entity_iri", ""),
-                "gold_paper_id": gold_paper_id,
+                f"gold_{id_field}": gold_entity_id,
                 "matched_in_collection": gold_item_id in matched_item_ids_set,
                 "metrics": question_metrics,
                 "results": results,
@@ -281,6 +295,7 @@ def build_evaluation_payload(
     }
 
     diagnostics = {
+        "entity_type": entity_type,
         "total_questions": len(all_questions),
         "answerable_questions": len(answerable_questions_all),
         "paper_target_questions": len(paper_target_questions_all),
@@ -324,6 +339,7 @@ def build_evaluation_payload(
             metrics_by_category["unanswerable"] = metrics_by_category["unanswerable"] | abstention_payload
 
     payload = {
+        "entity_type": entity_type,
         "representation_type": representation_type,
         "collection_name": collection_name,
         "records_path": str(records_path),
@@ -351,6 +367,7 @@ def _top_document_payload(
     representation_type: str,
     result: Dict[str, Any],
     record: Dict[str, Any] | None,
+    id_field: str = "paper_id",
 ) -> Dict[str, Any]:
     payload = {
         "question_id": question.get("id", ""),
@@ -358,7 +375,7 @@ def _top_document_payload(
         "representation_type": representation_type,
         "rank": int(result.get("rank", 0)),
         "item_id": result.get("item_id", ""),
-        "paper_id": result.get("paper_id", ""),
+        id_field: result.get(id_field, ""),
         "title": result.get("title", ""),
         "source_text": result.get("source_text", ""),
         "distance": float(result.get("distance", 0.0)),
@@ -382,17 +399,29 @@ def evaluate_representation(
     limit: Optional[int] = None,
     representation_order: Optional[Sequence[str]] = None,
     abstention_score_threshold: float | None = None,
+    collection_name: str | None = None,
+    entity_type: str = "paper",
+    id_field: str = "paper_id",
+    target_filter: Any = None,
 ) -> Dict[str, Any]:
     all_questions = load_json(questions_path)
-    answerable_questions_all = [question for question in all_questions if _is_answerable_question(question)]
-    paper_target_questions_all: List[Dict[str, Any]] = []
-    for question in answerable_questions_all:
-        if is_paper_entity_id(str(question.get("target_entity_iri", ""))):
-            paper_target_questions_all.append(question)
-    answerable_questions = list(paper_target_questions_all)
+    if target_filter is not None:
+        answerable_questions_all = [
+            question for question in all_questions
+            if _is_answerable_question(question) and target_filter(str(question.get("target_entity_iri", "")))
+        ]
+    else:
+        answerable_questions_all = [question for question in all_questions if _is_answerable_question(question)]
+        paper_target_questions_all: List[Dict[str, Any]] = []
+        for question in answerable_questions_all:
+            if is_paper_entity_id(str(question.get("target_entity_iri", ""))):
+                paper_target_questions_all.append(question)
+        answerable_questions_all = paper_target_questions_all
+    answerable_questions = list(answerable_questions_all)
     if limit is not None:
         answerable_questions = answerable_questions[:limit]
 
+    resolved_collection_name = collection_name or collection_name_for_representation(representation_type)
     top_k = max(max(top_k_values), TOP_DOCUMENT_LIMIT)
     retrieval_results = retrieve_queries(
         queries=[question.get("question", "") for question in answerable_questions],
@@ -401,16 +430,17 @@ def evaluate_representation(
         embedder_type=embedder_type,
         model_name=model_name,
         top_k=top_k,
+        collection_name=resolved_collection_name,
     )
 
     store = ChromaVectorStore.from_config(
-        collection_name=collection_name_for_representation(representation_type),
+        collection_name=resolved_collection_name,
         vector_store_config=vector_store_config,
         repo_root=REPO_ROOT,
     )
     gold_item_ids = [build_item_id(representation_type, normalize_identifier(question.get("target_entity_iri", ""))) for question in answerable_questions]
     matched_item_ids = store.get_existing_ids(gold_item_ids)
-    record_index = _load_record_index(records_path)
+    record_index = _load_record_index(records_path, id_field=id_field)
     unanswerable_questions = [question for question in all_questions if _is_unanswerable_question(question)]
     unanswerable_results = None
     if abstention_score_threshold is not None and unanswerable_questions:
@@ -421,11 +451,12 @@ def evaluate_representation(
             embedder_type=embedder_type,
             model_name=model_name,
             top_k=1,
+            collection_name=resolved_collection_name,
         )
 
     payload, top10_payload = build_evaluation_payload(
         representation_type=representation_type,
-        collection_name=collection_name_for_representation(representation_type),
+        collection_name=resolved_collection_name,
         records_path=records_path,
         embedder_type=embedder_type,
         model_name=model_name,
@@ -438,8 +469,16 @@ def evaluate_representation(
         record_index=record_index,
         abstention_score_threshold=abstention_score_threshold,
         unanswerable_results=unanswerable_results,
+        entity_type=entity_type,
+        id_field=id_field,
     )
-    aggregate_output_dir = output_path.parent.parent if output_path.name == RESULTS_FILE_NAME else output_path.parent
+    # Determine the root retrieval_results dir for aggregation.
+    # output_path is e.g. .../retrieval_results/paper_results/{repr}/results.json
+    # Go up: results.json -> {repr}/ -> paper_results/ -> retrieval_results/
+    if output_path.name == RESULTS_FILE_NAME:
+        aggregate_output_dir = output_path.parent.parent.parent
+    else:
+        aggregate_output_dir = output_path.parent.parent
     save_json(payload, output_path)
     save_json(top10_payload, output_path.parent / TOP10_FILE_NAME)
     aggregate_result_files(

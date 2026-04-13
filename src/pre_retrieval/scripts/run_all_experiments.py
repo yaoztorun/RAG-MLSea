@@ -85,7 +85,7 @@ def _run_representation(
     skip_existing: bool,
     force_rebuild: bool,
 ) -> None:
-    result_path = representation_results_path(results_dir, representation)
+    result_path = representation_results_path(results_dir, representation, entity_type="paper")
     print(f"[{representation}] starting")
     if _should_skip_representation(result_path, skip_existing=skip_existing, force_rebuild=force_rebuild):
         print(f"[{representation}] skipped existing evaluation output")
