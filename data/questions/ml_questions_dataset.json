@@ -2934,5 +2934,316 @@
     "answer_type": "none",
     "text_answer": "The knowledge graph does not provide this information.",
     "is_answerable": false
-  }
+  },
+
+  {
+"id": "mlsea_q_226",
+"question": "Which dataset is related to hand image recognition tasks?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/11k%20Hands",
+"answer": "11k Hands",
+"answer_type": "literal",
+"text_answer": "The dataset related to hand image recognition tasks is 11k Hands.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_227",
+"question": "Which dataset is commonly used for topic classification in text?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20%20Newsgroups",
+"answer": "20 Newsgroups",
+"answer_type": "literal",
+"text_answer": "The dataset commonly used for topic classification in text is 20 Newsgroups.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_228",
+"question": "Which dataset is associated with OCR tasks across multiple languages?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/105%2C941%20Images%20Natural%20Scenes%20OCR%20Data%20of%2012%20Languages",
+"answer": "105,941 Images Natural Scenes OCR Data of 12 Languages",
+"answer_type": "literal",
+"text_answer": "The dataset associated with OCR tasks across multiple languages is the 105,941 Images Natural Scenes OCR dataset.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_229",
+"question": "Which dataset is used for natural language classification tasks?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20%20Newsgroups",
+"answer": "20 Newsgroups",
+"answer_type": "literal",
+"text_answer": "The dataset used for natural language classification tasks is 20 Newsgroups.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_230",
+"question": "Which dataset focuses on human pose recognition?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/10%2C000%20People%20-%20Human%20Pose%20Recognition%20Data",
+"answer": "10,000 People - Human Pose Recognition Data",
+"answer_type": "literal",
+"text_answer": "The dataset focusing on human pose recognition is the 10,000 People dataset.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_231",
+"question": "Which dataset is related to biomedical or clinical text extraction tasks?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2010%20i2b2%2FVA",
+"answer": "2010 i2b2/VA",
+"answer_type": "literal",
+"text_answer": "The dataset related to biomedical text extraction tasks is 2010 i2b2/VA.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_232",
+"question": "Which dataset is used for medical NLP challenges?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2018%20n2c2",
+"answer": "2018 n2c2",
+"answer_type": "literal",
+"text_answer": "The dataset used for medical NLP challenges is 2018 n2c2.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_233",
+"question": "Which dataset involves vessel segmentation tasks?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2-PM%20Vessel%20Dataset",
+"answer": "2-PM Vessel Dataset",
+"answer_type": "literal",
+"text_answer": "The dataset involving vessel segmentation tasks is the 2-PM Vessel Dataset.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_234",
+"question": "Which dataset is used in robotic instrument segmentation challenges?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2017%20Robotic%20Instrument%20Segmentation%20Challenge",
+"answer": "2017 Robotic Instrument Segmentation Challenge",
+"answer_type": "literal",
+"text_answer": "The dataset used in robotic instrument segmentation challenges is the 2017 challenge dataset.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_235",
+"question": "Which dataset focuses on scene classification tasks?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/12%20Scenes",
+"answer": "12 Scenes",
+"answer_type": "literal",
+"text_answer": "The dataset focusing on scene classification tasks is 12 Scenes.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_236",
+"question": "Which dataset is used for handwriting or text recognition?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/105%2C941%20Images%20Natural%20Scenes%20OCR%20Data%20of%2012%20Languages",
+"answer": "OCR dataset",
+"answer_type": "literal",
+"text_answer": "The dataset used for handwriting or text recognition is the OCR dataset.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_237",
+"question": "Which dataset is used for image-based biometric recognition?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/11k%20Hands",
+"answer": "11k Hands",
+"answer_type": "literal",
+"text_answer": "The dataset used for biometric recognition is 11k Hands.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_238",
+"question": "Which dataset is used for topic modeling or clustering tasks?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20%20Newsgroups",
+"answer": "20 Newsgroups",
+"answer_type": "literal",
+"text_answer": "The dataset used for topic modeling tasks is 20 Newsgroups.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_239",
+"question": "Which dataset is used for multi-language text recognition?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/105%2C941%20Images%20Natural%20Scenes%20OCR%20Data%20of%2012%20Languages",
+"answer": "OCR dataset",
+"answer_type": "literal",
+"text_answer": "The dataset used for multi-language text recognition is the OCR dataset.",
+"is_answerable": true
+},
+{
+"id": "mlsea_q_240",
+"question": "Which dataset is related to visual scene understanding?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/12%20Scenes",
+"answer": "12 Scenes",
+"answer_type": "literal",
+"text_answer": "The dataset related to visual scene understanding is 12 Scenes.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_241",
+"question": "Which dataset involves temporal relations in clinical text?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2012%20i2b2%20Temporal%20Relations",
+"answer": "2012 i2b2 Temporal Relations",
+"answer_type": "literal",
+"text_answer": "The dataset involving temporal relations in clinical text is the 2012 i2b2 dataset.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_242",
+"question": "Which dataset is used for speech or utterance recognition tasks?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20000%20utterances",
+"answer": "20000 utterances",
+"answer_type": "literal",
+"text_answer": "The dataset used for speech recognition tasks is 20000 utterances.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_243",
+"question": "Which dataset is related to reasoning challenges in AI?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/ARC",
+"answer": "ARC",
+"answer_type": "literal",
+"text_answer": "The dataset related to reasoning challenges in AI is ARC.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_244",
+"question": "Which dataset focuses on science question answering?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/ARC",
+"answer": "ARC",
+"answer_type": "literal",
+"text_answer": "The dataset focusing on science question answering is ARC.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_245",
+"question": "Which dataset is related to biomedical adverse event extraction?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2018%20n2c2",
+"answer": "2018 n2c2",
+"answer_type": "literal",
+"text_answer": "The dataset related to biomedical adverse event extraction is 2018 n2c2.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_246",
+"question": "Which dataset is used for classification of images across scenes?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/12%20Scenes",
+"answer": "12 Scenes",
+"answer_type": "literal",
+"text_answer": "The dataset used for scene classification is 12 Scenes.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_247",
+"question": "Which dataset is used for pose estimation tasks?",
+"question_type": "task_to_dataset",
+"category": "dataset",
+"difficulty": "medium",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/10%2C000%20People",
+"answer": "10,000 People",
+"answer_type": "literal",
+"text_answer": "The dataset used for pose estimation tasks is 10,000 People.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_248",
+"question": "Which dataset supports classification of handwritten or printed text?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/OCR",
+"answer": "OCR dataset",
+"answer_type": "literal",
+"text_answer": "The dataset supporting text recognition is the OCR dataset.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_249",
+"question": "Which dataset is commonly used for news article categorization?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20%20Newsgroups",
+"answer": "20 Newsgroups",
+"answer_type": "literal",
+"text_answer": "The dataset commonly used for news categorization is 20 Newsgroups.",
+"is_answerable": true
+},
+
+{
+"id": "mlsea_q_250",
+"question": "Which dataset involves reasoning over scientific questions?",
+"question_type": "semantic_task_to_dataset",
+"category": "dataset",
+"difficulty": "hard",
+"target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/ARC",
+"answer": "ARC",
+"answer_type": "literal",
+"text_answer": "The dataset involving reasoning over scientific questions is ARC.",
+"is_answerable": true
+}
 ]
