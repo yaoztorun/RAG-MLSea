@@ -2,46 +2,37 @@ from __future__ import annotations
 
 from typing import Any, Dict, List
 
-from src.pre_retrieval.shared.utils import normalize_whitespace, truncate_text
-
-
-MODEL_PREDICATE_WHITELIST = [
-    "http://purl.org/dc/terms/title",
-    "http://www.w3.org/2000/01/rdf-schema#label",
-    "https://schema.org/description",
-    "http://purl.org/dc/terms/issued",
-    "https://schema.org/datePublished",
-    "http://www.w3.org/ns/dcat#keyword",
-    "http://w3id.org/mlso/hasTaskType",
-    "http://w3id.org/mlso/usesDataset",
-    "http://w3id.org/mlso/hasRelatedPaper",
-    "http://w3id.org/mlso/hasRelatedImplementation",
-    "http://w3id.org/mlso/hasEvaluation",
-    "http://w3id.org/mlso/hasRun",
-]
+from src.pre_retrieval.models.chunking.model_graph_helpers import (
+    extract_neighbor_labels,
+    extract_repo_names,
+    extract_repo_urls,
+)
+from src.pre_retrieval.shared.utils import normalize_whitespace, truncate_text, unique_preserve_order
 
 
 def build_model_predicate_filtered_text(record: Dict[str, Any], config: Dict[str, Any]) -> str | None:
     """Build predicate-filtered model representation.
 
-    Drops models with NO meaningful predicate information beyond a bare label.
+    Drops models that have NO linked_entities **and** no non-empty top-level
+    relation lists (tasks, datasets, metrics, etc.).  This keeps models that
+    actually carry graph-derived context.
     """
     max_characters = int(config.get("max_characters", 1800))
     title_max = int(config.get("title_max_characters", 512))
-    description_max = int(config.get("description_max_characters", 500))
     list_item_limit = int(config.get("list_item_limit", 5))
     list_value_max = int(config.get("list_value_max_characters", 100))
 
-    keywords: List[str] = record.get("keywords") or []
-    tasks: List[str] = record.get("tasks") or []
-    datasets: List[str] = record.get("datasets") or []
-    related_papers: List[str] = record.get("related_papers") or []
-    related_impls: List[str] = record.get("related_implementations") or []
-    runs: List[str] = record.get("runs") or []
-    metrics_list: List[str] = record.get("metrics") or []
+    linked_entities: List[Dict[str, Any]] = record.get("linked_entities") or []
 
-    if not (keywords or tasks or datasets or related_papers or related_impls or runs or metrics_list):
-        return None  # DROP model completely
+    # Check if there is *any* useful graph context beyond a bare label.
+    top_level_lists = [
+        record.get(f) or []
+        for f in ("tasks", "datasets", "metrics", "runs", "keywords",
+                   "related_papers", "related_implementations")
+    ]
+    has_graph_context = bool(linked_entities) or any(top_level_lists)
+    if not has_graph_context:
+        return None  # DROP model – nothing useful beyond title
 
     parts: List[str] = []
 
@@ -49,37 +40,36 @@ def build_model_predicate_filtered_text(record: Dict[str, Any], config: Dict[str
     if label:
         parts.append(f"Model: {truncate_text(label, title_max)}")
 
-    description = normalize_whitespace(record.get("description") or "")
-    if description:
-        parts.append(f"Description: {truncate_text(description, description_max)}")
+    # --- repository names ---
+    repo_names = extract_repo_names(linked_entities)
+    if repo_names:
+        items = [truncate_text(name, list_value_max) for name in repo_names[:list_item_limit]]
+        parts.append(f"Repositories: {', '.join(items)}")
 
-    issued_year = normalize_whitespace(record.get("issued_year") or "")
-    if issued_year:
-        parts.append(f"Year: {issued_year}")
+    # --- repository URLs ---
+    repo_urls = extract_repo_urls(linked_entities)
+    if repo_urls:
+        items = [truncate_text(url, list_value_max) for url in repo_urls[:list_item_limit]]
+        parts.append(f"Repository URLs: {', '.join(items)}")
 
-    if keywords:
-        items = [truncate_text(keyword, list_value_max) for keyword in keywords[:list_item_limit]]
-        parts.append(f"Keywords: {', '.join(items)}")
+    # --- graph-linked neighbor labels ---
+    neighbor_labels = extract_neighbor_labels(linked_entities)
+    if neighbor_labels:
+        items = [truncate_text(lbl, list_value_max) for lbl in neighbor_labels[:list_item_limit]]
+        parts.append(f"Linked Entities: {', '.join(items)}")
 
-    if tasks:
-        items = [truncate_text(task, list_value_max) for task in tasks[:list_item_limit]]
-        parts.append(f"Tasks: {', '.join(items)}")
-
-    if datasets:
-        items = [truncate_text(ds, list_value_max) for ds in datasets[:list_item_limit]]
-        parts.append(f"Datasets: {', '.join(items)}")
-
-    if related_papers:
-        items = [truncate_text(p, list_value_max) for p in related_papers[:list_item_limit]]
-        parts.append(f"Related Papers: {', '.join(items)}")
-
-    if related_impls:
-        items = [truncate_text(i, list_value_max) for i in related_impls[:list_item_limit]]
-        parts.append(f"Implementations: {', '.join(items)}")
-
-    if metrics_list:
-        items = [truncate_text(m, list_value_max) for m in metrics_list[:list_item_limit]]
-        parts.append(f"Metrics: {', '.join(items)}")
+    # --- include any populated top-level lists ---
+    for field, heading in [
+        ("tasks", "Tasks"),
+        ("datasets", "Datasets"),
+        ("related_papers", "Related Papers"),
+        ("related_implementations", "Implementations"),
+        ("metrics", "Metrics"),
+    ]:
+        values: List[str] = record.get(field) or []
+        if values:
+            items = [truncate_text(v, list_value_max) for v in unique_preserve_order(values)[:list_item_limit]]
+            parts.append(f"{heading}: {', '.join(items)}")
 
     text = "\n".join(parts)
     return truncate_text(text, max_characters)
