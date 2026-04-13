@@ -18,13 +18,35 @@ DATASET_PREDICATE_WHITELIST = [
 ]
 
 
-def build_dataset_predicate_filtered_text(record: Dict[str, Any], config: Dict[str, Any]) -> str:
+def build_dataset_predicate_filtered_text(record: Dict[str, Any], config: Dict[str, Any]) -> str | None:
+    """
+    Builds predicate-filtered dataset representation.
+
+    IMPORTANT:
+    - Drops datasets with NO meaningful predicate information
+    - This is the REAL filtering step (missing before)
+    """
+
     max_characters = int(config.get("max_characters", 1800))
     title_max = int(config.get("title_max_characters", 512))
     description_max = int(config.get("description_max_characters", 500))
     list_item_limit = int(config.get("list_item_limit", 5))
     list_value_max = int(config.get("list_value_max_characters", 100))
 
+    # -----------------------------
+    # 🔥 FILTERING LOGIC (CRITICAL)
+    # -----------------------------
+    keywords: List[str] = record.get("keywords") or []
+    tasks: List[str] = record.get("tasks") or []
+    related_papers: List[str] = record.get("related_papers") or []
+    related_impls: List[str] = record.get("related_implementations") or []
+
+    if not (keywords or tasks or related_papers or related_impls):
+        return None  # ❗ DROP dataset completely
+
+    # -----------------------------
+    # BUILD REPRESENTATION
+    # -----------------------------
     parts: List[str] = []
 
     label = normalize_whitespace(record.get("label") or record.get("title") or "")
@@ -39,15 +61,21 @@ def build_dataset_predicate_filtered_text(record: Dict[str, Any], config: Dict[s
     if issued_year:
         parts.append(f"Year: {issued_year}")
 
-    keywords: List[str] = record.get("keywords") or []
     if keywords:
         items = [truncate_text(keyword, list_value_max) for keyword in keywords[:list_item_limit]]
         parts.append(f"Keywords: {', '.join(items)}")
 
-    tasks: List[str] = record.get("tasks") or []
     if tasks:
         items = [truncate_text(task, list_value_max) for task in tasks[:list_item_limit]]
         parts.append(f"Tasks: {', '.join(items)}")
+
+    if related_papers:
+        items = [truncate_text(p, list_value_max) for p in related_papers[:list_item_limit]]
+        parts.append(f"Related Papers: {', '.join(items)}")
+
+    if related_impls:
+        items = [truncate_text(i, list_value_max) for i in related_impls[:list_item_limit]]
+        parts.append(f"Implementations: {', '.join(items)}")
 
     text = "\n".join(parts)
     return truncate_text(text, max_characters)
