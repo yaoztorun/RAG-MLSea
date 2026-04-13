@@ -37,6 +37,11 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "enriched_metadata",
             "one_hop",
         ],
+        "dataset_representation_order": [
+            "dataset_title_only",
+            "dataset_metadata",
+            "dataset_predicate_filtered",
+        ],
     },
     "representations": {
         "title_only": {"max_characters": 512},
@@ -68,6 +73,23 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "linked_entity_limit": 12,
             "list_value_max_characters": 100,
             "max_characters": 2200,
+        },
+    },
+    "dataset_representations": {
+        "dataset_title_only": {"max_characters": 512},
+        "dataset_metadata": {
+            "title_max_characters": 512,
+            "description_max_characters": 900,
+            "list_item_limit": 10,
+            "list_value_max_characters": 120,
+            "max_characters": 2200,
+        },
+        "dataset_predicate_filtered": {
+            "title_max_characters": 512,
+            "description_max_characters": 500,
+            "list_item_limit": 5,
+            "list_value_max_characters": 100,
+            "max_characters": 1800,
         },
     },
 }

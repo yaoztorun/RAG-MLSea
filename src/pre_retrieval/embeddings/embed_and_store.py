@@ -10,12 +10,16 @@ from src.pre_retrieval.utils import chunked, collection_name_for_representation,
 
 
 def _build_store_metadata(record: Dict[str, Any]) -> Dict[str, Any]:
-    return {
-        "paper_id": record.get("paper_id", ""),
-        "title": record.get("title") or "",
+    metadata: Dict[str, Any] = {
         "representation_type": record.get("representation_type", ""),
         "text_length_chars": int(record.get("text_length_chars", 0)),
     }
+    if "paper_id" in record:
+        metadata["paper_id"] = record["paper_id"]
+    if "dataset_id" in record:
+        metadata["dataset_id"] = record["dataset_id"]
+    metadata["title"] = record.get("title") or ""
+    return metadata
 
 
 def embed_and_store_representations(
@@ -27,15 +31,16 @@ def embed_and_store_representations(
     force_rebuild: bool = False,
     batch_size: int = 64,
     limit: Optional[int] = None,
+    collection_name: str | None = None,
 ) -> Dict[str, Any]:
     require_existing_input(representation_path)
     records = load_jsonl(representation_path)
     if limit is not None:
         records = records[:limit]
 
-    collection_name = collection_name_for_representation(representation_type)
+    resolved_collection_name = collection_name or collection_name_for_representation(representation_type)
     store = ChromaVectorStore.from_config(
-        collection_name=collection_name,
+        collection_name=resolved_collection_name,
         vector_store_config=vector_store_config,
         repo_root=REPO_ROOT,
     )
@@ -49,7 +54,7 @@ def embed_and_store_representations(
     if not pending_records:
         return {
             "representation_type": representation_type,
-            "collection_name": collection_name,
+            "collection_name": resolved_collection_name,
             "record_count": len(records),
             "inserted_count": 0,
             "skipped_count": len(records),
@@ -76,7 +81,7 @@ def embed_and_store_representations(
 
     return {
         "representation_type": representation_type,
-        "collection_name": collection_name,
+        "collection_name": resolved_collection_name,
         "record_count": len(records),
         "inserted_count": inserted_count,
         "skipped_count": len(records) - inserted_count,

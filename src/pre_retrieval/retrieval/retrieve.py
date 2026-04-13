@@ -22,19 +22,21 @@ def _parse_query_result(query_result: Dict[str, Any], top_k: int) -> List[List[D
             start=1,
         ):
             metadata = metadata or {}
-            query_rows.append(
-                {
-                    "rank": rank,
-                    "item_id": doc_id,
-                    "paper_id": metadata.get("paper_id", ""),
-                    "title": metadata.get("title", ""),
-                    "representation_type": metadata.get("representation_type", ""),
-                    "text_length_chars": metadata.get("text_length_chars", 0),
-                    "distance": float(distance),
-                    "score": float(1.0 - distance),
-                    "source_text": document,
-                }
-            )
+            row: Dict[str, Any] = {
+                "rank": rank,
+                "item_id": doc_id,
+                "title": metadata.get("title", ""),
+                "representation_type": metadata.get("representation_type", ""),
+                "text_length_chars": metadata.get("text_length_chars", 0),
+                "distance": float(distance),
+                "score": float(1.0 - distance),
+                "source_text": document,
+            }
+            if "paper_id" in metadata:
+                row["paper_id"] = metadata["paper_id"]
+            if "dataset_id" in metadata:
+                row["dataset_id"] = metadata["dataset_id"]
+            query_rows.append(row)
         results.append(query_rows)
     return results
 
