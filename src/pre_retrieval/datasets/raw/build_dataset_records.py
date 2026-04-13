@@ -174,13 +174,47 @@ def finalize_dataset_record(accumulator: Dict[str, Any], node_cache: Dict[str, D
     }
 
 
-def compute_dataset_extraction_stats(records: Sequence[Dict[str, Any]], nt_path: Path, total_triples: int) -> Dict[str, Any]:
+def _merge_accumulators(target: Dict[str, Any], source: Dict[str, Any]) -> None:
+    """Merge *source* accumulator into *target* in-place."""
+    target["triples"].extend(source["triples"])
+    target["raw_predicates"].update(source["raw_predicates"])
+    target["referenced_nodes"].update(source["referenced_nodes"])
+
+
+def deduplicate_dataset_map(dataset_map: Dict[str, Dict[str, Any]]) -> tuple[Dict[str, Dict[str, Any]], int]:
+    """Merge accumulators whose URIs normalise to the same ``dataset_id``.
+
+    Returns the deduplicated map (keyed by the first raw URI encountered per
+    normalised ID) and the number of duplicate raw URIs that were merged.
+    """
+    seen: Dict[str, str] = {}  # normalized_id -> canonical raw URI
+    merged_count = 0
+    for raw_uri in list(dataset_map):
+        normalized = normalize_identifier(raw_uri)
+        if normalized in seen:
+            canonical_uri = seen[normalized]
+            _merge_accumulators(dataset_map[canonical_uri], dataset_map.pop(raw_uri))
+            merged_count += 1
+        else:
+            seen[normalized] = raw_uri
+    return dataset_map, merged_count
+
+
+def compute_dataset_extraction_stats(
+    records: Sequence[Dict[str, Any]],
+    nt_path: Path,
+    total_triples: int,
+    *,
+    duplicate_dataset_ids_merged: int = 0,
+) -> Dict[str, Any]:
     label_lengths = [len(record["label"]) for record in records if record.get("label")]
     description_lengths = [len(record["description"]) for record in records if record.get("description")]
     return {
         "input_path": str(nt_path),
         "total_triples": total_triples,
         "total_datasets": len(records),
+        "duplicate_dataset_ids_detected": duplicate_dataset_ids_merged,
+        "duplicate_dataset_ids_merged": duplicate_dataset_ids_merged,
         "datasets_with_label": sum(1 for record in records if record.get("label")),
         "datasets_with_title": sum(1 for record in records if record.get("title")),
         "datasets_with_description": sum(1 for record in records if record.get("description")),
@@ -202,6 +236,12 @@ def build_dataset_records(
         print("[build_dataset_records] sample/debug input detected; streaming with frequent progress updates.", flush=True)
 
     dataset_map, total_triples = collect_dataset_triples_pass1(nt_path)
+
+    # Merge accumulators whose raw URIs normalise to the same dataset_id
+    dataset_map, duplicate_dataset_ids_merged = deduplicate_dataset_map(dataset_map)
+    if duplicate_dataset_ids_merged:
+        print(f"[build_dataset_records] merged {duplicate_dataset_ids_merged} duplicate dataset URI(s) by normalized ID.", flush=True)
+
     selected_dataset_uris = sorted(dataset_map)
     if limit is not None:
         selected_dataset_uris = selected_dataset_uris[:limit]
@@ -218,6 +258,9 @@ def build_dataset_records(
     records = [finalize_dataset_record(dataset_map[dataset_uri], node_cache) for dataset_uri in selected_dataset_uris]
     save_jsonl(records, output_path)
 
-    extraction_stats = compute_dataset_extraction_stats(records, nt_path, total_triples)
+    extraction_stats = compute_dataset_extraction_stats(
+        records, nt_path, total_triples,
+        duplicate_dataset_ids_merged=duplicate_dataset_ids_merged,
+    )
     save_json(extraction_stats, extraction_stats_path)
     return extraction_stats

@@ -59,6 +59,19 @@ def build_dataset_representations(
     records = load_jsonl(records_path)
     if limit is not None:
         records = records[:limit]
+
+    # Defensive dedup: keep the first record per dataset_id
+    seen_ids: set[str] = set()
+    unique_records: List[Dict[str, Any]] = []
+    for record in records:
+        did = record.get("dataset_id", "")
+        if did not in seen_ids:
+            seen_ids.add(did)
+            unique_records.append(record)
+    if len(unique_records) < len(records):
+        print(f"[build_dataset_representations] deduplicated {len(records) - len(unique_records)} duplicate dataset_id(s) from input records.", flush=True)
+    records = unique_records
+
     output_dir.mkdir(parents=True, exist_ok=True)
 
     counts: Dict[str, int] = {}
