@@ -9,15 +9,15 @@
   },
   "diagnostics": {
     "entity_type": "dataset",
-    "total_questions": 225,
-    "answerable_questions": 210,
+    "total_questions": 250,
+    "answerable_questions": 235,
     "paper_target_questions": 178,
-    "skipped_non_paper_target_questions": 32,
-    "skipped_non_paper_targets": 32,
+    "skipped_non_paper_target_questions": 57,
+    "skipped_non_paper_targets": 57,
     "total_unanswerable_questions": 15,
     "skipped_unanswerable": 15,
     "unanswerable_questions_skipped": 15,
-    "evaluated_questions": 32,
+    "evaluated_questions": 57,
     "skipped_questions": 193,
     "unmatched_targets": [
       "http://w3id.org/mlsea/pwc/dataset/MedDG",
@@ -27,7 +27,11 @@
       "http://w3id.org/mlsea/pwc/dataset/MedDG",
       "http://w3id.org/mlsea/pwc/dataset/MedDG",
       "http://w3id.org/mlsea/pwc/dataset/MedDG",
-      "http://w3id.org/mlsea/pwc/dataset/MedDG"
+      "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "http://w3id.org/mlsea/pwc/dataset/2018 n2c2",
+      "http://w3id.org/mlsea/pwc/dataset/2018 n2c2",
+      "http://w3id.org/mlsea/pwc/dataset/10,000 People",
+      "http://w3id.org/mlsea/pwc/dataset/OCR"
     ],
     "collection_size": 6928,
     "counts_by_difficulty": {
@@ -41,21 +45,21 @@
         "skipped_unanswerable": 0
       },
       "medium": {
-        "total_questions": 75,
-        "answerable_questions": 75,
+        "total_questions": 86,
+        "answerable_questions": 86,
         "paper_target_questions": 55,
-        "evaluated_questions": 20,
+        "evaluated_questions": 31,
         "skipped_questions": 55,
-        "skipped_non_paper_targets": 20,
+        "skipped_non_paper_targets": 31,
         "skipped_unanswerable": 0
       },
       "hard": {
-        "total_questions": 60,
-        "answerable_questions": 50,
+        "total_questions": 74,
+        "answerable_questions": 64,
         "paper_target_questions": 50,
-        "evaluated_questions": 0,
+        "evaluated_questions": 14,
         "skipped_questions": 60,
-        "skipped_non_paper_targets": 0,
+        "skipped_non_paper_targets": 14,
         "skipped_unanswerable": 10
       }
     },
@@ -97,12 +101,12 @@
         "skipped_unanswerable": 0
       },
       "dataset": {
-        "total_questions": 20,
-        "answerable_questions": 20,
+        "total_questions": 45,
+        "answerable_questions": 45,
         "paper_target_questions": 0,
-        "evaluated_questions": 20,
+        "evaluated_questions": 45,
         "skipped_questions": 0,
-        "skipped_non_paper_targets": 20,
+        "skipped_non_paper_targets": 45,
         "skipped_unanswerable": 0
       },
       "unanswerable": {
@@ -117,11 +121,11 @@
     }
   },
   "metrics": {
-    "Hit@1": 0.09375,
-    "Hit@5": 0.21875,
-    "Hit@10": 0.25,
-    "MRR": 0.1450892857142857,
-    "NDCG": 0.1707582214657747
+    "Hit@1": 0.08771929824561403,
+    "Hit@5": 0.24561403508771928,
+    "Hit@10": 0.2982456140350877,
+    "MRR": 0.15779030910609856,
+    "NDCG": 0.19186889676862487
   },
   "metrics_by_difficulty": {
     "easy": {
@@ -139,32 +143,32 @@
       "NDCG": 0.0
     },
     "medium": {
-      "total_questions": 75,
-      "answerable_questions": 75,
+      "total_questions": 86,
+      "answerable_questions": 86,
       "paper_target_questions": 55,
-      "evaluated_questions": 20,
+      "evaluated_questions": 31,
       "skipped_questions": 55,
-      "skipped_non_paper_targets": 20,
+      "skipped_non_paper_targets": 31,
       "skipped_unanswerable": 0,
-      "Hit@1": 0.05,
-      "Hit@5": 0.2,
-      "Hit@10": 0.25,
-      "MRR": 0.11547619047619047,
-      "NDCG": 0.14821315434523955
+      "Hit@1": 0.06451612903225806,
+      "Hit@5": 0.22580645161290322,
+      "Hit@10": 0.2903225806451613,
+      "MRR": 0.13498463901689708,
+      "NDCG": 0.1723011056559797
     },
     "hard": {
-      "total_questions": 60,
-      "answerable_questions": 50,
+      "total_questions": 74,
+      "answerable_questions": 64,
       "paper_target_questions": 50,
-      "evaluated_questions": 0,
+      "evaluated_questions": 14,
       "skipped_questions": 60,
-      "skipped_non_paper_targets": 0,
+      "skipped_non_paper_targets": 14,
       "skipped_unanswerable": 10,
-      "Hit@1": 0.0,
-      "Hit@5": 0.0,
-      "Hit@10": 0.0,
-      "MRR": 0.0,
-      "NDCG": 0.0
+      "Hit@1": 0.07142857142857142,
+      "Hit@5": 0.2857142857142857,
+      "Hit@10": 0.35714285714285715,
+      "MRR": 0.17687074829931973,
+      "NDCG": 0.2210852028911606
     }
   },
   "metrics_by_category": {
@@ -225,18 +229,18 @@
       "NDCG": 0.0
     },
     "dataset": {
-      "total_questions": 20,
-      "answerable_questions": 20,
+      "total_questions": 45,
+      "answerable_questions": 45,
       "paper_target_questions": 0,
-      "evaluated_questions": 20,
+      "evaluated_questions": 45,
       "skipped_questions": 0,
-      "skipped_non_paper_targets": 20,
+      "skipped_non_paper_targets": 45,
       "skipped_unanswerable": 0,
-      "Hit@1": 0.05,
-      "Hit@5": 0.2,
-      "Hit@10": 0.25,
-      "MRR": 0.11547619047619047,
-      "NDCG": 0.14821315434523955
+      "Hit@1": 0.06666666666666667,
+      "Hit@5": 0.24444444444444444,
+      "Hit@10": 0.3111111111111111,
+      "MRR": 0.14801587301587302,
+      "NDCG": 0.1874783803513693
     },
     "unanswerable": {
       "total_questions": 10,
@@ -4379,6 +4383,3231 @@
           "score": 0.7010904600000001,
           "source_text": "Dataset: HeadQA Keywords: Natural Language Inference, Question Answering, Information Retrieval, Text Generation Tasks: QuestionAnswering, InformationRetrieval, NaturalLanguageInference, TextGeneration",
           "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HeadQA"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_226",
+      "question": "Which dataset is related to hand image recognition tasks?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/11k%20Hands",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/11k Hands",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FEgoHands",
+          "title": "EgoHands",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 143,
+          "distance": 0.26284182,
+          "score": 0.73715818,
+          "source_text": "Dataset: EgoHands Keywords: Hand Segmentation, Object Detection, Action Recognition Tasks: ActionRecognition, ObjectDetection, HandSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/EgoHands"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBdSLW60",
+          "title": "BdSLW60",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 107,
+          "distance": 0.2684114,
+          "score": 0.7315886,
+          "source_text": "Dataset: BdSLW60 Year: 2024-02-13T00:00:00 Keywords: Hand Gesture Recognition Tasks: HandGestureRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/BdSLW60"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRWTH-PHOENIX%20Handshapes%20dev%20set",
+          "title": "RWTH-PHOENIX Handshapes dev set",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 131,
+          "distance": 0.27158606,
+          "score": 0.72841394,
+          "source_text": "Dataset: RWTH-PHOENIX Handshapes dev set Year: 2016-06-01T00:00:00 Keywords: Hand Gesture Recognition Tasks: HandGestureRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/RWTH-PHOENIX Handshapes dev set"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNVGesture",
+          "title": "NVGesture",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 83,
+          "distance": 0.2733199,
+          "score": 0.7266801,
+          "source_text": "Dataset: NVGesture Keywords: Hand Gesture Recognition Tasks: HandGestureRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/NVGesture"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FICVL",
+          "title": "ICVL",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 109,
+          "distance": 0.2747507,
+          "score": 0.7252493,
+          "source_text": "Dataset: ICVL Keywords: Action Recognition, Hand Pose Estimation Tasks: ActionRecognition, HandPoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ICVL"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FLSA16",
+          "title": "LSA16",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 148,
+          "distance": 0.2780295,
+          "score": 0.7219705000000001,
+          "source_text": "Dataset: LSA16 Year: 2016-04-01T00:00:00 Keywords: Hand Gesture Recognition, Image Classification Tasks: ImageClassification, HandGestureRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/LSA16"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDriverMHG",
+          "title": "DriverMHG",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 109,
+          "distance": 0.27805656,
+          "score": 0.72194344,
+          "source_text": "Dataset: DriverMHG Year: 2020-03-02T00:00:00 Keywords: Hand Gesture Recognition Tasks: HandGestureRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DriverMHG"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FContactArt",
+          "title": "ContactArt",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 102,
+          "distance": 0.2915113,
+          "score": 0.7084887,
+          "source_text": "Dataset: ContactArt Year: 2023-05-02T00:00:00 Keywords: Hand Pose Estimation Tasks: HandPoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ContactArt"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDataset%20for%20Annotated%20Hands",
+          "title": "Dataset for Annotated Hands",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 112,
+          "distance": 0.29345036,
+          "score": 0.70654964,
+          "source_text": "Dataset: Dataset for Annotated Hands Year: 2024-01-26T00:00:00 Keywords: Image Generation Tasks: ImageGeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Dataset for Annotated Hands"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCamGes",
+          "title": "CamGes",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 80,
+          "distance": 0.3005767,
+          "score": 0.6994233000000001,
+          "source_text": "Dataset: CamGes Keywords: Hand Gesture Recognition Tasks: HandGestureRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CamGes"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_227",
+      "question": "Which dataset is commonly used for topic classification in text?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20%20Newsgroups",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/20 Newsgroups",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.5,
+        "NDCG": 0.6309297535714575
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FYahoo%21%20Answers",
+          "title": "Yahoo! Answers",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 214,
+          "distance": 0.36644143,
+          "score": 0.6335585699999999,
+          "source_text": "Dataset: Yahoo! Answers Year: 2015-09-04T00:00:00 Keywords: Unsupervised Text Classification, Topic Classification, Text Classification Tasks: TextClassification, UnsupervisedTextClassification, TopicClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Yahoo! Answers"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F20%20Newsgroups",
+          "title": "20 Newsgroups",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 241,
+          "distance": 0.38022846,
+          "score": 0.61977154,
+          "source_text": "Dataset: 20 Newsgroups Keywords: Out-of-Distribution Detection, Text Classification, Topic Models, Text Clustering, Supervised Text Retrieval Tasks: TextClustering, TopicModels, Out-of-DistributionDetection, TextClassification, TextRetrieval",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/20 Newsgroups"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FText_VPH",
+          "title": "Text_VPH",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 147,
+          "distance": 0.38082433,
+          "score": 0.61917567,
+          "source_text": "Dataset: Text_VPH Keywords: Text Classification, Text Categorization, text annotation Tasks: TextClassification, TextCategorization, textannotation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Text_VPH"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTopic%20modeling%20topic%20coverage%20dataset",
+          "title": "Topic modeling topic coverage dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 118,
+          "distance": 0.38363278,
+          "score": 0.61636722,
+          "source_text": "Dataset: Topic modeling topic coverage dataset Year: 2021-08-31T00:00:00 Keywords: Topic coverage Tasks: Topiccoverage",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Topic modeling topic coverage dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMapping%20Topics%20in%20100%2C000%20Real-Life%20Moral%20Dilemmas",
+          "title": "Mapping Topics in 100,000 Real-Life Moral Dilemmas",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 170,
+          "distance": 0.3841399,
+          "score": 0.6158601,
+          "source_text": "Dataset: Mapping Topics in 100,000 Real-Life Moral Dilemmas Year: 2022-03-31T00:00:00 Keywords: Topic Models, Topic Classification Tasks: TopicClassification, TopicModels",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Mapping Topics in 100,000 Real-Life Moral Dilemmas"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAG%20News",
+          "title": "AG News",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 287,
+          "distance": 0.38947314,
+          "score": 0.61052686,
+          "source_text": "Dataset: AG News Year: 2015-01-01T00:00:00 Keywords: Stochastic Optimization, Text Classification, Topic Models, Continual Pretraining, Semi-Supervised Text Classification Tasks: TopicModels, ShortTextClustering, TextClassification, UnsupervisedTextClassification, StochasticOptimization",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AG News"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FGenocide%20Transcript%20Corpus%20%28GTC%29%3A%20Topic-Based%20Paragraph%20Classification%20in%20Genocide-Related%20Court%20Transcripts",
+          "title": "Genocide Transcript Corpus (GTC): Topic-Based Paragraph Classification in Genocide-Related Court Transcripts",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 199,
+          "distance": 0.39810848,
+          "score": 0.60189152,
+          "source_text": "Dataset: Genocide Transcript Corpus (GTC): Topic-Based Paragraph Classification in Genocide-Related Court Transcripts Year: 2022-04-06T00:00:00 Keywords: Text Classification Tasks: TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Genocide Transcript Corpus (GTC): Topic-Based Paragraph Classification in Genocide-Related Court Transcripts"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOAGT",
+          "title": "OAGT",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 81,
+          "distance": 0.39842826,
+          "score": 0.60157174,
+          "source_text": "Dataset: OAGT Year: 2022-05-18T00:00:00 Keywords: Topic Models Tasks: TopicModels",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/OAGT"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPaper%20Field",
+          "title": "Paper Field",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 125,
+          "distance": 0.39982975,
+          "score": 0.60017025,
+          "source_text": "Dataset: Paper Field Keywords: Sentence Classification, Text Classification Tasks: SentenceClassification, TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Paper Field"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FScientific%20statement%20classification%20dataset%20from%20arXMLiv%2008.2018",
+          "title": "Scientific statement classification dataset from arXMLiv 08.2018",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 155,
+          "distance": 0.40313357,
+          "score": 0.59686643,
+          "source_text": "Dataset: Scientific statement classification dataset from arXMLiv 08.2018 Year: 2019-08-29T00:00:00 Keywords: Text Classification Tasks: TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Scientific statement classification dataset from arXMLiv 08.2018"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_228",
+      "question": "Which dataset is associated with OCR tasks across multiple languages?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/105%2C941%20Images%20Natural%20Scenes%20OCR%20Data%20of%2012%20Languages",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/105,941 Images Natural Scenes OCR Data of 12 Languages",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F105%2C941%20Images%20Natural%20Scenes%20OCR%20Data%20of%2012%20Languages",
+          "title": "105,941 Images Natural Scenes OCR Data of 12 Languages",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 175,
+          "distance": 0.22886848,
+          "score": 0.77113152,
+          "source_text": "Dataset: 105,941 Images Natural Scenes OCR Data of 12 Languages Year: 2022-06-21T00:00:00 Keywords: Optical Character Recognition (OCR) Tasks: OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/105,941 Images Natural Scenes OCR Data of 12 Languages"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDocBank",
+          "title": "DocBank",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 152,
+          "distance": 0.2992314,
+          "score": 0.7007686,
+          "source_text": "Dataset: DocBank Keywords: Document Layout Analysis, Optical Character Recognition (OCR) Tasks: DocumentLayoutAnalysis, OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DocBank"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDDI-100",
+          "title": "DDI-100",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 102,
+          "distance": 0.31572282,
+          "score": 0.68427718,
+          "source_text": "Dataset: DDI-100 Keywords: Optical Character Recognition (OCR) Tasks: OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DDI-100"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNewspaper%20Navigator",
+          "title": "Newspaper Navigator",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 114,
+          "distance": 0.3207065,
+          "score": 0.6792935,
+          "source_text": "Dataset: Newspaper Navigator Keywords: Optical Character Recognition (OCR) Tasks: OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Newspaper Navigator"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fim2latex-100k",
+          "title": "im2latex-100k",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 134,
+          "distance": 0.33016455,
+          "score": 0.66983545,
+          "source_text": "Dataset: im2latex-100k Year: 2016-09-16T00:00:00 Keywords: Optical Character Recognition (OCR) Tasks: OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/im2latex-100k"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFSNS%20-%20Test",
+          "title": "FSNS - Test",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 106,
+          "distance": 0.33544183,
+          "score": 0.6645581700000001,
+          "source_text": "Dataset: FSNS - Test Keywords: Optical Character Recognition (OCR) Tasks: OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/FSNS - Test"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBanglaLekha-Isolated",
+          "title": "BanglaLekha-Isolated",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 245,
+          "distance": 0.34319246,
+          "score": 0.65680754,
+          "source_text": "Dataset: BanglaLekha-Isolated Keywords: Optical Character Recognition (OCR), Handwriting Recognition, Transfer Learning, Multi-Label Classification Tasks: Classification, HandwritingRecognition, OpticalCharacterRecognition(OCR), TransferLearning",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/BanglaLekha-Isolated"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FChinese%20Text%20in%20the%20Wild",
+          "title": "Chinese Text in the Wild",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 161,
+          "distance": 0.34375966,
+          "score": 0.65624034,
+          "source_text": "Dataset: Chinese Text in the Wild Keywords: Optical Character Recognition (OCR), Scene Text Detection Tasks: SceneTextDetection, OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Chinese Text in the Wild"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSUT",
+          "title": "SUT",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 158,
+          "distance": 0.34486938,
+          "score": 0.65513062,
+          "source_text": "Dataset: SUT Keywords: Optical Character Recognition (OCR), Document Image Classification Tasks: OpticalCharacterRecognition(OCR), DocumentImageClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SUT"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FI2L-140K",
+          "title": "I2L-140K",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 129,
+          "distance": 0.34535158,
+          "score": 0.65464842,
+          "source_text": "Dataset: I2L-140K Year: 2018-02-15T00:00:00 Keywords: Optical Character Recognition (OCR) Tasks: OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/I2L-140K"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_229",
+      "question": "Which dataset is used for natural language classification tasks?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20%20Newsgroups",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/20 Newsgroups",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCLUE",
+          "title": "CLUE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 250,
+          "distance": 0.31136435,
+          "score": 0.6886356499999999,
+          "source_text": "Dataset: CLUE Keywords: Text Classification, Reading Comprehension, Document Ranking, Natural Language Understanding, Language Modelling Tasks: DocumentRanking, ReadingComprehension, NaturalLanguageUnderstanding, TextClassification, LanguageModelling",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CLUE"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNLP%20Taxonomy%20Classification%20Test%20Data",
+          "title": "NLP Taxonomy Classification Test Data",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 128,
+          "distance": 0.31568497,
+          "score": 0.68431503,
+          "source_text": "Dataset: NLP Taxonomy Classification Test Data Year: 2023-07-20T00:00:00 Keywords: Text Classification Tasks: TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/NLP Taxonomy Classification Test Data"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNLP%20Taxonomy%20Classification%20Data",
+          "title": "NLP Taxonomy Classification Data",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 123,
+          "distance": 0.31752604,
+          "score": 0.68247396,
+          "source_text": "Dataset: NLP Taxonomy Classification Data Year: 2023-07-20T00:00:00 Keywords: Text Classification Tasks: TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/NLP Taxonomy Classification Data"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FText_VPH",
+          "title": "Text_VPH",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 147,
+          "distance": 0.31966603,
+          "score": 0.68033397,
+          "source_text": "Dataset: Text_VPH Keywords: Text Classification, Text Categorization, text annotation Tasks: TextClassification, TextCategorization, textannotation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Text_VPH"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FScientific%20statement%20classification%20dataset%20from%20arXMLiv%2008.2018",
+          "title": "Scientific statement classification dataset from arXMLiv 08.2018",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 155,
+          "distance": 0.33903635,
+          "score": 0.66096365,
+          "source_text": "Dataset: Scientific statement classification dataset from arXMLiv 08.2018 Year: 2019-08-29T00:00:00 Keywords: Text Classification Tasks: TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Scientific statement classification dataset from arXMLiv 08.2018"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTREC-10",
+          "title": "TREC-10",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 98,
+          "distance": 0.33984375,
+          "score": 0.66015625,
+          "source_text": "Dataset: TREC-10 Year: 2002-08-01T00:00:00 Keywords: Text Classification Tasks: TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/TREC-10"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFedNLP",
+          "title": "FedNLP",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 97,
+          "distance": 0.34353548,
+          "score": 0.65646452,
+          "source_text": "Dataset: FedNLP Year: 2021-06-11T00:00:00 Keywords: Text Classification Tasks: TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/FedNLP"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCoNLL%202003",
+          "title": "CoNLL 2003",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 273,
+          "distance": 0.34398246,
+          "score": 0.65601754,
+          "source_text": "Dataset: CoNLL 2003 Year: 2003-06-12T00:00:00 Keywords: Chunking, Named Entity Recognition (NER), Token Classification, Cross-Lingual NER, FG-1-PG-1 Tasks: Chunking, NamedEntityRecognition, Weakly-SupervisedNamedEntityRecognition, TokenClassification, Part-Of-SpeechTagging",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CoNLL 2003"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTasksource",
+          "title": "Tasksource",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 272,
+          "distance": 0.34414095,
+          "score": 0.65585905,
+          "source_text": "Dataset: Tasksource Year: 2023-01-14T00:00:00 Keywords: Multi-task Language Understanding, Multi-Task Learning, Multiple-choice, Classification, Natural Language Inference Tasks: Classification, Multi-TaskLearning, Multi-taskLanguageUnderstanding, NaturalLanguageInference",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Tasksource"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCSAbstruct%20Dataset",
+          "title": "CSAbstruct Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 117,
+          "distance": 0.34699458,
+          "score": 0.65300542,
+          "source_text": "Dataset: CSAbstruct Dataset Year: 2019-09-09T00:00:00 Keywords: Sentence Classification Tasks: SentenceClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CSAbstruct Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_230",
+      "question": "Which dataset focuses on human pose recognition?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/10%2C000%20People%20-%20Human%20Pose%20Recognition%20Data",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/10,000 People - Human Pose Recognition Data",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 1.0,
+        "MRR": 0.125,
+        "NDCG": 0.31546487678572877
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMPII%20Human%20Pose",
+          "title": "MPII Human Pose",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 98,
+          "distance": 0.28150803,
+          "score": 0.71849197,
+          "source_text": "Dataset: MPII Human Pose Year: 2014-01-01T00:00:00 Keywords: Pose Estimation Tasks: PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MPII Human Pose"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FJRDB-Pose",
+          "title": "JRDB-Pose",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 108,
+          "distance": 0.2881196,
+          "score": 0.7118804000000001,
+          "source_text": "Dataset: JRDB-Pose Year: 2022-10-20T00:00:00 Keywords: 2D Human Pose Estimation Tasks: 2DHumanPoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/JRDB-Pose"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCHAIRS%20dataset",
+          "title": "CHAIRS dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 241,
+          "distance": 0.29310912,
+          "score": 0.70689088,
+          "source_text": "Dataset: CHAIRS dataset Year: 2022-12-20T00:00:00 Keywords: Pose Estimation, Motion Synthesis, Human-Object Interaction Detection, Action Recognition Tasks: PoseEstimation, ActionRecognition, MotionSynthesis, Human-ObjectInteractionDetection",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CHAIRS dataset"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMPII%20Human%20Pose%20Descriptions",
+          "title": "MPII Human Pose Descriptions",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 181,
+          "distance": 0.3008921,
+          "score": 0.6991079,
+          "source_text": "Dataset: MPII Human Pose Descriptions Year: 2024-03-11T00:00:00 Keywords: 2D Human Pose Estimation, Human Activity Recognition Tasks: 2DHumanPoseEstimation, HumanActivityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MPII Human Pose Descriptions"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAlibaba%20Cluster%20Trace",
+          "title": "Alibaba Cluster Trace",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 162,
+          "distance": 0.31381977,
+          "score": 0.68618023,
+          "source_text": "Dataset: Alibaba Cluster Trace Year: 2018-08-08T00:00:00 Keywords: Time Series Analysis, 2D Human Pose Estimation Tasks: 2DHumanPoseEstimation, TimeSeriesAnalysis",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Alibaba Cluster Trace"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FUBC3V%20Dataset",
+          "title": "UBC3V Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 119,
+          "distance": 0.3150457,
+          "score": 0.6849543,
+          "source_text": "Dataset: UBC3V Dataset Keywords: 3D Human Pose Estimation, Pose Estimation Tasks: 3DHumanPoseEstimation, PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/UBC3V Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHalpe-FullBody",
+          "title": "Halpe-FullBody",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 146,
+          "distance": 0.32074392,
+          "score": 0.67925608,
+          "source_text": "Dataset: Halpe-FullBody Year: 2022-11-07T00:00:00 Keywords: Pose Estimation, 2D Human Pose Estimation Tasks: 2DHumanPoseEstimation, PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Halpe-FullBody"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F10%2C000%20People%20-%20Human%20Pose%20Recognition%20Data",
+          "title": "10,000 People - Human Pose Recognition Data",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 155,
+          "distance": 0.32323992,
+          "score": 0.67676008,
+          "source_text": "Dataset: 10,000 People - Human Pose Recognition Data Year: 2022-06-21T00:00:00 Keywords: Pose Tracking, Pose Estimation Tasks: PoseTracking, PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/10,000 People - Human Pose Recognition Data"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPoPArt",
+          "title": "PoPArt",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 290,
+          "distance": 0.3271004,
+          "score": 0.6728996,
+          "source_text": "Dataset: PoPArt Year: 2022-07-06T00:00:00 Keywords: 2D Human Pose Estimation, Object Detection, Pose Estimation, 2D Object Detection, Multi-Person Pose Estimation Tasks: Semi-SupervisedHumanPoseEstimation, 2DHumanPoseEstimation, PoseEstimation, Multi-PersonPoseEstimation, 2DObjectDetection",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PoPArt"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOCHuman",
+          "title": "OCHuman",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 266,
+          "distance": 0.32813442,
+          "score": 0.67186558,
+          "source_text": "Dataset: OCHuman Keywords: Multi-Person Pose Estimation, Human Instance Segmentation, Pose Estimation, Keypoint Detection, 2D Human Pose Estimation Tasks: Multi-PersonPoseEstimation, HumanInstanceSegmentation, KeypointDetection, PoseEstimation, 2DHumanPoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/OCHuman"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_231",
+      "question": "Which dataset is related to biomedical or clinical text extraction tasks?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2010%20i2b2%2FVA",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/2010 i2b2/VA",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.5,
+        "NDCG": 0.6309297535714575
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAdverse%20Drug%20Events%20%28ADE%29%20Corpus",
+          "title": "Adverse Drug Events (ADE) Corpus",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 254,
+          "distance": 0.30501002,
+          "score": 0.69498998,
+          "source_text": "Dataset: Adverse Drug Events (ADE) Corpus Year: 2012-01-01T00:00:00 Keywords: NER, Clinical Concept Extraction, Named Entity Recognition (NER), Relation Extraction, Text Classification Tasks: RelationExtraction, TextClassification, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Adverse Drug Events (ADE) Corpus"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F2010%20i2b2%2FVA",
+          "title": "2010 i2b2/VA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 188,
+          "distance": 0.33804882,
+          "score": 0.66195118,
+          "source_text": "Dataset: 2010 i2b2/VA Keywords: Clinical Concept Extraction, Clinical Assertion Status Detection, Relation Extraction, FG-1-PG-1, Medical Named Entity Recognition Tasks: RelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/2010 i2b2/VA"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCMeIE",
+          "title": "CMeIE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 111,
+          "distance": 0.3440441,
+          "score": 0.6559558999999999,
+          "source_text": "Dataset: CMeIE Year: 2021-06-15T00:00:00 Keywords: Medical Relation Extraction Tasks: MedicalRelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CMeIE"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedical%20Abstracts",
+          "title": "Medical Abstracts",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 174,
+          "distance": 0.35333234,
+          "score": 0.64666766,
+          "source_text": "Dataset: Medical Abstracts Year: 2022-11-29T00:00:00 Keywords: Unsupervised Text Classification, Text Classification Tasks: TextClassification, UnsupervisedTextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Medical Abstracts"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F2018%20n2c2%20%28Track%202%29%20-%20Adverse%20Drug%20Events%20and%20Medication%20Extraction",
+          "title": "2018 n2c2 (Track 2) - Adverse Drug Events and Medication Extraction",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 243,
+          "distance": 0.36002266,
+          "score": 0.63997734,
+          "source_text": "Dataset: 2018 n2c2 (Track 2) - Adverse Drug Events and Medication Extraction Year: 2022-01-02T00:00:00 Keywords: Named Entity Recognition (NER), Relation Extraction, Clinical Concept Extraction Tasks: NamedEntityRecognition, RelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/2018 n2c2 (Track 2) - Adverse Drug Events and Medication Extraction"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedical%20Case%20Report%20Corpus",
+          "title": "Medical Case Report Corpus",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 147,
+          "distance": 0.36226404,
+          "score": 0.63773596,
+          "source_text": "Dataset: Medical Case Report Corpus Keywords: Relation Extraction, Named Entity Recognition (NER) Tasks: RelationExtraction, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Medical Case Report Corpus"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBB",
+          "title": "BB",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 253,
+          "distance": 0.3624555,
+          "score": 0.6375445,
+          "source_text": "Dataset: BB Year: 2019-11-01T00:00:00 Keywords: Named Entity Recognition (NER), Entity Linking, Binary Relation Extraction, Medical Concept Normalization Tasks: EntityLinking, BinaryRelationExtraction, MedicalConceptNormalization, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/BB"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMed%20RCT",
+          "title": "PubMed RCT",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 150,
+          "distance": 0.36476004,
+          "score": 0.63523996,
+          "source_text": "Dataset: PubMed RCT Year: 2017-01-01T00:00:00 Keywords: Sentence Classification, Text Classification Tasks: TextClassification, SentenceClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMed RCT"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSuMe",
+          "title": "SuMe",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 196,
+          "distance": 0.37460953,
+          "score": 0.6253904699999999,
+          "source_text": "Dataset: SuMe Year: 2022-05-10T00:00:00 Keywords: Text Summarization, Explanation Generation, Biomedical Information Retrieval Tasks: ExplanationGeneration, InformationRetrieval, TextSummarization",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SuMe"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMed%20Term%2C%20Abstract%2C%20Conclusion%2C%20Title%20Dataset",
+          "title": "PubMed Term, Abstract, Conclusion, Title Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 418,
+          "distance": 0.3770287,
+          "score": 0.6229713,
+          "source_text": "Dataset: PubMed Term, Abstract, Conclusion, Title Dataset Year: 2019-05-20T00:00:00 Keywords: Paper generation (abstract-to-conclusion), Paper generation (Title-to-abstract), Paper generation, Data-to-Text Generation, Paper generation (Conclusion-to-title) Tasks: Data-to-TextGeneration, Papergeneration(abstract-to-conclusion), Papergeneration(Conclusion-to-title), Papergeneration(Title-to-abstract), Papergeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMed Term, Abstract, Conclusion, Title Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_232",
+      "question": "Which dataset is used for medical NLP challenges?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2018%20n2c2",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/2018 n2c2",
+      "matched_in_collection": false,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMedQA",
+          "title": "PubMedQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 262,
+          "distance": 0.34373182,
+          "score": 0.65626818,
+          "source_text": "Dataset: PubMedQA Year: 2019-09-13T00:00:00 Keywords: Named Entity Recognition (NER), Text Generation, Few-Shot Learning, Language Modelling, Question Answering Tasks: NamedEntityRecognition, TextGeneration, Few-ShotLearning, QuestionAnswering, LanguageModelling",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMedQA"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPadChest",
+          "title": "PadChest",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 152,
+          "distance": 0.3540076,
+          "score": 0.6459924,
+          "source_text": "Dataset: PadChest Keywords: Computed Tomography (CT), Word Embeddings, Medical Diagnosis Tasks: WordEmbeddings, MedicalDiagnosis, ComputedTomography(CT)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PadChest"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20QUAERO%20French%20Medical%20Corpus",
+          "title": "The QUAERO French Medical Corpus",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 205,
+          "distance": 0.35888267,
+          "score": 0.6411173299999999,
+          "source_text": "Dataset: The QUAERO French Medical Corpus Year: 2014-01-01T00:00:00 Keywords: Nested Named Entity Recognition, Medical Named Entity Recognition, Named Entity Recognition (NER) Tasks: NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The QUAERO French Medical Corpus"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBB",
+          "title": "BB",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 253,
+          "distance": 0.3641644,
+          "score": 0.6358356000000001,
+          "source_text": "Dataset: BB Year: 2019-11-01T00:00:00 Keywords: Named Entity Recognition (NER), Entity Linking, Binary Relation Extraction, Medical Concept Normalization Tasks: EntityLinking, BinaryRelationExtraction, MedicalConceptNormalization, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/BB"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAdverse%20Drug%20Events%20%28ADE%29%20Corpus",
+          "title": "Adverse Drug Events (ADE) Corpus",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 254,
+          "distance": 0.37087047,
+          "score": 0.6291295299999999,
+          "source_text": "Dataset: Adverse Drug Events (ADE) Corpus Year: 2012-01-01T00:00:00 Keywords: NER, Clinical Concept Extraction, Named Entity Recognition (NER), Relation Extraction, Text Classification Tasks: RelationExtraction, TextClassification, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Adverse Drug Events (ADE) Corpus"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedical%20Case%20Report%20Corpus",
+          "title": "Medical Case Report Corpus",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 147,
+          "distance": 0.37533486,
+          "score": 0.6246651400000001,
+          "source_text": "Dataset: Medical Case Report Corpus Keywords: Relation Extraction, Named Entity Recognition (NER) Tasks: RelationExtraction, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Medical Case Report Corpus"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRare%20Diseases%20Mentions%20in%20MIMIC-III",
+          "title": "Rare Diseases Mentions in MIMIC-III",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 316,
+          "distance": 0.3785262,
+          "score": 0.6214738,
+          "source_text": "Dataset: Rare Diseases Mentions in MIMIC-III Year: 2021-05-05T00:00:00 Keywords: Low Resource Named Entity Recognition, Named Entity Recognition (NER), Entity Linking, Computational Phenotyping, Clinical Note Phenotyping Tasks: EntityLinking, ComputationalPhenotyping, NamedEntityRecognition, ClinicalNotePhenotyping",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Rare Diseases Mentions in MIMIC-III"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHTDM",
+          "title": "HTDM",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 153,
+          "distance": 0.38206065,
+          "score": 0.61793935,
+          "source_text": "Dataset: HTDM Year: 2022-07-18T00:00:00 Keywords: Medical Diagnosis, Entity Typing, Link Prediction Tasks: LinkPrediction, MedicalDiagnosis, EntityTyping",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HTDM"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMed%20Cognitive%20Control%20Abstracts",
+          "title": "PubMed Cognitive Control Abstracts",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 156,
+          "distance": 0.38845414,
+          "score": 0.61154586,
+          "source_text": "Dataset: PubMed Cognitive Control Abstracts Year: 2022-03-16T00:00:00 Keywords: text similarity, Language Modelling Tasks: LanguageModelling, textsimilarity",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMed Cognitive Control Abstracts"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F2010%20i2b2%2FVA",
+          "title": "2010 i2b2/VA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 188,
+          "distance": 0.39325964,
+          "score": 0.60674036,
+          "source_text": "Dataset: 2010 i2b2/VA Keywords: Clinical Concept Extraction, Clinical Assertion Status Detection, Relation Extraction, FG-1-PG-1, Medical Named Entity Recognition Tasks: RelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/2010 i2b2/VA"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_233",
+      "question": "Which dataset involves vessel segmentation tasks?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2-PM%20Vessel%20Dataset",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/2-PM Vessel Dataset",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.25,
+        "NDCG": 0.43067655807339306
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FVESSEL12",
+          "title": "VESSEL12",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 140,
+          "distance": 0.2576787,
+          "score": 0.7423213,
+          "source_text": "Dataset: VESSEL12 Keywords: Pulmorary Vessel Segmentation, Human Part Segmentation Tasks: PulmoraryVesselSegmentation, HumanPartSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/VESSEL12"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FVessel%20detection%20Dateset",
+          "title": "Vessel detection Dateset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 109,
+          "distance": 0.27525622,
+          "score": 0.7247437800000001,
+          "source_text": "Dataset: Vessel detection Dateset Year: 2023-03-15T00:00:00 Keywords: Vessel Detection Tasks: VesselDetection",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Vessel detection Dateset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDRIVE",
+          "title": "DRIVE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 165,
+          "distance": 0.28616488,
+          "score": 0.7138351199999999,
+          "source_text": "Dataset: DRIVE Year: 2004-01-01T00:00:00 Keywords: Retinal Vessel Segmentation, Medical Image Segmentation Tasks: MedicalImageSegmentation, RetinalVesselSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DRIVE"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F2-PM%20Vessel%20Dataset",
+          "title": "2-PM Vessel Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 88,
+          "distance": 0.29294872,
+          "score": 0.70705128,
+          "source_text": "Dataset: 2-PM Vessel Dataset Keywords: Semantic Segmentation Tasks: SemanticSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/2-PM Vessel Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHRF",
+          "title": "HRF",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 141,
+          "distance": 0.32893085,
+          "score": 0.67106915,
+          "source_text": "Dataset: HRF Year: 2013-01-01T00:00:00 Keywords: Retinal Vessel Segmentation, Classification Tasks: RetinalVesselSegmentation, Classification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HRF"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCHASE_DB1",
+          "title": "CHASE_DB1",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 169,
+          "distance": 0.33185762,
+          "score": 0.6681423799999999,
+          "source_text": "Dataset: CHASE_DB1 Year: 2012-01-01T00:00:00 Keywords: Retinal Vessel Segmentation, Medical Image Segmentation Tasks: RetinalVesselSegmentation, MedicalImageSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CHASE_DB1"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMoNuSeg",
+          "title": "MoNuSeg",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 85,
+          "distance": 0.36311245,
+          "score": 0.63688755,
+          "source_text": "Dataset: MoNuSeg Keywords: Medical Image Segmentation Tasks: MedicalImageSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MoNuSeg"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FROSE",
+          "title": "ROSE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 155,
+          "distance": 0.36581087,
+          "score": 0.63418913,
+          "source_text": "Dataset: ROSE Year: 2020-07-10T00:00:00 Keywords: Retinal Vessel Segmentation, Semantic Segmentation Tasks: RetinalVesselSegmentation, SemanticSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ROSE"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSTARE",
+          "title": "STARE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 322,
+          "distance": 0.3665551,
+          "score": 0.6334449,
+          "source_text": "Dataset: STARE Year: 1998-01-01T00:00:00 Keywords: Retinal Vessel Segmentation, Semantic Segmentation, Video Polyp Segmentation, Dichotomous Image Segmentation, Optic Disc Segmentation Tasks: RetinalVesselSegmentation, DichotomousImageSegmentation, SemanticSegmentation, ColorectalGlandSegmentation:, OpticDiscSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/STARE"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHaN-Seg",
+          "title": "HaN-Seg",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 120,
+          "distance": 0.37905687,
+          "score": 0.62094313,
+          "source_text": "Dataset: HaN-Seg Year: 2023-01-03T00:00:00 Keywords: 3D Medical Imaging Segmentation Tasks: 3DMedicalImagingSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HaN-Seg"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_234",
+      "question": "Which dataset is used in robotic instrument segmentation challenges?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2017%20Robotic%20Instrument%20Segmentation%20Challenge",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/2017 Robotic Instrument Segmentation Challenge",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F2017%20Robotic%20Instrument%20Segmentation%20Challenge",
+          "title": "2017 Robotic Instrument Segmentation Challenge",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 207,
+          "distance": 0.3509897,
+          "score": 0.6490103,
+          "source_text": "Dataset: 2017 Robotic Instrument Segmentation Challenge Year: 2019-02-18T00:00:00 Keywords: Semi-Supervised Semantic Segmentation, Paper generation Tasks: Semi-SupervisedSemanticSegmentation, Papergeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/2017 Robotic Instrument Segmentation Challenge"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FKvasir-Instrument",
+          "title": "Kvasir-Instrument",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 316,
+          "distance": 0.40685284,
+          "score": 0.59314716,
+          "source_text": "Dataset: Kvasir-Instrument Keywords: Real-Time Object Detection, Instrument Recognition, Semantic Segmentation, Medical Image Segmentation, Real-Time Semantic Segmentation Tasks: MedicalImageSegmentation, Real-TimeSemanticSegmentation, SemanticSegmentation, Semi-SupervisedSemanticSegmentation, InstrumentRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Kvasir-Instrument"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSESIV",
+          "title": "SESIV",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 132,
+          "distance": 0.40806574,
+          "score": 0.5919342599999999,
+          "source_text": "Dataset: SESIV Year: 2018-07-04T00:00:00 Keywords: Instance Segmentation, Robot Navigation, Self-Driving Cars Tasks: RobotNavigation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SESIV"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDAVIS-585",
+          "title": "DAVIS-585",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 110,
+          "distance": 0.414599,
+          "score": 0.5854010000000001,
+          "source_text": "Dataset: DAVIS-585 Year: 2022-04-06T00:00:00 Keywords: Interactive Segmentation Tasks: InteractiveSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DAVIS-585"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFraunhofer%20EZRT%20XXL-CT%20Instance%20Segmentation%20Me163",
+          "title": "Fraunhofer EZRT XXL-CT Instance Segmentation Me163",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 173,
+          "distance": 0.42082614,
+          "score": 0.57917386,
+          "source_text": "Dataset: Fraunhofer EZRT XXL-CT Instance Segmentation Me163 Year: 2022-12-16T00:00:00 Keywords: Instance Segmentation, 3D Instance Segmentation Tasks: 3DInstanceSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Fraunhofer EZRT XXL-CT Instance Segmentation Me163"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FKINS",
+          "title": "KINS",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 45,
+          "distance": 0.42527127,
+          "score": 0.57472873,
+          "source_text": "Dataset: KINS Keywords: Instance Segmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/KINS"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOCID",
+          "title": "OCID",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 232,
+          "distance": 0.42831832,
+          "score": 0.57168168,
+          "source_text": "Dataset: OCID Year: 2019-02-05T00:00:00 Keywords: Semantic Segmentation, Instance Segmentation, Object Recognition, Unseen Object Instance Segmentation Tasks: ObjectRecognition, UnseenObjectInstanceSegmentation, SemanticSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/OCID"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FShelf%26Tote%20Training%20Dataset",
+          "title": "Shelf&Tote Training Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 143,
+          "distance": 0.43069482,
+          "score": 0.56930518,
+          "source_text": "Dataset: Shelf&Tote Training Dataset Year: 2016-09-29T00:00:00 Keywords: Unsupervised Object Segmentation Tasks: UnsupervisedObjectSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Shelf&Tote Training Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FLIS",
+          "title": "LIS",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 70,
+          "distance": 0.43088788,
+          "score": 0.56911212,
+          "source_text": "Dataset: LIS Year: 2023-04-27T00:00:00 Keywords: Instance Segmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/LIS"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FXA%20Bin-Picking",
+          "title": "XA Bin-Picking",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 114,
+          "distance": 0.43140543,
+          "score": 0.56859457,
+          "source_text": "Dataset: XA Bin-Picking Year: 2020-03-05T00:00:00 Keywords: 3D Instance Segmentation Tasks: 3DInstanceSegmentation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/XA Bin-Picking"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_235",
+      "question": "Which dataset focuses on scene classification tasks?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/12%20Scenes",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/12 Scenes",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FUC%20Merced%20Land%20Use%20Dataset",
+          "title": "UC Merced Land Use Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 93,
+          "distance": 0.25078493,
+          "score": 0.74921507,
+          "source_text": "Dataset: UC Merced Land Use Dataset Keywords: Scene Classification Tasks: SceneClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/UC Merced Land Use Dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMAI",
+          "title": "MAI",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 90,
+          "distance": 0.25118113,
+          "score": 0.74881887,
+          "source_text": "Dataset: MAI Year: 2021-04-22T00:00:00 Keywords: Scene Recognition Tasks: SceneRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MAI"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FADVANCE",
+          "title": "ADVANCE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 94,
+          "distance": 0.25786775,
+          "score": 0.74213225,
+          "source_text": "Dataset: ADVANCE Year: 2020-05-18T00:00:00 Keywords: Scene Recognition Tasks: SceneRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ADVANCE"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRESISC45",
+          "title": "RESISC45",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 144,
+          "distance": 0.2656836,
+          "score": 0.7343164,
+          "source_text": "Dataset: RESISC45 Year: 2017-03-01T00:00:00 Keywords: Scene Classification, Image Classification Tasks: ImageClassification, SceneClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/RESISC45"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAIDER",
+          "title": "AIDER",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 115,
+          "distance": 0.27245915,
+          "score": 0.72754085,
+          "source_text": "Dataset: AIDER Keywords: Scene Classification, Image Classification Tasks: SceneClassification, ImageClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AIDER"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPlaces205",
+          "title": "Places205",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 162,
+          "distance": 0.28080022,
+          "score": 0.7191997800000001,
+          "source_text": "Dataset: Places205 Year: 2014-01-01T00:00:00 Keywords: Scene Recognition, Image Classification, Cross-Domain Few-Shot Tasks: ImageClassification, SceneRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Places205"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLRSNet",
+          "title": "MLRSNet",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 202,
+          "distance": 0.3018378,
+          "score": 0.6981622000000001,
+          "source_text": "Dataset: MLRSNet Keywords: Scene Classification, Image Classification, Multi-Label Classification, Scene Understanding Tasks: ImageClassification, Classification, SceneClassification, SceneUnderstanding",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLRSNet"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSurveillance%20Camera%20Fight%20Dataset",
+          "title": "Surveillance Camera Fight Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 139,
+          "distance": 0.3136587,
+          "score": 0.6863413,
+          "source_text": "Dataset: Surveillance Camera Fight Dataset Keywords: Action Recognition, Scene Classification Tasks: ActionRecognition, SceneClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Surveillance Camera Fight Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMIT%20Indoor%20Scenes",
+          "title": "MIT Indoor Scenes",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 78,
+          "distance": 0.3153103,
+          "score": 0.6846897000000001,
+          "source_text": "Dataset: MIT Indoor Scenes Keywords: Scene Recognition Tasks: SceneRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MIT Indoor Scenes"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FStanford%20Background",
+          "title": "Stanford Background",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 174,
+          "distance": 0.3260666,
+          "score": 0.6739334,
+          "source_text": "Dataset: Stanford Background Year: 2009-01-01T00:00:00 Keywords: Scene Parsing, Semantic Segmentation, Scene Labeling Tasks: SemanticSegmentation, SceneParsing, SceneLabeling",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Stanford Background"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_236",
+      "question": "Which dataset is used for handwriting or text recognition?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/105%2C941%20Images%20Natural%20Scenes%20OCR%20Data%20of%2012%20Languages",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/105,941 Images Natural Scenes OCR Data of 12 Languages",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FKOHTD",
+          "title": "KOHTD",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 104,
+          "distance": 0.26776445,
+          "score": 0.73223555,
+          "source_text": "Dataset: KOHTD Year: 2021-09-22T00:00:00 Keywords: Handwriting Recognition Tasks: HandwritingRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/KOHTD"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCalliar",
+          "title": "Calliar",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 106,
+          "distance": 0.2778473,
+          "score": 0.7221527,
+          "source_text": "Dataset: Calliar Year: 2021-06-20T00:00:00 Keywords: Handwriting Recognition Tasks: HandwritingRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Calliar"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAND%20Dataset",
+          "title": "AND Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 112,
+          "distance": 0.28765023,
+          "score": 0.71234977,
+          "source_text": "Dataset: AND Dataset Year: 2019-08-14T00:00:00 Keywords: Handwriting Verification Tasks: HandwritingVerification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AND Dataset"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMatriVasha%3A",
+          "title": "MatriVasha:",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 342,
+          "distance": 0.29527098,
+          "score": 0.70472902,
+          "source_text": "Dataset: MatriVasha: Year: 2020-04-29T00:00:00 Keywords: Handwriting Recognition, Document Text Classification, Handwriting generation, Optical Charater Recogntion, Handwritten Digit Image Synthesis Tasks: Handwritinggeneration, OpticalCharacterRecognition(OCR), HandwritingVerification, HandwritingRecognition, HandwrittenDigitImageSynthesis",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MatriVasha:"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FREAD%202016",
+          "title": "READ 2016",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 140,
+          "distance": 0.3006423,
+          "score": 0.6993577,
+          "source_text": "Dataset: READ 2016 Keywords: Handwriting Recognition, Handwritten Text Recognition Tasks: HandwritingRecognition, HandwrittenTextRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/READ 2016"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBanglaLekha-Isolated",
+          "title": "BanglaLekha-Isolated",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 245,
+          "distance": 0.31781542,
+          "score": 0.6821845799999999,
+          "source_text": "Dataset: BanglaLekha-Isolated Keywords: Optical Character Recognition (OCR), Handwriting Recognition, Transfer Learning, Multi-Label Classification Tasks: Classification, HandwritingRecognition, OpticalCharacterRecognition(OCR), TransferLearning",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/BanglaLekha-Isolated"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIAM",
+          "title": "IAM",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 273,
+          "distance": 0.32079643,
+          "score": 0.67920357,
+          "source_text": "Dataset: IAM Year: 2018-02-20T00:00:00 Keywords: Optical Character Recognition (OCR), Handwriting Recognition, Handwritten Text Recognition, Data Augmentation, HTR Tasks: HandwrittenTextRecognition, DataAugmentation, HandwritingRecognition, OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/IAM"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRicordi",
+          "title": "Ricordi",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 190,
+          "distance": 0.32348043,
+          "score": 0.67651957,
+          "source_text": "Dataset: Ricordi Year: 2018-01-08T00:00:00 Keywords: Handwriting Recognition, Handwriting generation, Data Augmentation Tasks: HandwritingRecognition, DataAugmentation, Handwritinggeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Ricordi"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBentham",
+          "title": "Bentham",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 201,
+          "distance": 0.32410216,
+          "score": 0.67589784,
+          "source_text": "Dataset: Bentham Year: 2014-04-07T00:00:00 Keywords: Handwritten Text Recognition, Data Augmentation, Handwriting Recognition Tasks: HandwrittenTextRecognition, DataAugmentation, HandwritingRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Bentham"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDigiLeTs",
+          "title": "DigiLeTs",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 265,
+          "distance": 0.33177269,
+          "score": 0.66822731,
+          "source_text": "Dataset: DigiLeTs Year: 2022-06-01T00:00:00 Keywords: Handwriting Verification, Handwriting Recognition, Handwriting generation, Handwritten Digit Recognition Tasks: HandwrittenDigitRecognition, HandwritingRecognition, Handwritinggeneration, HandwritingVerification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DigiLeTs"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_237",
+      "question": "Which dataset is used for image-based biometric recognition?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/11k%20Hands",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/11k Hands",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIndian%20Signboard%20Image%20Dataset%20%7C%20Text%20in%20Image",
+          "title": "Indian Signboard Image Dataset | Text in Image",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 176,
+          "distance": 0.44322753,
+          "score": 0.5567724700000001,
+          "source_text": "Dataset: Indian Signboard Image Dataset | Text in Image Keywords: Logo Recognition, Optical Character Recognition (OCR) Tasks: LogoRecognition, OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Indian Signboard Image Dataset | Text in Image"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FiCartoonFace",
+          "title": "iCartoonFace",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 184,
+          "distance": 0.44869202,
+          "score": 0.55130798,
+          "source_text": "Dataset: iCartoonFace Keywords: Face Recognition, Face Detection, Image Classification, Person Recognition Tasks: FaceRecognition, PersonRecognition, ImageClassification, FaceDetection",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/iCartoonFace"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOUMVLP",
+          "title": "OUMVLP",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 42,
+          "distance": 0.4532796,
+          "score": 0.5467204,
+          "source_text": "Dataset: OUMVLP Keywords: Gait Recognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/OUMVLP"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fim2latex-100k",
+          "title": "im2latex-100k",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 134,
+          "distance": 0.46936095,
+          "score": 0.53063905,
+          "source_text": "Dataset: im2latex-100k Year: 2016-09-16T00:00:00 Keywords: Optical Character Recognition (OCR) Tasks: OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/im2latex-100k"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FLarge%20Labelled%20Logo%20Dataset%20%28L3D%29",
+          "title": "Large Labelled Logo Dataset (L3D)",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 352,
+          "distance": 0.46988595,
+          "score": 0.53011405,
+          "source_text": "Dataset: Large Labelled Logo Dataset (L3D) Year: 2021-12-10T00:00:00 Keywords: Optical Character Recognition (OCR), Conditional Image Generation, Image Generation, Image Classification, Unconditional Image Generation Tasks: UnconditionalImageGeneration, ImageClassification, OpticalCharacterRecognition(OCR), ConditionalImageGeneration, ImageGeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Large Labelled Logo Dataset (L3D)"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FExtended%20Yale%20B",
+          "title": "Extended Yale B",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 219,
+          "distance": 0.4713962,
+          "score": 0.5286038,
+          "source_text": "Dataset: Extended Yale B Year: 2001-01-01T00:00:00 Keywords: Image Classification, Face Recognition, Image Clustering, Dictionary Learning Tasks: DictionaryLearning, ImageClassification, ImageClustering, FaceRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Extended Yale B"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRaFD",
+          "title": "RaFD",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 154,
+          "distance": 0.47142607,
+          "score": 0.5285739300000001,
+          "source_text": "Dataset: RaFD Keywords: Facial Expression Recognition (FER), Image-to-Image Translation Tasks: FacialExpressionRecognition(FER), Image-to-ImageTranslation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/RaFD"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOUMVLP-Pose",
+          "title": "OUMVLP-Pose",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 47,
+          "distance": 0.47290635,
+          "score": 0.5270936500000001,
+          "source_text": "Dataset: OUMVLP-Pose Keywords: Gait Recognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/OUMVLP-Pose"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFingerprint%20inpainting%20and%20denoising",
+          "title": "Fingerprint inpainting and denoising",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 231,
+          "distance": 0.47352254,
+          "score": 0.52647746,
+          "source_text": "Dataset: Fingerprint inpainting and denoising Keywords: Image Restoration, Image Inpainting, Color Image Denoising, Image Denoising, Denoising Tasks: Denoising, ImageDenoising, ImageRestoration, ColorImageDenoising, ImageInpainting",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Fingerprint inpainting and denoising"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMIDV-2019",
+          "title": "MIDV-2019",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 172,
+          "distance": 0.47427523,
+          "score": 0.5257247700000001,
+          "source_text": "Dataset: MIDV-2019 Keywords: Video Recognition, Optical Character Recognition (OCR), Face Detection Tasks: VideoRecognition, FaceDetection, OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MIDV-2019"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_238",
+      "question": "Which dataset is used for topic modeling or clustering tasks?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20%20Newsgroups",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/20 Newsgroups",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.3333333333333333,
+        "NDCG": 0.5
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOAGT",
+          "title": "OAGT",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 81,
+          "distance": 0.31939113,
+          "score": 0.6806088699999999,
+          "source_text": "Dataset: OAGT Year: 2022-05-18T00:00:00 Keywords: Topic Models Tasks: TopicModels",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/OAGT"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTopic%20modeling%20topic%20coverage%20dataset",
+          "title": "Topic modeling topic coverage dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 118,
+          "distance": 0.34674722,
+          "score": 0.65325278,
+          "source_text": "Dataset: Topic modeling topic coverage dataset Year: 2021-08-31T00:00:00 Keywords: Topic coverage Tasks: Topiccoverage",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Topic modeling topic coverage dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F20%20Newsgroups",
+          "title": "20 Newsgroups",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 241,
+          "distance": 0.3968724,
+          "score": 0.6031276,
+          "source_text": "Dataset: 20 Newsgroups Keywords: Out-of-Distribution Detection, Text Classification, Topic Models, Text Clustering, Supervised Text Retrieval Tasks: TextClustering, TopicModels, Out-of-DistributionDetection, TextClassification, TextRetrieval",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/20 Newsgroups"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMapping%20Topics%20in%20100%2C000%20Real-Life%20Moral%20Dilemmas",
+          "title": "Mapping Topics in 100,000 Real-Life Moral Dilemmas",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 170,
+          "distance": 0.4125167,
+          "score": 0.5874832999999999,
+          "source_text": "Dataset: Mapping Topics in 100,000 Real-Life Moral Dilemmas Year: 2022-03-31T00:00:00 Keywords: Topic Models, Topic Classification Tasks: TopicClassification, TopicModels",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Mapping Topics in 100,000 Real-Life Moral Dilemmas"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F20Newsgroup%20%2810%20tasks%29",
+          "title": "20Newsgroup (10 tasks)",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 154,
+          "distance": 0.41550004,
+          "score": 0.58449996,
+          "source_text": "Dataset: 20Newsgroup (10 tasks) Year: 2021-12-05T00:00:00 Keywords: Topic Classification, Continual Learning Tasks: ContinualLearning, TopicClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/20Newsgroup (10 tasks)"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOpoSum",
+          "title": "OpoSum",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 160,
+          "distance": 0.41765702,
+          "score": 0.58234298,
+          "source_text": "Dataset: OpoSum Year: 2018-08-27T00:00:00 Keywords: Document Summarization, Topic Models, Multi-Document Summarization Tasks: TopicModels, DocumentSummarization",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/OpoSum"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FYahoo%21%20Answers",
+          "title": "Yahoo! Answers",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 214,
+          "distance": 0.420339,
+          "score": 0.579661,
+          "source_text": "Dataset: Yahoo! Answers Year: 2015-09-04T00:00:00 Keywords: Unsupervised Text Classification, Topic Classification, Text Classification Tasks: TextClassification, UnsupervisedTextClassification, TopicClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Yahoo! Answers"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCOVID-19%20Twitter%20Chatter%20Dataset",
+          "title": "COVID-19 Twitter Chatter Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 232,
+          "distance": 0.4311971,
+          "score": 0.5688029,
+          "source_text": "Dataset: COVID-19 Twitter Chatter Dataset Keywords: Text Classification, Misinformation, Topic Models, Text Matching, Text Clustering Tasks: TextClustering, TopicModels, TextMatching, Out-of-DistributionDetection, TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/COVID-19 Twitter Chatter Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FReddit%20Ideology%20Database",
+          "title": "Reddit Ideology Database",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 267,
+          "distance": 0.43123925,
+          "score": 0.56876075,
+          "source_text": "Dataset: Reddit Ideology Database Year: 2022-12-12T00:00:00 Keywords: News Recommendation, Classification, News Generation, Generative Question Answering, Topic Models Tasks: TopicModels, GenerativeQuestionAnswering, Classification, NewsRecommendation, NewsGeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Reddit Ideology Database"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FarXiv",
+          "title": "arXiv",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 230,
+          "distance": 0.43264186,
+          "score": 0.5673581400000001,
+          "source_text": "Dataset: arXiv Keywords: Text Summarization, Topic Models, Clique Prediction, Document Summarization, Language Modelling Tasks: TextSummarization, TextClassification, LanguageModelling, DocumentSummarization, ExtendedSummarization",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/arXiv"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_239",
+      "question": "Which dataset is used for multi-language text recognition?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/105%2C941%20Images%20Natural%20Scenes%20OCR%20Data%20of%2012%20Languages",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/105,941 Images Natural Scenes OCR Data of 12 Languages",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.5,
+        "NDCG": 0.6309297535714575
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20Dataset%20for%20Training%20and%20Evaluating%20Diacritics%20Restoration%20Systems",
+          "title": "Multilingual Dataset for Training and Evaluating Diacritics Restoration Systems",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 267,
+          "distance": 0.35887355,
+          "score": 0.64112645,
+          "source_text": "Dataset: Multilingual Dataset for Training and Evaluating Diacritics Restoration Systems Year: 2018-05-01T00:00:00 Keywords: Czech Text Diacritization, Polish Text Diacritization, Croatian Text Diacritization, Slovak Text Diacritization, Hungarian Text Diacritization",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual Dataset for Training and Evaluating Diacritics Restoration Systems"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F105%2C941%20Images%20Natural%20Scenes%20OCR%20Data%20of%2012%20Languages",
+          "title": "105,941 Images Natural Scenes OCR Data of 12 Languages",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 175,
+          "distance": 0.36061633,
+          "score": 0.63938367,
+          "source_text": "Dataset: 105,941 Images Natural Scenes OCR Data of 12 Languages Year: 2022-06-21T00:00:00 Keywords: Optical Character Recognition (OCR) Tasks: OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/105,941 Images Natural Scenes OCR Data of 12 Languages"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FUTRSet-Synth",
+          "title": "UTRSet-Synth",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 233,
+          "distance": 0.388968,
+          "score": 0.611032,
+          "source_text": "Dataset: UTRSet-Synth Year: 2023-06-27T00:00:00 Keywords: Scene Text Recognition, Optical Character Recognition (OCR), Irregular Text Recognition Tasks: SceneTextRecognition, OpticalCharacterRecognition(OCR), IrregularTextRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/UTRSet-Synth"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBelebele",
+          "title": "Belebele",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 353,
+          "distance": 0.38953054,
+          "score": 0.61046946,
+          "source_text": "Dataset: Belebele Year: 2023-08-31T00:00:00 Keywords: Multilingual Machine Comprehension in English Hindi, Chinese Reading Comprehension, XLM-R, Reading Comprehension (One-Shot), Multilingual text classification Tasks: ReadingComprehension(One-Shot), MultilingualNLP, Multilingualtextclassification, ReadingComprehension(Zero-Shot), ReadingComprehension",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Belebele"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIndian%20Number%20Plates%20Dataset%20%7C%20Vehicle%20Number%20Plates%20%7C%20English%20OCR%20Detection",
+          "title": "Indian Number Plates Dataset | Vehicle Number Plates | English OCR Detection",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 283,
+          "distance": 0.39466107,
+          "score": 0.60533893,
+          "source_text": "Dataset: Indian Number Plates Dataset | Vehicle Number Plates | English OCR Detection Keywords: Text Classification, Scene Text Detection, Optical Charater Recogntion, Multi-Oriented Scene Text Detection Tasks: Multi-OrientedSceneTextDetection, TextClassification, SceneTextDetection",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Indian Number Plates Dataset | Vehicle Number Plates | English OCR Detection"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTasksource",
+          "title": "Tasksource",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 272,
+          "distance": 0.3970803,
+          "score": 0.6029197,
+          "source_text": "Dataset: Tasksource Year: 2023-01-14T00:00:00 Keywords: Multi-task Language Understanding, Multi-Task Learning, Multiple-choice, Classification, Natural Language Inference Tasks: Classification, Multi-TaskLearning, Multi-taskLanguageUnderstanding, NaturalLanguageInference",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Tasksource"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20LibriSpeech",
+          "title": "Multilingual LibriSpeech",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 117,
+          "distance": 0.39734876,
+          "score": 0.6026512399999999,
+          "source_text": "Dataset: Multilingual LibriSpeech Keywords: Speech Recognition, Automatic Speech Recognition Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual LibriSpeech"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FICDAR%202013%20%281015%29",
+          "title": "ICDAR 2013 (1015)",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 226,
+          "distance": 0.4037336,
+          "score": 0.5962664,
+          "source_text": "Dataset: ICDAR 2013 (1015) Year: 2013-01-01T00:00:00 Keywords: Scene Text Detection, Scene Text Recognition, Table Detection, Handwritten Chinese Text Recognition Tasks: SceneTextDetection, SceneTextRecognition, TableDetection",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ICDAR 2013 (1015)"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiEURLEX",
+          "title": "MultiEURLEX",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 176,
+          "distance": 0.40491027,
+          "score": 0.59508973,
+          "source_text": "Dataset: MultiEURLEX Year: 2021-09-02T00:00:00 Keywords: Multilingual text classification, Document Classification Tasks: Multilingualtextclassification, DocumentClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiEURLEX"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FChinese%20Text%20in%20the%20Wild",
+          "title": "Chinese Text in the Wild",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 161,
+          "distance": 0.40526265,
+          "score": 0.5947373499999999,
+          "source_text": "Dataset: Chinese Text in the Wild Keywords: Optical Character Recognition (OCR), Scene Text Detection Tasks: SceneTextDetection, OpticalCharacterRecognition(OCR)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Chinese Text in the Wild"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_240",
+      "question": "Which dataset is related to visual scene understanding?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/12%20Scenes",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/12 Scenes",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FStanford-ECM",
+          "title": "Stanford-ECM",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 144,
+          "distance": 0.3096022,
+          "score": 0.6903978,
+          "source_text": "Dataset: Stanford-ECM Year: 2017-01-01T00:00:00 Keywords: Scene Understanding, Video Understanding Tasks: VideoUnderstanding, SceneUnderstanding",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Stanford-ECM"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCDS2K",
+          "title": "CDS2K",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 96,
+          "distance": 0.32149607,
+          "score": 0.67850393,
+          "source_text": "Dataset: CDS2K Year: 2023-04-21T00:00:00 Keywords: Scene Understanding Tasks: SceneUnderstanding",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CDS2K"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCompositional%20Visual%20Reasoning%20%28CVR%29",
+          "title": "Compositional Visual Reasoning (CVR)",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 242,
+          "distance": 0.32829309,
+          "score": 0.6717069099999999,
+          "source_text": "Dataset: Compositional Visual Reasoning (CVR) Year: 2022-08-13T00:00:00 Keywords: Common Sense Reasoning, Relational Reasoning, Classification, Visual Reasoning Tasks: Classification, CommonSenseReasoning, VisualReasoning, RelationalReasoning",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Compositional Visual Reasoning (CVR)"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F3ThreeDWorld",
+          "title": "3ThreeDWorld",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 103,
+          "distance": 0.3296376,
+          "score": 0.6703624,
+          "source_text": "Dataset: 3ThreeDWorld Year: 2020-07-09T00:00:00 Keywords: Scene Understanding Tasks: SceneUnderstanding",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/3ThreeDWorld"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIRS",
+          "title": "IRS",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 144,
+          "distance": 0.33642143,
+          "score": 0.66357857,
+          "source_text": "Dataset: IRS Keywords: Scene Understanding, Stereo Matching, Disparity Estimation Tasks: DisparityEstimation, StereoMatching, SceneUnderstanding",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/IRS"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMAI",
+          "title": "MAI",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 90,
+          "distance": 0.3369242,
+          "score": 0.6630758,
+          "source_text": "Dataset: MAI Year: 2021-04-22T00:00:00 Keywords: Scene Recognition Tasks: SceneRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MAI"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHHOI",
+          "title": "HHOI",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 69,
+          "distance": 0.3379187,
+          "score": 0.6620813,
+          "source_text": "Dataset: HHOI Keywords: Scene Understanding Tasks: SceneUnderstanding",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HHOI"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLM",
+          "title": "MLM",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 68,
+          "distance": 0.3387512,
+          "score": 0.6612488000000001,
+          "source_text": "Dataset: MLM Keywords: Scene Understanding Tasks: SceneUnderstanding",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLM"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCOQE",
+          "title": "COQE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 69,
+          "distance": 0.33896387,
+          "score": 0.66103613,
+          "source_text": "Dataset: COQE Keywords: Scene Understanding Tasks: SceneUnderstanding",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/COQE"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNavigationNet",
+          "title": "NavigationNet",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 78,
+          "distance": 0.3408022,
+          "score": 0.6591978000000001,
+          "source_text": "Dataset: NavigationNet Keywords: Scene Understanding Tasks: SceneUnderstanding",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/NavigationNet"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_241",
+      "question": "Which dataset involves temporal relations in clinical text?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2012%20i2b2%20Temporal%20Relations",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/2012 i2b2 Temporal Relations",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAdverse%20Drug%20Events%20%28ADE%29%20Corpus",
+          "title": "Adverse Drug Events (ADE) Corpus",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 254,
+          "distance": 0.37050354,
+          "score": 0.6294964599999999,
+          "source_text": "Dataset: Adverse Drug Events (ADE) Corpus Year: 2012-01-01T00:00:00 Keywords: NER, Clinical Concept Extraction, Named Entity Recognition (NER), Relation Extraction, Text Classification Tasks: RelationExtraction, TextClassification, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Adverse Drug Events (ADE) Corpus"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedical%20Case%20Report%20Corpus",
+          "title": "Medical Case Report Corpus",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 147,
+          "distance": 0.3822086,
+          "score": 0.6177914,
+          "source_text": "Dataset: Medical Case Report Corpus Keywords: Relation Extraction, Named Entity Recognition (NER) Tasks: RelationExtraction, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Medical Case Report Corpus"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCMeIE",
+          "title": "CMeIE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 111,
+          "distance": 0.39458162,
+          "score": 0.6054183799999999,
+          "source_text": "Dataset: CMeIE Year: 2021-06-15T00:00:00 Keywords: Medical Relation Extraction Tasks: MedicalRelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CMeIE"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMedCite",
+          "title": "PubMedCite",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 99,
+          "distance": 0.3968165,
+          "score": 0.6031835,
+          "source_text": "Dataset: PubMedCite Year: 2023-01-26T00:00:00 Keywords: Text Summarization Tasks: TextSummarization",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMedCite"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F2010%20i2b2%2FVA",
+          "title": "2010 i2b2/VA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 188,
+          "distance": 0.4017684,
+          "score": 0.5982316,
+          "source_text": "Dataset: 2010 i2b2/VA Keywords: Clinical Concept Extraction, Clinical Assertion Status Detection, Relation Extraction, FG-1-PG-1, Medical Named Entity Recognition Tasks: RelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/2010 i2b2/VA"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCatalan%20TimeBank%201.0",
+          "title": "Catalan TimeBank 1.0",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 264,
+          "distance": 0.4089483,
+          "score": 0.5910517,
+          "source_text": "Dataset: Catalan TimeBank 1.0 Year: 2012-07-18T00:00:00 Keywords: Temporal Tagging, Event Extraction, Temporal Relation Classification, Temporal Relation Extraction Tasks: EventExtraction, TemporalTagging, TemporalRelationClassification, TemporalRelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Catalan TimeBank 1.0"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHTDM",
+          "title": "HTDM",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 153,
+          "distance": 0.41345948,
+          "score": 0.58654052,
+          "source_text": "Dataset: HTDM Year: 2022-07-18T00:00:00 Keywords: Medical Diagnosis, Entity Typing, Link Prediction Tasks: LinkPrediction, MedicalDiagnosis, EntityTyping",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HTDM"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDDI",
+          "title": "DDI",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 218,
+          "distance": 0.41431385,
+          "score": 0.58568615,
+          "source_text": "Dataset: DDI Year: 2013-01-01T00:00:00 Keywords: Relation Extraction, Drugâdrug Interaction Extraction, Medical Relation Extraction Tasks: MedicalRelationExtraction, Drug–drugInteractionExtraction, RelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DDI"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMed%20Term%2C%20Abstract%2C%20Conclusion%2C%20Title%20Dataset",
+          "title": "PubMed Term, Abstract, Conclusion, Title Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 418,
+          "distance": 0.4158938,
+          "score": 0.5841062,
+          "source_text": "Dataset: PubMed Term, Abstract, Conclusion, Title Dataset Year: 2019-05-20T00:00:00 Keywords: Paper generation (abstract-to-conclusion), Paper generation (Title-to-abstract), Paper generation, Data-to-Text Generation, Paper generation (Conclusion-to-title) Tasks: Data-to-TextGeneration, Papergeneration(abstract-to-conclusion), Papergeneration(Conclusion-to-title), Papergeneration(Title-to-abstract), Papergeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMed Term, Abstract, Conclusion, Title Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F2018%20n2c2%20%28Track%202%29%20-%20Adverse%20Drug%20Events%20and%20Medication%20Extraction",
+          "title": "2018 n2c2 (Track 2) - Adverse Drug Events and Medication Extraction",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 243,
+          "distance": 0.42356026,
+          "score": 0.57643974,
+          "source_text": "Dataset: 2018 n2c2 (Track 2) - Adverse Drug Events and Medication Extraction Year: 2022-01-02T00:00:00 Keywords: Named Entity Recognition (NER), Relation Extraction, Clinical Concept Extraction Tasks: NamedEntityRecognition, RelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/2018 n2c2 (Track 2) - Adverse Drug Events and Medication Extraction"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_242",
+      "question": "Which dataset is used for speech or utterance recognition tasks?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20000%20utterances",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/20000 utterances",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Faidatatang_200zh",
+          "title": "aidatatang_200zh",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 105,
+          "distance": 0.21323603,
+          "score": 0.78676397,
+          "source_text": "Dataset: aidatatang_200zh Year: 2022-06-15T00:00:00 Keywords: Speech Recognition Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/aidatatang_200zh"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FV%C4%81ksa%C3%B1caya%E1%B8%A5",
+          "title": "VÄksaÃ±cayaá¸¥",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 104,
+          "distance": 0.2244671,
+          "score": 0.7755329,
+          "source_text": "Dataset: VÄksaÃ±cayaá¸¥ Year: 2021-06-02T00:00:00 Keywords: Speech Recognition Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Vāksañcayaḥ"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWenetSpeech",
+          "title": "WenetSpeech",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 100,
+          "distance": 0.2272976,
+          "score": 0.7727024,
+          "source_text": "Dataset: WenetSpeech Year: 2021-10-07T00:00:00 Keywords: Speech Recognition Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/WenetSpeech"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FGigaSpeech",
+          "title": "GigaSpeech",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 99,
+          "distance": 0.23715222,
+          "score": 0.76284778,
+          "source_text": "Dataset: GigaSpeech Year: 2021-06-13T00:00:00 Keywords: Speech Recognition Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/GigaSpeech"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FVOICES",
+          "title": "VOICES",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 95,
+          "distance": 0.24343592,
+          "score": 0.75656408,
+          "source_text": "Dataset: VOICES Year: 2018-05-15T00:00:00 Keywords: Speech Recognition Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/VOICES"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSPGISpeech",
+          "title": "SPGISpeech",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 99,
+          "distance": 0.24500197,
+          "score": 0.75499803,
+          "source_text": "Dataset: SPGISpeech Year: 2021-04-05T00:00:00 Keywords: Speech Recognition Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SPGISpeech"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FM-AILabs%20speech%20dataset",
+          "title": "M-AILabs speech dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 128,
+          "distance": 0.2464853,
+          "score": 0.7535147,
+          "source_text": "Dataset: M-AILabs speech dataset Year: 2019-01-03T00:00:00 Keywords: Automatic Speech Recognition (ASR) Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/M-AILabs speech dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMediaSpeech",
+          "title": "MediaSpeech",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 100,
+          "distance": 0.24741244,
+          "score": 0.75258756,
+          "source_text": "Dataset: MediaSpeech Year: 2021-03-30T00:00:00 Keywords: Speech Recognition Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MediaSpeech"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMagicData-RAMC",
+          "title": "MagicData-RAMC",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 180,
+          "distance": 0.24950784,
+          "score": 0.75049216,
+          "source_text": "Dataset: MagicData-RAMC Year: 2022-03-31T00:00:00 Keywords: Automatic Speech Recognition (ASR), Speech Recognition, Speaker Diarization Tasks: SpeechRecognition, SpeakerDiarization",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MagicData-RAMC"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFongbe%20Speech%20Dataset",
+          "title": "Fongbe Speech Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 126,
+          "distance": 0.24996948,
+          "score": 0.75003052,
+          "source_text": "Dataset: Fongbe Speech Dataset Year: 2022-07-01T00:00:00 Keywords: Automatic Speech Recognition (ASR) Tasks: SpeechRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Fongbe Speech Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_243",
+      "question": "Which dataset is related to reasoning challenges in AI?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/ARC",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/ARC",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMachine%20Number%20Sense",
+          "title": "Machine Number Sense",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 168,
+          "distance": 0.40071172,
+          "score": 0.59928828,
+          "source_text": "Dataset: Machine Number Sense Keywords: Common Sense Reasoning, Relational Reasoning, Visual Reasoning Tasks: CommonSenseReasoning, VisualReasoning, RelationalReasoning",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Machine Number Sense"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMARS%20%28Multimodal%20Analogical%20Reasoning%20dataSet%29",
+          "title": "MARS (Multimodal Analogical Reasoning dataSet)",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 108,
+          "distance": 0.4018185,
+          "score": 0.5981814999999999,
+          "source_text": "Dataset: MARS (Multimodal Analogical Reasoning dataSet) Year: 2022-10-01T00:00:00 Keywords: Knowledge Graphs",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MARS (Multimodal Analogical Reasoning dataSet)"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FEUCA%20dataset",
+          "title": "EUCA dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 134,
+          "distance": 0.41826057,
+          "score": 0.5817394300000001,
+          "source_text": "Dataset: EUCA dataset Year: 2021-02-04T00:00:00 Keywords: Explainable artificial intelligence Tasks: Explainableartificialintelligence",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/EUCA dataset"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FeQASC",
+          "title": "eQASC",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 79,
+          "distance": 0.4196539,
+          "score": 0.5803461,
+          "source_text": "Dataset: eQASC Year: 2020-10-07T00:00:00 Keywords: Reasoning Chain Explanations",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/eQASC"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FXAI-Bench",
+          "title": "XAI-Bench",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 131,
+          "distance": 0.4203328,
+          "score": 0.5796672,
+          "source_text": "Dataset: XAI-Bench Year: 2021-06-23T00:00:00 Keywords: Explainable artificial intelligence Tasks: Explainableartificialintelligence",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/XAI-Bench"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSocial-IQ",
+          "title": "Social-IQ",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 170,
+          "distance": 0.42287844,
+          "score": 0.5771215599999999,
+          "source_text": "Dataset: Social-IQ Keywords: Visual Question Answering (VQA), Question Answering, Visual Reasoning Tasks: VisualQuestionAnswering(VQA), VisualReasoning, QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Social-IQ"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOpenXAI",
+          "title": "OpenXAI",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 149,
+          "distance": 0.4269585,
+          "score": 0.5730415,
+          "source_text": "Dataset: OpenXAI Year: 2022-06-22T00:00:00 Keywords: Explainable Models, Explainable artificial intelligence Tasks: Explainableartificialintelligence",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/OpenXAI"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSpanEX",
+          "title": "SpanEX",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 146,
+          "distance": 0.42729348,
+          "score": 0.57270652,
+          "source_text": "Dataset: SpanEX Year: 2023-12-11T00:00:00 Keywords: Explanation Generation, Explainable Artificial Intelligence (XAI) Tasks: ExplanationGeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SpanEX"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fe-SNLI-VE",
+          "title": "e-SNLI-VE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 215,
+          "distance": 0.43356895,
+          "score": 0.56643105,
+          "source_text": "Dataset: e-SNLI-VE Year: 2021-05-08T00:00:00 Keywords: Explanation Generation, Visual Entailment, Explainable artificial intelligence Tasks: ExplanationGeneration, Explainableartificialintelligence, VisualEntailment",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/e-SNLI-VE"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFigureQA",
+          "title": "FigureQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 219,
+          "distance": 0.43404955,
+          "score": 0.56595045,
+          "source_text": "Dataset: FigureQA Keywords: Question Answering, Visual Reasoning, Chart Question Answering, Visual Question Answering (VQA) Tasks: QuestionAnswering, ChartQuestionAnswering, VisualQuestionAnswering(VQA), VisualReasoning",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/FigureQA"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_244",
+      "question": "Which dataset focuses on science question answering?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/ARC",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/ARC",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSCIMAT",
+          "title": "SCIMAT",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 95,
+          "distance": 0.26712978,
+          "score": 0.73287022,
+          "source_text": "Dataset: SCIMAT Year: 2021-09-30T00:00:00 Keywords: Question Answering Tasks: QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SCIMAT"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFrenchMedMCQA",
+          "title": "FrenchMedMCQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 359,
+          "distance": 0.2762512,
+          "score": 0.7237488000000001,
+          "source_text": "Dataset: FrenchMedMCQA Year: 2022-10-22T00:00:00 Keywords: Generative Question Answering, Science Question Answering, Question Answering, Question-Answer-Generation, Knowledge Base Question Answering Tasks: Question-Answer-Generation, MultipleChoiceQuestionAnswering(MCQA), GenerativeQuestionAnswering, ScienceQuestionAnswering, KnowledgeBaseQuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/FrenchMedMCQA"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBioFuelQR",
+          "title": "BioFuelQR",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 113,
+          "distance": 0.28345937,
+          "score": 0.71654063,
+          "source_text": "Dataset: BioFuelQR Year: 2023-10-22T00:00:00 Keywords: Science Question Answering Tasks: ScienceQuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/BioFuelQR"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubChemQA",
+          "title": "PubChemQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 98,
+          "distance": 0.30796635,
+          "score": 0.69203365,
+          "source_text": "Dataset: PubChemQA Year: 2023-08-18T00:00:00 Keywords: Question Answering Tasks: QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubChemQA"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FScienceQA",
+          "title": "ScienceQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 312,
+          "distance": 0.3111422,
+          "score": 0.6888578000000001,
+          "source_text": "Dataset: ScienceQA Year: 2022-09-20T00:00:00 Keywords: Visual Commonsense Reasoning, Science Question Answering, Question Answering, Explainable Models, Multimodal Deep Learning Tasks: QuestionAnswering, MultimodalDeepLearning, Open-DomainQuestionAnswering, VisualQuestionAnswering(VQA), ScienceQuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ScienceQA"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSOTU_QA_2023",
+          "title": "SOTU_QA_2023",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 101,
+          "distance": 0.31182265,
+          "score": 0.68817735,
+          "source_text": "Dataset: SOTU_QA_2023 Year: 2023-05-23T00:00:00 Keywords: Question Answering Tasks: QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SOTU_QA_2023"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMilkQA",
+          "title": "MilkQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 104,
+          "distance": 0.31339824,
+          "score": 0.6866017600000001,
+          "source_text": "Dataset: MilkQA Keywords: Answer Selection, Question Answering Tasks: QuestionAnswering, AnswerSelection",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MilkQA"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCS1QA",
+          "title": "CS1QA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 94,
+          "distance": 0.31765217,
+          "score": 0.68234783,
+          "source_text": "Dataset: CS1QA Year: 2022-10-26T00:00:00 Keywords: Question Answering Tasks: QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CS1QA"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAIT-QA",
+          "title": "AIT-QA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 95,
+          "distance": 0.31869137,
+          "score": 0.68130863,
+          "source_text": "Dataset: AIT-QA Year: 2021-06-24T00:00:00 Keywords: Question Answering Tasks: QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AIT-QA"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFinQA",
+          "title": "FinQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 94,
+          "distance": 0.31909597,
+          "score": 0.68090403,
+          "source_text": "Dataset: FinQA Year: 2021-09-01T00:00:00 Keywords: Question Answering Tasks: QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/FinQA"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_245",
+      "question": "Which dataset is related to biomedical adverse event extraction?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/2018%20n2c2",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/2018 n2c2",
+      "matched_in_collection": false,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAdverse%20Drug%20Events%20%28ADE%29%20Corpus",
+          "title": "Adverse Drug Events (ADE) Corpus",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 254,
+          "distance": 0.261558,
+          "score": 0.738442,
+          "source_text": "Dataset: Adverse Drug Events (ADE) Corpus Year: 2012-01-01T00:00:00 Keywords: NER, Clinical Concept Extraction, Named Entity Recognition (NER), Relation Extraction, Text Classification Tasks: RelationExtraction, TextClassification, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Adverse Drug Events (ADE) Corpus"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F2018%20n2c2%20%28Track%202%29%20-%20Adverse%20Drug%20Events%20and%20Medication%20Extraction",
+          "title": "2018 n2c2 (Track 2) - Adverse Drug Events and Medication Extraction",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 243,
+          "distance": 0.31685483,
+          "score": 0.68314517,
+          "source_text": "Dataset: 2018 n2c2 (Track 2) - Adverse Drug Events and Medication Extraction Year: 2022-01-02T00:00:00 Keywords: Named Entity Recognition (NER), Relation Extraction, Clinical Concept Extraction Tasks: NamedEntityRecognition, RelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/2018 n2c2 (Track 2) - Adverse Drug Events and Medication Extraction"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCMeIE",
+          "title": "CMeIE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 111,
+          "distance": 0.3782962,
+          "score": 0.6217037999999999,
+          "source_text": "Dataset: CMeIE Year: 2021-06-15T00:00:00 Keywords: Medical Relation Extraction Tasks: MedicalRelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CMeIE"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBB",
+          "title": "BB",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 253,
+          "distance": 0.39126396,
+          "score": 0.6087360399999999,
+          "source_text": "Dataset: BB Year: 2019-11-01T00:00:00 Keywords: Named Entity Recognition (NER), Entity Linking, Binary Relation Extraction, Medical Concept Normalization Tasks: EntityLinking, BinaryRelationExtraction, MedicalConceptNormalization, NamedEntityRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/BB"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F2010%20i2b2%2FVA",
+          "title": "2010 i2b2/VA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 188,
+          "distance": 0.40710473,
+          "score": 0.59289527,
+          "source_text": "Dataset: 2010 i2b2/VA Keywords: Clinical Concept Extraction, Clinical Assertion Status Detection, Relation Extraction, FG-1-PG-1, Medical Named Entity Recognition Tasks: RelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/2010 i2b2/VA"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDDI",
+          "title": "DDI",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 218,
+          "distance": 0.40893304,
+          "score": 0.59106696,
+          "source_text": "Dataset: DDI Year: 2013-01-01T00:00:00 Keywords: Relation Extraction, Drugâdrug Interaction Extraction, Medical Relation Extraction Tasks: MedicalRelationExtraction, Drug–drugInteractionExtraction, RelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DDI"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRadGraph",
+          "title": "RadGraph",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 317,
+          "distance": 0.41659433,
+          "score": 0.58340567,
+          "source_text": "Dataset: RadGraph Year: 2021-06-28T00:00:00 Keywords: Medical Named Entity Recognition, Medical Relation Extraction, Joint Entity and Relation Extraction, Named Entity Recognition (NER), Relation Extraction Tasks: RelationExtraction, MedicalRelationExtraction, NamedEntityRecognition, JointEntityandRelationExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/RadGraph"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPhee",
+          "title": "Phee",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 89,
+          "distance": 0.41857082,
+          "score": 0.58142918,
+          "source_text": "Dataset: Phee Year: 2022-10-22T00:00:00 Keywords: Event Extraction Tasks: EventExtraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Phee"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRare%20Diseases%20Mentions%20in%20MIMIC-III",
+          "title": "Rare Diseases Mentions in MIMIC-III",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 316,
+          "distance": 0.42702442,
+          "score": 0.57297558,
+          "source_text": "Dataset: Rare Diseases Mentions in MIMIC-III Year: 2021-05-05T00:00:00 Keywords: Low Resource Named Entity Recognition, Named Entity Recognition (NER), Entity Linking, Computational Phenotyping, Clinical Note Phenotyping Tasks: EntityLinking, ComputationalPhenotyping, NamedEntityRecognition, ClinicalNotePhenotyping",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Rare Diseases Mentions in MIMIC-III"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDDXPlus",
+          "title": "DDXPlus",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 94,
+          "distance": 0.43559372,
+          "score": 0.56440628,
+          "source_text": "Dataset: DDXPlus Year: 2022-05-18T00:00:00 Keywords: Medical Diagnosis Tasks: MedicalDiagnosis",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DDXPlus"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_246",
+      "question": "Which dataset is used for classification of images across scenes?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/12%20Scenes",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/12 Scenes",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FUC%20Merced%20Land%20Use%20Dataset",
+          "title": "UC Merced Land Use Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 93,
+          "distance": 0.34605396,
+          "score": 0.65394604,
+          "source_text": "Dataset: UC Merced Land Use Dataset Keywords: Scene Classification Tasks: SceneClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/UC Merced Land Use Dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRESISC45",
+          "title": "RESISC45",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 144,
+          "distance": 0.35642052,
+          "score": 0.64357948,
+          "source_text": "Dataset: RESISC45 Year: 2017-03-01T00:00:00 Keywords: Scene Classification, Image Classification Tasks: ImageClassification, SceneClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/RESISC45"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAIDER",
+          "title": "AIDER",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 115,
+          "distance": 0.36221296,
+          "score": 0.6377870400000001,
+          "source_text": "Dataset: AIDER Keywords: Scene Classification, Image Classification Tasks: SceneClassification, ImageClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AIDER"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPlaces205",
+          "title": "Places205",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 162,
+          "distance": 0.3671285,
+          "score": 0.6328715,
+          "source_text": "Dataset: Places205 Year: 2014-01-01T00:00:00 Keywords: Scene Recognition, Image Classification, Cross-Domain Few-Shot Tasks: ImageClassification, SceneRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Places205"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAID",
+          "title": "AID",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 270,
+          "distance": 0.37531418,
+          "score": 0.6246858200000001,
+          "source_text": "Dataset: AID Year: 2016-08-18T00:00:00 Keywords: Remote Sensing Image Classification, Object Detection In Aerial Images, Scene Classification, Scene Recognition Tasks: SceneClassification, ObjectDetectionInAerialImages, RemoteSensingImageClassification, SceneRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AID"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPlaces",
+          "title": "Places",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 244,
+          "distance": 0.383318,
+          "score": 0.616682,
+          "source_text": "Dataset: Places Year: 2018-01-01T00:00:00 Keywords: Out-of-Distribution Detection, Scene Recognition, Image Inpainting, Image Classification, Uncropping Tasks: Out-of-DistributionDetection, ImageClassification, SceneRecognition, ImageInpainting",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Places"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDFUC2021",
+          "title": "DFUC2021",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 101,
+          "distance": 0.38665897,
+          "score": 0.61334103,
+          "source_text": "Dataset: DFUC2021 Year: 2021-04-07T00:00:00 Keywords: Image Classification Tasks: ImageClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DFUC2021"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMAI",
+          "title": "MAI",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 90,
+          "distance": 0.38776886,
+          "score": 0.61223114,
+          "source_text": "Dataset: MAI Year: 2021-04-22T00:00:00 Keywords: Scene Recognition Tasks: SceneRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MAI"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOxford5k",
+          "title": "Oxford5k",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 165,
+          "distance": 0.3877834,
+          "score": 0.6122166,
+          "source_text": "Dataset: Oxford5k Year: 2007-01-01T00:00:00 Keywords: Image Retrieval, Image Classification, Content-Based Image Retrieval Tasks: ImageClassification, ImageRetrieval",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Oxford5k"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMoroccan%20Monay%20dataset",
+          "title": "Moroccan Monay dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 124,
+          "distance": 0.3880148,
+          "score": 0.6119852,
+          "source_text": "Dataset: Moroccan Monay dataset Keywords: Image Classification, Object Detection Tasks: ObjectDetection, ImageClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Moroccan Monay dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_247",
+      "question": "Which dataset is used for pose estimation tasks?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/10%2C000%20People",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/10,000 People",
+      "matched_in_collection": false,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FiMoCap",
+          "title": "iMoCap",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 63,
+          "distance": 0.28321517,
+          "score": 0.7167848299999999,
+          "source_text": "Dataset: iMoCap Keywords: Pose Estimation Tasks: PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/iMoCap"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCIP",
+          "title": "CIP",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 86,
+          "distance": 0.28759694,
+          "score": 0.71240306,
+          "source_text": "Dataset: CIP Year: 2022-02-12T00:00:00 Keywords: Pose Estimation Tasks: PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CIP"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHuPR",
+          "title": "HuPR",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 87,
+          "distance": 0.28980923,
+          "score": 0.7101907700000001,
+          "source_text": "Dataset: HuPR Year: 2022-10-22T00:00:00 Keywords: Pose Estimation Tasks: PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HuPR"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FImmediacy%20Dataset",
+          "title": "Immediacy Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 74,
+          "distance": 0.2899599,
+          "score": 0.7100401000000001,
+          "source_text": "Dataset: Immediacy Dataset Keywords: Pose Estimation Tasks: PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Immediacy Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMP-100",
+          "title": "MP-100",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 94,
+          "distance": 0.29207903,
+          "score": 0.70792097,
+          "source_text": "Dataset: MP-100 Year: 2022-07-21T00:00:00 Keywords: 2D Pose Estimation Tasks: 2DPoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MP-100"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAIC",
+          "title": "AIC",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 86,
+          "distance": 0.29350173,
+          "score": 0.70649827,
+          "source_text": "Dataset: AIC Year: 2017-11-17T00:00:00 Keywords: Pose Estimation Tasks: PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AIC"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOPT",
+          "title": "OPT",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 91,
+          "distance": 0.30463898,
+          "score": 0.69536102,
+          "source_text": "Dataset: OPT Year: 2017-10-30T00:00:00 Keywords: 6D Pose Estimation Tasks: 6DPoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/OPT"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFLIC",
+          "title": "FLIC",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 87,
+          "distance": 0.30858672,
+          "score": 0.69141328,
+          "source_text": "Dataset: FLIC Year: 2013-01-01T00:00:00 Keywords: Pose Estimation Tasks: PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/FLIC"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMPII%20Human%20Pose",
+          "title": "MPII Human Pose",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 98,
+          "distance": 0.30903602,
+          "score": 0.69096398,
+          "source_text": "Dataset: MPII Human Pose Year: 2014-01-01T00:00:00 Keywords: Pose Estimation Tasks: PoseEstimation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MPII Human Pose"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBRACE",
+          "title": "BRACE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 123,
+          "distance": 0.31489897,
+          "score": 0.68510103,
+          "source_text": "Dataset: BRACE Year: 2022-07-20T00:00:00 Keywords: Pose Estimation, Motion Synthesis Tasks: PoseEstimation, MotionSynthesis",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/BRACE"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_248",
+      "question": "Which dataset supports classification of handwritten or printed text?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/OCR",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/OCR",
+      "matched_in_collection": false,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDigital%20Peter",
+          "title": "Digital Peter",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 121,
+          "distance": 0.33330947,
+          "score": 0.66669053,
+          "source_text": "Dataset: Digital Peter Year: 2021-03-16T00:00:00 Keywords: Handwritten Text Recognition Tasks: HandwrittenTextRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Digital Peter"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMatriVasha%3A",
+          "title": "MatriVasha:",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 342,
+          "distance": 0.33886433,
+          "score": 0.66113567,
+          "source_text": "Dataset: MatriVasha: Year: 2020-04-29T00:00:00 Keywords: Handwriting Recognition, Document Text Classification, Handwriting generation, Optical Charater Recogntion, Handwritten Digit Image Synthesis Tasks: Handwritinggeneration, OpticalCharacterRecognition(OCR), HandwritingVerification, HandwritingRecognition, HandwrittenDigitImageSynthesis",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MatriVasha:"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FREAD%202016",
+          "title": "READ 2016",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 140,
+          "distance": 0.34243387,
+          "score": 0.65756613,
+          "source_text": "Dataset: READ 2016 Keywords: Handwriting Recognition, Handwritten Text Recognition Tasks: HandwritingRecognition, HandwrittenTextRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/READ 2016"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FKOHTD",
+          "title": "KOHTD",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 104,
+          "distance": 0.3465767,
+          "score": 0.6534233,
+          "source_text": "Dataset: KOHTD Year: 2021-09-22T00:00:00 Keywords: Handwriting Recognition Tasks: HandwritingRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/KOHTD"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCalliar",
+          "title": "Calliar",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 106,
+          "distance": 0.34872568,
+          "score": 0.65127432,
+          "source_text": "Dataset: Calliar Year: 2021-06-20T00:00:00 Keywords: Handwriting Recognition Tasks: HandwritingRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Calliar"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBelfort",
+          "title": "Belfort",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 115,
+          "distance": 0.35503942,
+          "score": 0.64496058,
+          "source_text": "Dataset: Belfort Year: 2023-06-15T00:00:00 Keywords: Handwritten Text Recognition Tasks: HandwrittenTextRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Belfort"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAND%20Dataset",
+          "title": "AND Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 112,
+          "distance": 0.35559964,
+          "score": 0.64440036,
+          "source_text": "Dataset: AND Dataset Year: 2019-08-14T00:00:00 Keywords: Handwriting Verification Tasks: HandwritingVerification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AND Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBentham",
+          "title": "Bentham",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 201,
+          "distance": 0.35724127,
+          "score": 0.64275873,
+          "source_text": "Dataset: Bentham Year: 2014-04-07T00:00:00 Keywords: Handwritten Text Recognition, Data Augmentation, Handwriting Recognition Tasks: HandwrittenTextRecognition, DataAugmentation, HandwritingRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Bentham"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBanglaLekha-Isolated",
+          "title": "BanglaLekha-Isolated",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 245,
+          "distance": 0.36784452,
+          "score": 0.63215548,
+          "source_text": "Dataset: BanglaLekha-Isolated Keywords: Optical Character Recognition (OCR), Handwriting Recognition, Transfer Learning, Multi-Label Classification Tasks: Classification, HandwritingRecognition, OpticalCharacterRecognition(OCR), TransferLearning",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/BanglaLekha-Isolated"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDeepWriting",
+          "title": "DeepWriting",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 162,
+          "distance": 0.373582,
+          "score": 0.6264179999999999,
+          "source_text": "Dataset: DeepWriting Keywords: Handwriting generation, Style Transfer, Handwriting Recognition Tasks: Handwritinggeneration, StyleTransfer, HandwritingRecognition",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DeepWriting"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_249",
+      "question": "Which dataset is commonly used for news article categorization?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/20%20Newsgroups",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/20 Newsgroups",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 1.0,
+        "MRR": 0.14285714285714285,
+        "NDCG": 0.3333333333333333
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMasakhaNEWS",
+          "title": "MasakhaNEWS",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 102,
+          "distance": 0.33208722,
+          "score": 0.66791278,
+          "source_text": "Dataset: MasakhaNEWS Year: 2023-04-19T00:00:00 Keywords: News Classification Tasks: NewsClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MasakhaNEWS"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FN15News",
+          "title": "N15News",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 98,
+          "distance": 0.33915472,
+          "score": 0.66084528,
+          "source_text": "Dataset: N15News Year: 2021-08-30T00:00:00 Keywords: News Classification Tasks: NewsClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/N15News"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FVerifee",
+          "title": "Verifee",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 98,
+          "distance": 0.3611343,
+          "score": 0.6388657,
+          "source_text": "Dataset: Verifee Year: 2022-12-16T00:00:00 Keywords: News Classification Tasks: NewsClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Verifee"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FKINNEWS%20and%20KIRNEWS",
+          "title": "KINNEWS and KIRNEWS",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 112,
+          "distance": 0.3749509,
+          "score": 0.6250491,
+          "source_text": "Dataset: KINNEWS and KIRNEWS Keywords: Multi-class Classification, News Classification Tasks: NewsClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/KINNEWS and KIRNEWS"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FReddit%20Ideology%20Database",
+          "title": "Reddit Ideology Database",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 267,
+          "distance": 0.37838697,
+          "score": 0.62161303,
+          "source_text": "Dataset: Reddit Ideology Database Year: 2022-12-12T00:00:00 Keywords: News Recommendation, Classification, News Generation, Generative Question Answering, Topic Models Tasks: TopicModels, GenerativeQuestionAnswering, Classification, NewsRecommendation, NewsGeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Reddit Ideology Database"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FGVFC",
+          "title": "GVFC",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 128,
+          "distance": 0.38096404,
+          "score": 0.6190359599999999,
+          "source_text": "Dataset: GVFC Year: 2019-11-01T00:00:00 Keywords: News Classification, News Annotation Tasks: NewsAnnotation, NewsClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/GVFC"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F20%20Newsgroups",
+          "title": "20 Newsgroups",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 241,
+          "distance": 0.381172,
+          "score": 0.6188279999999999,
+          "source_text": "Dataset: 20 Newsgroups Keywords: Out-of-Distribution Detection, Text Classification, Topic Models, Text Clustering, Supervised Text Retrieval Tasks: TextClustering, TopicModels, Out-of-DistributionDetection, TextClassification, TextRetrieval",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/20 Newsgroups"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMN-DS",
+          "title": "MN-DS",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 137,
+          "distance": 0.38895,
+          "score": 0.61105,
+          "source_text": "Dataset: MN-DS Year: 2022-12-22T00:00:00 Keywords: Text Classification, News Classification Tasks: NewsClassification, TextClassification",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MN-DS"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHLGD",
+          "title": "HLGD",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 169,
+          "distance": 0.3940866,
+          "score": 0.6059133999999999,
+          "source_text": "Dataset: HLGD Year: 2021-05-12T00:00:00 Keywords: Text Classification, News Classification, News Annotation Tasks: NewsClassification, TextClassification, NewsAnnotation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HLGD"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FItalian%20Crime%20News",
+          "title": "Italian Crime News",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 226,
+          "distance": 0.41428733,
+          "score": 0.5857126699999999,
+          "source_text": "Dataset: Italian Crime News Keywords: Text Clustering, News Summarization, Word Embeddings, text similarity, Information Retrieval Tasks: TextCategorization, QuestionAnswering, NewsSummarization, WordEmbeddings, TextClustering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Italian Crime News"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_250",
+      "question": "Which dataset involves reasoning over scientific questions?",
+      "difficulty": "hard",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/ARC",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/ARC",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTheoremQA",
+          "title": "TheoremQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 164,
+          "distance": 0.39382464,
+          "score": 0.6061753599999999,
+          "source_text": "Dataset: TheoremQA Year: 2023-05-21T00:00:00 Keywords: Mathematical Reasoning, Natural Questions, Question Answering Tasks: MathematicalReasoning, QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/TheoremQA"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFrenchMedMCQA",
+          "title": "FrenchMedMCQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 359,
+          "distance": 0.3981238,
+          "score": 0.6018762,
+          "source_text": "Dataset: FrenchMedMCQA Year: 2022-10-22T00:00:00 Keywords: Generative Question Answering, Science Question Answering, Question Answering, Question-Answer-Generation, Knowledge Base Question Answering Tasks: Question-Answer-Generation, MultipleChoiceQuestionAnswering(MCQA), GenerativeQuestionAnswering, ScienceQuestionAnswering, KnowledgeBaseQuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/FrenchMedMCQA"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FeQASC",
+          "title": "eQASC",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 79,
+          "distance": 0.40392852,
+          "score": 0.59607148,
+          "source_text": "Dataset: eQASC Year: 2020-10-07T00:00:00 Keywords: Reasoning Chain Explanations",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/eQASC"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSCIMAT",
+          "title": "SCIMAT",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 95,
+          "distance": 0.40680456,
+          "score": 0.59319544,
+          "source_text": "Dataset: SCIMAT Year: 2021-09-30T00:00:00 Keywords: Question Answering Tasks: QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SCIMAT"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FExplainCPE",
+          "title": "ExplainCPE",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 99,
+          "distance": 0.4241544,
+          "score": 0.5758456000000001,
+          "source_text": "Dataset: ExplainCPE Year: 2023-05-22T00:00:00 Keywords: Question Answering Tasks: QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ExplainCPE"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPrOntoQA",
+          "title": "PrOntoQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 144,
+          "distance": 0.4259107,
+          "score": 0.5740893,
+          "source_text": "Dataset: PrOntoQA Year: 2022-10-03T00:00:00 Keywords: Question Answering, Mathematical Reasoning Tasks: MathematicalReasoning, QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PrOntoQA"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRuOpenBookQA",
+          "title": "RuOpenBookQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 138,
+          "distance": 0.43057048,
+          "score": 0.56942952,
+          "source_text": "Dataset: RuOpenBookQA Year: 2022-10-23T00:00:00 Keywords: Question Answering, Logical Reasoning Tasks: LogicalReasoning, QuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/RuOpenBookQA"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FScienceQA",
+          "title": "ScienceQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 312,
+          "distance": 0.43211806,
+          "score": 0.5678819399999999,
+          "source_text": "Dataset: ScienceQA Year: 2022-09-20T00:00:00 Keywords: Visual Commonsense Reasoning, Science Question Answering, Question Answering, Explainable Models, Multimodal Deep Learning Tasks: QuestionAnswering, MultimodalDeepLearning, Open-DomainQuestionAnswering, VisualQuestionAnswering(VQA), ScienceQuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ScienceQA"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F30MQA",
+          "title": "30MQA",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 70,
+          "distance": 0.43524718,
+          "score": 0.56475282,
+          "source_text": "Dataset: 30MQA Keywords: Question Generation Tasks: QuestionGeneration",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/30MQA"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_predicate_filtered::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FEedi%20Dataset",
+          "title": "Eedi Dataset",
+          "representation_type": "dataset_predicate_filtered",
+          "text_length_chars": 126,
+          "distance": 0.4352814,
+          "score": 0.5647186,
+          "source_text": "Dataset: Eedi Dataset Year: 2021-04-08T00:00:00 Keywords: Mathematical Question Answering Tasks: MathematicalQuestionAnswering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Eedi Dataset"
         }
       ]
     }
