@@ -5,9 +5,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from src.pre_retrieval.evaluation.aggregate_results import aggregate_result_files
-from src.pre_retrieval.evaluation.evaluate_retrieval import build_evaluation_payload
-from src.pre_retrieval.utils import build_item_id, save_json
+from src.pre_retrieval.shared.aggregate_results import aggregate_result_files
+from src.pre_retrieval.shared.evaluate_retrieval import build_evaluation_payload
+from src.pre_retrieval.shared.utils import build_item_id, save_json
 
 
 TOP_K_VALUES = (1, 5, 10)
