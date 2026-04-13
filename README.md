@@ -22,6 +22,13 @@ The active local workflow supports multiple entity types for pre-retrieval and r
 3. Chroma embedding storage
 4. retrieval evaluation
 
+### Model pipeline
+
+1. canonical model extraction from `data/raw/pwc_1.nt`
+2. representation building
+3. Chroma embedding storage
+4. retrieval evaluation
+
 Local experiments use the curated subset by default for papers. Full-corpus runs are reserved for later VSC execution.
 
 ## Active pipeline layout
@@ -69,11 +76,26 @@ src/pre_retrieval/
       build_dataset_title_only.py
       build_dataset_metadata.py
       build_dataset_predicate_filtered.py
+      build_dataset_enriched_metadata.py
     scripts/
       run_build_datasets.py
       run_build_dataset_representations.py
       run_embed_store_datasets.py
       run_evaluate_datasets.py
+  models/                           # model-specific pipeline
+    raw/
+      build_model_records.py        # canonical model extraction from RDF
+    chunking/
+      build_model_representations.py  # model representation orchestrator
+      build_model_title_only.py
+      build_model_metadata.py
+      build_model_predicate_filtered.py
+      build_model_enriched_metadata.py
+    scripts/
+      run_build_models.py
+      run_build_model_representations.py
+      run_embed_store_models.py
+      run_evaluate_models.py
 archive/                            # obsolete code preserved for reference
 ```
 
@@ -127,6 +149,14 @@ All local experiments use the same curated subset for:
 1. `dataset_title_only` — uses label/title only
 2. `dataset_metadata` — uses title/label + description + keywords + tasks + year
 3. `dataset_predicate_filtered` — uses selected useful predicates/fields for datasets
+4. `dataset_enriched_metadata` — richest dataset representation: title, year, tasks, keywords, related papers, implementations, linked entities, description
+
+### Model representations
+
+1. `model_title_only` — uses label/title only
+2. `model_metadata` — uses title/label + description + keywords + tasks + datasets + year
+3. `model_predicate_filtered` — uses selected useful predicates/fields for models
+4. `model_enriched_metadata` — richest model representation: title, year, tasks, datasets, keywords, related papers, implementations, metrics, runs, linked entities, description
 
 ## Setup
 
@@ -202,6 +232,7 @@ Embed and store dataset representations:
 python -m src.pre_retrieval.datasets.scripts.run_embed_store_datasets --representation dataset_title_only
 python -m src.pre_retrieval.datasets.scripts.run_embed_store_datasets --representation dataset_metadata
 python -m src.pre_retrieval.datasets.scripts.run_embed_store_datasets --representation dataset_predicate_filtered
+python -m src.pre_retrieval.datasets.scripts.run_embed_store_datasets --representation dataset_enriched_metadata
 ```
 
 Evaluate dataset representations:
@@ -210,6 +241,39 @@ Evaluate dataset representations:
 python -m src.pre_retrieval.datasets.scripts.run_evaluate_datasets --representation dataset_title_only
 python -m src.pre_retrieval.datasets.scripts.run_evaluate_datasets --representation dataset_metadata
 python -m src.pre_retrieval.datasets.scripts.run_evaluate_datasets --representation dataset_predicate_filtered
+python -m src.pre_retrieval.datasets.scripts.run_evaluate_datasets --representation dataset_enriched_metadata
+```
+
+## Model pipeline — run order
+
+Build canonical model records:
+
+```bash
+python -m src.pre_retrieval.models.scripts.run_build_models
+```
+
+Build model representations (one or all):
+
+```bash
+python -m src.pre_retrieval.models.scripts.run_build_model_representations --representation all
+```
+
+Embed and store model representations:
+
+```bash
+python -m src.pre_retrieval.models.scripts.run_embed_store_models --representation model_title_only
+python -m src.pre_retrieval.models.scripts.run_embed_store_models --representation model_metadata
+python -m src.pre_retrieval.models.scripts.run_embed_store_models --representation model_predicate_filtered
+python -m src.pre_retrieval.models.scripts.run_embed_store_models --representation model_enriched_metadata
+```
+
+Evaluate model representations:
+
+```bash
+python -m src.pre_retrieval.models.scripts.run_evaluate_models --representation model_title_only
+python -m src.pre_retrieval.models.scripts.run_evaluate_models --representation model_metadata
+python -m src.pre_retrieval.models.scripts.run_evaluate_models --representation model_predicate_filtered
+python -m src.pre_retrieval.models.scripts.run_evaluate_models --representation model_enriched_metadata
 ```
 
 ## Shared aggregation
@@ -223,6 +287,7 @@ python -m src.pre_retrieval.shared.scripts.run_aggregate_results
 This aggregation reads from:
 - `data/retrieval_results/paper_results/*/results.json`
 - `data/retrieval_results/dataset_results/*/results.json`
+- `data/retrieval_results/model_results/*/results.json`
 - future `*_results/` entity type folders
 
 Useful overrides:
@@ -254,6 +319,12 @@ data/retrieval_results/
     dataset_title_only/results.json, top10.json
     dataset_metadata/results.json, top10.json
     dataset_predicate_filtered/results.json, top10.json
+    dataset_enriched_metadata/results.json, top10.json
+  model_results/
+    model_title_only/results.json, top10.json
+    model_metadata/results.json, top10.json
+    model_predicate_filtered/results.json, top10.json
+    model_enriched_metadata/results.json, top10.json
   summary.json
   summary.md
   summary.csv

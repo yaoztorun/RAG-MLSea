@@ -15,6 +15,7 @@ DEFAULT_SAMPLE_RDF_INPUT_PATH = "data/raw/pwc_1_sample.nt"
 MLSEA_PWC_PREFIX = "http://w3id.org/mlsea/pwc/"
 PAPER_ENTITY_PREFIX = f"{MLSEA_PWC_PREFIX}scientificWork/"
 DATASET_ENTITY_PREFIX = f"{MLSEA_PWC_PREFIX}dataset/"
+MODEL_ENTITY_PREFIX = f"{MLSEA_PWC_PREFIX}model/"
 T = TypeVar("T")
 
 
@@ -144,6 +145,10 @@ def is_dataset_entity_id(entity_id: str) -> bool:
     return normalize_identifier(entity_id).startswith(DATASET_ENTITY_PREFIX)
 
 
+def is_model_entity_id(entity_id: str) -> bool:
+    return normalize_identifier(entity_id).startswith(MODEL_ENTITY_PREFIX)
+
+
 def build_item_id(representation_type: str, paper_id: str) -> str:
     return f"{representation_type}::{quote(paper_id, safe='')}"
 
@@ -154,6 +159,10 @@ def collection_name_for_representation(representation_type: str) -> str:
 
 def dataset_collection_name_for_representation(representation_type: str) -> str:
     return f"datasets_{representation_type}"
+
+
+def model_collection_name_for_representation(representation_type: str) -> str:
+    return f"models_{representation_type}"
 
 
 def missing_input_message(path: Path) -> str:

@@ -18,6 +18,8 @@ def _build_store_metadata(record: Dict[str, Any]) -> Dict[str, Any]:
         metadata["paper_id"] = record["paper_id"]
     if "dataset_id" in record:
         metadata["dataset_id"] = record["dataset_id"]
+    if "model_id" in record:
+        metadata["model_id"] = record["model_id"]
     metadata["title"] = record.get("title") or ""
     return metadata
 

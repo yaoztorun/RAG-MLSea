@@ -36,6 +36,8 @@ def _parse_query_result(query_result: Dict[str, Any], top_k: int) -> List[List[D
                 row["paper_id"] = metadata["paper_id"]
             if "dataset_id" in metadata:
                 row["dataset_id"] = metadata["dataset_id"]
+            if "model_id" in metadata:
+                row["model_id"] = metadata["model_id"]
             query_rows.append(row)
         results.append(query_rows)
     return results

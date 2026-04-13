@@ -31,6 +31,12 @@
       "dataset_metadata",
       "dataset_predicate_filtered",
       "dataset_enriched_metadata"
+    ],
+    "model_representation_order": [
+      "model_title_only",
+      "model_metadata",
+      "model_predicate_filtered",
+      "model_enriched_metadata"
     ]
   },
   "representations": {
@@ -94,6 +100,36 @@
       "list_value_max_characters": 120,
       "related_paper_limit": 6,
       "implementation_limit": 4,
+      "linked_entity_limit": 6,
+      "max_characters": 2400
+    }
+  },
+  "model_representations": {
+    "model_title_only": {
+      "max_characters": 512
+    },
+    "model_metadata": {
+      "title_max_characters": 512,
+      "description_max_characters": 900,
+      "list_item_limit": 10,
+      "list_value_max_characters": 120,
+      "max_characters": 2200
+    },
+    "model_predicate_filtered": {
+      "title_max_characters": 512,
+      "description_max_characters": 500,
+      "list_item_limit": 5,
+      "list_value_max_characters": 100,
+      "max_characters": 1800
+    },
+    "model_enriched_metadata": {
+      "title_max_characters": 512,
+      "description_max_characters": 600,
+      "list_item_limit": 8,
+      "list_value_max_characters": 120,
+      "related_paper_limit": 6,
+      "implementation_limit": 4,
+      "dataset_limit": 6,
       "linked_entity_limit": 6,
       "max_characters": 2400
     }

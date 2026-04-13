@@ -57,6 +57,7 @@ def ndcg(ranked_ids: Sequence[str], gold_id: str) -> float:
 ENTITY_TYPE_RESULT_FOLDERS = {
     "paper": "paper_results",
     "dataset": "dataset_results",
+    "model": "model_results",
 }
 
 
