@@ -1,5 +1,6 @@
 | Entity Type | Representation | Hit@1 | Hit@5 | Hit@10 | MRR | NDCG |
 |-------------|----------------|------:|------:|-------:|------:|------:|
+| dataset | dataset_enriched_metadata | 0.2188 | 0.5000 | 0.5625 | 0.3151 | 0.3742 |
 | dataset | dataset_metadata | 0.2188 | 0.4062 | 0.4375 | 0.2858 | 0.3225 |
 | dataset | dataset_predicate_filtered | 0.0938 | 0.2188 | 0.2500 | 0.1451 | 0.1708 |
 | dataset | dataset_title_only | 0.3750 | 0.6562 | 0.6875 | 0.4914 | 0.5402 |

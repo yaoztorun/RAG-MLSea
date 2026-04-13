@@ -5,6 +5,23 @@
         {
           "difficulty": "easy",
           "entity_type": "dataset",
+          "representation": "dataset_enriched_metadata",
+          "Hit@1": 0.0,
+          "Hit@5": 0.0,
+          "Hit@10": 0.0,
+          "MRR": 0.0,
+          "NDCG": 0.0,
+          "total_questions": 40,
+          "answerable_questions": 40,
+          "paper_target_questions": 40,
+          "evaluated_questions": 0,
+          "skipped_questions": 40,
+          "skipped_non_paper_targets": 0,
+          "skipped_unanswerable": 0
+        },
+        {
+          "difficulty": "easy",
+          "entity_type": "dataset",
           "representation": "dataset_metadata",
           "Hit@1": 0.0,
           "Hit@5": 0.0,
@@ -162,6 +179,23 @@
         {
           "difficulty": "medium",
           "entity_type": "dataset",
+          "representation": "dataset_enriched_metadata",
+          "Hit@1": 0.1,
+          "Hit@5": 0.4,
+          "Hit@10": 0.4,
+          "MRR": 0.195,
+          "NDCG": 0.24484591188793922,
+          "total_questions": 75,
+          "answerable_questions": 75,
+          "paper_target_questions": 55,
+          "evaluated_questions": 20,
+          "skipped_questions": 55,
+          "skipped_non_paper_targets": 20,
+          "skipped_unanswerable": 0
+        },
+        {
+          "difficulty": "medium",
+          "entity_type": "dataset",
           "representation": "dataset_metadata",
           "Hit@1": 0.2,
           "Hit@5": 0.35,
@@ -316,6 +350,23 @@
     },
     "hard": {
       "rows": [
+        {
+          "difficulty": "hard",
+          "entity_type": "dataset",
+          "representation": "dataset_enriched_metadata",
+          "Hit@1": 0.0,
+          "Hit@5": 0.0,
+          "Hit@10": 0.0,
+          "MRR": 0.0,
+          "NDCG": 0.0,
+          "total_questions": 60,
+          "answerable_questions": 50,
+          "paper_target_questions": 50,
+          "evaluated_questions": 0,
+          "skipped_questions": 60,
+          "skipped_non_paper_targets": 0,
+          "skipped_unanswerable": 10
+        },
         {
           "difficulty": "hard",
           "entity_type": "dataset",

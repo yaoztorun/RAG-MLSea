@@ -2,6 +2,15 @@
   "rows": [
     {
       "entity_type": "dataset",
+      "representation": "dataset_enriched_metadata",
+      "Hit@1": 0.21875,
+      "Hit@5": 0.5,
+      "Hit@10": 0.5625,
+      "MRR": 0.3151041666666667,
+      "NDCG": 0.37415208778931525
+    },
+    {
+      "entity_type": "dataset",
       "representation": "dataset_metadata",
       "Hit@1": 0.21875,
       "Hit@5": 0.40625,
