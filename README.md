@@ -26,56 +26,55 @@ Local experiments use the curated subset by default for papers. Full-corpus runs
 
 ## Active pipeline layout
 
+The pipeline is organized by entity type, with shared utilities in a common location:
+
 ```text
 src/pre_retrieval/
-  config.py
-  utils.py
-  raw_papers/
-    build_paper_records.py
-    build_curated_subset.py
-    inspect_paper_predicates.py
-  raw_datasets/
-    build_dataset_records.py
-  chunking/
-    build_representations.py
-    build_dataset_representations.py
-    papers/
+  shared/                           # shared utilities used by all entity pipelines
+    config.py                       # central configuration loader
+    utils.py                        # file I/O, RDF normalization, text utilities
+    embedder.py                     # embedding model abstraction
+    vector_store.py                 # Chroma vector store wrapper
+    embed_and_store.py              # generic embedding pipeline
+    retrieve.py                     # generic query retrieval
+    evaluate_retrieval.py           # generic evaluation framework
+    aggregate_results.py            # cross-entity result aggregation
+    scripts/
+      run_aggregate_results.py      # CLI: regenerate shared summaries
+  papers/                           # paper-specific pipeline
+    raw/
+      build_paper_records.py        # canonical paper extraction from RDF
+      build_curated_subset.py       # curated subset construction
+      inspect_paper_predicates.py   # RDF predicate analysis tool
+    chunking/
+      build_representations.py      # paper representation orchestrator
       build_title_only_chunks.py
       build_abstract_only_chunks.py
       build_title_abstract_chunks.py
       build_enriched_paper_chunks.py
       build_predicate_filtered_chunks.py
       build_one_hop_paper_chunks.py
-    datasets/
+    scripts/
+      run_build_records.py
+      run_build_subset.py
+      run_build_representations.py
+      run_embed_store.py
+      run_evaluate.py
+      run_all_experiments.py
+  datasets/                         # dataset-specific pipeline
+    raw/
+      build_dataset_records.py      # canonical dataset extraction from RDF
+    chunking/
+      build_dataset_representations.py  # dataset representation orchestrator
       build_dataset_title_only.py
       build_dataset_metadata.py
       build_dataset_predicate_filtered.py
-  embeddings/
-    embed_and_store.py
-    embedder.py
-    vector_store.py
-  retrieval/
-    retrieve.py
-  evaluation/
-    evaluate_retrieval.py
-    aggregate_results.py
-  scripts/
-    run_build_records.py
-    run_build_subset.py
-    run_build_representations.py
-    run_embed_store.py
-    run_evaluate.py
-    run_all_experiments.py
-    run_aggregate_results.py
-    run_build_datasets.py
-    run_build_dataset_representations.py
-    run_embed_store_datasets.py
-    run_evaluate_datasets.py
-src/retrieval/
-  evaluation/
-src/post_retrieval/
-  evaluation/
-archive/
+    scripts/
+      run_build_datasets.py
+      run_build_dataset_representations.py
+      run_embed_store_datasets.py
+      run_evaluate_datasets.py
+archive/                            # obsolete code preserved for reference
 ```
 
 ## Curated subset rules
@@ -150,37 +149,37 @@ chroma run --path data/intermediate/chroma
 Build canonical paper records:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_build_records
+python -m src.pre_retrieval.papers.scripts.run_build_records
 ```
 
 Build the shared curated subset:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_build_subset
+python -m src.pre_retrieval.papers.scripts.run_build_subset
 ```
 
 Build one representation from the shared subset:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_build_representations --representation title_only
+python -m src.pre_retrieval.papers.scripts.run_build_representations --representation title_only
 ```
 
 Embed and store one representation:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_embed_store --representation title_only
+python -m src.pre_retrieval.papers.scripts.run_embed_store --representation title_only
 ```
 
 Evaluate one representation and export top-10 documents:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_evaluate --representation title_only
+python -m src.pre_retrieval.papers.scripts.run_evaluate --representation title_only
 ```
 
 Run the full local comparison workflow in the active order:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_all_experiments
+python -m src.pre_retrieval.papers.scripts.run_all_experiments
 ```
 
 ## Dataset pipeline — run order
@@ -188,29 +187,29 @@ python -m src.pre_retrieval.scripts.run_all_experiments
 Build canonical dataset records:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_build_datasets
+python -m src.pre_retrieval.datasets.scripts.run_build_datasets
 ```
 
 Build dataset representations (one or all):
 
 ```bash
-python -m src.pre_retrieval.scripts.run_build_dataset_representations --representation all
+python -m src.pre_retrieval.datasets.scripts.run_build_dataset_representations --representation all
 ```
 
 Embed and store dataset representations:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_embed_store_datasets --representation dataset_title_only
-python -m src.pre_retrieval.scripts.run_embed_store_datasets --representation dataset_metadata
-python -m src.pre_retrieval.scripts.run_embed_store_datasets --representation dataset_predicate_filtered
+python -m src.pre_retrieval.datasets.scripts.run_embed_store_datasets --representation dataset_title_only
+python -m src.pre_retrieval.datasets.scripts.run_embed_store_datasets --representation dataset_metadata
+python -m src.pre_retrieval.datasets.scripts.run_embed_store_datasets --representation dataset_predicate_filtered
 ```
 
 Evaluate dataset representations:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_evaluate_datasets --representation dataset_title_only
-python -m src.pre_retrieval.scripts.run_evaluate_datasets --representation dataset_metadata
-python -m src.pre_retrieval.scripts.run_evaluate_datasets --representation dataset_predicate_filtered
+python -m src.pre_retrieval.datasets.scripts.run_evaluate_datasets --representation dataset_title_only
+python -m src.pre_retrieval.datasets.scripts.run_evaluate_datasets --representation dataset_metadata
+python -m src.pre_retrieval.datasets.scripts.run_evaluate_datasets --representation dataset_predicate_filtered
 ```
 
 ## Shared aggregation
@@ -218,7 +217,7 @@ python -m src.pre_retrieval.scripts.run_evaluate_datasets --representation datas
 Regenerate the shared comparison summaries from whatever per-representation results already exist across all entity types:
 
 ```bash
-python -m src.pre_retrieval.scripts.run_aggregate_results
+python -m src.pre_retrieval.shared.scripts.run_aggregate_results
 ```
 
 This aggregation reads from:
@@ -296,6 +295,12 @@ If you want optional abstention analysis for unanswerable questions, set `evalua
 ## Archive policy
 
 Old GraphDB / SPARQL-dependent assets, duplicate scripts, and stale demo outputs are moved under `archive/` instead of being deleted.
+
+Recently archived:
+- `extract_papers_from_nt.py` — old rdflib-based paper extraction (replaced by streaming parser)
+- `chunk_formatter.py`, `chunk_exporter.py` — unused chunking utilities
+- `predicate_whitelist.py` — reference-only predicate list
+- `src/retrieval/`, `src/post_retrieval/evaluation/` — empty evaluation scaffolds from earlier design
 
 ## Notes
 
