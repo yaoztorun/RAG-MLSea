@@ -1,6 +1,42 @@
 {
   "rows": [
     {
+      "entity_type": "dataset",
+      "representation": "dataset_metadata",
+      "Hit@1": 0.21875,
+      "Hit@5": 0.40625,
+      "Hit@10": 0.4375,
+      "MRR": 0.2857638888888889,
+      "NDCG": 0.3224628923896869
+    },
+    {
+      "entity_type": "dataset",
+      "representation": "dataset_predicate_filtered",
+      "Hit@1": 0.09375,
+      "Hit@5": 0.21875,
+      "Hit@10": 0.25,
+      "MRR": 0.1450892857142857,
+      "NDCG": 0.1707582214657747
+    },
+    {
+      "entity_type": "dataset",
+      "representation": "dataset_title_only",
+      "Hit@1": 0.375,
+      "Hit@5": 0.65625,
+      "Hit@10": 0.6875,
+      "MRR": 0.4914434523809524,
+      "NDCG": 0.5402415283028924
+    },
+    {
+      "entity_type": "paper",
+      "representation": "title_only",
+      "Hit@1": 0.702247191011236,
+      "Hit@5": 0.7471910112359551,
+      "Hit@10": 0.7640449438202247,
+      "MRR": 0.7250757981095061,
+      "NDCG": 0.7345689617065134
+    },
+    {
       "entity_type": "paper",
       "representation": "abstract_only",
       "Hit@1": 0.42134831460674155,
@@ -8,6 +44,24 @@
       "Hit@10": 0.6629213483146067,
       "MRR": 0.5054151061173533,
       "NDCG": 0.5437991241499067
+    },
+    {
+      "entity_type": "paper",
+      "representation": "title_abstract",
+      "Hit@1": 0.6235955056179775,
+      "Hit@5": 0.7471910112359551,
+      "Hit@10": 0.7584269662921348,
+      "MRR": 0.672191011235955,
+      "NDCG": 0.6933985404824173
+    },
+    {
+      "entity_type": "paper",
+      "representation": "predicate_filtered",
+      "Hit@1": 0.7247191011235955,
+      "Hit@5": 0.8089887640449438,
+      "Hit@10": 0.8202247191011236,
+      "MRR": 0.75958177278402,
+      "NDCG": 0.7744600010811353
     },
     {
       "entity_type": "paper",
@@ -26,33 +80,6 @@
       "Hit@10": 0.8202247191011236,
       "MRR": 0.7466760299625468,
       "NDCG": 0.7641930336766778
-    },
-    {
-      "entity_type": "paper",
-      "representation": "predicate_filtered",
-      "Hit@1": 0.7247191011235955,
-      "Hit@5": 0.8089887640449438,
-      "Hit@10": 0.8202247191011236,
-      "MRR": 0.75958177278402,
-      "NDCG": 0.7744600010811353
-    },
-    {
-      "entity_type": "paper",
-      "representation": "title_abstract",
-      "Hit@1": 0.6235955056179775,
-      "Hit@5": 0.7471910112359551,
-      "Hit@10": 0.7584269662921348,
-      "MRR": 0.672191011235955,
-      "NDCG": 0.6933985404824173
-    },
-    {
-      "entity_type": "paper",
-      "representation": "title_only",
-      "Hit@1": 0.702247191011236,
-      "Hit@5": 0.7471910112359551,
-      "Hit@10": 0.7640449438202247,
-      "MRR": 0.7250757981095061,
-      "NDCG": 0.7345689617065134
     }
   ]
 }

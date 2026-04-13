@@ -1,0 +1,4377 @@
+{
+  "entity_type": "dataset",
+  "representation_type": "dataset_title_only",
+  "collection_name": "datasets_dataset_title_only",
+  "records_path": "C:\\Users\\Yiğit Alp\\Desktop\\RAG-MLSea\\data\\intermediate\\raw_datasets\\datasets_master.jsonl",
+  "embedder": {
+    "embedder_type": "sentence_transformer",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "diagnostics": {
+    "entity_type": "dataset",
+    "total_questions": 225,
+    "answerable_questions": 210,
+    "paper_target_questions": 178,
+    "skipped_non_paper_target_questions": 32,
+    "skipped_non_paper_targets": 32,
+    "total_unanswerable_questions": 15,
+    "skipped_unanswerable": 15,
+    "unanswerable_questions_skipped": 15,
+    "evaluated_questions": 32,
+    "skipped_questions": 193,
+    "unmatched_targets": [],
+    "collection_size": 12651,
+    "counts_by_difficulty": {
+      "easy": {
+        "total_questions": 40,
+        "answerable_questions": 40,
+        "paper_target_questions": 40,
+        "evaluated_questions": 0,
+        "skipped_questions": 40,
+        "skipped_non_paper_targets": 0,
+        "skipped_unanswerable": 0
+      },
+      "medium": {
+        "total_questions": 75,
+        "answerable_questions": 75,
+        "paper_target_questions": 55,
+        "evaluated_questions": 20,
+        "skipped_questions": 55,
+        "skipped_non_paper_targets": 20,
+        "skipped_unanswerable": 0
+      },
+      "hard": {
+        "total_questions": 60,
+        "answerable_questions": 50,
+        "paper_target_questions": 50,
+        "evaluated_questions": 0,
+        "skipped_questions": 60,
+        "skipped_non_paper_targets": 0,
+        "skipped_unanswerable": 10
+      }
+    },
+    "counts_by_category": {
+      "paper": {
+        "total_questions": 80,
+        "answerable_questions": 80,
+        "paper_target_questions": 80,
+        "evaluated_questions": 0,
+        "skipped_questions": 80,
+        "skipped_non_paper_targets": 0,
+        "skipped_unanswerable": 0
+      },
+      "multihop": {
+        "total_questions": 30,
+        "answerable_questions": 30,
+        "paper_target_questions": 30,
+        "evaluated_questions": 0,
+        "skipped_questions": 30,
+        "skipped_non_paper_targets": 0,
+        "skipped_unanswerable": 0
+      },
+      "semantic": {
+        "total_questions": 20,
+        "answerable_questions": 20,
+        "paper_target_questions": 20,
+        "evaluated_questions": 0,
+        "skipped_questions": 20,
+        "skipped_non_paper_targets": 0,
+        "skipped_unanswerable": 0
+      },
+      "implementation": {
+        "total_questions": 15,
+        "answerable_questions": 15,
+        "paper_target_questions": 15,
+        "evaluated_questions": 0,
+        "skipped_questions": 15,
+        "skipped_non_paper_targets": 0,
+        "skipped_unanswerable": 0
+      },
+      "dataset": {
+        "total_questions": 20,
+        "answerable_questions": 20,
+        "paper_target_questions": 0,
+        "evaluated_questions": 20,
+        "skipped_questions": 0,
+        "skipped_non_paper_targets": 20,
+        "skipped_unanswerable": 0
+      },
+      "unanswerable": {
+        "total_questions": 10,
+        "answerable_questions": 0,
+        "paper_target_questions": 0,
+        "evaluated_questions": 0,
+        "skipped_questions": 10,
+        "skipped_non_paper_targets": 0,
+        "skipped_unanswerable": 10
+      }
+    }
+  },
+  "metrics": {
+    "Hit@1": 0.375,
+    "Hit@5": 0.65625,
+    "Hit@10": 0.6875,
+    "MRR": 0.4914434523809524,
+    "NDCG": 0.5402415283028924
+  },
+  "metrics_by_difficulty": {
+    "easy": {
+      "total_questions": 40,
+      "answerable_questions": 40,
+      "paper_target_questions": 40,
+      "evaluated_questions": 0,
+      "skipped_questions": 40,
+      "skipped_non_paper_targets": 0,
+      "skipped_unanswerable": 0,
+      "Hit@1": 0.0,
+      "Hit@5": 0.0,
+      "Hit@10": 0.0,
+      "MRR": 0.0,
+      "NDCG": 0.0
+    },
+    "medium": {
+      "total_questions": 75,
+      "answerable_questions": 75,
+      "paper_target_questions": 55,
+      "evaluated_questions": 20,
+      "skipped_questions": 55,
+      "skipped_non_paper_targets": 20,
+      "skipped_unanswerable": 0,
+      "Hit@1": 0.25,
+      "Hit@5": 0.55,
+      "Hit@10": 0.6,
+      "MRR": 0.3821428571428571,
+      "NDCG": 0.43630612970238525
+    },
+    "hard": {
+      "total_questions": 60,
+      "answerable_questions": 50,
+      "paper_target_questions": 50,
+      "evaluated_questions": 0,
+      "skipped_questions": 60,
+      "skipped_non_paper_targets": 0,
+      "skipped_unanswerable": 10,
+      "Hit@1": 0.0,
+      "Hit@5": 0.0,
+      "Hit@10": 0.0,
+      "MRR": 0.0,
+      "NDCG": 0.0
+    }
+  },
+  "metrics_by_category": {
+    "paper": {
+      "total_questions": 80,
+      "answerable_questions": 80,
+      "paper_target_questions": 80,
+      "evaluated_questions": 0,
+      "skipped_questions": 80,
+      "skipped_non_paper_targets": 0,
+      "skipped_unanswerable": 0,
+      "Hit@1": 0.0,
+      "Hit@5": 0.0,
+      "Hit@10": 0.0,
+      "MRR": 0.0,
+      "NDCG": 0.0
+    },
+    "multihop": {
+      "total_questions": 30,
+      "answerable_questions": 30,
+      "paper_target_questions": 30,
+      "evaluated_questions": 0,
+      "skipped_questions": 30,
+      "skipped_non_paper_targets": 0,
+      "skipped_unanswerable": 0,
+      "Hit@1": 0.0,
+      "Hit@5": 0.0,
+      "Hit@10": 0.0,
+      "MRR": 0.0,
+      "NDCG": 0.0
+    },
+    "semantic": {
+      "total_questions": 20,
+      "answerable_questions": 20,
+      "paper_target_questions": 20,
+      "evaluated_questions": 0,
+      "skipped_questions": 20,
+      "skipped_non_paper_targets": 0,
+      "skipped_unanswerable": 0,
+      "Hit@1": 0.0,
+      "Hit@5": 0.0,
+      "Hit@10": 0.0,
+      "MRR": 0.0,
+      "NDCG": 0.0
+    },
+    "implementation": {
+      "total_questions": 15,
+      "answerable_questions": 15,
+      "paper_target_questions": 15,
+      "evaluated_questions": 0,
+      "skipped_questions": 15,
+      "skipped_non_paper_targets": 0,
+      "skipped_unanswerable": 0,
+      "Hit@1": 0.0,
+      "Hit@5": 0.0,
+      "Hit@10": 0.0,
+      "MRR": 0.0,
+      "NDCG": 0.0
+    },
+    "dataset": {
+      "total_questions": 20,
+      "answerable_questions": 20,
+      "paper_target_questions": 0,
+      "evaluated_questions": 20,
+      "skipped_questions": 0,
+      "skipped_non_paper_targets": 20,
+      "skipped_unanswerable": 0,
+      "Hit@1": 0.25,
+      "Hit@5": 0.55,
+      "Hit@10": 0.6,
+      "MRR": 0.3821428571428571,
+      "NDCG": 0.43630612970238525
+    },
+    "unanswerable": {
+      "total_questions": 10,
+      "answerable_questions": 0,
+      "paper_target_questions": 0,
+      "evaluated_questions": 0,
+      "skipped_questions": 10,
+      "skipped_non_paper_targets": 0,
+      "skipped_unanswerable": 10,
+      "Hit@1": 0.0,
+      "Hit@5": 0.0,
+      "Hit@10": 0.0,
+      "MRR": 0.0,
+      "NDCG": 0.0
+    }
+  },
+  "per_question": [
+    {
+      "question_id": "mlsea_q_001",
+      "question": "What specific tasks is the MedDG dataset associated with?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.3333333333333333,
+        "NDCG": 0.5
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCZ%20Software%20Mentions%20dataset%2C%20a%20new%20dataset%20of%20software%20mentions%20in%20biomedical%20papers.",
+          "title": "CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers.",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 86,
+          "distance": 0.41256726,
+          "score": 0.58743274,
+          "source_text": "CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers.",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers."
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIllness-dataset",
+          "title": "Illness-dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.43423182,
+          "score": 0.5657681800000001,
+          "source_text": "Illness-dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Illness-dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedDG",
+          "title": "MedDG",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 5,
+          "distance": 0.43642431,
+          "score": 0.56357569,
+          "source_text": "MedDG",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fpatients%27%20data",
+          "title": "patients' data",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.46311557,
+          "score": 0.53688443,
+          "source_text": "patients' data",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/patients' data"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fkeyword_pubmed_dataset",
+          "title": "keyword_pubmed_dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.4882751,
+          "score": 0.5117248999999999,
+          "source_text": "keyword_pubmed_dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/keyword_pubmed_dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCZ%20Software%20Mentions%3A%20A%20large%20dataset%20of%20software%20mentions%20in%20the%20biomedical%20literature",
+          "title": "CZ Software Mentions: A large dataset of software mentions in the biomedical literature",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 87,
+          "distance": 0.48957515,
+          "score": 0.5104248499999999,
+          "source_text": "CZ Software Mentions: A large dataset of software mentions in the biomedical literature",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CZ Software Mentions: A large dataset of software mentions in the biomedical literature"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMed%20Paper%20Reading%20Dataset",
+          "title": "PubMed Paper Reading Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 28,
+          "distance": 0.492846,
+          "score": 0.507154,
+          "source_text": "PubMed Paper Reading Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMed Paper Reading Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMalimg%20Dataset",
+          "title": "Malimg Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.5125607,
+          "score": 0.4874393,
+          "source_text": "Malimg Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Malimg Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDiseases%20in%20Neurology%20Case%20Reports%20Dataset",
+          "title": "Diseases in Neurology Case Reports Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 42,
+          "distance": 0.52463675,
+          "score": 0.47536325,
+          "source_text": "Diseases in Neurology Case Reports Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Diseases in Neurology Case Reports Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMeta-Dataset",
+          "title": "Meta-Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.5274307,
+          "score": 0.47256929999999997,
+          "source_text": "Meta-Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Meta-Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_014",
+      "question": "Which tasks are associated with the MultiNLI dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI",
+          "title": "MultiNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.38987732,
+          "score": 0.6101226799999999,
+          "source_text": "MultiNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Dev",
+          "title": "MultiNLI Dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.39917004,
+          "score": 0.60082996,
+          "source_text": "MultiNLI Dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Dev"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI%20%288%20training%20examples%20per%20class%29",
+          "title": "SNLI (8 training examples per class)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 36,
+          "distance": 0.46110225,
+          "score": 0.5388977500000001,
+          "source_text": "SNLI (8 training examples per class)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI (8 training examples per class)"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI-mismatched",
+          "title": "MultiNLI-mismatched",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.4627726,
+          "score": 0.5372274,
+          "source_text": "MultiNLI-mismatched",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI-mismatched"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDIDI%20Dataset",
+          "title": "DIDI Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.4753055,
+          "score": 0.5246945000000001,
+          "source_text": "DIDI Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DIDI Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Dev%20MisMatched",
+          "title": "MultiNLI Dev MisMatched",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 23,
+          "distance": 0.47559804,
+          "score": 0.5244019600000001,
+          "source_text": "MultiNLI Dev MisMatched",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Dev MisMatched"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMNIST%20Multiview%20Datasets",
+          "title": "MNIST Multiview Datasets",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.49215502,
+          "score": 0.50784498,
+          "source_text": "MNIST Multiview Datasets",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MNIST Multiview Datasets"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Matched%20dev",
+          "title": "MultiNLI Matched dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.49314213,
+          "score": 0.5068578699999999,
+          "source_text": "MultiNLI Matched dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Matched dev"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20MisMatched%20dev",
+          "title": "MultiNLI MisMatched dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 23,
+          "distance": 0.49499726,
+          "score": 0.50500274,
+          "source_text": "MultiNLI MisMatched dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI MisMatched dev"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Dev%20Matched",
+          "title": "MultiNLI Dev Matched",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.5015999,
+          "score": 0.4984001,
+          "source_text": "MultiNLI Dev Matched",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Dev Matched"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_017",
+      "question": "What tasks are associated with the SNLI dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.5,
+        "NDCG": 0.6309297535714575
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI%20%288%20training%20examples%20per%20class%29",
+          "title": "SNLI (8 training examples per class)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 36,
+          "distance": 0.3470624,
+          "score": 0.6529376,
+          "source_text": "SNLI (8 training examples per class)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI (8 training examples per class)"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI",
+          "title": "SNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 4,
+          "distance": 0.37435353,
+          "score": 0.62564647,
+          "source_text": "SNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI-VE%20test",
+          "title": "SNLI-VE test",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.44788873,
+          "score": 0.5521112699999999,
+          "source_text": "SNLI-VE test",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI-VE test"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fe-SNLI",
+          "title": "e-SNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 6,
+          "distance": 0.45027512,
+          "score": 0.5497248800000001,
+          "source_text": "e-SNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/e-SNLI"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDIDI%20Dataset",
+          "title": "DIDI Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.46361822,
+          "score": 0.5363817799999999,
+          "source_text": "DIDI Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DIDI Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI-VE",
+          "title": "SNLI-VE",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 7,
+          "distance": 0.47019964,
+          "score": 0.5298003600000001,
+          "source_text": "SNLI-VE",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI-VE"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSzeged%20Corpus",
+          "title": "Szeged Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 13,
+          "distance": 0.48432028,
+          "score": 0.5156797200000001,
+          "source_text": "Szeged Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Szeged Corpus"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20EMBO%20SourceData-NLP%20dataset",
+          "title": "The EMBO SourceData-NLP dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.49778157,
+          "score": 0.50221843,
+          "source_text": "The EMBO SourceData-NLP dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The EMBO SourceData-NLP dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSPI%20dataset",
+          "title": "SPI dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5119575,
+          "score": 0.48804250000000005,
+          "source_text": "SPI dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SPI dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FGPI%20corpus",
+          "title": "GPI corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 10,
+          "distance": 0.51474816,
+          "score": 0.48525184,
+          "source_text": "GPI corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/GPI corpus"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_018",
+      "question": "What specific tasks are associated with the SQuAD dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD",
+          "title": "SQuAD",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 5,
+          "distance": 0.45188516,
+          "score": 0.54811484,
+          "source_text": "SQuAD",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD-shifts",
+          "title": "SQuAD-shifts",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.48133814,
+          "score": 0.5186618599999999,
+          "source_text": "SQuAD-shifts",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD-shifts"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD2.0%20dev",
+          "title": "SQuAD2.0 dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.48666644,
+          "score": 0.51333356,
+          "source_text": "SQuAD2.0 dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD2.0 dev"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuADShifts",
+          "title": "SQuADShifts",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.49057716,
+          "score": 0.50942284,
+          "source_text": "SQuADShifts",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuADShifts"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD-it",
+          "title": "SQuAD-it",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.5024854,
+          "score": 0.49751460000000003,
+          "source_text": "SQuAD-it",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD-it"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD-es",
+          "title": "SQuAD-es",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.50520813,
+          "score": 0.49479187,
+          "source_text": "SQuAD-es",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD-es"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD1.1",
+          "title": "SQuAD1.1",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.50568044,
+          "score": 0.49431956,
+          "source_text": "SQuAD1.1",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD1.1"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD-sr",
+          "title": "SQuAD-sr",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.5088289,
+          "score": 0.49117109999999997,
+          "source_text": "SQuAD-sr",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD-sr"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fsquad_v2",
+          "title": "squad_v2",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.5098031,
+          "score": 0.49019690000000005,
+          "source_text": "squad_v2",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/squad_v2"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD2.0",
+          "title": "SQuAD2.0",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.51148987,
+          "score": 0.48851013,
+          "source_text": "SQuAD2.0",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD2.0"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_026",
+      "question": "What tasks are associated with the NVGesture dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/%20NVGesture",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/ NVGesture",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F%20NVGesture",
+          "title": "NVGesture",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.28392112,
+          "score": 0.71607888,
+          "source_text": "NVGesture",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ NVGesture"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNVGesture",
+          "title": "NVGesture",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.28392112,
+          "score": 0.71607888,
+          "source_text": "NVGesture",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/NVGesture"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLGESTURE%20DATASET",
+          "title": "MLGESTURE DATASET",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 17,
+          "distance": 0.3466938,
+          "score": 0.6533062000000001,
+          "source_text": "MLGESTURE DATASET",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLGESTURE DATASET"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FEvent-Camera%20Dataset",
+          "title": "Event-Camera Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.47796363,
+          "score": 0.52203637,
+          "source_text": "Event-Camera Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Event-Camera Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDriving%20Event%20Camera%20Dataset",
+          "title": "Driving Event Camera Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 28,
+          "distance": 0.49313104,
+          "score": 0.50686896,
+          "source_text": "Driving Event Camera Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Driving Event Camera Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fimage-goal-nav-dataset",
+          "title": "image-goal-nav-dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.50229645,
+          "score": 0.49770355,
+          "source_text": "image-goal-nav-dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/image-goal-nav-dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FVDS%20dataset",
+          "title": "VDS dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5038673,
+          "score": 0.4961327,
+          "source_text": "VDS dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/VDS dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCoffereview%20Dataset",
+          "title": "Coffereview Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.51454747,
+          "score": 0.48545253,
+          "source_text": "Coffereview Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Coffereview Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FComputer%20Vision%20Values%20Dataset",
+          "title": "Computer Vision Values Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 30,
+          "distance": 0.51555616,
+          "score": 0.48444383999999996,
+          "source_text": "Computer Vision Values Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Computer Vision Values Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWebCaricature%20Dataset",
+          "title": "WebCaricature Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 21,
+          "distance": 0.5185685,
+          "score": 0.4814315,
+          "source_text": "WebCaricature Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/WebCaricature Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_027",
+      "question": "Which tasks are associated with the 30MQA dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/30MQA",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/30MQA",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FASC%20%28TIL%2C%2019%20tasks%29",
+          "title": "ASC (TIL, 19 tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.44892502,
+          "score": 0.55107498,
+          "source_text": "ASC (TIL, 19 tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ASC (TIL, 19 tasks)"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FASC%20%2819%20tasks%29",
+          "title": "ASC (19 tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.46201164,
+          "score": 0.5379883599999999,
+          "source_text": "ASC (19 tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ASC (19 tasks)"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDSC%20%2810%20tasks%29",
+          "title": "DSC (10 tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.46991956,
+          "score": 0.53008044,
+          "source_text": "DSC (10 tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DSC (10 tasks)"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDME%20VQA%20dataset",
+          "title": "DME VQA dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.4982323,
+          "score": 0.5017677,
+          "source_text": "DME VQA dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DME VQA dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fmulti30k_task2_test_2016",
+          "title": "multi30k_task2_test_2016",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.50419843,
+          "score": 0.49580157,
+          "source_text": "multi30k_task2_test_2016",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/multi30k_task2_test_2016"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIAM%20Dataset",
+          "title": "IAM Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.512689,
+          "score": 0.48731100000000005,
+          "source_text": "IAM Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/IAM Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIATOS%20Dataset",
+          "title": "IATOS Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 13,
+          "distance": 0.52020943,
+          "score": 0.47979057,
+          "source_text": "IATOS Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/IATOS Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAND%20Dataset",
+          "title": "AND Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5327504,
+          "score": 0.46724960000000004,
+          "source_text": "AND Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AND Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FEDGAR10-Q%20Dataset",
+          "title": "EDGAR10-Q Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 17,
+          "distance": 0.53440183,
+          "score": 0.46559817000000003,
+          "source_text": "EDGAR10-Q Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/EDGAR10-Q Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCifar100%20%2820%20tasks%29",
+          "title": "Cifar100 (20 tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.54209775,
+          "score": 0.45790224999999996,
+          "source_text": "Cifar100 (20 tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Cifar100 (20 tasks)"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_028",
+      "question": "What is the publication year of the A Dataset of State-Censored Tweets dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/A%20Dataset%20of%20State-Censored%20Tweets",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/A Dataset of State-Censored Tweets",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FA%20Dataset%20of%20State-Censored%20Tweets",
+          "title": "A Dataset of State-Censored Tweets",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 34,
+          "distance": 0.21160519,
+          "score": 0.78839481,
+          "source_text": "A Dataset of State-Censored Tweets",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/A Dataset of State-Censored Tweets"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCOVID-19%20Twitter%20Chatter%20Dataset",
+          "title": "COVID-19 Twitter Chatter Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 32,
+          "distance": 0.44279444,
+          "score": 0.55720556,
+          "source_text": "COVID-19 Twitter Chatter Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/COVID-19 Twitter Chatter Dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCoronavirus%20%28COVID-19%29%20Tweets%20Dataset",
+          "title": "Coronavirus (COVID-19) Tweets Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 37,
+          "distance": 0.45905453,
+          "score": 0.54094547,
+          "source_text": "Coronavirus (COVID-19) Tweets Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Coronavirus (COVID-19) Tweets Dataset"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTwitter%20Conversations%20Dataset",
+          "title": "Twitter Conversations Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.4711929,
+          "score": 0.5288071,
+          "source_text": "Twitter Conversations Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Twitter Conversations Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOfficial%20Dataset",
+          "title": "Official Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 16,
+          "distance": 0.4715473,
+          "score": 0.5284527,
+          "source_text": "Official Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Official Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNatural%20Hazards%20Twitter%20Dataset",
+          "title": "Natural Hazards Twitter Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.48100644,
+          "score": 0.51899356,
+          "source_text": "Natural Hazards Twitter Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Natural Hazards Twitter Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSlovenian%20Twitter%20dataset%202018-2020",
+          "title": "Slovenian Twitter dataset 2018-2020",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 35,
+          "distance": 0.48853397,
+          "score": 0.51146603,
+          "source_text": "Slovenian Twitter dataset 2018-2020",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Slovenian Twitter dataset 2018-2020"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDissonance%20Twitter%20Dataset",
+          "title": "Dissonance Twitter Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.49062276,
+          "score": 0.5093772400000001,
+          "source_text": "Dissonance Twitter Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Dissonance Twitter Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Ftwitter%20politicians%20data",
+          "title": "twitter politicians data",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.49503928,
+          "score": 0.5049607199999999,
+          "source_text": "twitter politicians data",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/twitter politicians data"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCrypto%20related%20tweets%20from%2010.10.2020%20to%203.3.2021",
+          "title": "Crypto related tweets from 10.10.2020 to 3.3.2021",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 49,
+          "distance": 0.5013531,
+          "score": 0.4986469,
+          "source_text": "Crypto related tweets from 10.10.2020 to 3.3.2021",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Crypto related tweets from 10.10.2020 to 3.3.2021"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_029",
+      "question": "What tasks are associated with the LLAMAS dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/LLAMAS",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/LLAMAS",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDIDI%20Dataset",
+          "title": "DIDI Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.48969644,
+          "score": 0.51030356,
+          "source_text": "DIDI Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DIDI Dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FVeRi%20Dataset",
+          "title": "VeRi Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.49434054,
+          "score": 0.50565946,
+          "source_text": "VeRi Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/VeRi Dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPerla%20Dataset",
+          "title": "Perla Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 13,
+          "distance": 0.50789535,
+          "score": 0.49210465000000003,
+          "source_text": "Perla Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Perla Dataset"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMOS%20Dataset",
+          "title": "MOS Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5093798,
+          "score": 0.49062019999999995,
+          "source_text": "MOS Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MOS Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIATOS%20Dataset",
+          "title": "IATOS Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 13,
+          "distance": 0.5108106,
+          "score": 0.4891894,
+          "source_text": "IATOS Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/IATOS Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FLLNeRF%20Dataset",
+          "title": "LLNeRF Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.51592326,
+          "score": 0.48407674,
+          "source_text": "LLNeRF Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/LLNeRF Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWorkshop%20Tools%20Dataset",
+          "title": "Workshop Tools Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.52156734,
+          "score": 0.47843265999999995,
+          "source_text": "Workshop Tools Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Workshop Tools Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FLLMs4OL%20Evaluation%20Datasets",
+          "title": "LLMs4OL Evaluation Datasets",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 27,
+          "distance": 0.5219056,
+          "score": 0.47809440000000003,
+          "source_text": "LLMs4OL Evaluation Datasets",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/LLMs4OL Evaluation Datasets"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMol%C3%A9ne%20Dataset",
+          "title": "MolÃ©ne Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.5292244,
+          "score": 0.47077559999999996,
+          "source_text": "MolÃ©ne Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Moléne Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FEmoDB%20Dataset",
+          "title": "EmoDB Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 13,
+          "distance": 0.52941525,
+          "score": 0.47058475,
+          "source_text": "EmoDB Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/EmoDB Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_030",
+      "question": "Which tasks is the Spotify Podcast dataset associated with?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/Spotify%20Podcast",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/Spotify Podcast",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSpotify%20Podcast",
+          "title": "Spotify Podcast",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.2588098,
+          "score": 0.7411902,
+          "source_text": "Spotify Podcast",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Spotify Podcast"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPodcastFillers",
+          "title": "PodcastFillers",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.45165724,
+          "score": 0.5483427599999999,
+          "source_text": "PodcastFillers",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PodcastFillers"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAudioSet",
+          "title": "AudioSet",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.46109527,
+          "score": 0.53890473,
+          "source_text": "AudioSet",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AudioSet"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMusicQA%20Dataset",
+          "title": "MusicQA Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.4683802,
+          "score": 0.5316198,
+          "source_text": "MusicQA Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MusicQA Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMillion%20Song%20Dataset",
+          "title": "Million Song Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.4946757,
+          "score": 0.5053243000000001,
+          "source_text": "Million Song Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Million Song Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAudioSet%20CC",
+          "title": "AudioSet CC",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5132342,
+          "score": 0.4867658,
+          "source_text": "AudioSet CC",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AudioSet CC"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMivia%20Audio%20Events%20Dataset",
+          "title": "Mivia Audio Events Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.5167341,
+          "score": 0.4832659,
+          "source_text": "Mivia Audio Events Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Mivia Audio Events Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLB-YouTube%20Dataset",
+          "title": "MLB-YouTube Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.51793456,
+          "score": 0.48206543999999996,
+          "source_text": "MLB-YouTube Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLB-YouTube Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedleyDB",
+          "title": "MedleyDB",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.5267619,
+          "score": 0.4732381,
+          "source_text": "MedleyDB",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedleyDB"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FChildren%27s%20Song%20Dataset",
+          "title": "Children's Song Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 23,
+          "distance": 0.5283015,
+          "score": 0.4716985,
+          "source_text": "Children's Song Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Children's Song Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_031",
+      "question": "What tasks are associated with the Wiki dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/Wiki",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/Wiki",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.25,
+        "NDCG": 0.43067655807339306
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikiDataSets",
+          "title": "WikiDataSets",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.2811889,
+          "score": 0.7188110999999999,
+          "source_text": "WikiDataSets",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/WikiDataSets"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikidata",
+          "title": "Wikidata",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.30256253,
+          "score": 0.69743747,
+          "source_text": "Wikidata",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Wikidata"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikiWiki",
+          "title": "WikiWiki",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.35037565,
+          "score": 0.6496243500000001,
+          "source_text": "WikiWiki",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/WikiWiki"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWiki",
+          "title": "Wiki",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 4,
+          "distance": 0.35826886,
+          "score": 0.64173114,
+          "source_text": "Wiki",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Wiki"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fwiki",
+          "title": "wiki",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 4,
+          "distance": 0.35826886,
+          "score": 0.64173114,
+          "source_text": "wiki",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/wiki"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikiSection",
+          "title": "WikiSection",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.3584262,
+          "score": 0.6415738,
+          "source_text": "WikiSection",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/WikiSection"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikiart%20%28Fine-grained%206%20Tasks%29",
+          "title": "Wikiart (Fine-grained 6 Tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 30,
+          "distance": 0.3604663,
+          "score": 0.6395337,
+          "source_text": "Wikiart (Fine-grained 6 Tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Wikiart (Fine-grained 6 Tasks)"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikiGraphs",
+          "title": "WikiGraphs",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 10,
+          "distance": 0.3639869,
+          "score": 0.6360131,
+          "source_text": "WikiGraphs",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/WikiGraphs"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikiSRS",
+          "title": "WikiSRS",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 7,
+          "distance": 0.36491263,
+          "score": 0.6350873699999999,
+          "source_text": "WikiSRS",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/WikiSRS"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikiSum",
+          "title": "WikiSum",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 7,
+          "distance": 0.3787973,
+          "score": 0.6212027,
+          "source_text": "WikiSum",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/WikiSum"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_032",
+      "question": "What is the publication year of the wikiHow-image dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/wikiHow-image",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/wikiHow-image",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FwikiHow-image",
+          "title": "wikiHow-image",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 13,
+          "distance": 0.4070573,
+          "score": 0.5929427,
+          "source_text": "wikiHow-image",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/wikiHow-image"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FOfficial%20Dataset",
+          "title": "Official Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 16,
+          "distance": 0.41404557,
+          "score": 0.58595443,
+          "source_text": "Official Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Official Dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHistorical%20Color%20Image%20Dataset",
+          "title": "Historical Color Image Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 30,
+          "distance": 0.45506364,
+          "score": 0.54493636,
+          "source_text": "Historical Color Image Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Historical Color Image Dataset"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWiki-Flickr%20Event%20Dataset",
+          "title": "Wiki-Flickr Event Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 25,
+          "distance": 0.46521443,
+          "score": 0.5347855699999999,
+          "source_text": "Wiki-Flickr Event Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Wiki-Flickr Event Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikidated%201.0",
+          "title": "Wikidated 1.0",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 13,
+          "distance": 0.46622527,
+          "score": 0.53377473,
+          "source_text": "Wikidated 1.0",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Wikidated 1.0"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDa%20Vinci%20Dataset",
+          "title": "Da Vinci Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 16,
+          "distance": 0.4927668,
+          "score": 0.5072331999999999,
+          "source_text": "Da Vinci Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Da Vinci Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWikidata",
+          "title": "Wikidata",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.49983895,
+          "score": 0.50016105,
+          "source_text": "Wikidata",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Wikidata"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWisture%20Dataset",
+          "title": "Wisture Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.5022074,
+          "score": 0.49779260000000003,
+          "source_text": "Wisture Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Wisture Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FART%20Dataset",
+          "title": "ART Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5023499,
+          "score": 0.4976501,
+          "source_text": "ART Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ART Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fwikihow",
+          "title": "wikihow",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 7,
+          "distance": 0.5155966,
+          "score": 0.48440340000000004,
+          "source_text": "wikihow",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/wikihow"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_033",
+      "question": "What tasks are associated with the Twitter Sentiment Analysis dataset?",
+      "difficulty": null,
+      "category": null,
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/Twitter%20Sentiment%20Analysis",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/Twitter Sentiment Analysis",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTwitter%20Sentiment%20Analysis",
+          "title": "Twitter Sentiment Analysis",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.31790936,
+          "score": 0.68209064,
+          "source_text": "Twitter Sentiment Analysis",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Twitter Sentiment Analysis"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTweet%20Sentiment%20Extraction",
+          "title": "Tweet Sentiment Extraction",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.36593837,
+          "score": 0.6340616299999999,
+          "source_text": "Tweet Sentiment Extraction",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Tweet Sentiment Extraction"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20Sentiment%20Datasets",
+          "title": "Multilingual Sentiment Datasets",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.36669445,
+          "score": 0.63330555,
+          "source_text": "Multilingual Sentiment Datasets",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual Sentiment Datasets"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMulti-Domain%20Sentiment%20Dataset%20v2.0",
+          "title": "Multi-Domain Sentiment Dataset v2.0",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 35,
+          "distance": 0.37835324,
+          "score": 0.62164676,
+          "source_text": "Multi-Domain Sentiment Dataset v2.0",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multi-Domain Sentiment Dataset v2.0"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMulti-Domain%20Sentiment%20Dataset",
+          "title": "Multi-Domain Sentiment Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 30,
+          "distance": 0.38764644,
+          "score": 0.6123535600000001,
+          "source_text": "Multi-Domain Sentiment Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multi-Domain Sentiment Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTwitter%20Conversations%20Dataset",
+          "title": "Twitter Conversations Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.40375888,
+          "score": 0.59624112,
+          "source_text": "Twitter Conversations Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Twitter Conversations Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIndonesian%20Twitter%20Emotion%20Dataset",
+          "title": "Indonesian Twitter Emotion Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 34,
+          "distance": 0.40713537,
+          "score": 0.59286463,
+          "source_text": "Indonesian Twitter Emotion Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Indonesian Twitter Emotion Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FModern%20Hebrew%20Sentiment%20Dataset",
+          "title": "Modern Hebrew Sentiment Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.43721515,
+          "score": 0.56278485,
+          "source_text": "Modern Hebrew Sentiment Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Modern Hebrew Sentiment Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDissonance%20Twitter%20Dataset",
+          "title": "Dissonance Twitter Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.44583917,
+          "score": 0.55416083,
+          "source_text": "Dissonance Twitter Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Dissonance Twitter Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBroad%20Twitter%20Corpus",
+          "title": "Broad Twitter Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.4770946,
+          "score": 0.5229054,
+          "source_text": "Broad Twitter Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Broad Twitter Corpus"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_196",
+      "question": "List the tasks recorded for the dataset \"MedDG\".",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.3333333333333333,
+        "NDCG": 0.5
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIllness-dataset",
+          "title": "Illness-dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.45265043,
+          "score": 0.54734957,
+          "source_text": "Illness-dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Illness-dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCZ%20Software%20Mentions%20dataset%2C%20a%20new%20dataset%20of%20software%20mentions%20in%20biomedical%20papers.",
+          "title": "CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers.",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 86,
+          "distance": 0.4806627,
+          "score": 0.5193373,
+          "source_text": "CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers.",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers."
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedDG",
+          "title": "MedDG",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 5,
+          "distance": 0.51456267,
+          "score": 0.48543733,
+          "source_text": "MedDG",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fpatients%27%20data",
+          "title": "patients' data",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.5201974,
+          "score": 0.47980259999999997,
+          "source_text": "patients' data",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/patients' data"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDSC%20%2810%20tasks%29",
+          "title": "DSC (10 tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.5292805,
+          "score": 0.47071949999999996,
+          "source_text": "DSC (10 tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DSC (10 tasks)"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCZ%20Software%20Mentions%3A%20A%20large%20dataset%20of%20software%20mentions%20in%20the%20biomedical%20literature",
+          "title": "CZ Software Mentions: A large dataset of software mentions in the biomedical literature",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 87,
+          "distance": 0.5302619,
+          "score": 0.46973810000000005,
+          "source_text": "CZ Software Mentions: A large dataset of software mentions in the biomedical literature",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CZ Software Mentions: A large dataset of software mentions in the biomedical literature"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThis%20is%20not%20a%20Dataset",
+          "title": "This is not a Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 21,
+          "distance": 0.53271663,
+          "score": 0.46728337,
+          "source_text": "This is not a Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/This is not a Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FRESPIRATORY%20AND%20DRUG%20ACTUATION%20DATASET",
+          "title": "RESPIRATORY AND DRUG ACTUATION DATASET",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 38,
+          "distance": 0.533004,
+          "score": 0.46699599999999997,
+          "source_text": "RESPIRATORY AND DRUG ACTUATION DATASET",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/RESPIRATORY AND DRUG ACTUATION DATASET"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskonomy",
+          "title": "Taskonomy",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.5330895,
+          "score": 0.4669105,
+          "source_text": "Taskonomy",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskonomy"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMeta-Dataset",
+          "title": "Meta-Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.53475,
+          "score": 0.46525000000000005,
+          "source_text": "Meta-Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Meta-Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_197",
+      "question": "How many tasks are associated with the dataset \"MedDG\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedDG",
+          "title": "MedDG",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 5,
+          "distance": 0.46633404,
+          "score": 0.53366596,
+          "source_text": "MedDG",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIllness-dataset",
+          "title": "Illness-dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.48937577,
+          "score": 0.51062423,
+          "source_text": "Illness-dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Illness-dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCZ%20Software%20Mentions%20dataset%2C%20a%20new%20dataset%20of%20software%20mentions%20in%20biomedical%20papers.",
+          "title": "CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers.",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 86,
+          "distance": 0.48942423,
+          "score": 0.51057577,
+          "source_text": "CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers.",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers."
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCZ%20Software%20Mentions%3A%20A%20large%20dataset%20of%20software%20mentions%20in%20the%20biomedical%20literature",
+          "title": "CZ Software Mentions: A large dataset of software mentions in the biomedical literature",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 87,
+          "distance": 0.5302576,
+          "score": 0.4697424,
+          "source_text": "CZ Software Mentions: A large dataset of software mentions in the biomedical literature",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CZ Software Mentions: A large dataset of software mentions in the biomedical literature"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fkeyword_pubmed_dataset",
+          "title": "keyword_pubmed_dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.5306339,
+          "score": 0.4693661,
+          "source_text": "keyword_pubmed_dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/keyword_pubmed_dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fpatients%27%20data",
+          "title": "patients' data",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.5371167,
+          "score": 0.4628833,
+          "source_text": "patients' data",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/patients' data"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDSC%20%2810%20tasks%29",
+          "title": "DSC (10 tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.5538506,
+          "score": 0.44614940000000003,
+          "source_text": "DSC (10 tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DSC (10 tasks)"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDiseases%20in%20Neurology%20Case%20Reports%20Dataset",
+          "title": "Diseases in Neurology Case Reports Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 42,
+          "distance": 0.56361717,
+          "score": 0.43638283,
+          "source_text": "Diseases in Neurology Case Reports Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Diseases in Neurology Case Reports Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMed%20Paper%20Reading%20Dataset",
+          "title": "PubMed Paper Reading Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 28,
+          "distance": 0.5651247,
+          "score": 0.43487529999999996,
+          "source_text": "PubMed Paper Reading Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMed Paper Reading Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMeta-Dataset",
+          "title": "Meta-Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.576251,
+          "score": 0.42374900000000004,
+          "source_text": "Meta-Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Meta-Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_198",
+      "question": "Is \"Dialogue Generation\" one of the tasks linked to the dataset \"MedDG\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FStatcan%20Dialogue%20Dataset",
+          "title": "Statcan Dialogue Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.44328785,
+          "score": 0.5567121500000001,
+          "source_text": "Statcan Dialogue Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Statcan Dialogue Dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIncremental%20Dialog%20Dataset",
+          "title": "Incremental Dialog Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.47135657,
+          "score": 0.52864343,
+          "source_text": "Incremental Dialog Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Incremental Dialog Dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedDialog",
+          "title": "MedDialog",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.4799263,
+          "score": 0.5200737,
+          "source_text": "MedDialog",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDialog"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHarry%20Potter%20Dialogue%20Dataset",
+          "title": "Harry Potter Dialogue Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.4808222,
+          "score": 0.5191778,
+          "source_text": "Harry Potter Dialogue Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Harry Potter Dialogue Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDialog-based%20Language%20Learning%20dataset",
+          "title": "Dialog-based Language Learning dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 38,
+          "distance": 0.4951533,
+          "score": 0.5048467,
+          "source_text": "Dialog-based Language Learning dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Dialog-based Language Learning dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNegotiation%20Dialogues%20Dataset",
+          "title": "Negotiation Dialogues Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.5129738,
+          "score": 0.48702619999999996,
+          "source_text": "Negotiation Dialogues Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Negotiation Dialogues Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FGutenberg%20Dialog%20Dataset",
+          "title": "Gutenberg Dialog Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.5181185,
+          "score": 0.48188149999999996,
+          "source_text": "Gutenberg Dialog Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Gutenberg Dialog Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FUbuntu%20Dialogue%20%28Entity%29",
+          "title": "Ubuntu Dialogue (Entity)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.53007156,
+          "score": 0.46992844,
+          "source_text": "Ubuntu Dialogue (Entity)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Ubuntu Dialogue (Entity)"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FUbuntu%20Dialogue%20%28v2%2C%20Ranking%29",
+          "title": "Ubuntu Dialogue (v2, Ranking)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.5421704,
+          "score": 0.45782959999999995,
+          "source_text": "Ubuntu Dialogue (v2, Ranking)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Ubuntu Dialogue (v2, Ranking)"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FJUSThink%20Dialogue%20and%20Actions%20Corpus",
+          "title": "JUSThink Dialogue and Actions Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 36,
+          "distance": 0.54360497,
+          "score": 0.45639503000000003,
+          "source_text": "JUSThink Dialogue and Actions Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/JUSThink Dialogue and Actions Corpus"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_199",
+      "question": "Is \"TextGeneration\" one of the tasks linked to the dataset \"MedDG\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.3333333333333333,
+        "NDCG": 0.5
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCZ%20Software%20Mentions%20dataset%2C%20a%20new%20dataset%20of%20software%20mentions%20in%20biomedical%20papers.",
+          "title": "CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers.",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 86,
+          "distance": 0.4664595,
+          "score": 0.5335405,
+          "source_text": "CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers.",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CZ Software Mentions dataset, a new dataset of software mentions in biomedical papers."
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCZ%20Software%20Mentions%3A%20A%20large%20dataset%20of%20software%20mentions%20in%20the%20biomedical%20literature",
+          "title": "CZ Software Mentions: A large dataset of software mentions in the biomedical literature",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 87,
+          "distance": 0.4978125,
+          "score": 0.5021875,
+          "source_text": "CZ Software Mentions: A large dataset of software mentions in the biomedical literature",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CZ Software Mentions: A large dataset of software mentions in the biomedical literature"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMedDG",
+          "title": "MedDG",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 5,
+          "distance": 0.50947785,
+          "score": 0.49052215,
+          "source_text": "MedDG",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fkeyword_pubmed_dataset",
+          "title": "keyword_pubmed_dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.55637395,
+          "score": 0.44362605,
+          "source_text": "keyword_pubmed_dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/keyword_pubmed_dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FShort%20Text%20Font%20Dataset",
+          "title": "Short Text Font Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 23,
+          "distance": 0.56298494,
+          "score": 0.43701506,
+          "source_text": "Short Text Font Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Short Text Font Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMed%20Paper%20Reading%20Dataset",
+          "title": "PubMed Paper Reading Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 28,
+          "distance": 0.58351666,
+          "score": 0.41648334,
+          "source_text": "PubMed Paper Reading Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMed Paper Reading Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FPubMed%20Term%2C%20Abstract%2C%20Conclusion%2C%20Title%20Dataset",
+          "title": "PubMed Term, Abstract, Conclusion, Title Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 48,
+          "distance": 0.5967112,
+          "score": 0.4032888,
+          "source_text": "PubMed Term, Abstract, Conclusion, Title Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/PubMed Term, Abstract, Conclusion, Title Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FContextualised%20Polyseme%20Word%20Sense%20Dataset%20v2",
+          "title": "Contextualised Polyseme Word Sense Dataset v2",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 45,
+          "distance": 0.60726047,
+          "score": 0.39273952999999995,
+          "source_text": "Contextualised Polyseme Word Sense Dataset v2",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Contextualised Polyseme Word Sense Dataset v2"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTFH_Annotated_Dataset",
+          "title": "TFH_Annotated_Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 21,
+          "distance": 0.6134511,
+          "score": 0.3865489,
+          "source_text": "TFH_Annotated_Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/TFH_Annotated_Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIllness-dataset",
+          "title": "Illness-dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.6146277,
+          "score": 0.3853723,
+          "source_text": "Illness-dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Illness-dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_200",
+      "question": "Which dataset is associated with the tasks Dialogue Generation and Response Generation?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MedDG",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNegotiation%20Dialogues%20Dataset",
+          "title": "Negotiation Dialogues Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.37690723,
+          "score": 0.62309277,
+          "source_text": "Negotiation Dialogues Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Negotiation Dialogues Dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FStatcan%20Dialogue%20Dataset",
+          "title": "Statcan Dialogue Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.3984468,
+          "score": 0.6015532,
+          "source_text": "Statcan Dialogue Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Statcan Dialogue Dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIncremental%20Dialog%20Dataset",
+          "title": "Incremental Dialog Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.41881168,
+          "score": 0.58118832,
+          "source_text": "Incremental Dialog Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Incremental Dialog Dataset"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHarry%20Potter%20Dialogue%20Dataset",
+          "title": "Harry Potter Dialogue Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.43561256,
+          "score": 0.56438744,
+          "source_text": "Harry Potter Dialogue Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Harry Potter Dialogue Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDialog-based%20Language%20Learning%20dataset",
+          "title": "Dialog-based Language Learning dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 38,
+          "distance": 0.44964194,
+          "score": 0.55035806,
+          "source_text": "Dialog-based Language Learning dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Dialog-based Language Learning dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTwitter%20Conversations%20Dataset",
+          "title": "Twitter Conversations Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.46327293,
+          "score": 0.53672707,
+          "source_text": "Twitter Conversations Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Twitter Conversations Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSAMSum%20Corpus%3A%20A%20Human-annotated%20Dialogue%20Dataset%20for%20Abstractive%20Summarization",
+          "title": "SAMSum Corpus: A Human-annotated Dialogue Dataset for Abstractive Summarization",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 79,
+          "distance": 0.46387458,
+          "score": 0.5361254200000001,
+          "source_text": "SAMSum Corpus: A Human-annotated Dialogue Dataset for Abstractive Summarization",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SAMSum Corpus: A Human-annotated Dialogue Dataset for Abstractive Summarization"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FGutenberg%20Dialog%20Dataset",
+          "title": "Gutenberg Dialog Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.46478683,
+          "score": 0.53521317,
+          "source_text": "Gutenberg Dialog Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Gutenberg Dialog Dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FReddit%20Conversation%20Corpus",
+          "title": "Reddit Conversation Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.4735437,
+          "score": 0.5264563,
+          "source_text": "Reddit Conversation Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Reddit Conversation Corpus"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskonomy",
+          "title": "Taskonomy",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.47978842,
+          "score": 0.52021158,
+          "source_text": "Taskonomy",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskonomy"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_201",
+      "question": "List the tasks recorded for the dataset \"MultiNLI\".",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI",
+          "title": "MultiNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.47035128,
+          "score": 0.52964872,
+          "source_text": "MultiNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Dev",
+          "title": "MultiNLI Dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.47230315,
+          "score": 0.52769685,
+          "source_text": "MultiNLI Dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Dev"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDIDI%20Dataset",
+          "title": "DIDI Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.48392922,
+          "score": 0.51607078,
+          "source_text": "DIDI Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DIDI Dataset"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCoffereview%20Dataset",
+          "title": "Coffereview Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.49847066,
+          "score": 0.50152934,
+          "source_text": "Coffereview Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Coffereview Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWorkshop%20Tools%20Dataset",
+          "title": "Workshop Tools Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.50043195,
+          "score": 0.49956805000000004,
+          "source_text": "Workshop Tools Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Workshop Tools Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskonomy",
+          "title": "Taskonomy",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.5016936,
+          "score": 0.49830640000000004,
+          "source_text": "Taskonomy",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskonomy"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTHAR%20Dataset",
+          "title": "THAR Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.506868,
+          "score": 0.493132,
+          "source_text": "THAR Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/THAR Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskography",
+          "title": "Taskography",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5126207,
+          "score": 0.48737929999999996,
+          "source_text": "Taskography",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskography"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMNIST%20Multiview%20Datasets",
+          "title": "MNIST Multiview Datasets",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.51455176,
+          "score": 0.48544824,
+          "source_text": "MNIST Multiview Datasets",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MNIST Multiview Datasets"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNEU%20dataset",
+          "title": "NEU dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.51704764,
+          "score": 0.48295235999999997,
+          "source_text": "NEU dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/NEU dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_202",
+      "question": "How many tasks are associated with the dataset \"MultiNLI\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI",
+          "title": "MultiNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.39697576,
+          "score": 0.60302424,
+          "source_text": "MultiNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Dev",
+          "title": "MultiNLI Dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.4162863,
+          "score": 0.5837137,
+          "source_text": "MultiNLI Dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Dev"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI%20%288%20training%20examples%20per%20class%29",
+          "title": "SNLI (8 training examples per class)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 36,
+          "distance": 0.47165072,
+          "score": 0.52834928,
+          "source_text": "SNLI (8 training examples per class)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI (8 training examples per class)"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI-mismatched",
+          "title": "MultiNLI-mismatched",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.47584176,
+          "score": 0.52415824,
+          "source_text": "MultiNLI-mismatched",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI-mismatched"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Dev%20MisMatched",
+          "title": "MultiNLI Dev MisMatched",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 23,
+          "distance": 0.48711014,
+          "score": 0.51288986,
+          "source_text": "MultiNLI Dev MisMatched",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Dev MisMatched"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Matched%20dev",
+          "title": "MultiNLI Matched dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.5059572,
+          "score": 0.4940428,
+          "source_text": "MultiNLI Matched dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Matched dev"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMulti%20Task%20Crowd",
+          "title": "Multi Task Crowd",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 16,
+          "distance": 0.5071859,
+          "score": 0.49281410000000003,
+          "source_text": "Multi Task Crowd",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multi Task Crowd"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Dev%20Matched",
+          "title": "MultiNLI Dev Matched",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.5103898,
+          "score": 0.4896102,
+          "source_text": "MultiNLI Dev Matched",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Dev Matched"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fmulti_nli",
+          "title": "multi_nli",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.5107171,
+          "score": 0.48928289999999997,
+          "source_text": "multi_nli",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/multi_nli"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20MisMatched%20dev",
+          "title": "MultiNLI MisMatched dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 23,
+          "distance": 0.5118878,
+          "score": 0.4881122,
+          "source_text": "MultiNLI MisMatched dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI MisMatched dev"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_203",
+      "question": "Is \"TextGeneration\" one of the tasks linked to the dataset \"MultiNLI\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.3333333333333333,
+        "NDCG": 0.5
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNLI4Wills%20Corpus",
+          "title": "NLI4Wills Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 16,
+          "distance": 0.4980557,
+          "score": 0.5019443,
+          "source_text": "NLI4Wills Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/NLI4Wills Corpus"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Dev",
+          "title": "MultiNLI Dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.5008974,
+          "score": 0.49910259999999995,
+          "source_text": "MultiNLI Dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Dev"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI",
+          "title": "MultiNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.5042131,
+          "score": 0.49578690000000003,
+          "source_text": "MultiNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI-mismatched",
+          "title": "MultiNLI-mismatched",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.50467145,
+          "score": 0.49532855,
+          "source_text": "MultiNLI-mismatched",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI-mismatched"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20Dev%20MisMatched",
+          "title": "MultiNLI Dev MisMatched",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 23,
+          "distance": 0.5214385,
+          "score": 0.4785615,
+          "source_text": "MultiNLI Dev MisMatched",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI Dev MisMatched"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FLTI%20LangID%20Corpus",
+          "title": "LTI LangID Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 17,
+          "distance": 0.5240957,
+          "score": 0.47590429999999995,
+          "source_text": "LTI LangID Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/LTI LangID Corpus"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20EMBO%20SourceData-NLP%20dataset",
+          "title": "The EMBO SourceData-NLP dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.5370848,
+          "score": 0.46291519999999997,
+          "source_text": "The EMBO SourceData-NLP dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The EMBO SourceData-NLP dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCzEng%202.0%20Parallel%20Corpus",
+          "title": "CzEng 2.0 Parallel Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 25,
+          "distance": 0.541867,
+          "score": 0.458133,
+          "source_text": "CzEng 2.0 Parallel Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CzEng 2.0 Parallel Corpus"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI%20MisMatched%20dev",
+          "title": "MultiNLI MisMatched dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 23,
+          "distance": 0.5430903,
+          "score": 0.4569097,
+          "source_text": "MultiNLI MisMatched dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI MisMatched dev"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FIndicNLP%20Corpus",
+          "title": "IndicNLP Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 15,
+          "distance": 0.5432385,
+          "score": 0.45676150000000004,
+          "source_text": "IndicNLP Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/IndicNLP Corpus"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_204",
+      "question": "Is \"Cross-Lingual Transfer\" one of the tasks linked to the dataset \"MultiNLI\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20Terms%20of%20Service",
+          "title": "Multilingual Terms of Service",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.4868415,
+          "score": 0.5131585000000001,
+          "source_text": "Multilingual Terms of Service",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual Terms of Service"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20Reuters",
+          "title": "Multilingual Reuters",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.486943,
+          "score": 0.513057,
+          "source_text": "Multilingual Reuters",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual Reuters"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20Sentiment%20Datasets",
+          "title": "Multilingual Sentiment Datasets",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.49075383,
+          "score": 0.5092461699999999,
+          "source_text": "Multilingual Sentiment Datasets",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual Sentiment Datasets"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20TOP",
+          "title": "Multilingual TOP",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 16,
+          "distance": 0.49093443,
+          "score": 0.50906557,
+          "source_text": "Multilingual TOP",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual TOP"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20LibriSpeech",
+          "title": "Multilingual LibriSpeech",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.5038389,
+          "score": 0.4961611,
+          "source_text": "Multilingual LibriSpeech",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual LibriSpeech"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCross-Linguistic%20Polysemies",
+          "title": "Cross-Linguistic Polysemies",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 27,
+          "distance": 0.5105026,
+          "score": 0.48949739999999997,
+          "source_text": "Cross-Linguistic Polysemies",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Cross-Linguistic Polysemies"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultiNLI-mismatched",
+          "title": "MultiNLI-mismatched",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.5189065,
+          "score": 0.48109349999999995,
+          "source_text": "MultiNLI-mismatched",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI-mismatched"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fmultilingual_librispeech%20es",
+          "title": "multilingual_librispeech es",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 27,
+          "distance": 0.5193214,
+          "score": 0.48067859999999996,
+          "source_text": "multilingual_librispeech es",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/multilingual_librispeech es"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20LibriSpeech%20%28MLS%29",
+          "title": "Multilingual LibriSpeech (MLS)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 30,
+          "distance": 0.52261925,
+          "score": 0.47738075,
+          "source_text": "Multilingual LibriSpeech (MLS)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual LibriSpeech (MLS)"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fmultilingual_librispeech",
+          "title": "multilingual_librispeech",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.5237781,
+          "score": 0.4762219,
+          "source_text": "multilingual_librispeech",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/multilingual_librispeech"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_205",
+      "question": "Which dataset is associated with the tasks TextGeneration and Natural Language Inference?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/MultiNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskonomy",
+          "title": "Taskonomy",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.45133245,
+          "score": 0.54866755,
+          "source_text": "Taskonomy",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskonomy"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20Stanford%20Question%20Answering%20Dataset",
+          "title": "The Stanford Question Answering Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 39,
+          "distance": 0.48129046,
+          "score": 0.51870954,
+          "source_text": "The Stanford Question Answering Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The Stanford Question Answering Dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FContextualised%20Polyseme%20Word%20Sense%20Dataset%20v2",
+          "title": "Contextualised Polyseme Word Sense Dataset v2",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 45,
+          "distance": 0.48831874,
+          "score": 0.51168126,
+          "source_text": "Contextualised Polyseme Word Sense Dataset v2",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Contextualised Polyseme Word Sense Dataset v2"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCoNLL%202017%20Shared%20Task%20-%20Automatically%20Annotated%20Raw%20Texts%20and%20Word%20Embeddings",
+          "title": "CoNLL 2017 Shared Task - Automatically Annotated Raw Texts and Word Embeddings",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 78,
+          "distance": 0.49765837,
+          "score": 0.50234163,
+          "source_text": "CoNLL 2017 Shared Task - Automatically Annotated Raw Texts and Word Embeddings",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/CoNLL 2017 Shared Task - Automatically Annotated Raw Texts and Word Embeddings"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNLI4Wills%20Corpus",
+          "title": "NLI4Wills Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 16,
+          "distance": 0.4998538,
+          "score": 0.5001462,
+          "source_text": "NLI4Wills Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/NLI4Wills Corpus"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20EMBO%20SourceData-NLP%20dataset",
+          "title": "The EMBO SourceData-NLP dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.50095105,
+          "score": 0.49904895000000005,
+          "source_text": "The EMBO SourceData-NLP dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The EMBO SourceData-NLP dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FReddit%20Conversation%20Corpus",
+          "title": "Reddit Conversation Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.5106859,
+          "score": 0.4893141,
+          "source_text": "Reddit Conversation Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Reddit Conversation Corpus"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDialog-based%20Language%20Learning%20dataset",
+          "title": "Dialog-based Language Learning dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 38,
+          "distance": 0.51865554,
+          "score": 0.48134446,
+          "source_text": "Dialog-based Language Learning dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Dialog-based Language Learning dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FA%20Dependency%20Graph%20for%20460%2C000%20Papers%20and%20Their%20Software%20Mentions%20from%20the%20CZI%20Software%20Mentions%20Dataset",
+          "title": "A Dependency Graph for 460,000 Papers and Their Software Mentions from the CZI Software Mentions Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 104,
+          "distance": 0.5222206,
+          "score": 0.47777939999999997,
+          "source_text": "A Dependency Graph for 460,000 Papers and Their Software Mentions from the CZI Software Mentions Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/A Dependency Graph for 460,000 Papers and Their Software Mentions from the CZI Software Mentions Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSemanticSpray%20Dataset",
+          "title": "SemanticSpray Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 21,
+          "distance": 0.5228377,
+          "score": 0.47716230000000004,
+          "source_text": "SemanticSpray Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SemanticSpray Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_206",
+      "question": "List the tasks recorded for the dataset \"SNLI\".",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.5,
+        "NDCG": 0.6309297535714575
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI%20%288%20training%20examples%20per%20class%29",
+          "title": "SNLI (8 training examples per class)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 36,
+          "distance": 0.4369942,
+          "score": 0.5630058,
+          "source_text": "SNLI (8 training examples per class)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI (8 training examples per class)"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI",
+          "title": "SNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 4,
+          "distance": 0.4595728,
+          "score": 0.5404272,
+          "source_text": "SNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskonomy",
+          "title": "Taskonomy",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.46464902,
+          "score": 0.53535098,
+          "source_text": "Taskonomy",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskonomy"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSzeged%20Corpus",
+          "title": "Szeged Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 13,
+          "distance": 0.47593302,
+          "score": 0.52406698,
+          "source_text": "Szeged Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Szeged Corpus"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDIDI%20Dataset",
+          "title": "DIDI Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.48271167,
+          "score": 0.51728833,
+          "source_text": "DIDI Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DIDI Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI-VE%20test",
+          "title": "SNLI-VE test",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.49837458,
+          "score": 0.50162542,
+          "source_text": "SNLI-VE test",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI-VE test"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskography",
+          "title": "Taskography",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5043433,
+          "score": 0.49565669999999995,
+          "source_text": "Taskography",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskography"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20EMBO%20SourceData-NLP%20dataset",
+          "title": "The EMBO SourceData-NLP dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.50632966,
+          "score": 0.49367034,
+          "source_text": "The EMBO SourceData-NLP dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The EMBO SourceData-NLP dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWorkshop%20Tools%20Dataset",
+          "title": "Workshop Tools Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.5142452,
+          "score": 0.48575480000000004,
+          "source_text": "Workshop Tools Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Workshop Tools Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSemEval-2014%20Task-10",
+          "title": "SemEval-2014 Task-10",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.5160714,
+          "score": 0.48392860000000004,
+          "source_text": "SemEval-2014 Task-10",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SemEval-2014 Task-10"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_207",
+      "question": "How many tasks are associated with the dataset \"SNLI\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.5,
+        "NDCG": 0.6309297535714575
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI%20%288%20training%20examples%20per%20class%29",
+          "title": "SNLI (8 training examples per class)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 36,
+          "distance": 0.36134815,
+          "score": 0.63865185,
+          "source_text": "SNLI (8 training examples per class)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI (8 training examples per class)"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI",
+          "title": "SNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 4,
+          "distance": 0.40623605,
+          "score": 0.59376395,
+          "source_text": "SNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fe-SNLI",
+          "title": "e-SNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 6,
+          "distance": 0.4844073,
+          "score": 0.5155927,
+          "source_text": "e-SNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/e-SNLI"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI-VE",
+          "title": "SNLI-VE",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 7,
+          "distance": 0.49004042,
+          "score": 0.5099595800000001,
+          "source_text": "SNLI-VE",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI-VE"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI-VE%20test",
+          "title": "SNLI-VE test",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.49367946,
+          "score": 0.5063205399999999,
+          "source_text": "SNLI-VE test",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI-VE test"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskonomy",
+          "title": "Taskonomy",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.50442135,
+          "score": 0.49557865,
+          "source_text": "Taskonomy",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskonomy"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDIDI%20Dataset",
+          "title": "DIDI Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.52638143,
+          "score": 0.47361856999999996,
+          "source_text": "DIDI Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DIDI Dataset"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSzeged%20Corpus",
+          "title": "Szeged Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 13,
+          "distance": 0.53572154,
+          "score": 0.46427845999999995,
+          "source_text": "Szeged Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Szeged Corpus"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20EMBO%20SourceData-NLP%20dataset",
+          "title": "The EMBO SourceData-NLP dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.5388179,
+          "score": 0.46118210000000004,
+          "source_text": "The EMBO SourceData-NLP dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The EMBO SourceData-NLP dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTasksource",
+          "title": "Tasksource",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 10,
+          "distance": 0.53984404,
+          "score": 0.46015596000000003,
+          "source_text": "Tasksource",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Tasksource"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_208",
+      "question": "Is \"Cross-Lingual Transfer\" one of the tasks linked to the dataset \"SNLI\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20Terms%20of%20Service",
+          "title": "Multilingual Terms of Service",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 29,
+          "distance": 0.5276307,
+          "score": 0.4723693,
+          "source_text": "Multilingual Terms of Service",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual Terms of Service"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCross-Linguistic%20Polysemies",
+          "title": "Cross-Linguistic Polysemies",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 27,
+          "distance": 0.5303556,
+          "score": 0.46964439999999996,
+          "source_text": "Cross-Linguistic Polysemies",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Cross-Linguistic Polysemies"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20TOP",
+          "title": "Multilingual TOP",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 16,
+          "distance": 0.5390872,
+          "score": 0.4609128,
+          "source_text": "Multilingual TOP",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual TOP"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FLTI%20LangID%20Corpus",
+          "title": "LTI LangID Corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 17,
+          "distance": 0.5432596,
+          "score": 0.45674040000000005,
+          "source_text": "LTI LangID Corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/LTI LangID Corpus"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20Reuters",
+          "title": "Multilingual Reuters",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.54445004,
+          "score": 0.45554996000000003,
+          "source_text": "Multilingual Reuters",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual Reuters"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FCross-Dataset%20Testbed",
+          "title": "Cross-Dataset Testbed",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 21,
+          "distance": 0.5446013,
+          "score": 0.45539870000000005,
+          "source_text": "Cross-Dataset Testbed",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Cross-Dataset Testbed"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI%20%288%20training%20examples%20per%20class%29",
+          "title": "SNLI (8 training examples per class)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 36,
+          "distance": 0.545271,
+          "score": 0.45472900000000005,
+          "source_text": "SNLI (8 training examples per class)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI (8 training examples per class)"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20Sentiment%20Datasets",
+          "title": "Multilingual Sentiment Datasets",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.54579246,
+          "score": 0.45420753999999997,
+          "source_text": "Multilingual Sentiment Datasets",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual Sentiment Datasets"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMultilingual%20Dataset%20for%20Training%20and%20Evaluating%20Diacritics%20Restoration%20Systems",
+          "title": "Multilingual Dataset for Training and Evaluating Diacritics Restoration Systems",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 79,
+          "distance": 0.55293345,
+          "score": 0.44706654999999995,
+          "source_text": "Multilingual Dataset for Training and Evaluating Diacritics Restoration Systems",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multilingual Dataset for Training and Evaluating Diacritics Restoration Systems"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSwitchboard%20corpus",
+          "title": "Switchboard corpus",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 18,
+          "distance": 0.5594142,
+          "score": 0.4405858,
+          "source_text": "Switchboard corpus",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Switchboard corpus"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_209",
+      "question": "Is \"Question Answering\" one of the tasks linked to the dataset \"SNLI\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 0.5,
+        "NDCG": 0.6309297535714575
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20Stanford%20Question%20Answering%20Dataset",
+          "title": "The Stanford Question Answering Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 39,
+          "distance": 0.41431463,
+          "score": 0.58568537,
+          "source_text": "The Stanford Question Answering Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The Stanford Question Answering Dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI",
+          "title": "SNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 4,
+          "distance": 0.48236674,
+          "score": 0.51763326,
+          "source_text": "SNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI%20%288%20training%20examples%20per%20class%29",
+          "title": "SNLI (8 training examples per class)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 36,
+          "distance": 0.5324829,
+          "score": 0.4675171,
+          "source_text": "SNLI (8 training examples per class)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI (8 training examples per class)"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FChAII%20-%20Hindi%20and%20Tamil%20Question%20Answering",
+          "title": "ChAII - Hindi and Tamil Question Answering",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 42,
+          "distance": 0.5458087,
+          "score": 0.45419129999999996,
+          "source_text": "ChAII - Hindi and Tamil Question Answering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ChAII - Hindi and Tamil Question Answering"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI-VE%20test",
+          "title": "SNLI-VE test",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.5552062,
+          "score": 0.4447938,
+          "source_text": "SNLI-VE test",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI-VE test"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHR%20Extractive%20Question%20Answering",
+          "title": "HR Extractive Question Answering",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 32,
+          "distance": 0.56587994,
+          "score": 0.43412006000000003,
+          "source_text": "HR Extractive Question Answering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HR Extractive Question Answering"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSNLI-VE",
+          "title": "SNLI-VE",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 7,
+          "distance": 0.5714668,
+          "score": 0.42853319999999995,
+          "source_text": "SNLI-VE",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI-VE"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FVisual%20Question%20Answering%20v2.0",
+          "title": "Visual Question Answering v2.0",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 30,
+          "distance": 0.5728824,
+          "score": 0.4271176,
+          "source_text": "Visual Question Answering v2.0",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Visual Question Answering v2.0"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20EMBO%20SourceData-NLP%20dataset",
+          "title": "The EMBO SourceData-NLP dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 31,
+          "distance": 0.58005905,
+          "score": 0.41994095,
+          "source_text": "The EMBO SourceData-NLP dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The EMBO SourceData-NLP dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fe-SNLI",
+          "title": "e-SNLI",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 6,
+          "distance": 0.582617,
+          "score": 0.41738299999999995,
+          "source_text": "e-SNLI",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/e-SNLI"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_210",
+      "question": "Which dataset is associated with the tasks Cross-Lingual Transfer and Zero-Shot Learning?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SNLI",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLDoc%20Zero-Shot%20English-to-French",
+          "title": "MLDoc Zero-Shot English-to-French",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 33,
+          "distance": 0.47917718,
+          "score": 0.52082282,
+          "source_text": "MLDoc Zero-Shot English-to-French",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLDoc Zero-Shot English-to-French"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLDoc%20Zero-Shot%20English-to-Spanish",
+          "title": "MLDoc Zero-Shot English-to-Spanish",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 34,
+          "distance": 0.4910537,
+          "score": 0.5089463000000001,
+          "source_text": "MLDoc Zero-Shot English-to-Spanish",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLDoc Zero-Shot English-to-Spanish"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLDoc%20Zero-Shot%20English-to-Chinese",
+          "title": "MLDoc Zero-Shot English-to-Chinese",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 34,
+          "distance": 0.49492705,
+          "score": 0.50507295,
+          "source_text": "MLDoc Zero-Shot English-to-Chinese",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLDoc Zero-Shot English-to-Chinese"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLDoc%20Zero-Shot%20English-to-Japanese",
+          "title": "MLDoc Zero-Shot English-to-Japanese",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 35,
+          "distance": 0.49701422,
+          "score": 0.5029857799999999,
+          "source_text": "MLDoc Zero-Shot English-to-Japanese",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLDoc Zero-Shot English-to-Japanese"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLDoc%20Zero-Shot%20German-to-French",
+          "title": "MLDoc Zero-Shot German-to-French",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 32,
+          "distance": 0.49728906,
+          "score": 0.50271094,
+          "source_text": "MLDoc Zero-Shot German-to-French",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLDoc Zero-Shot German-to-French"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLDoc%20Zero-Shot%20English-to-German",
+          "title": "MLDoc Zero-Shot English-to-German",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 33,
+          "distance": 0.5074976,
+          "score": 0.4925024,
+          "source_text": "MLDoc Zero-Shot English-to-German",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLDoc Zero-Shot English-to-German"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLDoc%20Zero-Shot%20English-to-Russian",
+          "title": "MLDoc Zero-Shot English-to-Russian",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 34,
+          "distance": 0.50891376,
+          "score": 0.49108624,
+          "source_text": "MLDoc Zero-Shot English-to-Russian",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLDoc Zero-Shot English-to-Russian"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMLDoc%20Zero-Shot%20English-to-Italian",
+          "title": "MLDoc Zero-Shot English-to-Italian",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 34,
+          "distance": 0.5174434,
+          "score": 0.4825566,
+          "source_text": "MLDoc Zero-Shot English-to-Italian",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/MLDoc Zero-Shot English-to-Italian"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FXNLI%20Zero-Shot%20English-to-French",
+          "title": "XNLI Zero-Shot English-to-French",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 32,
+          "distance": 0.5246118,
+          "score": 0.47538820000000004,
+          "source_text": "XNLI Zero-Shot English-to-French",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/XNLI Zero-Shot English-to-French"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FFewshot-CIFAR100%20-%201-Shot%20Learning",
+          "title": "Fewshot-CIFAR100 - 1-Shot Learning",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 34,
+          "distance": 0.52604157,
+          "score": 0.47395843000000004,
+          "source_text": "Fewshot-CIFAR100 - 1-Shot Learning",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Fewshot-CIFAR100 - 1-Shot Learning"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_211",
+      "question": "List the tasks recorded for the dataset \"SQuAD\".",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD",
+          "title": "SQuAD",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 5,
+          "distance": 0.4759097,
+          "score": 0.5240903,
+          "source_text": "SQuAD",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fsquad_v2",
+          "title": "squad_v2",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.5010743,
+          "score": 0.4989257,
+          "source_text": "squad_v2",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/squad_v2"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD2.0%20dev",
+          "title": "SQuAD2.0 dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.5045892,
+          "score": 0.49541080000000004,
+          "source_text": "SQuAD2.0 dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD2.0 dev"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD-it",
+          "title": "SQuAD-it",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.5093991,
+          "score": 0.4906009,
+          "source_text": "SQuAD-it",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD-it"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskonomy",
+          "title": "Taskonomy",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.5097914,
+          "score": 0.4902086,
+          "source_text": "Taskonomy",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskonomy"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSpoken-SQuAD",
+          "title": "Spoken-SQuAD",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.5136791,
+          "score": 0.48632089999999994,
+          "source_text": "Spoken-SQuAD",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Spoken-SQuAD"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD-sr",
+          "title": "SQuAD-sr",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.5164718,
+          "score": 0.48352819999999996,
+          "source_text": "SQuAD-sr",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD-sr"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD-es",
+          "title": "SQuAD-es",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.51936454,
+          "score": 0.48063546,
+          "source_text": "SQuAD-es",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD-es"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWorkshop%20Tools%20Dataset",
+          "title": "Workshop Tools Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.51965064,
+          "score": 0.48034935999999995,
+          "source_text": "Workshop Tools Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Workshop Tools Dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThis%20is%20not%20a%20Dataset",
+          "title": "This is not a Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 21,
+          "distance": 0.5244391,
+          "score": 0.47556089999999995,
+          "source_text": "This is not a Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/This is not a Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_212",
+      "question": "How many tasks are associated with the dataset \"SQuAD\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "MRR": 1.0,
+        "NDCG": 1.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD",
+          "title": "SQuAD",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 5,
+          "distance": 0.47934335,
+          "score": 0.52065665,
+          "source_text": "SQuAD",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMulti%20Task%20Crowd",
+          "title": "Multi Task Crowd",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 16,
+          "distance": 0.49286067,
+          "score": 0.50713933,
+          "source_text": "Multi Task Crowd",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Multi Task Crowd"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD2.0%20dev",
+          "title": "SQuAD2.0 dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.5112583,
+          "score": 0.48874169999999995,
+          "source_text": "SQuAD2.0 dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD2.0 dev"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FASC%20%28TIL%2C%2019%20tasks%29",
+          "title": "ASC (TIL, 19 tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 19,
+          "distance": 0.5140109,
+          "score": 0.48598909999999995,
+          "source_text": "ASC (TIL, 19 tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ASC (TIL, 19 tasks)"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDSC%20%2810%20tasks%29",
+          "title": "DSC (10 tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.52367604,
+          "score": 0.47632396,
+          "source_text": "DSC (10 tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/DSC (10 tasks)"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD-it",
+          "title": "SQuAD-it",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.52550584,
+          "score": 0.47449416,
+          "source_text": "SQuAD-it",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD-it"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2F20Newsgroup%20%2810%20tasks%29",
+          "title": "20Newsgroup (10 tasks)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.5340445,
+          "score": 0.46595549999999997,
+          "source_text": "20Newsgroup (10 tasks)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/20Newsgroup (10 tasks)"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD-es",
+          "title": "SQuAD-es",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.53733826,
+          "score": 0.46266174000000004,
+          "source_text": "SQuAD-es",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD-es"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD1.1%20dev",
+          "title": "SQuAD1.1 dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.538096,
+          "score": 0.461904,
+          "source_text": "SQuAD1.1 dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD1.1 dev"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWorkshop%20Tools%20Dataset",
+          "title": "Workshop Tools Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.5397357,
+          "score": 0.46026429999999996,
+          "source_text": "Workshop Tools Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Workshop Tools Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_213",
+      "question": "Is \"Question Answering\" one of the tasks linked to the dataset \"SQuAD\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 1.0,
+        "MRR": 0.14285714285714285,
+        "NDCG": 0.3333333333333333
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20Stanford%20Question%20Answering%20Dataset",
+          "title": "The Stanford Question Answering Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 39,
+          "distance": 0.42763847,
+          "score": 0.57236153,
+          "source_text": "The Stanford Question Answering Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The Stanford Question Answering Dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FVisual%20Question%20Answering%20v2.0",
+          "title": "Visual Question Answering v2.0",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 30,
+          "distance": 0.5617117,
+          "score": 0.43828829999999996,
+          "source_text": "Visual Question Answering v2.0",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Visual Question Answering v2.0"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThis%20is%20not%20a%20Dataset",
+          "title": "This is not a Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 21,
+          "distance": 0.59159434,
+          "score": 0.40840566,
+          "source_text": "This is not a Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/This is not a Dataset"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTYC%20Dataset",
+          "title": "TYC Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5930444,
+          "score": 0.4069556,
+          "source_text": "TYC Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/TYC Dataset"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNoun-Noun%20Compound%20Dataset",
+          "title": "Noun-Noun Compound Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.59899473,
+          "score": 0.40100526999999997,
+          "source_text": "Noun-Noun Compound Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Noun-Noun Compound Dataset"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FGoogle%20Dataset",
+          "title": "Google Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 14,
+          "distance": 0.6025028,
+          "score": 0.3974972,
+          "source_text": "Google Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Google Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD",
+          "title": "SQuAD",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 5,
+          "distance": 0.60350955,
+          "score": 0.39649045000000005,
+          "source_text": "SQuAD",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD2.0%20dev",
+          "title": "SQuAD2.0 dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.60684085,
+          "score": 0.39315915,
+          "source_text": "SQuAD2.0 dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD2.0 dev"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHR%20Extractive%20Question%20Answering",
+          "title": "HR Extractive Question Answering",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 32,
+          "distance": 0.607579,
+          "score": 0.392421,
+          "source_text": "HR Extractive Question Answering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HR Extractive Question Answering"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMonkey%20V1%20dataset",
+          "title": "Monkey V1 dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 17,
+          "distance": 0.6101911,
+          "score": 0.3898089,
+          "source_text": "Monkey V1 dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Monkey V1 dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_214",
+      "question": "Is \"QuestionGeneration\" one of the tasks linked to the dataset \"SQuAD\"?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20Stanford%20Question%20Answering%20Dataset",
+          "title": "The Stanford Question Answering Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 39,
+          "distance": 0.5278249,
+          "score": 0.47217509999999996,
+          "source_text": "The Stanford Question Answering Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The Stanford Question Answering Dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2Fsquadshifts%20new_wiki",
+          "title": "squadshifts new_wiki",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 20,
+          "distance": 0.5617577,
+          "score": 0.4382423,
+          "source_text": "squadshifts new_wiki",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/squadshifts new_wiki"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD2.0%20dev",
+          "title": "SQuAD2.0 dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.57752645,
+          "score": 0.42247355,
+          "source_text": "SQuAD2.0 dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD2.0 dev"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FVisual%20Question%20Generation",
+          "title": "Visual Question Generation",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 26,
+          "distance": 0.58782923,
+          "score": 0.41217077,
+          "source_text": "Visual Question Generation",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Visual Question Generation"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD1.1%20dev",
+          "title": "SQuAD1.1 dev",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 12,
+          "distance": 0.5900209,
+          "score": 0.40997910000000004,
+          "source_text": "SQuAD1.1 dev",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD1.1 dev"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskonomy",
+          "title": "Taskonomy",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.5912044,
+          "score": 0.40879560000000004,
+          "source_text": "Taskonomy",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskonomy"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FExpMRC%20-%20SQuAD%20%28test%29",
+          "title": "ExpMRC - SQuAD (test)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 21,
+          "distance": 0.60293543,
+          "score": 0.39706456999999995,
+          "source_text": "ExpMRC - SQuAD (test)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/ExpMRC - SQuAD (test)"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FMonkey%20V1%20dataset",
+          "title": "Monkey V1 dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 17,
+          "distance": 0.6064954,
+          "score": 0.3935046,
+          "source_text": "Monkey V1 dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Monkey V1 dataset"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSQuAD1.1",
+          "title": "SQuAD1.1",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 8,
+          "distance": 0.60757315,
+          "score": 0.39242685,
+          "source_text": "SQuAD1.1",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD1.1"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FWorkshop%20Tools%20Dataset",
+          "title": "Workshop Tools Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 22,
+          "distance": 0.6088578,
+          "score": 0.3911422,
+          "source_text": "Workshop Tools Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Workshop Tools Dataset"
+        }
+      ]
+    },
+    {
+      "question_id": "mlsea_q_215",
+      "question": "Which dataset is associated with the tasks Question Answering and Sequence-to-sequence Language Modeling?",
+      "difficulty": "medium",
+      "category": "dataset",
+      "is_answerable": true,
+      "target_entity_iri": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "gold_dataset_id": "http://w3id.org/mlsea/pwc/dataset/SQuAD",
+      "matched_in_collection": true,
+      "metrics": {
+        "Hit@1": 0.0,
+        "Hit@5": 0.0,
+        "Hit@10": 0.0,
+        "MRR": 0.0,
+        "NDCG": 0.0
+      },
+      "results": [
+        {
+          "rank": 1,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FThe%20Stanford%20Question%20Answering%20Dataset",
+          "title": "The Stanford Question Answering Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 39,
+          "distance": 0.31275415,
+          "score": 0.68724585,
+          "source_text": "The Stanford Question Answering Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/The Stanford Question Answering Dataset"
+        },
+        {
+          "rank": 2,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FDialog-based%20Language%20Learning%20dataset",
+          "title": "Dialog-based Language Learning dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 38,
+          "distance": 0.441445,
+          "score": 0.558555,
+          "source_text": "Dialog-based Language Learning dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Dialog-based Language Learning dataset"
+        },
+        {
+          "rank": 3,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSAMSum%20Corpus%3A%20A%20Human-annotated%20Dialogue%20Dataset%20for%20Abstractive%20Summarization",
+          "title": "SAMSum Corpus: A Human-annotated Dialogue Dataset for Abstractive Summarization",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 79,
+          "distance": 0.48870182,
+          "score": 0.51129818,
+          "source_text": "SAMSum Corpus: A Human-annotated Dialogue Dataset for Abstractive Summarization",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SAMSum Corpus: A Human-annotated Dialogue Dataset for Abstractive Summarization"
+        },
+        {
+          "rank": 4,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FTaskonomy",
+          "title": "Taskonomy",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 9,
+          "distance": 0.49333876,
+          "score": 0.50666124,
+          "source_text": "Taskonomy",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Taskonomy"
+        },
+        {
+          "rank": 5,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FNeural%20Conversational%20QA",
+          "title": "Neural Conversational QA",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 24,
+          "distance": 0.49887115,
+          "score": 0.50112885,
+          "source_text": "Neural Conversational QA",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Neural Conversational QA"
+        },
+        {
+          "rank": 6,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FBulgarian%20Reading%20Comprehension%20Dataset",
+          "title": "Bulgarian Reading Comprehension Dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 39,
+          "distance": 0.50348365,
+          "score": 0.49651635000000005,
+          "source_text": "Bulgarian Reading Comprehension Dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/Bulgarian Reading Comprehension Dataset"
+        },
+        {
+          "rank": 7,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FLanguageNet",
+          "title": "LanguageNet",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 11,
+          "distance": 0.5104805,
+          "score": 0.4895195,
+          "source_text": "LanguageNet",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/LanguageNet"
+        },
+        {
+          "rank": 8,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FSemEval-2016%20Task%205%20Subtask%201%20%28Spanish%29",
+          "title": "SemEval-2016 Task 5 Subtask 1 (Spanish)",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 39,
+          "distance": 0.51649904,
+          "score": 0.48350096,
+          "source_text": "SemEval-2016 Task 5 Subtask 1 (Spanish)",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/SemEval-2016 Task 5 Subtask 1 (Spanish)"
+        },
+        {
+          "rank": 9,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FAI-GA%3A%20AI-Generated%20Abstracts%20dataset",
+          "title": "AI-GA: AI-Generated Abstracts dataset",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 37,
+          "distance": 0.51684445,
+          "score": 0.48315555,
+          "source_text": "AI-GA: AI-Generated Abstracts dataset",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/AI-GA: AI-Generated Abstracts dataset"
+        },
+        {
+          "rank": 10,
+          "item_id": "dataset_title_only::http%3A%2F%2Fw3id.org%2Fmlsea%2Fpwc%2Fdataset%2FHR%20Extractive%20Question%20Answering",
+          "title": "HR Extractive Question Answering",
+          "representation_type": "dataset_title_only",
+          "text_length_chars": 32,
+          "distance": 0.5260417,
+          "score": 0.47395830000000005,
+          "source_text": "HR Extractive Question Answering",
+          "dataset_id": "http://w3id.org/mlsea/pwc/dataset/HR Extractive Question Answering"
+        }
+      ]
+    }
+  ]
+}
