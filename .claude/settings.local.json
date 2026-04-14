@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"\\\\\"medium\\\\\"\\\\\\\\|\\\\\"hard\\\\\"\\\\\\\\|\\\\\"easy\\\\\"\" \"/c/Users/Yiğit Alp/Desktop/RAG-MLSea/data/retrieval_results/summary_by_difficulty.json\")",
+      "Bash(grep -n \"\\\\\"dataset\\\\\"\\\\\\\\|\\\\\"model\\\\\"\\\\\\\\|\\\\\"paper\\\\\"\" \"/c/Users/Yiğit Alp/Desktop/RAG-MLSea/data/retrieval_results/summary_by_category.json\")",
+      "Bash(python3 -c \"import tabulate; print\\('tabulate available'\\)\")",
+      "Bash(python3 -c \"import matplotlib; print\\(matplotlib.__version__\\)\")",
+      "Bash(pip install:*)",
+      "Bash(python -m src.pre_retrieval.shared.scripts.run_generate_thesis_outputs)"
+    ]
+  }
+}
