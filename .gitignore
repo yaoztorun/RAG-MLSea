@@ -10,3 +10,8 @@ data/raw/
 /env/
 .ipynb_checkpoints/
 *.py[cod]
+claude.md
+generation_evaluation_log.json
+retrieval_evaluation_log.json
+paper_title_metadata.json
+.claude

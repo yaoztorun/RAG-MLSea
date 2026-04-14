@@ -1,6 +1,79 @@
 {
   "rows": [
     {
+      "entity_type": "dataset",
+      "representation": "dataset_enriched_metadata",
+      "Hit@1": 0.15789473684210525,
+      "Hit@5": 0.42105263157894735,
+      "Hit@10": 0.5263157894736842,
+      "MRR": 0.2612781954887218,
+      "NDCG": 0.3243135640085475
+    },
+    {
+      "entity_type": "dataset",
+      "representation": "dataset_metadata",
+      "Hit@1": 0.14035087719298245,
+      "Hit@5": 0.3333333333333333,
+      "Hit@10": 0.40350877192982454,
+      "MRR": 0.222145641882484,
+      "NDCG": 0.2657418205699093
+    },
+    {
+      "entity_type": "dataset",
+      "representation": "dataset_predicate_filtered",
+      "Hit@1": 0.08771929824561403,
+      "Hit@5": 0.24561403508771928,
+      "Hit@10": 0.2982456140350877,
+      "MRR": 0.15779030910609856,
+      "NDCG": 0.19186889676862487
+    },
+    {
+      "entity_type": "dataset",
+      "representation": "dataset_title_only",
+      "Hit@1": 0.2807017543859649,
+      "Hit@5": 0.45614035087719296,
+      "Hit@10": 0.47368421052631576,
+      "MRR": 0.35192147034252297,
+      "NDCG": 0.3822408579946063
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_enriched_metadata",
+      "Hit@1": 0.6,
+      "Hit@5": 0.7333333333333333,
+      "Hit@10": 0.7666666666666667,
+      "MRR": 0.6666666666666666,
+      "NDCG": 0.6916332149274133
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_metadata",
+      "Hit@1": 0.3333333333333333,
+      "Hit@5": 0.5333333333333333,
+      "Hit@10": 0.6333333333333333,
+      "MRR": 0.4228174603174603,
+      "NDCG": 0.47325138208144646
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_predicate_filtered",
+      "Hit@1": 0.8,
+      "Hit@5": 0.9,
+      "Hit@10": 0.9333333333333333,
+      "MRR": 0.8555555555555556,
+      "NDCG": 0.8749665482607465
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_title_only",
+      "Hit@1": 0.36666666666666664,
+      "Hit@5": 0.5,
+      "Hit@10": 0.5333333333333333,
+      "MRR": 0.41865079365079366,
+      "NDCG": 0.44649798816593944
+    },
+    {
+      "entity_type": "paper",
       "representation": "title_only",
       "Hit@1": 0.702247191011236,
       "Hit@5": 0.7471910112359551,
@@ -9,6 +82,7 @@
       "NDCG": 0.7345689617065134
     },
     {
+      "entity_type": "paper",
       "representation": "abstract_only",
       "Hit@1": 0.42134831460674155,
       "Hit@5": 0.6292134831460674,
@@ -17,6 +91,7 @@
       "NDCG": 0.5437991241499067
     },
     {
+      "entity_type": "paper",
       "representation": "title_abstract",
       "Hit@1": 0.6235955056179775,
       "Hit@5": 0.7471910112359551,
@@ -25,6 +100,7 @@
       "NDCG": 0.6933985404824173
     },
     {
+      "entity_type": "paper",
       "representation": "predicate_filtered",
       "Hit@1": 0.7247191011235955,
       "Hit@5": 0.8089887640449438,
@@ -33,6 +109,7 @@
       "NDCG": 0.7744600010811353
     },
     {
+      "entity_type": "paper",
       "representation": "enriched_metadata",
       "Hit@1": 0.7752808988764045,
       "Hit@5": 0.848314606741573,
@@ -41,6 +118,7 @@
       "NDCG": 0.8224971369448923
     },
     {
+      "entity_type": "paper",
       "representation": "one_hop",
       "Hit@1": 0.7134831460674157,
       "Hit@5": 0.7865168539325843,
