@@ -6,7 +6,14 @@
       "Bash(python3 -c \"import tabulate; print\\('tabulate available'\\)\")",
       "Bash(python3 -c \"import matplotlib; print\\(matplotlib.__version__\\)\")",
       "Bash(pip install:*)",
-      "Bash(python -m src.pre_retrieval.shared.scripts.run_generate_thesis_outputs)"
+      "Bash(python -m src.pre_retrieval.shared.scripts.run_generate_thesis_outputs)",
+      "PowerShell(head *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\" | Select-Object Name, @{Name=\"Type\"; Expression={if\\($_.PSIsContainer\\){\"Folder\"}else{\"File\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(magick *)",
+      "PowerShell(node -e \"require\\('sharp'\\)\" 2>&1 | Select-Object -First 2; node -e \"require\\('canvas'\\)\" 2>&1 | Select-Object -First 2; node -e \"require\\('svgexport'\\)\" 2>&1 | Select-Object -First 2)",
+      "PowerShell(pip install *)",
+      "PowerShell(npm list *)"
     ]
   }
 }
