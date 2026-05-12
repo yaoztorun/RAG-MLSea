@@ -1,6 +1,11 @@
 {
   "embedder_type": "sentence_transformer",
   "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "corpus_subset": {
+    "enabled": true,
+    "max_papers": 200000,
+    "include_gold_targets": true
+  },
   "vector_store": {
     "provider": "chroma",
     "chroma_mode": "http",
@@ -12,13 +17,26 @@
     "questions_path": "data/questions/ml_questions_dataset.json",
     "output_dir": "data/retrieval_results",
     "top_k": [1, 5, 10],
+    "abstention_score_threshold": null,
     "representation_order": [
       "title_only",
       "abstract_only",
       "title_abstract",
-      "enriched_metadata",
       "predicate_filtered",
+      "enriched_metadata",
       "one_hop"
+    ],
+    "dataset_representation_order": [
+      "dataset_title_only",
+      "dataset_metadata",
+      "dataset_predicate_filtered",
+      "dataset_enriched_metadata"
+    ],
+    "model_representation_order": [
+      "model_title_only",
+      "model_metadata",
+      "model_predicate_filtered",
+      "model_enriched_metadata"
     ]
   },
   "representations": {
@@ -55,6 +73,60 @@
       "linked_entity_limit": 12,
       "list_value_max_characters": 100,
       "max_characters": 2200
+    }
+  },
+  "dataset_representations": {
+    "dataset_title_only": {
+      "max_characters": 512
+    },
+    "dataset_metadata": {
+      "title_max_characters": 512,
+      "description_max_characters": 900,
+      "list_item_limit": 10,
+      "list_value_max_characters": 120,
+      "max_characters": 2200
+    },
+    "dataset_predicate_filtered": {
+      "title_max_characters": 512,
+      "description_max_characters": 500,
+      "list_item_limit": 5,
+      "list_value_max_characters": 100,
+      "max_characters": 1800
+    },
+    "dataset_enriched_metadata": {
+      "title_max_characters": 512,
+      "description_max_characters": 600,
+      "list_item_limit": 8,
+      "list_value_max_characters": 120,
+      "related_paper_limit": 6,
+      "implementation_limit": 4,
+      "linked_entity_limit": 6,
+      "max_characters": 2400
+    }
+  },
+  "model_representations": {
+    "model_title_only": {
+      "max_characters": 512
+    },
+    "model_metadata": {
+      "title_max_characters": 512,
+      "list_item_limit": 10,
+      "list_value_max_characters": 120,
+      "max_characters": 2200
+    },
+    "model_predicate_filtered": {
+      "title_max_characters": 512,
+      "list_item_limit": 5,
+      "list_value_max_characters": 100,
+      "max_characters": 1800
+    },
+    "model_enriched_metadata": {
+      "title_max_characters": 512,
+      "description_max_characters": 600,
+      "list_item_limit": 8,
+      "list_value_max_characters": 120,
+      "linked_entity_limit": 6,
+      "max_characters": 2400
     }
   }
 }

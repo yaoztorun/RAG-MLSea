@@ -1,0 +1,10 @@
+# Retrieval Stage — Method Comparison
+
+| method | evaluated_questions | Hit@1 | Hit@5 | Hit@10 | MRR | NDCG |
+|---|---|---|---|---|---|---|
+| pure_semantic_dense | 265 | 0.6717 | 0.7698 | 0.7811 | 0.7177 | 0.7337 |
+| hybrid_type_filtering | 265 | 0.6717 | 0.7698 | 0.7811 | 0.7177 | 0.7337 |
+| hybrid_type_onehop_filtering | 265 | 0.6717 | 0.7698 | 0.7811 | 0.7194 | 0.7351 |
+| hybrid_predicate_aware_filtering | 265 | 0.6868 | 0.7623 | 0.7811 | 0.7233 | 0.7375 |
+| optional_rrf_fusion | 265 | 0.6491 | 0.7774 | 0.8189 | 0.7086 | 0.7354 |
+| optional_rrf_symbolic | 265 | 0.6642 | 0.7774 | 0.8189 | 0.7192 | 0.7434 |

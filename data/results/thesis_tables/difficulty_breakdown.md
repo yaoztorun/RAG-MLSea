@@ -1,0 +1,38 @@
+# Table 3: Performance by Question Difficulty
+
+| Difficulty | Entity Type | Representation | Hit@1 | MRR | NDCG |
+| :--- | :--- | :--- | ---: | ---: | ---: |
+| easy | paper | abstract_only | 0.5750 | 0.6646 | 0.7037 |
+| easy | paper | enriched_metadata | 0.9500 | 0.9750 | 0.9815 |
+| easy | paper | one_hop | 0.9750 | 0.9875 | 0.9908 |
+| easy | paper | predicate_filtered | 0.9750 | 0.9875 | 0.9908 |
+| easy | paper | title_abstract | 0.8500 | 0.8775 | 0.8888 |
+| easy | paper | title_only | 0.9500 | 0.9750 | 0.9815 |
+| medium | paper | abstract_only | 0.5455 | 0.6364 | 0.6762 |
+| medium | paper | enriched_metadata | 0.9273 | 0.9636 | 0.9732 |
+| medium | paper | one_hop | 0.9273 | 0.9606 | 0.9708 |
+| medium | paper | predicate_filtered | 0.9636 | 0.9818 | 0.9866 |
+| medium | paper | title_abstract | 0.8364 | 0.8733 | 0.8911 |
+| medium | paper | title_only | 0.9636 | 0.9818 | 0.9866 |
+| medium | dataset | dataset_enriched_metadata | 0.0645 | 0.1715 | 0.2305 |
+| medium | dataset | dataset_metadata | 0.1290 | 0.1942 | 0.2394 |
+| medium | dataset | dataset_predicate_filtered | 0.0645 | 0.1350 | 0.1723 |
+| medium | dataset | dataset_title_only | 0.2581 | 0.3541 | 0.3944 |
+| medium | model | model_enriched_metadata | 0.5294 | 0.5882 | 0.6169 |
+| medium | model | model_metadata | 0.3529 | 0.4387 | 0.4884 |
+| medium | model | model_predicate_filtered | 0.7647 | 0.8039 | 0.8228 |
+| medium | model | model_title_only | 0.4118 | 0.4545 | 0.4861 |
+| hard | paper | abstract_only | 0.2200 | 0.2580 | 0.2733 |
+| hard | paper | enriched_metadata | 0.4200 | 0.4767 | 0.4931 |
+| hard | paper | one_hop | 0.2200 | 0.2708 | 0.3054 |
+| hard | paper | predicate_filtered | 0.2000 | 0.2734 | 0.3089 |
+| hard | paper | title_abstract | 0.2400 | 0.2830 | 0.3019 |
+| hard | paper | title_only | 0.0400 | 0.0813 | 0.1046 |
+| hard | dataset | dataset_enriched_metadata | 0.1429 | 0.2423 | 0.3046 |
+| hard | dataset | dataset_metadata | 0.0714 | 0.1769 | 0.2211 |
+| hard | dataset | dataset_predicate_filtered | 0.0714 | 0.1769 | 0.2211 |
+| hard | dataset | dataset_title_only | 0.0714 | 0.0714 | 0.0714 |
+| hard | model | model_enriched_metadata | 0.6923 | 0.7692 | 0.7894 |
+| hard | model | model_metadata | 0.3077 | 0.4020 | 0.4535 |
+| hard | model | model_predicate_filtered | 0.8462 | 0.9231 | 0.9432 |
+| hard | model | model_title_only | 0.3077 | 0.3718 | 0.3947 |
