@@ -13,7 +13,14 @@
       "PowerShell(magick *)",
       "PowerShell(node -e \"require\\('sharp'\\)\" 2>&1 | Select-Object -First 2; node -e \"require\\('canvas'\\)\" 2>&1 | Select-Object -First 2; node -e \"require\\('svgexport'\\)\" 2>&1 | Select-Object -First 2)",
       "PowerShell(pip install *)",
-      "PowerShell(npm list *)"
+      "PowerShell(npm list *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\" -Directory | Select-Object -ExpandProperty Name)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\" -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\questions\" -Recurse -File | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\" -Depth 0 -File | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\results\" -Recurse -File | ForEach-Object { $_.FullName } | Sort-Object)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\intermediate\" -Recurse -File | ForEach-Object { $_.FullName } | Sort-Object)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\raw\" -Recurse -File | ForEach-Object { $_.FullName } | Sort-Object)"
     ]
   }
 }
