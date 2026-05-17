@@ -1,7 +1,0 @@
-method,method_group,Hit@1,Hit@5,Hit@10,MRR,NDCG,delta_NDCG_vs_dense,interpretation_label
-pure_semantic_dense,Pure Semantic,0.6717,0.7698,0.7811,0.7177,0.7337,0.0,precision baseline
-hybrid_type_filtering,Hybrid,0.6717,0.7698,0.7811,0.7177,0.7337,0.0,type-control
-hybrid_type_onehop_filtering,Hybrid,0.6717,0.7698,0.7811,0.7194,0.7351,0.0013,graph-neighbourhood hybrid
-hybrid_predicate_aware_filtering,Hybrid,0.6868,0.7623,0.7811,0.7233,0.7375,0.0038,predicate-aware hybrid
-optional_rrf_fusion,Optional Fusion,0.6491,0.7774,0.8189,0.7086,0.7354,0.0017,optional recall fusion
-optional_rrf_symbolic,Optional Fusion,0.6642,0.7774,0.8189,0.7192,0.7434,0.0096,optional fusion + symbolic

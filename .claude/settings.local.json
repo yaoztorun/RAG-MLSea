@@ -20,7 +20,28 @@
       "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\" -Depth 0 -File | ForEach-Object { $_.FullName })",
       "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\results\" -Recurse -File | ForEach-Object { $_.FullName } | Sort-Object)",
       "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\intermediate\" -Recurse -File | ForEach-Object { $_.FullName } | Sort-Object)",
-      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\raw\" -Recurse -File | ForEach-Object { $_.FullName } | Sort-Object)"
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\raw\" -Recurse -File | ForEach-Object { $_.FullName } | Sort-Object)",
+      "PowerShell(New-Item *)",
+      "PowerShell(try { $response = Invoke-RestMethod -Uri \"http://localhost:8000/api/v1/heartbeat\" -TimeoutSec 5; Write-Host \"ChromaDB is running: $\\($response | ConvertTo-Json -Compress\\)\" } catch { Write-Host \"ChromaDB not reachable: $_\" })",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; Test-Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\intermediate\\\\raw_papers\\\\papers_subset_200k.jsonl\"; if \\(Test-Path \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\intermediate\\\\raw_papers\\\\papers_subset_200k.jsonl\"\\) { $lines = \\(Get-Content \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\\\\data\\\\intermediate\\\\raw_papers\\\\papers_subset_200k.jsonl\" | Measure-Object -Line\\).Lines; Write-Host \"Lines: $lines\" })",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; cd \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\"; python -m src.pre_retrieval.papers.scripts.run_build_representations --representation all 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; cd \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\"; python -m src.pre_retrieval.datasets.scripts.run_build_dataset_representations --representation all 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; cd \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\"; python -m src.pre_retrieval.models.scripts.run_build_model_representations --representation all 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; python -c \"import os; p='C:/Users/Yiğit Alp/Desktop/RAG-MLSea/data/intermediate/representations/papers'; print\\(os.listdir\\(p\\)\\)\")",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; python -c \"import os; p='C:/Users/Yiğit Alp/Desktop/RAG-MLSea/data/intermediate/representations'; print\\([f for f in os.listdir\\(p\\) if f.endswith\\('.jsonl'\\)]\\)\")",
+      "PowerShell(try { $r = Invoke-RestMethod -Uri \"http://localhost:8000/api/v1/heartbeat\" -TimeoutSec 5; Write-Host \"ChromaDB OK: $\\($r | ConvertTo-Json -Compress\\)\" } catch { Write-Host \"ERROR: $_\" })",
+      "PowerShell(try { $r = Invoke-RestMethod -Uri \"http://localhost:8000/api/v2/heartbeat\" -TimeoutSec 5; Write-Host \"ChromaDB OK: $\\($r | ConvertTo-Json -Compress\\)\" } catch { Write-Host \"ERROR: $_\" })",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; cd \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\"; python -m src.pre_retrieval.papers.scripts.run_embed_store --representation title_only --force-rebuild 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; cd \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\"; python -m src.pre_retrieval.papers.scripts.run_embed_store --representation abstract_only --force-rebuild 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; cd \"C:\\\\Users\\\\Yiğit Alp\\\\Desktop\\\\RAG-MLSea\"; python -m src.pre_retrieval.papers.scripts.run_embed_store --representation title_abstract --force-rebuild --batch-size 512 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; python -c \"import chromadb; client = chromadb.HttpClient\\(host='localhost', port=8000\\); c = client.get_collection\\('papers_title_abstract'\\); print\\(f'papers_title_abstract: {c.count\\(\\)}/183968'\\)\" 2>&1; Write-Host \"---\"; python -c \"import chromadb; client = chromadb.HttpClient\\(host='localhost', port=8000\\); c = client.get_collection\\('papers_abstract_only'\\); print\\(f'papers_abstract_only: {c.count\\(\\)}/177871'\\)\" 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; python -c \"import chromadb; client=chromadb.HttpClient\\(host='localhost',port=8000\\); c=client.get_collection\\('papers_title_abstract'\\); print\\(f'papers_title_abstract: {c.count\\(\\)}/183968'\\)\" 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; python -c \"import chromadb; client=chromadb.HttpClient\\(host='localhost',port=8000\\); c=client.get_collection\\('papers_title_abstract'\\); print\\(f'title_abstract: {c.count\\(\\)}/183968'\\)\" 2>&1)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(Get-CimInstance *)",
+      "PowerShell(Stop-Process *)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; python -c \"import chromadb; print\\(chromadb.__version__\\)\" 2>&1)",
+      "PowerShell(try { $r = Invoke-RestMethod -Uri \"http://localhost:8000/api/v2/heartbeat\" -TimeoutSec 5; Write-Host \"UP: $\\($r | ConvertTo-Json -Compress\\)\" } catch { Write-Host \"NOT running\" })"
     ]
   }
 }

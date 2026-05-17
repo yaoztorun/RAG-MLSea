@@ -5,6 +5,7 @@ import sys
 
 from src.pre_retrieval.shared.config import load_pipeline_config, resolve_repo_path
 from src.pre_retrieval.shared.embed_and_store import embed_and_store_representations
+from src.pre_retrieval.shared.gold_target_coverage import check_gold_target_coverage
 from src.pre_retrieval.shared.utils import model_collection_name_for_representation
 
 
@@ -16,10 +17,15 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--force-rebuild", action="store_true")
     parser.add_argument("--batch-size", type=int, default=64)
+    parser.add_argument("--questions-path", default="data/questions/ml_questions_dataset.json")
     args = parser.parse_args()
 
     config = load_pipeline_config(args.config)
     input_path = args.input_path or f"data/intermediate/representations/models/{args.representation}.jsonl"
+    questions_path = resolve_repo_path(args.questions_path)
+    master_path = resolve_repo_path("data/intermediate/raw_models/models_master.jsonl")
+    if questions_path.exists() and master_path.exists():
+        check_gold_target_coverage(questions_path, master_path, "model", "model_id")
     collection_name = model_collection_name_for_representation(args.representation)
     try:
         summary = embed_and_store_representations(

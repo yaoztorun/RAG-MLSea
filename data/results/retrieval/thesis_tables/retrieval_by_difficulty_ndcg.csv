@@ -1,7 +1,0 @@
-method,easy_NDCG,medium_NDCG,hard_NDCG,unknown_NDCG
-pure_semantic_dense,0.9815,0.7741,0.4924,0.8339
-hybrid_type_filtering,0.9815,0.7741,0.4924,0.8339
-hybrid_type_onehop_filtering,0.9815,0.7769,0.4924,0.8354
-hybrid_predicate_aware_filtering,0.9815,0.7822,0.4972,0.8297
-optional_rrf_fusion,0.9908,0.7799,0.4669,0.8664
-optional_rrf_symbolic,0.9908,0.795,0.4748,0.8649
