@@ -1,0 +1,130 @@
+{
+  "rows": [
+    {
+      "entity_type": "paper",
+      "representation": "title_only",
+      "Hit@1": 0.24,
+      "Hit@5": 0.312,
+      "Hit@10": 0.344,
+      "MRR": 0.276,
+      "NDCG": 0.2925
+    },
+    {
+      "entity_type": "paper",
+      "representation": "abstract_only",
+      "Hit@1": 0.32,
+      "Hit@5": 0.42,
+      "Hit@10": 0.456,
+      "MRR": 0.3618,
+      "NDCG": 0.3844
+    },
+    {
+      "entity_type": "paper",
+      "representation": "title_abstract",
+      "Hit@1": 0.332,
+      "Hit@5": 0.44,
+      "Hit@10": 0.484,
+      "MRR": 0.3783,
+      "NDCG": 0.4035
+    },
+    {
+      "entity_type": "paper",
+      "representation": "predicate_filtered",
+      "Hit@1": 0.36,
+      "Hit@5": 0.5,
+      "Hit@10": 0.556,
+      "MRR": 0.4226,
+      "NDCG": 0.4544
+    },
+    {
+      "entity_type": "paper",
+      "representation": "enriched_metadata",
+      "Hit@1": 0.368,
+      "Hit@5": 0.488,
+      "Hit@10": 0.548,
+      "MRR": 0.4216,
+      "NDCG": 0.4516
+    },
+    {
+      "entity_type": "paper",
+      "representation": "one_hop",
+      "Hit@1": 0.32,
+      "Hit@5": 0.436,
+      "Hit@10": 0.488,
+      "MRR": 0.3742,
+      "NDCG": 0.4014
+    },
+    {
+      "entity_type": "dataset",
+      "representation": "dataset_title_only",
+      "Hit@1": 0.152,
+      "Hit@5": 0.2,
+      "Hit@10": 0.232,
+      "MRR": 0.1763,
+      "NDCG": 0.1893
+    },
+    {
+      "entity_type": "dataset",
+      "representation": "dataset_metadata",
+      "Hit@1": 0.392,
+      "Hit@5": 0.6,
+      "Hit@10": 0.664,
+      "MRR": 0.4847,
+      "NDCG": 0.5281
+    },
+    {
+      "entity_type": "dataset",
+      "representation": "dataset_predicate_filtered",
+      "Hit@1": 0.28,
+      "Hit@5": 0.488,
+      "Hit@10": 0.56,
+      "MRR": 0.3724,
+      "NDCG": 0.4178
+    },
+    {
+      "entity_type": "dataset",
+      "representation": "dataset_enriched_metadata",
+      "Hit@1": 0.376,
+      "Hit@5": 0.552,
+      "Hit@10": 0.592,
+      "MRR": 0.4482,
+      "NDCG": 0.4832
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_title_only",
+      "Hit@1": 0.408,
+      "Hit@5": 0.48,
+      "Hit@10": 0.496,
+      "MRR": 0.4359,
+      "NDCG": 0.4504
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_metadata",
+      "Hit@1": 0.4,
+      "Hit@5": 0.576,
+      "Hit@10": 0.616,
+      "MRR": 0.4688,
+      "NDCG": 0.5046
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_predicate_filtered",
+      "Hit@1": 0.376,
+      "Hit@5": 0.552,
+      "Hit@10": 0.608,
+      "MRR": 0.452,
+      "NDCG": 0.4898
+    },
+    {
+      "entity_type": "model",
+      "representation": "model_enriched_metadata",
+      "Hit@1": 0.24,
+      "Hit@5": 0.416,
+      "Hit@10": 0.472,
+      "MRR": 0.3184,
+      "NDCG": 0.3554
+    }
+  ]
+}

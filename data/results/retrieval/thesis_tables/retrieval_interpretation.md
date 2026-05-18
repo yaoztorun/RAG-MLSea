@@ -4,12 +4,12 @@
 
 | Method | Group | NDCG | delta_Hit@1 | delta_NDCG | Interpretation |
 |---|---|---|---|---|---|
-| pure_semantic_dense | Pure Semantic | 0.7337 | +0.0 | +0.0 | precision baseline |
-| hybrid_type_filtering | Hybrid | 0.7337 | +0.0 | +0.0 | type-control |
-| hybrid_type_onehop_filtering | Hybrid | 0.7351 | +0.0 | +0.0013 | graph-neighbourhood hybrid |
-| hybrid_predicate_aware_filtering | Hybrid | 0.7375 | +0.0151 | +0.0038 | predicate-aware hybrid |
-| optional_rrf_fusion | Optional Fusion | 0.7354 | -0.0226 | +0.0017 | optional recall fusion |
-| optional_rrf_symbolic | Optional Fusion | 0.7434 | -0.0075 | +0.0096 | optional fusion + symbolic |
+| pure_semantic_dense | Pure Semantic | 0.4854 | +0.0 | +0.0 | precision baseline |
+| hybrid_type_filtering | Hybrid | 0.4854 | +0.0 | +0.0 | type-control |
+| hybrid_type_onehop_filtering | Hybrid | 0.4865 | +0.002 | +0.0011 | graph-neighbourhood hybrid |
+| hybrid_predicate_aware_filtering | Hybrid | 0.4854 | +0.0 | +0.0 | predicate-aware hybrid |
+| optional_rrf_fusion | Optional Fusion | 0.4962 | +0.0 | +0.0108 | optional recall fusion |
+| optional_rrf_symbolic | Optional Fusion | 0.4962 | +0.0 | +0.0108 | optional fusion + symbolic |
 
 ## Framing
 

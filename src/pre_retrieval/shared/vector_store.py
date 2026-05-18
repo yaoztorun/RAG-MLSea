@@ -12,6 +12,14 @@ from chromadb.api.models.Collection import Collection
 from src.pre_retrieval.shared.utils import chunked
 
 
+_HNSW_COLLECTION_METADATA = {
+    "hnsw:space": "cosine",
+    "hnsw:M": 8,
+    "hnsw:construction_ef": 50,
+    "hnsw:search_ef": 100,
+}
+
+
 def _deduplicate_ids(ids: Sequence[str]) -> list[str]:
     return list(dict.fromkeys(ids))
 
@@ -90,7 +98,7 @@ class ChromaVectorStore(VectorStore):
         self._collection_name = collection_name
         self._collection: Collection = self._client.get_or_create_collection(
             name=collection_name,
-            metadata={"hnsw:space": "cosine"},
+            metadata=_HNSW_COLLECTION_METADATA,
         )
 
     @classmethod
@@ -145,5 +153,5 @@ class ChromaVectorStore(VectorStore):
             pass
         self._collection = self._client.get_or_create_collection(
             name=self._collection_name,
-            metadata={"hnsw:space": "cosine"},
+            metadata=_HNSW_COLLECTION_METADATA,
         )

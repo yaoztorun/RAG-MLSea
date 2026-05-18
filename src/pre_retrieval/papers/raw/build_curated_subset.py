@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict, List
 
+from src.pre_retrieval.shared.gold_target_coverage import check_gold_target_coverage
 from src.pre_retrieval.shared.utils import (
     entity_type_from_id,
     is_paper_entity_id,
@@ -88,6 +89,13 @@ def build_curated_subset(
     subset_paper_ids = {normalize_identifier(str(record.get("paper_id", ""))) for record in subset_records}
     gold_target_papers_included = sum(1 for paper_id in paper_gold_target_ids if paper_id in subset_paper_ids)
     missing_gold_target_papers = [paper_id for paper_id in paper_gold_target_ids if paper_id not in subset_paper_ids]
+
+    print(f"[Gold Papers] Requested: {len(paper_gold_target_ids)}", flush=True)
+    print(f"[Gold Papers] Found in master: {len(paper_gold_target_ids) - len(missing_gold_target_papers)}", flush=True)
+    print(f"[Gold Papers] Included in subset: {gold_target_papers_included}", flush=True)
+    print(f"[Gold Papers] Missing from master: {len(missing_gold_target_papers)}", flush=True)
+    if missing_gold_target_papers:
+        print(f"[Gold Papers] Missing IRIs (first 5): {sorted(missing_gold_target_papers)[:5]}", flush=True)
 
     save_jsonl(subset_records, output_path)
     stats = {
