@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: white; width: 1200px; height: 700px; overflow: hidden; }
+  svg text, a { color: inherit !important; text-decoration: none !important; }
+</style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700"
+       style="display:block;" id="fig">
+  </svg>
+  <script>
+    fetch('fig_rdf_to_chunk.svg')
+      .then(r => r.text())
+      .then(txt => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(txt, 'image/svg+xml');
+        const src = doc.querySelector('svg');
+        const target = document.getElementById('fig');
+        target.innerHTML = src.innerHTML;
+      });
+  </script>
+</body>
+</html>

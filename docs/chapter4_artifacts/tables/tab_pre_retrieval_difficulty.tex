@@ -1,0 +1,22 @@
+% Requires \usepackage{booktabs} and \usepackage{multirow}
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Difficulty breakdown for the best-performing representation per entity type. Metrics computed over top-10 candidate entities.}
+  \label{tab:pre_retrieval_difficulty}
+  \begin{tabular}{llcccc}
+    \toprule
+    \textbf{Entity Type} & \textbf{Difficulty} & \textbf{Representation} & \textbf{Hit@1} & \textbf{MRR} & \textbf{NDCG} \\
+    \midrule
+    \multirow{3}{*}{Paper} & Easy & Enriched Metadata & 0.9500 & 0.9750 & 0.9815 \\
+     & Medium & Enriched Metadata & 0.9273 & 0.9636 & 0.9732 \\
+     & Hard & Enriched Metadata & 0.4200 & 0.4767 & 0.4931 \\
+    \addlinespace
+    \multirow{2}{*}{Dataset} & Medium & Title Only & 0.2581 & 0.3541 & 0.3944 \\
+     & Hard & Title Only & 0.0714 & 0.0714 & 0.0714 \\
+    \addlinespace
+    \multirow{2}{*}{Model} & Medium & Predicate Filtered & 0.7647 & 0.8039 & 0.8228 \\
+     & Hard & Predicate Filtered & 0.8462 & 0.9231 & 0.9432 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

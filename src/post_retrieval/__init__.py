@@ -1,4 +1,6 @@
-from src.post_retrieval.pipeline.context_builder import UNANSWERABLE_RESPONSE
-from src.post_retrieval.pipeline.post_retrieval_pipeline import build_context_payload, post_retrieval_pipeline
+"""
+Post-retrieval package.
 
-__all__ = ["UNANSWERABLE_RESPONSE", "build_context_payload", "post_retrieval_pipeline"]
+This package contains post-retrieval pipeline components and adapter utilities.
+Imports are intentionally kept side-effect free so submodules can be executed independently.
+"""

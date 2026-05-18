@@ -1,0 +1,21 @@
+\begin{table}[ht]
+  \centering
+  \footnotesize
+  \caption{Question-type retrieval summary: selected question types representing best-performing, worst-performing, and RRF-improved categories. $N$ = question count; NDCG computed over top-10 candidate entities. $\Delta$ = RRF$+$Symbolic\,$-$\,Dense. Bold denotes the higher NDCG between the two reported methods per row.}
+  \label{tab:retrieval_question_type_summary}
+  \begin{tabular}{lrccrr}
+    \toprule
+    \textbf{Question Type} & $N$ & \textbf{Dense NDCG} & \textbf{RRF+Sym. NDCG} & $\Delta$ \\
+    \midrule
+    Paper: Author Count & 20 & \textbf{1.0000} & 1.0000 & 0.0000 \\
+    Paper: Tasks & 29 & \textbf{0.9655} & 0.9655 & 0.0000 \\
+    Paper: Implementation & 15 & \textbf{0.9508} & 0.9508 & 0.0000 \\
+    Paper: Desc.\,$\to$\,Title & 20 & \textbf{0.8631} & 0.7476 & -0.1155 \\
+    Dataset: Task Membership & 8 & 0.2455 & \textbf{0.4848} & +0.2393 \\
+    Dataset: Tasks & 14 & \textbf{0.6923} & 0.6783 & -0.0140 \\
+    Paper: by Author+Task & 15 & \textbf{0.1333} & 0.0545 & -0.0788 \\
+    Semantic Task\,$\to$\,Dataset & 14 & 0.0714 & \textbf{0.2538} & +0.1824 \\
+    Tasks\,$\to$\,Dataset & 4 & 0.0000 & \textbf{0.1250} & +0.1250 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

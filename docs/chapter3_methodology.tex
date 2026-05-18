@@ -1,0 +1,994 @@
+% ============================================================
+% Chapter 3 — Methodology
+% Thesis: Retrieval-Augmented Generation over Machine Learning
+%         Knowledge Graphs
+% Author: Yiğit Alp Öztorun
+% Institution: KU Leuven
+%
+% Writing conventions:
+%  - All verified numbers are marked with no annotation.
+%  - All numbers awaiting final verification are marked with \todo{verify}.
+%  - Figure and table \label commands use the plan's LaTeX labels.
+%  - \todo{} is a placeholder — define it in your preamble, e.g.:
+%      \newcommand{\todo}[1]{\textbf{[TODO: #1]}}
+% ============================================================
+
+\chapter{Methodology}
+\label{ch:methodology}
+
+% ============================================================
+\section{Methodological Overview}
+\label{sec:overview}
+% ============================================================
+
+This chapter presents the methodology of the proposed Retrieval-Augmented
+Generation system designed for natural-language question answering over the
+MLSea machine-learning knowledge graph.
+The pipeline is organized into three successive and logically dependent stages.
+In the \emph{pre-retrieval} stage, raw RDF entity data is extracted from a local
+N-Triples file, assembled into structured canonical entity records, serialized
+into textual representation-specific chunks, and embedded into a persistent
+vector store.
+In the \emph{retrieval} stage, each natural-language question is embedded with
+the same model, and a suite of six candidate-ranking methods --- ranging from a
+pure dense semantic baseline to hybrid methods that combine semantic similarity
+with symbolic metadata signals --- is applied to produce a ranked top-10
+candidate list per question.
+In the \emph{post-retrieval} stage, the top candidates are filtered by retrieval
+confidence, re-ranked using a cross-encoder, assembled into a structured evidence
+context, and passed to a language model for answer generation.
+The entire pipeline operates offline: all entity data is read directly from a
+local copy of the MLSea knowledge graph, without dependency on a live SPARQL
+endpoint or a running graph database.
+This design ensures full reproducibility and experimental control.
+The pipeline was evaluated on 265 answerable questions drawn from a manually
+curated set of 280 questions, with questions targeting entities across three
+entity types: scientific papers, benchmark datasets, and machine-learning models.
+Figure~\ref{fig:pipeline_overview} illustrates the end-to-end flow of the
+proposed system.
+
+\begin{figure}[htbp]
+  \centering
+  % TODO: Insert pipeline overview figure (3-stage flow diagram)
+  \fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm}
+    [Figure: End-to-end KG-RAG pipeline — three-stage flow diagram]
+  \vspace{2cm}}}
+  \caption{The end-to-end KG-RAG pipeline proposed in this thesis. Raw
+    MLSea RDF data is parsed locally and entities are embedded into a
+    vector store during the pre-retrieval stage. The retrieval stage ranks
+    candidate entities per question using dense and hybrid methods. The
+    post-retrieval stage re-ranks candidates, assembles a context block,
+    and generates a natural-language answer.}
+  \label{fig:pipeline_overview}
+\end{figure}
+
+% ============================================================
+\section{Dataset and Knowledge Graph Source}
+\label{sec:dataset}
+% ============================================================
+
+% -----------------------------------------------------------
+\subsection{The MLSea Knowledge Graph}
+\label{subsec:mlsea}
+% -----------------------------------------------------------
+
+The knowledge graph used in this thesis is MLSea~\todo{cite MLSea paper}, an
+RDF representation of the machine-learning research landscape derived from the
+Papers with Code~\todo{cite PwC} dataset.
+MLSea encodes scientific papers, benchmark datasets, and machine-learning models
+together with their semantic relationships.
+The knowledge graph is available as a single N-Triples file,
+\texttt{data/raw/pwc\_1.nt}, containing 26{,}606{,}202 RDF triples and
+occupying 6.4~GB on disk.
+In N-Triples format, each line encodes one atomic fact as a
+\texttt{<subject> <predicate> <object> .} triple.
+
+Three categories of entities are distinguished within the graph by their
+IRI prefix:
+\begin{itemize}
+  \item \textbf{Scientific papers:} \texttt{http://w3id.org/mlsea/pwc/scientificWork/}
+  \item \textbf{Benchmark datasets:} \texttt{http://w3id.org/mlsea/pwc/dataset/}
+  \item \textbf{Machine-learning models:} \texttt{http://w3id.org/mlsea/pwc/model/}
+\end{itemize}
+
+% -----------------------------------------------------------
+\subsection{Entity Types and RDF Structure}
+\label{subsec:entity_types}
+% -----------------------------------------------------------
+
+The three entity types differ substantially in metadata richness.
+Table~\ref{tab:entity_types} summarizes the entity counts and metadata
+completeness observed after extraction.
+
+\begin{table}[htbp]
+  \centering
+  \caption{MLSea entity types, their IRI prefixes, scale, and metadata
+    completeness. The severe sparsity of dataset and model descriptions
+    motivates distinct representation strategies for each entity type.}
+  \label{tab:entity_types}
+  \begin{tabular}{llrrrl}
+    \toprule
+    Entity type & IRI suffix & Total & Has title & Has description & Key predicates \\
+    \midrule
+    Paper   & \texttt{scientificWork/} & 489{,}584 & 92.1\% & 88.9\% (abstract)
+            & \texttt{dcterms:title}, \texttt{fabio:abstract},
+              \texttt{dcterms:creator}, \texttt{mlso:hasTaskType} \\
+    Dataset & \texttt{dataset/}        & 12{,}651  & 100\%  & 0\%
+            & \texttt{rdfs:label}, \texttt{dcat:keyword},
+              \texttt{mlso:hasTaskType} \\
+    Model   & \texttt{model/}          & 30{,}564  & 100\%  & 0\%
+            & \texttt{rdfs:label}, \texttt{schema:codeRepository},
+              \texttt{mls:realizes} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Papers are the most metadata-rich entity type: they carry title and abstract
+text, author lists, task associations, dataset links, method names, evaluation
+metrics, and code repository links encoded via standard vocabularies including
+\texttt{dcterms}, \texttt{fabio}, \texttt{dcat}, \texttt{mlso}, and
+\texttt{mls}.
+Datasets carry only a label and optional keyword and task associations; no
+dataset in MLSea has a textual description.
+Models similarly carry only a label and repository link; all semantic richness
+for models comes from their linked-entity relationships within the graph.
+
+% -----------------------------------------------------------
+\subsection{Machine-Learning Domain Metadata in MLSea}
+\label{subsec:mlsea_metadata}
+% -----------------------------------------------------------
+
+Raw RDF triples are not directly suitable as retrieval units.
+A single scientific paper is described by tens or hundreds of triples, each
+encoding one atomic fact with subject, predicate, and object IRIs.
+Linked entities such as tasks, methods, datasets, and authors are referenced
+by their IRIs, not by their human-readable labels.
+To retrieve a label for a linked entity, the graph must be traversed: the
+object IRI of one triple becomes the subject of another triple whose predicate
+is \texttt{rdfs:label} or an equivalent.
+Constructing a meaningful, self-contained text representation of an entity
+therefore requires (i) collecting all triples with the entity as subject,
+(ii) following linked IRIs to resolve their labels, and (iii) assembling the
+resolved values into a coherent text.
+This assembly process constitutes the core of the pre-retrieval stage and is
+described in Section~\ref{sec:preretrieval}.
+
+% ============================================================
+\section{Question Set and Retrieval Task Definition}
+\label{sec:questions}
+% ============================================================
+
+% -----------------------------------------------------------
+\subsection{Question Dataset}
+\label{subsec:question_dataset}
+% -----------------------------------------------------------
+
+The evaluation question set consists of 280 manually curated natural-language
+questions targeting entities in the MLSea knowledge graph
+(\texttt{data/questions/ml\_questions\_dataset.json}).
+Each question is a realistic information-seeking query of the type a
+machine-learning researcher might pose, such as asking for the paper that
+introduced a specific model, the tasks associated with a benchmark dataset,
+or the authors of a given publication.
+
+Of the 280 questions, 265 are answerable: they have a valid gold entity IRI
+(\texttt{target\_entity\_iri}) pointing to an entity present in the knowledge
+graph.
+The remaining 15 questions are explicitly marked as unanswerable
+(\texttt{is\_answerable=false}) and are excluded from all quantitative
+evaluation; they are retained in the dataset for completeness.
+
+Each question record contains the fields listed in
+Table~\ref{tab:question_dataset}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Schema of the evaluation question dataset. All 280 questions
+    target entities in the MLSea knowledge graph. Fifteen unanswerable
+    questions are excluded from metric computation.}
+  \label{tab:question_dataset}
+  \begin{tabular}{lll}
+    \toprule
+    Field & Type & Description \\
+    \midrule
+    \texttt{id}               & string  & Unique question identifier \\
+    \texttt{question}         & string  & Natural-language question text \\
+    \texttt{question\_type}   & string  & Semantic type from the 35-type taxonomy \\
+    \texttt{target\_entity\_iri} & string & Gold entity IRI in MLSea \\
+    \texttt{answer}           & string/list & Structured gold answer \\
+    \texttt{text\_answer}     & string  & Free-text gold answer \\
+    \texttt{difficulty}       & string  & Difficulty label (Easy / Medium / Hard) \\
+    \texttt{is\_answerable}   & boolean & Whether a gold entity exists \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The dataset covers 35 distinct question types, including paper-centric types
+(e.g., \texttt{paper\_to\_tasks}, \texttt{paper\_to\_authors},
+\texttt{paper\_description\_to\_title}), dataset-centric types
+(e.g., \texttt{dataset\_to\_tasks}), model-centric types
+(e.g., \texttt{repository\_to\_model}, \texttt{model\_family\_variant}),
+and unanswerable variants.
+Questions are distributed across three target entity types: 178 target
+scientific papers, 57 target datasets, and 30 target models.
+
+Difficulty labels are assigned as follows: Easy (40 questions), Medium (103
+questions), Hard (\todo{verify exact count, either 77 or 87} questions),
+and a subset with no difficulty label
+(\todo{verify exact count, either 45 or 50} questions).
+
+% -----------------------------------------------------------
+\subsection{Gold Target Entity Design}
+\label{subsec:gold_targets}
+% -----------------------------------------------------------
+
+Each answerable question's \texttt{target\_entity\_iri} uniquely identifies
+the correct MLSea entity.
+The entity type of the gold target is directly inferable from the IRI prefix:
+IRIs containing \texttt{scientificWork/} identify papers, those containing
+\texttt{dataset/} identify datasets, and those containing \texttt{model/}
+identify models.
+This allows the retrieval evaluation to automatically determine the expected
+entity type for each question.
+
+Across the 265 answerable questions, 37 unique gold entity IRIs are present.
+Of these, 25 are paper entities and 12 are dataset entities; no questions
+target model entities as gold, since model questions are answered by
+identifying the correct paper or repository.
+The 25 paper gold target IRIs are guaranteed to appear in the 200{,}000-paper
+corpus subset used in this thesis (see Section~\ref{subsec:corpus_curation}).
+
+% -----------------------------------------------------------
+\subsection{Retrieval Task Formulation}
+\label{subsec:retrieval_task}
+% -----------------------------------------------------------
+
+The retrieval task is defined as follows: given a natural-language question
+$q$, the system must return a ranked list of at most $k = 10$ entity candidates
+from the indexed corpus, such that the gold entity is ranked as highly as
+possible.
+Evaluation is performed using the following metrics, computed per question and
+averaged across all 265 answerable questions:
+
+\begin{itemize}
+  \item \textbf{NDCG@10} (primary metric): Normalized Discounted Cumulative
+        Gain at rank cutoff 10. If the gold entity is found at rank $r$,
+        $\text{NDCG} = 1/\log_2(r + 1)$; otherwise 0.
+  \item \textbf{Hit@}$k$ (for $k \in \{1, 5, 10\}$): Binary indicator
+        of whether the gold entity appears within the top $k$ candidates.
+  \item \textbf{MRR}: Mean Reciprocal Rank; $\text{MRR} = 1/r$ if the gold
+        entity is found, otherwise 0.
+\end{itemize}
+
+NDCG@10 is selected as the primary metric because it rewards both retrieving
+the correct entity and retrieving it at a high rank, which is critical for the
+downstream post-retrieval stage.
+The retrieval task is entity retrieval, not answer generation; answer-level
+evaluation is performed separately in the post-retrieval stage.
+
+The design of the corpus and the representation strategies described in
+Section~\ref{sec:preretrieval} is directly constrained by the requirements of
+this retrieval task.
+
+% ============================================================
+\section{Pre-Retrieval Phase: Entity Representation Construction}
+\label{sec:preretrieval}
+% ============================================================
+
+% -----------------------------------------------------------
+\subsection{Motivation for Pre-Retrieval Representations}
+\label{subsec:preretrieval_motivation}
+% -----------------------------------------------------------
+
+Dense retrieval requires each entity to be represented as a fixed-size
+embedding vector.
+Raw RDF triples cannot be directly embedded because they are atomic,
+disconnected, and encode IRIs rather than human-readable text.
+A principled transformation step is required: entity-relevant triples must
+be collected, linked IRI labels resolved, a readable text constructed, and
+the text embedded.
+
+Beyond this basic requirement, the thesis explores a more specific hypothesis:
+different information types within an entity record --- title text, abstract,
+structured metadata, graph-linked entities --- may carry different retrieval
+signal depending on the question type and entity type.
+This motivates constructing multiple representation strategies per entity type
+and evaluating each independently, rather than defaulting to a single fixed
+representation.
+The pre-retrieval stage therefore serves two functions: preparing the corpus
+for retrieval and empirically identifying the most effective representation
+strategy per entity type.
+
+% -----------------------------------------------------------
+\subsection{RDF Extraction and Linked-Entity Label Resolution}
+\label{subsec:rdf_extraction}
+% -----------------------------------------------------------
+
+Entity records are constructed by parsing the N-Triples source file using
+a custom streaming parser.
+Rather than loading the full graph into memory, the parser processes the
+26.6M-triple file line by line using a regular-expression pattern that
+extracts subject, predicate, and object from each N-Triples line.
+This approach is memory-efficient and avoids dependency on a graph database
+at extraction time.
+
+The extraction proceeds in two passes over the source file.
+In the first pass, all triples whose subject IRI matches the target entity
+prefix are collected.
+For paper extraction, this means retaining every triple whose subject begins
+with \texttt{http://w3id.org/mlsea/pwc/scientificWork/}; analogous filtering
+is applied for datasets and models.
+Each unique subject IRI accumulates its associated predicate-object pairs into
+a growing entity record.
+
+The first pass produces records with linked entity objects represented as
+raw IRIs rather than readable labels.
+For example, a task associated with a paper is encoded as an IRI such as
+\texttt{http://w3id.org/mlsea/pwc/task/ImageClassification}, not as the
+string \textit{Image Classification}.
+A second pass over the source file resolves these linked IRIs to human-readable
+labels.
+For each encountered object IRI, the parser searches for a label predicate in
+the following order of preference: \texttt{dcterms:title}, \texttt{rdfs:label},
+\texttt{foaf:name}, \texttt{schema:name}.
+If none of these predicates is found for an IRI, the local name is extracted
+from the IRI (the fragment after \texttt{\#} or the final path segment) and
+used as a fallback label.
+
+Figure~\ref{fig:rdf_to_chunk} illustrates the transformation from raw RDF
+triples through the two-pass extraction to the final text chunk.
+
+\begin{figure}[htbp]
+  \centering
+  % TODO: Insert RDF triples → canonical record → chunk transformation diagram
+  \fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm}
+    [Figure: Two-pass RDF extraction and label resolution]
+  \vspace{2cm}}}
+  \caption{Transformation of raw RDF triples into an entity-centric text chunk.
+    Pass~1 collects all triples for a target entity by subject IRI prefix
+    matching. Pass~2 re-scans the file to resolve linked IRI labels. The
+    assembled canonical entity record is then serialized into a
+    representation-specific chunk whose \texttt{source\_text} field is
+    embedded for retrieval.}
+  \label{fig:rdf_to_chunk}
+\end{figure}
+
+% -----------------------------------------------------------
+\subsection{Canonical Entity Record Construction}
+\label{subsec:canonical_records}
+% -----------------------------------------------------------
+
+The output of the two-pass extraction is a \emph{canonical entity record} for
+each entity --- a structured dictionary that consolidates all resolved metadata
+into a single in-memory object.
+This record is the intermediate unit between raw triples and the
+representation-specific text chunks produced later; the two must not be
+conflated.
+
+For scientific papers, the canonical record includes the following fields:
+\texttt{paper\_id}, \texttt{title}, \texttt{abstract}, \texttt{authors},
+\texttt{keywords}, \texttt{tasks}, \texttt{datasets}, \texttt{methods},
+\texttt{metrics}, \texttt{implementations}, \texttt{publication\_year},
+and \texttt{linked\_entities} (a list of objects carrying predicate label,
+object label, object IRI, and inferred entity type).
+For datasets, the record includes the dataset IRI, label, keywords, tasks,
+and linked paper IRIs.
+For models, the record includes the model IRI, label, repository names and
+URLs, and linked entities grouped by predicate.
+
+Canonical records are serialized to JSONL files:
+\texttt{papers\_master.jsonl} (489{,}584 records),
+\texttt{datasets\_master.jsonl} (12{,}651 records), and
+\texttt{models\_master.jsonl} (30{,}564 records).
+These files serve as the source of truth for all downstream stages, including
+post-retrieval context assembly.
+
+% -----------------------------------------------------------
+\subsection{Corpus Curation and Subset Selection}
+\label{subsec:corpus_curation}
+% -----------------------------------------------------------
+
+The full paper corpus of 489{,}584 records is computationally expensive to
+embed and index within the scope of a thesis experiment.
+A curated subset of 200{,}000 papers was therefore selected, reducing the
+embedding and storage cost while maintaining evaluation validity.
+
+The subset is constructed using a gold-first inclusion strategy: all 25 paper
+gold targets identified from the question dataset are included unconditionally
+and placed at the front of the subset.
+The remaining 199{,}975 positions are filled sequentially from the master file.
+This guarantees that no gold paper target is absent from the retrieval corpus,
+which would artificially lower the evaluation ceiling.
+
+Dataset and model entities are not subsetted.
+All 12{,}651 datasets and 30{,}564 models are indexed in their entirety.
+Of the 37 unique gold entity IRIs in the question dataset, 25 are paper
+entities (all included in the subset) and 12 are dataset entities (all present
+in the full dataset corpus).
+The detailed corpus statistics are summarized in
+Table~\ref{tab:corpus_stats}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Corpus construction statistics for each entity type. Paper records
+    are subsetted to 200{,}000 for computational feasibility; all 25 paper
+    gold targets are guaranteed to be included. Dataset and model corpora are
+    used in full.}
+  \label{tab:corpus_stats}
+  \begin{tabular}{lrrrp{5cm}}
+    \toprule
+    Entity type & Total extracted & Corpus used & Gold targets & Notes \\
+    \midrule
+    Paper   & 489{,}584 & 200{,}000 & 25 (all included) &
+              Gold-first inclusion; remaining slots filled sequentially \\
+    Dataset & 12{,}651  & 12{,}651  & 12 (all present)  &
+              No subset applied \\
+    Model   & 30{,}564  & 30{,}564  & 0                 &
+              No model questions have model-entity gold targets \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+  
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\subsubsection{Paper Representations}
+\label{subsubsec:paper_representations}
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Six representation strategies are defined for scientific papers, spanning a
+spectrum from minimal text content to graph-informed richness.
+
+The \texttt{title\_only} and \texttt{abstract\_only} strategies serve as
+ablation baselines that isolate the retrieval signal of a single field.
+They establish whether the title or abstract alone is sufficient for the
+retrieval task.
+The \texttt{title\_abstract} strategy combines both primary text fields and
+constitutes the natural text-based baseline.
+
+The \texttt{predicate\_filtered} strategy extends the title and abstract with
+structured metadata fields: up to five items each from tasks, datasets,
+methods, metrics, and implementations.
+These fields are populated by traversing named ML-relevant predicates,
+ensuring that only semantically meaningful attributes are included.
+
+The \texttt{enriched\_metadata} strategy builds on predicate-filtered content
+by additionally incorporating authors (up to six) and implementations (up to
+three), targeting question types that require knowledge of authorship or code
+availability.
+
+The \texttt{one\_hop} strategy uses the full one-hop neighborhood of the paper
+in the knowledge graph, incorporating all linked entities grouped by predicate
+category, up to a limit of twelve linked entities.
+This representation captures graph-structural context that is not present in
+the paper's direct textual fields.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\subsubsection{Dataset Representations}
+\label{subsubsec:dataset_representations}
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Four representation strategies are defined for benchmark datasets.
+Datasets in MLSea are metadata-sparse: none has a textual description, and
+only 54.8\% have keyword associations.
+This sparsity motivates testing whether even minimal representations suffice
+for retrieval.
+
+The \texttt{dataset\_title\_only} strategy encodes only the dataset label.
+The \texttt{dataset\_metadata} strategy appends publication year, keywords,
+and task associations.
+The \texttt{dataset\_enriched\_metadata} strategy additionally incorporates
+related paper IRIs and implementation links.
+
+The \texttt{dataset\_predicate\_filtered} strategy is distinctive in that it
+applies a corpus-level filter: datasets with no keywords, task associations,
+related papers, or related implementations are excluded from this collection
+entirely, reducing the indexed corpus from 12{,}651 to 6{,}928 entities.
+This approach tests whether a higher-quality, lower-coverage corpus produces
+better retrieval precision despite the reduced recall ceiling.
+ 
+% -----------------------------------------------------------
+\subsection{Embedding Generation and Vector Indexing}
+\label{subsec:embedding}
+% -----------------------------------------------------------
+
+Each chunk's \texttt{source\_text} is encoded as a dense vector using the
+\texttt{sentence-transformers/all-MiniLM-L6-v2}
+model~\todo{cite all-MiniLM-L6-v2}.
+This model produces 384-dimensional embeddings with L2 normalization, and is
+well-suited to sentence- and paragraph-length inputs.
+The configuration is summarized in Table~\ref{tab:embedding_config}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Configuration parameters for embedding generation and vector store
+    indexing. All 14 representation corpora were embedded using the same model
+    and indexed in separate ChromaDB collections.}
+  \label{tab:embedding_config}
+  \begin{tabular}{ll}
+    \toprule
+    Parameter & Value \\
+    \midrule
+    Embedding model    & \texttt{sentence-transformers/all-MiniLM-L6-v2} \\
+    Embedding dimension & 384 \\
+    Normalization      & L2-normalized \\
+    Vector store       & ChromaDB (local persistent) \\
+    Index type         & HNSW~\todo{cite Malkov \& Yashunin 2018} \\
+    Distance metric    & Cosine similarity \\
+    Collections        & 18 (one per representation strategy) \\
+    Total storage      & 8.2~GB \\
+    Batch size         & \todo{verify from config/pre\_retrieval\_config.json} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Embeddings are generated in batches and stored in a persistent local
+ChromaDB instance.
+One collection is created per representation strategy, resulting in 18
+collections in total: six for papers, four for datasets, four for models,
+and four auxiliary collections used for evaluation bookkeeping.
+ChromaDB uses an HNSW index internally for approximate nearest-neighbour
+search.
+
+During pre-retrieval evaluation, each question text is embedded using the
+same model and the top-10 most similar entities are retrieved by cosine
+similarity from the relevant collection.
+
+% -----------------------------------------------------------
+\subsection{Pre-Retrieval Output}
+\label{subsec:preretrieval_output}
+% -----------------------------------------------------------
+
+For each of the 14 representation strategies, the pre-retrieval stage
+produces a ranked top-10 candidate list per question, serialized to JSON.
+The output path follows the pattern:
+\begin{center}
+\texttt{data/results/pre\_retrieval\_results/\{entity\_type\}\_results/\{representation\}/top10.json}
+\end{center}
+
+Each entry contains the question identifier, the gold entity IRI, and a
+ranked list of up to ten documents, each carrying entity IRI, title, cosine
+similarity score, and rank.
+
+The pre-retrieval evaluation identifies the representation strategy with the
+highest NDCG@10 per entity type, which is then designated as the primary
+input to the retrieval stage.
+The selected representations are:
+\begin{itemize}
+  \item \textbf{Papers:} \texttt{enriched\_metadata}
+  \item \textbf{Datasets:} \texttt{dataset\_title\_only}
+  \item \textbf{Models:} \texttt{model\_predicate\_filtered}
+\end{itemize}
+
+The retrieval stage operates exclusively on these pre-computed top-10 lists;
+it does not re-embed questions or re-query the vector store.
+Having established the best retrieval representations and produced top-10
+candidate lists for each entity type, the retrieval stage applies a suite of
+re-ranking and fusion strategies to refine these candidate sets.
+
+% ============================================================
+\section{Retrieval Phase: Candidate Entity Ranking}
+\label{sec:retrieval}
+% ============================================================
+
+% -----------------------------------------------------------
+\subsection{Retrieval Objective and Design Rationale}
+\label{subsec:retrieval_objective}
+% -----------------------------------------------------------
+
+The retrieval stage takes the pre-computed top-10 candidate lists as input
+and applies re-ranking, symbolic filtering, or cross-representation fusion
+to produce a refined top-$k$ candidate list per question.
+Its purpose is to test whether signals derived from the knowledge graph's
+structure and from the question's metadata type can improve over the pure
+semantic similarity signal already captured by the pre-retrieval stage.
+
+Six retrieval methods are defined and evaluated.
+Figure~\ref{fig:retrieval_methods} illustrates their composition, and
+Table~\ref{tab:retrieval_methods} summarizes the signal types each method
+employs.
+
+\begin{figure}[htbp]
+  \centering
+  % TODO: Insert retrieval method taxonomy figure
+  \fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm}
+    [Figure: Retrieval method hierarchy and composition]
+  \vspace{2cm}}}
+  \caption{The six retrieval methods evaluated in this thesis. The dense
+    baseline uses pre-computed semantic scores directly. Hybrid methods add
+    symbolic re-ranking layers. RRF methods fuse multiple representation lists
+    before applying symbolic filters.}
+  \label{fig:retrieval_methods}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Design composition of the six retrieval methods. Each method
+    applies a distinct combination of semantic similarity, symbolic filtering,
+    and cross-representation fusion.}
+  \label{tab:retrieval_methods}
+  \begin{tabular}{lccccc}
+    \toprule
+    Method & Semantic & Type & Richness & Predicate & Fusion \\
+           & base     & filter & boost  & boost     & (RRF)  \\
+    \midrule
+    \texttt{pure\_semantic\_dense}          & \checkmark & & & & \\
+    \texttt{hybrid\_type\_filtering}        & \checkmark & \checkmark & & & \\
+    \texttt{hybrid\_type\_onehop\_filtering}& \checkmark & \checkmark & \checkmark & & \\
+    \texttt{hybrid\_predicate\_aware}       & \checkmark & & & \checkmark & \\
+    \texttt{optional\_rrf\_fusion}          & \checkmark & & & & \checkmark \\
+    \texttt{optional\_rrf\_symbolic}        & \checkmark & \checkmark & & \checkmark & \checkmark \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+All methods output a ranked list of at most $k = 10$ candidates per question.
+
+% -----------------------------------------------------------
+\subsection{Dense Retrieval Baseline}
+\label{subsec:dense_baseline}
+% -----------------------------------------------------------
+
+The \texttt{pure\_semantic\_dense} method serves as the retrieval baseline.
+It passes the pre-retrieval top-10 lists through without modification: for
+each question, the best-representation top-10 list for the expected entity
+type is returned as-is, preserving the original cosine similarity scores and
+ranking.
+The entity type is determined from the \texttt{target\_entity\_iri} prefix.
+This method establishes the retrieval performance achievable by bi-encoder
+semantic similarity alone and provides a reference against which all
+subsequent methods are compared.
+
+% -----------------------------------------------------------
+\subsection{Symbolic and Metadata-Aware Hybrid Retrieval}
+\label{subsec:hybrid_retrieval}
+% -----------------------------------------------------------
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\subsubsection{Type-Filtered Retrieval}
+\label{subsubsec:type_filtering}
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+The \texttt{hybrid\_type\_filtering} method adds a type-consistency
+constraint to the dense baseline.
+Each candidate's entity type is inferred from its IRI prefix and compared to
+the expected entity type for the question.
+Candidates of the wrong type are removed.
+If all candidates are filtered out, the original dense list is restored
+unchanged as a fallback to preserve coverage.
+
+This filter is motivated by the observation that the bi-encoder retrieval
+operates over a mixed corpus spanning all entity types.
+Without type filtering, questions targeting papers may retrieve datasets or
+models that happen to be semantically similar in the embedding space but are
+not valid answers.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\subsubsection{One-Hop Richness-Boosted Retrieval}
+\label{subsubsec:onehop_filtering}
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+The \texttt{hybrid\_type\_onehop\_filtering} method applies type filtering
+and then re-ranks the surviving candidates by a soft graph-richness signal.
+A richness score is computed for each candidate by counting the number of
+non-empty metadata fields among \texttt{tasks}, \texttt{datasets},
+\texttt{methods}, \texttt{metrics}, and \texttt{implementations}, with a
+bonus of two points for the presence of linked-entity text in the
+representation.
+
+The richness signal is combined with the semantic score through a soft blend:
+\[
+  \text{score}_{\text{blended}} = \text{score}_{\text{semantic}}
+    + \varepsilon \cdot \text{score}_{\text{richness}},
+  \quad \varepsilon = 0.01.
+\]
+
+The small value of $\varepsilon$ ensures that the richness contribution is at
+most $0.07$ (seven fields at maximum richness), so richness can only resolve
+near-ties in semantic score and cannot override a clearly superior semantic
+match.
+This soft-blend design prioritizes retrieval precision while providing a
+tie-breaking signal favoring entities with richer knowledge-graph metadata.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\subsubsection{Predicate-Aware Retrieval}
+\label{subsubsec:predicate_aware}
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+The \texttt{hybrid\_predicate\_aware\_filtering} method applies
+question-type-specific metadata boosting.
+Rather than boosting all metadata-rich entities uniformly, it identifies
+which metadata field is most likely to be discriminative for the question's
+semantic type.
+
+The boosting rules are derived from the question-type taxonomy:
+\begin{itemize}
+  \item Task-related question types (e.g., \texttt{paper\_to\_tasks},
+        \texttt{paper\_by\_task\_pair}, \texttt{dataset\_to\_tasks}):
+        candidates with a non-empty \texttt{tasks} field are boosted.
+  \item Implementation question types (\texttt{paper\_to\_implementation}):
+        candidates with a non-empty \texttt{implementations} field are boosted.
+  \item Year question types (\texttt{paper\_to\_publication\_year},
+        \texttt{dataset\_to\_publication\_year}): candidates with a known
+        publication year are boosted.
+  \item Repository and model family types (\texttt{repository\_to\_model},
+        \texttt{model\_family\_variant}): candidates with linked-entity text
+        are boosted.
+  \item Keyword types (\texttt{paper\_to\_keywords}): candidates with a
+        non-empty \texttt{keywords} field are boosted.
+\end{itemize}
+
+Boosted candidates are placed ahead of non-boosted candidates; the relative
+ordering within each group is preserved.
+This method aligns the candidate ranking with the specific informational
+requirement expressed by the question's type, without modifying semantic
+scores.
+
+% -----------------------------------------------------------
+\subsection{Multi-Representation Fusion}
+\label{subsec:rrf}
+% -----------------------------------------------------------
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\subsubsection{Reciprocal Rank Fusion}
+\label{subsubsec:rrf_fusion}
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+The \texttt{optional\_rrf\_fusion} method combines top-10 candidate lists
+from multiple representation strategies for the same entity type using
+Reciprocal Rank Fusion (RRF)~\todo{cite Cormack et al. 2009}.
+The RRF score for a candidate at rank $r$ in a given list is:
+\[
+  \text{RRF}(r) = \frac{1}{k + r}, \quad k = 60.
+\]
+A candidate's total score is the sum of its RRF contributions across all
+lists in which it appears.
+Candidates that appear in multiple representation lists accumulate higher
+total scores, reflecting consensus across different information views of the
+same entity.
+
+The fusion groups are:
+\begin{itemize}
+  \item \textbf{Papers:} \texttt{enriched\_metadata},
+        \texttt{predicate\_filtered}, \texttt{one\_hop} (3 representations).
+  \item \textbf{Datasets:} \texttt{dataset\_title\_only},
+        \texttt{dataset\_enriched\_metadata} (2 representations).
+  \item \textbf{Models:} \texttt{model\_predicate\_filtered},
+        \texttt{model\_enriched\_metadata} (2 representations).
+\end{itemize}
+
+The RRF constant $k = 60$ is the standard value used in the literature and
+prevents the fusion score from being dominated by the top-ranked position.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\subsubsection{RRF with Symbolic Filtering}
+\label{subsubsec:rrf_symbolic}
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+The \texttt{optional\_rrf\_symbolic} method applies the full symbolic
+signal stack on top of RRF fusion.
+It proceeds as a three-stage cascade: (1) RRF fusion is performed across
+the designated representation groups; (2) type filtering is applied to
+the fused candidates; (3) predicate-aware boosting is applied to the
+type-filtered candidates.
+This combination tests whether the diversity benefit of fusion and the
+precision benefit of symbolic signals compound positively when applied
+jointly.
+
+% -----------------------------------------------------------
+\subsection{Top-$k$ Candidate Generation}
+\label{subsec:topk}
+% -----------------------------------------------------------
+
+All six methods truncate their output to at most $k = 10$ candidates per
+question.
+Each candidate in the output carries the fields listed in
+Table~\ref{tab:candidate_schema}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Schema of a retrieval candidate record. Each question's result
+    contains up to ten candidate records; the post-retrieval stage reads all
+    listed fields to assemble evidence context.}
+  \label{tab:candidate_schema}
+  \begin{tabular}{lll}
+    \toprule
+    Field & Type & Description \\
+    \midrule
+    \texttt{entity\_id}           & string       & Original entity IRI \\
+    \texttt{entity\_type}         & string       & \texttt{paper}, \texttt{dataset}, or \texttt{model} \\
+    \texttt{title\_or\_label}     & string       & Entity title or label \\
+    \texttt{original\_rank}       & integer      & Rank in the pre-retrieval top-10 \\
+    \texttt{new\_rank}            & integer      & Rank after retrieval-stage re-ranking \\
+    \texttt{original\_score}      & float        & Pre-retrieval cosine similarity score \\
+    \texttt{method\_score}        & float        & Score assigned by the retrieval method \\
+    \texttt{representation\_source} & string     & Representation strategy used \\
+    \texttt{metadata.tasks}       & list[string] & Associated ML tasks \\
+    \texttt{metadata.authors}     & list[string] & Author names (papers only) \\
+    \texttt{metadata.keywords}    & list[string] & Keywords \\
+    \texttt{metadata.implementations} & list[string] & Code repository links \\
+    \texttt{metadata.source\_text}& string       & Full representation text \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+For RRF methods, three additional fields are present:
+\texttt{rrf\_score} (total RRF score),
+\texttt{contributing\_representations} (list of representation strategies
+that ranked this candidate), and
+\texttt{original\_ranks\_by\_representation} (a mapping from representation
+name to the rank assigned in that list).
+
+% -----------------------------------------------------------
+\subsection{Retrieval Output}
+\label{subsec:retrieval_output}
+% -----------------------------------------------------------
+
+Results for all six methods are stored under
+\texttt{data/results/retrieval/\{method\_name\}/}.
+Per-question results include the question metadata, the top-10 candidate list,
+and the per-question metric values (Hit@1, Hit@5, Hit@10, MRR, NDCG).
+Aggregate summaries are segmented by entity type, difficulty, and question
+type.
+
+The top-$k$ candidate list, together with the canonical entity records in
+\texttt{papers\_master.jsonl}, constitutes the input to the post-retrieval
+stage.
+The retrieval stage produces a ranked list of candidate entities per question,
+each accompanied by its structured metadata and representation text.
+The post-retrieval stage takes this candidate list as its evidence base,
+assembles a context block, re-ranks candidates using a cross-encoder, and
+generates a final natural-language answer.
+
+% ============================================================
+\section{Post-Retrieval Phase: Context Assembly and Answer Generation}
+\label{sec:postretrieval}
+% ============================================================
+
+% -----------------------------------------------------------
+\subsection{Post-Retrieval Objective and Design Rationale}
+\label{subsec:postretrieval_objective}
+% -----------------------------------------------------------
+
+The retrieval stage provides a ranked list of up to ten candidate entities per
+question, but this list is not a natural-language answer.
+The post-retrieval stage has three responsibilities: (i) filter out
+low-confidence candidates based on retrieval score, (ii) re-rank remaining
+candidates using a cross-encoder that evaluates question-candidate relevance
+jointly, and (iii) assemble the top candidates into a structured context block
+for language-model-based answer generation.
+
+The post-retrieval stage operates fully offline, reading canonical entity
+records and pre-retrieval representation texts from local JSONL files without
+querying the vector store.
+Figure~\ref{fig:postretrieval_pipeline} provides an overview of the
+post-retrieval pipeline.
+
+\begin{figure}[htbp]
+  \centering
+  % TODO: Insert post-retrieval flow diagram
+  \fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm}
+    [Figure: Post-retrieval context assembly and answer generation pipeline]
+  \vspace{2cm}}}
+  \caption{The post-retrieval pipeline. Retrieved candidates are first
+    filtered by a hard retrieval-score threshold, then re-ranked by a
+    cross-encoder. The top-3 candidates are assembled into a structured
+    context block, which is provided to a language model to generate a
+    natural-language answer.}
+  \label{fig:postretrieval_pipeline}
+\end{figure}
+
+% -----------------------------------------------------------
+\subsection{Candidate Context Construction}
+\label{subsec:context_construction}
+% -----------------------------------------------------------
+
+For each candidate in the top-$k$ list, the post-retrieval stage resolves
+the corresponding canonical entity record from the master JSONL file.
+A structured context string is assembled for each candidate, containing the
+following fields: \texttt{Title}, \texttt{Publication Year}, \texttt{Authors},
+\texttt{Tasks}, \texttt{Keywords}, \texttt{Datasets}, \texttt{Methods},
+\texttt{Metrics}, \texttt{Implementations}, \texttt{Abstract} (truncated to
+1{,}200 characters), and \texttt{Retrieved Representation} (the pre-retrieval
+\texttt{source\_text}, truncated to 1{,}400 characters).
+
+This per-candidate context string is the primary unit used in cross-encoder
+re-ranking and, for the selected top candidates, in language model
+conditioning.
+
+% -----------------------------------------------------------
+\subsection{Evidence Selection and Re-Ranking}
+\label{subsec:reranking}
+% -----------------------------------------------------------
+
+Evidence selection proceeds in two stages.
+
+In the first stage, a hard confidence filter removes candidates whose
+retrieval cosine score falls below 0.20.
+If all candidates fall below this threshold, the question is flagged as
+unanswerable from the available context, and a fixed unanswerable response
+is returned without invoking subsequent stages.
+
+In the second stage, the surviving candidates are re-ranked by a cross-encoder
+model (\texttt{cross-encoder/ms-marco-MiniLM-L-6-v2}~\todo{cite}).
+The cross-encoder takes the question and each candidate's context string as a
+joint input pair and produces a relevance score.
+Unlike the bi-encoder used in pre-retrieval, the cross-encoder attends to both
+inputs simultaneously, enabling more accurate relevance estimation at the cost
+of higher computational complexity.
+The candidates are re-ordered by cross-encoder score, and the top-3 candidates
+are selected as the final evidence set.
+
+The rationale for two-stage filtering is efficiency: the hard score filter
+reduces the candidate set inexpensively before invoking the cross-encoder,
+which is applied only to a small, filtered candidate set.
+
+% -----------------------------------------------------------
+\subsection{Answer Generation}
+\label{subsec:generation}
+% -----------------------------------------------------------
+
+The top-3 re-ranked candidates are serialized into a structured
+\texttt{<CONTEXT>} block that lists, for each candidate, the entity IRI,
+retrieval score, cross-encoder score, and the full context string.
+This context block is provided to a language model as part of a structured
+prompt.
+
+The system prompt instructs the model to act as an offline MLSea RAG
+assistant, to answer the question using only the provided context, and to
+respond with a fixed unanswerable statement if the context is insufficient.
+The generation model is \texttt{TinyLlama/TinyLlama-1.1B-Chat-v1.0}
+~\todo{cite TinyLlama}, a small chat-tuned language model deployed locally.
+Decoding uses a temperature of 0.1 for near-deterministic output, with a
+maximum of 256 new tokens.
+
+If the context block is empty after the hard filtering stage (no candidates
+survived), the generation step is skipped and the unanswerable response is
+returned directly.
+
+% -----------------------------------------------------------
+\subsection{Post-Retrieval Output and Evaluation}
+\label{subsec:postretrieval_output}
+% -----------------------------------------------------------
+
+The post-retrieval stage produces, per question: the assembled context block,
+the generated natural-language answer, and a suite of answer-quality metrics.
+Three metrics are used to assess answer quality:
+
+\begin{itemize}
+  \item \textbf{SAS (Semantic Answer Similarity)~\todo{cite}:} the cosine
+        similarity between the embedding of the generated answer and the
+        embedding of the gold text answer.
+        SAS captures semantic equivalence that surface-form metrics may miss.
+  \item \textbf{ROUGE-L~\todo{cite Lin 2004}:} the longest common subsequence
+        overlap between the generated answer and the gold answer.
+        ROUGE-L measures lexical overlap as a complementary surface-level metric.
+  \item \textbf{LLM-as-a-judge:} a second model pass that compares the
+        generated answer to the ground truth and returns a binary correctness
+        score (correct / incorrect) together with a reasoning trace.
+        The judge responses are retained for manual audit.
+\end{itemize}
+
+Quantitative results and their interpretation are presented in Chapter~4.
+
+% -----------------------------------------------------------
+\section*{Chapter Summary}
+% -----------------------------------------------------------
+
+This chapter has described the full methodology of the proposed KG-RAG
+pipeline over the MLSea knowledge graph.
+Beginning with local extraction and linked-label resolution from
+26{,}606{,}202 raw RDF triples, the pipeline constructs canonical entity
+records for 489{,}584 scientific papers, 12{,}651 datasets, and 30{,}564
+models.
+Fourteen representation strategies --- six for papers, four for datasets, and
+four for models --- are embedded into a 384-dimensional vector space using the
+\texttt{sentence-transformers/all-MiniLM-L6-v2} model and indexed in a
+persistent ChromaDB vector store across 18 collections.
+Six retrieval methods, from a pure dense semantic baseline to Reciprocal Rank
+Fusion combined with symbolic filtering, are evaluated on 265 answerable
+questions targeting papers, datasets, and models.
+The top candidates from retrieval are passed to a post-retrieval stage that
+applies hard confidence filtering, cross-encoder re-ranking, and language
+model generation.
+Chapter~4 presents the quantitative evaluation results for all 14
+representation strategies and six retrieval methods, including performance
+analysis segmented by entity type, question difficulty, and question type.

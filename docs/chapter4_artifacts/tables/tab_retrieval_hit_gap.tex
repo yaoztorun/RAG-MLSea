@@ -1,0 +1,20 @@
+% Gap = Hit@10 - Hit@1; measures how many correct entities are
+% recoverable in the top-10 but not ranked first.
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Recoverability gap between Hit@1 and Hit@10 across retrieval methods. A larger gap indicates more correct candidate entities present in the top-10 but not ranked first. Bold denotes the largest gap.}
+  \label{tab:retrieval_hit_gap}
+  \begin{tabular}{lccc}
+    \toprule
+    \textbf{Method} & \textbf{Hit@1} & \textbf{Hit@10} & \textbf{Gap (Hit@10\,$-$\,Hit@1)} \\
+    \midrule
+    Dense (baseline) & 0.6717 & 0.7811 & 0.1094 \\
+    Hybrid: Type Filtering & 0.6717 & 0.7811 & 0.1094 \\
+    Hybrid: Type + One-Hop & 0.6717 & 0.7811 & 0.1094 \\
+    Hybrid: Predicate-Aware & 0.6868 & 0.7811 & 0.0943 \\
+    RRF: Multi-Repr. Fusion & 0.6491 & 0.8189 & \textbf{0.1698} \\
+    RRF: Fusion + Symbolic & 0.6642 & 0.8189 & 0.1547 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

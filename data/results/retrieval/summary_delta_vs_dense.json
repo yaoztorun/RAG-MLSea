@@ -1,0 +1,44 @@
+{
+  "pure_semantic_dense": {
+    "delta_Hit@1": 0.0,
+    "delta_Hit@5": 0.0,
+    "delta_Hit@10": 0.0,
+    "delta_MRR": 0.0,
+    "delta_NDCG": 0.0
+  },
+  "hybrid_type_filtering": {
+    "delta_Hit@1": 0.0,
+    "delta_Hit@5": 0.0,
+    "delta_Hit@10": 0.0,
+    "delta_MRR": 0.0,
+    "delta_NDCG": 0.0
+  },
+  "hybrid_type_onehop_filtering": {
+    "delta_Hit@1": 0.002,
+    "delta_Hit@5": 0.002,
+    "delta_Hit@10": 0.0,
+    "delta_MRR": 0.0014,
+    "delta_NDCG": 0.0011
+  },
+  "hybrid_predicate_aware_filtering": {
+    "delta_Hit@1": 0.0,
+    "delta_Hit@5": 0.0,
+    "delta_Hit@10": 0.0,
+    "delta_MRR": 0.0,
+    "delta_NDCG": 0.0
+  },
+  "optional_rrf_fusion": {
+    "delta_Hit@1": 0.0,
+    "delta_Hit@5": 0.014,
+    "delta_Hit@10": 0.02,
+    "delta_MRR": 0.008,
+    "delta_NDCG": 0.0108
+  },
+  "optional_rrf_symbolic": {
+    "delta_Hit@1": 0.0,
+    "delta_Hit@5": 0.014,
+    "delta_Hit@10": 0.02,
+    "delta_MRR": 0.008,
+    "delta_NDCG": 0.0108
+  }
+}

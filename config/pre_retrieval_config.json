@@ -15,7 +15,7 @@
   },
   "evaluation": {
     "questions_path": "data/questions/ml_questions_dataset.json",
-    "output_dir": "data/retrieval_results",
+    "output_dir": "data/results/pre_retrieval",
     "top_k": [1, 5, 10],
     "abstention_score_threshold": null,
     "representation_order": [

@@ -1,0 +1,16 @@
+| Entity Type | Representation | Hit@1 | Hit@5 | Hit@10 | MRR | NDCG |
+|-------------|----------------|------:|------:|-------:|------:|------:|
+| dataset | dataset_enriched_metadata | 0.3760 | 0.5520 | 0.5920 | 0.4482 | 0.4832 |
+| dataset | dataset_metadata | 0.3920 | 0.6000 | 0.6640 | 0.4847 | 0.5281 |
+| dataset | dataset_predicate_filtered | 0.2800 | 0.4880 | 0.5600 | 0.3724 | 0.4178 |
+| dataset | dataset_title_only | 0.1520 | 0.2000 | 0.2320 | 0.1763 | 0.1893 |
+| model | model_title_only | 0.4080 | 0.4800 | 0.4960 | 0.4359 | 0.4504 |
+| model | model_metadata | 0.4000 | 0.5760 | 0.6160 | 0.4688 | 0.5046 |
+| model | model_predicate_filtered | 0.3760 | 0.5520 | 0.6080 | 0.4520 | 0.4898 |
+| model | model_enriched_metadata | 0.2400 | 0.4160 | 0.4720 | 0.3184 | 0.3554 |
+| paper | abstract_only | 0.3200 | 0.4200 | 0.4560 | 0.3618 | 0.3844 |
+| paper | enriched_metadata | 0.3680 | 0.4880 | 0.5480 | 0.4216 | 0.4516 |
+| paper | one_hop | 0.3200 | 0.4360 | 0.4880 | 0.3742 | 0.4014 |
+| paper | predicate_filtered | 0.3600 | 0.5000 | 0.5560 | 0.4226 | 0.4544 |
+| paper | title_abstract | 0.3320 | 0.4400 | 0.4840 | 0.3783 | 0.4035 |
+| paper | title_only | 0.2400 | 0.3120 | 0.3440 | 0.2760 | 0.2925 |

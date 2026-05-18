@@ -21,15 +21,15 @@ ENTITY_TYPE_FOLDERS: dict[str, str] = {
 }
 
 BEST_REPRESENTATION: dict[str, str] = {
-    "paper": "enriched_metadata",
-    "dataset": "dataset_title_only",
-    "model": "model_predicate_filtered",
+    "paper": "predicate_filtered",
+    "dataset": "dataset_metadata",
+    "model": "model_metadata",
 }
 
 RRF_FUSION_GROUPS: dict[str, list[str]] = {
-    "paper": ["enriched_metadata", "predicate_filtered", "one_hop"],
-    "dataset": ["dataset_title_only", "dataset_enriched_metadata"],
-    "model": ["model_predicate_filtered", "model_enriched_metadata"],
+    "paper": ["predicate_filtered", "enriched_metadata"],
+    "dataset": ["dataset_metadata"],
+    "model": ["model_metadata", "model_predicate_filtered"],
 }
 
 DEFAULT_TOP_K = 10
