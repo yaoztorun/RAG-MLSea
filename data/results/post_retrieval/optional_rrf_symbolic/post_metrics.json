@@ -1,0 +1,14 @@
+{
+  "method_name": "optional_rrf_symbolic",
+  "input_path": "C:\\Users\\esati\\thesis-rag-llm-project\\RAG-MLSea-github\\data\\results\\post_retrieval\\inputs\\optional_rrf_symbolic_post_input.json",
+  "output_dir": "C:\\Users\\esati\\thesis-rag-llm-project\\RAG-MLSea-github\\data\\results\\post_retrieval\\optional_rrf_symbolic",
+  "total_questions": 520,
+  "top_k": 3,
+  "min_retrieval_score": 0.0,
+  "cross_encoder_used": true,
+  "elapsed_seconds": 309.35,
+  "gold_in_input_candidates": 309,
+  "gold_in_selected_top_k": 159,
+  "recall_at_input": 0.5942,
+  "recall_at_top_k_selected": 0.3058
+}
