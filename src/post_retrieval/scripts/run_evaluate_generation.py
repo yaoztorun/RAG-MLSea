@@ -4,7 +4,12 @@ import argparse
 import json
 
 from src.post_retrieval.evaluation import evaluate_generation
-from src.post_retrieval.generation import generate_rag_answer, judge_rag_answer, load_generation_model
+from src.post_retrieval.generation import (
+    generate_baseline_answer,
+    generate_rag_answer,
+    judge_rag_answer,
+    load_generation_model,
+)
 from src.post_retrieval.pipeline import resolve_retrieval_results_path
 
 
@@ -30,12 +35,16 @@ def main() -> None:
     def generator(question: str, context: str) -> str:
         return generate_rag_answer(question, context, model=model, tokenizer=tokenizer, device=device)
 
+    def baseline_generator(question: str) -> str:
+        return generate_baseline_answer(question, model=model, tokenizer=tokenizer, device=device)
+
     def judge(ground_truth: str, generated_answer: str) -> int:
         return judge_rag_answer(ground_truth, generated_answer, model=model, tokenizer=tokenizer, device=device)
 
     payload = evaluate_generation(
         retrieval_results_path=retrieval_results_path,
         generator_fn=generator,
+        baseline_generator_fn=baseline_generator,
         judge_fn=judge,
         canonical_records_path=args.papers_path,
         questions_path=args.questions_path,
