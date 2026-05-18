@@ -1,0 +1,14 @@
+{
+  "method_name": "pure_semantic_dense",
+  "input_path": "C:\\Users\\esati\\thesis-rag-llm-project\\RAG-MLSea-github\\data\\results\\post_retrieval\\inputs\\pure_semantic_dense_post_input.json",
+  "output_dir": "C:\\Users\\esati\\thesis-rag-llm-project\\RAG-MLSea-github\\data\\results\\post_retrieval\\pure_semantic_dense",
+  "total_questions": 520,
+  "top_k": 3,
+  "min_retrieval_score": 0.2,
+  "cross_encoder_used": true,
+  "elapsed_seconds": 241.18,
+  "gold_in_input_candidates": 299,
+  "gold_in_selected_top_k": 152,
+  "recall_at_input": 0.575,
+  "recall_at_top_k_selected": 0.2923
+}

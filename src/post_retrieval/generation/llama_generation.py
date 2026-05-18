@@ -69,6 +69,42 @@ def generate_rag_answer(
     return tokenizer.decode(response, skip_special_tokens=True).strip()
 
 
+def generate_baseline_answer(
+    question: str,
+    *,
+    model: Any,
+    tokenizer: Any,
+    device: str,
+    max_new_tokens: int = 128, # Increased to prevent cut-offs
+    temperature: float = 0.1,
+) -> str:
+    """Generates an answer to the question WITHOUT context (baseline)."""
+    messages = [
+        {
+            "role": "system", 
+            "content": "You are a concise assistant. Answer in 1-2 complete sentences. Do not use bullet points or lists."
+        },
+        {"role": "user", "content": question},
+    ]
+    prompt_string = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True,
+    )
+    inputs = tokenizer(prompt_string, return_tensors="pt").to(device)
+    outputs = model.generate(
+        **inputs,
+        max_new_tokens=max_new_tokens,
+        temperature=temperature,
+        do_sample=temperature > 0.0,
+        pad_token_id=tokenizer.eos_token_id,
+        eos_token_id=tokenizer.eos_token_id
+    )
+    response = outputs[0][inputs["input_ids"].shape[-1] :]
+    text = tokenizer.decode(response, skip_special_tokens=True).strip()
+    return text.split("<|")[0].strip()
+
+
 def judge_rag_answer(
     ground_truth: str,
     generated_answer: str,
@@ -76,21 +112,22 @@ def judge_rag_answer(
     model: Any,
     tokenizer: Any,
     device: str,
-    max_new_tokens: int = 64,
+    max_new_tokens: int = 128,
     temperature: float = 0.0,
 ) -> tuple[int, str]:
-    # Ultra-minimal prompt for small models
+    # Few-shot CoT Prompt with explicit STOP marker
     prompt = (
-        f"Goal: Does the answer match the ground truth factually?\n"
-        f"Ground Truth: {ground_truth}\n"
-        f"Generated Answer: {generated_answer}\n"
-        f"Correct (1) or Incorrect (0)? Result:"
+        f"Goal: Is the Answer factually correct relative to the Ground Truth?\n"
+        f"Rules: Explain reasoning, then output [[1]] or [[0]]. End with '###'.\n\n"
+        f"Example 1:\nGT: Paris is in France.\nAns: Paris is French.\nReasoning: Both mention Paris. [[1]] ###\n\n"
+        f"Example 2:\nGT: Paris is in France.\nAns: Paris is in Italy.\nReasoning: Italy is not France. [[0]] ###\n\n"
+        f"Current Task:\nGT: {ground_truth}\nAns: {generated_answer}\nReasoning:"
     )
     
     inputs = tokenizer(prompt, return_tensors="pt").to(device)
     outputs = model.generate(
         **inputs, 
-        max_new_tokens=5, 
+        max_new_tokens=max_new_tokens,
         do_sample=False,
         pad_token_id=tokenizer.eos_token_id
     )
@@ -99,10 +136,15 @@ def judge_rag_answer(
     response = outputs[0][inputs["input_ids"].shape[-1] :]
     text_response = tokenizer.decode(response, skip_special_tokens=True).strip()
 
-    # Robust parsing: look for a leading digit 0 or 1 specifically
+    # Split at the STOP marker to prevent rambling into examples
+    text_response = text_response.split("###")[0].strip()
+
+    # Robust parsing: check for [[1]] first, then fall back to standalone 0/1
     import re
-    # Look for the first 0 or 1 that appears as a standalone token or at the start
-    match = re.search(r"(?:^|\s|:)([01])(?:\s|$|\.)", text_response)
+    match = re.search(r"\[\[([01])\]\]", text_response)
+    if not match:
+        match = re.search(r"(?:^|\s|:)([01])(?:\s|$|\.)", text_response)
+    
     score = int(match.group(1)) if match else 0
     return score, text_response
 

@@ -3,8 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 
-from src.pre_retrieval.config import REPO_ROOT, resolve_repo_path
-from src.pre_retrieval.utils import load_json, load_jsonl, normalize_identifier
+from src.pre_retrieval.shared.config import REPO_ROOT, resolve_repo_path
+from src.pre_retrieval.shared.utils import load_json, load_jsonl, normalize_identifier
 
 DEFAULT_CANONICAL_PAPERS_PATH = REPO_ROOT / "data/intermediate/raw_papers/papers_master.jsonl"
 DEFAULT_QUESTIONS_PATH = REPO_ROOT / "data/questions/ml_questions_dataset.json"

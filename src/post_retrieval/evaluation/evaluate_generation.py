@@ -19,7 +19,7 @@ from src.post_retrieval.pipeline.data_loading import (
     load_retrieval_payload,
 )
 from src.post_retrieval.pipeline.post_retrieval_pipeline import DEFAULT_CROSS_ENCODER_MODEL, load_cross_encoder
-from src.pre_retrieval.utils import save_json
+from src.pre_retrieval.shared.utils import save_json
 
 try:
     from rouge_score import rouge_scorer
