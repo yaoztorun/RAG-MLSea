@@ -1,0 +1,153 @@
+{
+  "epsilon": 0.02,
+  "source_method": "pure_semantic_dense",
+  "total_questions": 500,
+  "rule_matched": 296,
+  "evidence_found": 267,
+  "order_changed": 171,
+  "gold_rank_changed": 28,
+  "by_question_type": {
+    "paper_multi_metadata": {
+      "total": 60,
+      "rule_matched": 60,
+      "evidence_found": 60,
+      "order_changed": 50,
+      "gold_rank_changed": 9
+    },
+    "paper_abstract_semantic": {
+      "total": 53,
+      "rule_matched": 0,
+      "evidence_found": 0,
+      "order_changed": 0,
+      "gold_rank_changed": 0
+    },
+    "paper_author_to_paper": {
+      "total": 41,
+      "rule_matched": 41,
+      "evidence_found": 17,
+      "order_changed": 11,
+      "gold_rank_changed": 3
+    },
+    "paper_title_to_entity": {
+      "total": 48,
+      "rule_matched": 0,
+      "evidence_found": 0,
+      "order_changed": 0,
+      "gold_rank_changed": 0
+    },
+    "paper_description_to_title": {
+      "total": 19,
+      "rule_matched": 0,
+      "evidence_found": 0,
+      "order_changed": 0,
+      "gold_rank_changed": 0
+    },
+    "paper_task_to_paper": {
+      "total": 29,
+      "rule_matched": 29,
+      "evidence_found": 29,
+      "order_changed": 19,
+      "gold_rank_changed": 0
+    },
+    "dataset_title_to_entity": {
+      "total": 37,
+      "rule_matched": 0,
+      "evidence_found": 0,
+      "order_changed": 0,
+      "gold_rank_changed": 0
+    },
+    "dataset_task_to_dataset": {
+      "total": 62,
+      "rule_matched": 62,
+      "evidence_found": 60,
+      "order_changed": 46,
+      "gold_rank_changed": 9
+    },
+    "dataset_keyword_to_dataset": {
+      "total": 1,
+      "rule_matched": 1,
+      "evidence_found": 0,
+      "order_changed": 0,
+      "gold_rank_changed": 0
+    },
+    "dataset_multi_metadata": {
+      "total": 25,
+      "rule_matched": 25,
+      "evidence_found": 24,
+      "order_changed": 17,
+      "gold_rank_changed": 4
+    },
+    "model_repository_to_model": {
+      "total": 34,
+      "rule_matched": 34,
+      "evidence_found": 34,
+      "order_changed": 12,
+      "gold_rank_changed": 2
+    },
+    "model_family_variant": {
+      "total": 19,
+      "rule_matched": 19,
+      "evidence_found": 18,
+      "order_changed": 6,
+      "gold_rank_changed": 0
+    },
+    "model_name_to_entity": {
+      "total": 47,
+      "rule_matched": 0,
+      "evidence_found": 0,
+      "order_changed": 0,
+      "gold_rank_changed": 0
+    },
+    "model_paper_to_model": {
+      "total": 16,
+      "rule_matched": 16,
+      "evidence_found": 16,
+      "order_changed": 5,
+      "gold_rank_changed": 0
+    },
+    "model_multi_metadata": {
+      "total": 9,
+      "rule_matched": 9,
+      "evidence_found": 9,
+      "order_changed": 5,
+      "gold_rank_changed": 1
+    }
+  },
+  "changed_ranking_examples": [
+    {
+      "question_id": "mlsea_q_146",
+      "question_type": "paper_author_to_paper",
+      "question": "Which research paper by Andon Tchechmedjiev covers WordSenseDisambiguation?",
+      "old_gold_rank": 9,
+      "new_gold_rank": 6
+    },
+    {
+      "question_id": "mlsea_q_151",
+      "question_type": "paper_author_to_paper",
+      "question": "Which paper by Aur{ 'e}lien Bossard addresses the task of WordEmbeddings?",
+      "old_gold_rank": 7,
+      "new_gold_rank": 5
+    },
+    {
+      "question_id": "mlsea_q_156",
+      "question_type": "paper_author_to_paper",
+      "question": "Which paper by Olivier Boeffard addresses the task of SpeechSynthesis?",
+      "old_gold_rank": 10,
+      "new_gold_rank": 7
+    },
+    {
+      "question_id": "mlsea_q_223",
+      "question_type": "paper_multi_metadata",
+      "question": "Which work by Pedro Henrique Martins about LanguageModelling has this abstract opening: 'Transformers are unable to mode",
+      "old_gold_rank": 7,
+      "new_gold_rank": 5
+    },
+    {
+      "question_id": "mlsea_q_228",
+      "question_type": "paper_multi_metadata",
+      "question": "Which paper by Anna Rumshisky on HumorDetection begins its abstract with: 'In this work, we present a new dataset for co",
+      "old_gold_rank": 5,
+      "new_gold_rank": 3
+    }
+  ]
+}

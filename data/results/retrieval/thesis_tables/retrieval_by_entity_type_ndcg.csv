@@ -2,6 +2,6 @@ method,paper_NDCG,dataset_NDCG,model_NDCG
 pure_semantic_dense,0.4544,0.5281,0.5046
 hybrid_type_filtering,0.4544,0.5281,0.5046
 hybrid_type_onehop_filtering,0.4562,0.5289,0.5046
-hybrid_predicate_aware_filtering,0.4544,0.5281,0.5046
+hybrid_predicate_aware_filtering,0.4588,0.5381,0.5072
 optional_rrf_fusion,0.4615,0.5281,0.5337
-optional_rrf_symbolic,0.4615,0.5281,0.5337
+optional_rrf_symbolic,0.4731,0.5381,0.5521

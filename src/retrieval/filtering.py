@@ -1,70 +1,110 @@
 from __future__ import annotations
 
 import copy
+import json
+from pathlib import Path
 from typing import Any
 
-from src.retrieval.config import DEFAULT_TOP_K
+from src.retrieval.config import DEFAULT_TOP_K, RETRIEVAL_OUTPUT_DIR
 from src.retrieval.data_loading import entity_type_from_iri, load_questions
 from src.retrieval.dense_baseline import run_dense_baseline
 from src.retrieval.result_schema import finalize_result_metrics, renumber_candidates
 
-_TASK_TYPES = {
-    "paper_to_tasks",
-    "paper_by_task_pair",
-    "paper_to_task_count",
-    "paper_by_author_and_task",
-    "dataset_to_tasks",
-    "task_to_dataset",
-    "tasks_to_dataset",
-    "semantic_task_to_dataset",
-    "dataset_to_task_count",
-    "dataset_to_task_membership",
-}
-_IMPLEMENTATION_TYPES = {"paper_to_implementation"}
-_YEAR_TYPES = {"paper_to_publication_year", "dataset_to_publication_year"}
-_REPOSITORY_TYPES = {"repository_to_model", "semantic_repository_to_model"}
-_FAMILY_TYPES = {"model_family_variant", "comparative_model_variant"}
-_KEYWORD_TYPES = {"paper_to_keywords"}
+# -- Question-type sets aligned with actual dataset question_type values --
+_TASK_TYPES = {"paper_task_to_paper", "dataset_task_to_dataset"}
+_AUTHOR_TYPES = {"paper_author_to_paper"}
+_KEYWORD_TYPES = {"dataset_keyword_to_dataset"}
+_REPOSITORY_TYPES = {"model_repository_to_model"}
+_FAMILY_TYPES = {"model_family_variant"}
+_MODEL_PAPER_TYPES = {"model_paper_to_model"}
+_MULTI_METADATA_TYPES = {"paper_multi_metadata", "dataset_multi_metadata", "model_multi_metadata"}
+
+_ALL_PREDICATE_TYPES = (
+    _TASK_TYPES | _AUTHOR_TYPES | _KEYWORD_TYPES
+    | _REPOSITORY_TYPES | _FAMILY_TYPES | _MODEL_PAPER_TYPES
+    | _MULTI_METADATA_TYPES
+)
 
 # One-hop graph-connectivity metadata fields used by hybrid_type_onehop_filtering.
 _ONEHOP_FIELDS = ("tasks", "datasets", "methods", "metrics", "implementations")
+
+# Conservative epsilon: adds at most 0.02 per unit of lexical overlap.
+# Enough to break near-ties in semantic scores; not enough to override large gaps.
+_PREDICATE_EPSILON = 0.02
+
+# Generic question words that are not entity-specific identifiers.
+_STOPWORDS = frozenset({
+    "which", "what", "the", "is", "in", "of", "a", "an", "and", "or",
+    "to", "from", "that", "this", "model", "paper", "dataset", "connected",
+    "associated", "linked", "related", "uses", "used", "has", "have", "its",
+    "with", "for", "by", "on", "at", "be", "are", "was", "were", "not",
+    "no", "name", "named", "called", "identified", "known",
+})
+
+
+def _field_overlap(question_text: str, candidate: dict[str, Any], fields: tuple[str, ...]) -> float:
+    """Fraction of non-stopword question tokens found in concatenated metadata field values."""
+    if not question_text:
+        return 0.0
+    meta = candidate.get("metadata") or {}
+    parts: list[str] = []
+    for f in fields:
+        v = meta.get(f)
+        if not v:
+            continue
+        if isinstance(v, list):
+            parts.extend(str(x) for x in v)
+        else:
+            parts.append(str(v))
+    field_str = " ".join(parts).lower()
+    if not field_str:
+        return 0.0
+    tokens = {t.strip("()[].,?'\"/:-") for t in question_text.lower().split()} - _STOPWORDS
+    if not tokens:
+        return 0.0
+    return sum(1 for t in tokens if t in field_str) / len(tokens)
 
 
 def _boost_by_predicate(
     candidates: list[dict[str, Any]],
     question_type: str,
+    question_text: str = "",
 ) -> tuple[list[dict[str, Any]], bool]:
-    """Split candidates into boosted/non-boosted groups based on question_type.
+    """Soft-rerank candidates by lexical overlap between question and relevant metadata fields.
 
     Returns (reordered_candidates, evidence_found).
+    evidence_found is True if at least one candidate had non-zero overlap.
     """
-    def _meta(c: dict[str, Any]) -> dict[str, Any]:
-        return c.get("metadata") or {}
-
-    def _nonempty(val: Any) -> bool:
-        return bool(val)
-
     if question_type in _TASK_TYPES:
-        boosted = [c for c in candidates if _nonempty(_meta(c).get("tasks"))]
-        rest = [c for c in candidates if not _nonempty(_meta(c).get("tasks"))]
-    elif question_type in _IMPLEMENTATION_TYPES:
-        boosted = [c for c in candidates if _nonempty(_meta(c).get("implementations"))]
-        rest = [c for c in candidates if not _nonempty(_meta(c).get("implementations"))]
-    elif question_type in _YEAR_TYPES:
-        boosted = [c for c in candidates if _meta(c).get("publication_year") is not None]
-        rest = [c for c in candidates if _meta(c).get("publication_year") is None]
+        fields: tuple[str, ...] = ("tasks",)
+    elif question_type in _AUTHOR_TYPES:
+        fields = ("authors",)
     elif question_type in _KEYWORD_TYPES:
-        boosted = [c for c in candidates if _nonempty(_meta(c).get("keywords"))]
-        rest = [c for c in candidates if not _nonempty(_meta(c).get("keywords"))]
-    elif question_type in _REPOSITORY_TYPES or question_type in _FAMILY_TYPES:
-        source_text = [c.get("metadata", {}).get("source_text", "") for c in candidates]
-        boosted = [c for c, st in zip(candidates, source_text) if st and "Linked Entities" in st]
-        rest = [c for c, st in zip(candidates, source_text) if not (st and "Linked Entities" in st)]
+        fields = ("keywords",)
+    elif question_type in _REPOSITORY_TYPES:
+        fields = ("implementations", "source_text")
+    elif question_type in _FAMILY_TYPES:
+        fields = ("implementations", "source_text")
+    elif question_type in _MODEL_PAPER_TYPES:
+        fields = ("source_text",)
+    elif question_type in _MULTI_METADATA_TYPES:
+        fields = (
+            "tasks", "keywords", "authors", "datasets",
+            "methods", "metrics", "implementations", "source_text",
+        )
     else:
         return candidates, False
 
-    evidence_found = bool(boosted)
-    return boosted + rest, evidence_found
+    overlaps = [_field_overlap(question_text, c, fields) for c in candidates]
+    evidence_found = any(o > 0 for o in overlaps)
+
+    def _blended(idx_c: tuple[int, dict[str, Any]]) -> float:
+        idx, c = idx_c
+        sem = c.get("original_score") or (1.0 / (c.get("original_rank") or 99))
+        return sem + _PREDICATE_EPSILON * overlaps[idx]
+
+    reordered = [c for _, c in sorted(enumerate(candidates), key=_blended, reverse=True)]
+    return reordered, evidence_found
 
 
 def _onehop_richness(candidate: dict[str, Any]) -> int:
@@ -205,12 +245,34 @@ def run_predicate_aware_filtering(
     if dense_results is None:
         dense_results = run_dense_baseline(questions=questions, top_k=top_k)
 
+    # Determine debug output directory based on the calling context.
+    # When called from run_rrf_symbolic, input results carry method_name="optional_rrf_symbolic"
+    # so we write stats there instead of overwriting the hybrid_predicate stats file.
+    source_method = (dense_results[0].get("method_name", "") or "") if dense_results else ""
+    if "rrf_symbolic" in source_method:
+        _debug_dir_name = "optional_rrf_symbolic"
+    else:
+        _debug_dir_name = "hybrid_predicate_aware_filtering"
+
+    stats: dict[str, Any] = {
+        "epsilon": _PREDICATE_EPSILON,
+        "source_method": source_method,
+        "total_questions": 0,
+        "rule_matched": 0,
+        "evidence_found": 0,
+        "order_changed": 0,
+        "gold_rank_changed": 0,
+        "by_question_type": {},
+        "changed_ranking_examples": [],
+    }
+
     output: list[dict[str, Any]] = []
     for result in dense_results:
         r = copy.deepcopy(result)
         r["method_name"] = "hybrid_predicate_aware_filtering"
         warnings = list(r.get("warnings", []))
         question_type = r.get("question_type", "") or ""
+        question_text = r.get("question", "") or ""
 
         original = r.get("candidates", [])
         if not original:
@@ -218,7 +280,23 @@ def run_predicate_aware_filtering(
             output.append(finalize_result_metrics(r))
             continue
 
-        reordered, evidence_found = _boost_by_predicate(original, question_type)
+        stats["total_questions"] += 1
+        qt_stats = stats["by_question_type"].setdefault(question_type, {
+            "total": 0, "rule_matched": 0, "evidence_found": 0,
+            "order_changed": 0, "gold_rank_changed": 0,
+        })
+        qt_stats["total"] += 1
+
+        rule_matched = question_type in _ALL_PREDICATE_TYPES
+        if rule_matched:
+            stats["rule_matched"] += 1
+            qt_stats["rule_matched"] += 1
+
+        reordered, evidence_found = _boost_by_predicate(original, question_type, question_text)
+
+        if evidence_found:
+            stats["evidence_found"] += 1
+            qt_stats["evidence_found"] += 1
 
         if not evidence_found:
             warnings.append(
@@ -226,9 +304,48 @@ def run_predicate_aware_filtering(
                 "original candidate order preserved"
             )
 
+        old_ids = [c.get("normalized_entity_id", "") for c in original[:top_k]]
+        new_ids = [c.get("normalized_entity_id", "") for c in reordered[:top_k]]
+        order_changed = old_ids != new_ids
+        if order_changed:
+            stats["order_changed"] += 1
+            qt_stats["order_changed"] += 1
+
+        old_gold_rank = r.get("gold_rank")
+
         reordered = renumber_candidates(reordered[:top_k])
         r["candidates"] = reordered
         r["warnings"] = warnings
-        output.append(finalize_result_metrics(r))
+        r = finalize_result_metrics(r)
+
+        new_gold_rank = r.get("gold_rank")
+        gold_rank_changed = old_gold_rank != new_gold_rank
+        if gold_rank_changed:
+            stats["gold_rank_changed"] += 1
+            qt_stats["gold_rank_changed"] += 1
+            if len(stats["changed_ranking_examples"]) < 5:
+                stats["changed_ranking_examples"].append({
+                    "question_id": r.get("question_id", ""),
+                    "question_type": question_type,
+                    "question": question_text[:120],
+                    "old_gold_rank": old_gold_rank,
+                    "new_gold_rank": new_gold_rank,
+                })
+
+        output.append(r)
+
+    # Write debug stats
+    debug_dir = Path(RETRIEVAL_OUTPUT_DIR) / _debug_dir_name
+    debug_dir.mkdir(parents=True, exist_ok=True)
+    debug_path = debug_dir / "debug_stats.json"
+    with debug_path.open("w", encoding="utf-8") as fh:
+        json.dump(stats, fh, indent=2, ensure_ascii=False)
+
+    print(f"[predicate] debug stats -> {debug_path}")
+    print(
+        f"  total={stats['total_questions']}  rule_matched={stats['rule_matched']}  "
+        f"evidence_found={stats['evidence_found']}  order_changed={stats['order_changed']}  "
+        f"gold_rank_changed={stats['gold_rank_changed']}"
+    )
 
     return output

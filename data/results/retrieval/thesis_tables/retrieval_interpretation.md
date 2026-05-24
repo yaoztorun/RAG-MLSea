@@ -7,9 +7,9 @@
 | pure_semantic_dense | Pure Semantic | 0.4854 | +0.0 | +0.0 | precision baseline |
 | hybrid_type_filtering | Hybrid | 0.4854 | +0.0 | +0.0 | type-control |
 | hybrid_type_onehop_filtering | Hybrid | 0.4865 | +0.002 | +0.0011 | graph-neighbourhood hybrid |
-| hybrid_predicate_aware_filtering | Hybrid | 0.4854 | +0.0 | +0.0 | predicate-aware hybrid |
+| hybrid_predicate_aware_filtering | Hybrid | 0.4907 | +0.004 | +0.0053 | predicate-aware hybrid |
 | optional_rrf_fusion | Optional Fusion | 0.4962 | +0.0 | +0.0108 | optional recall fusion |
-| optional_rrf_symbolic | Optional Fusion | 0.4962 | +0.0 | +0.0108 | optional fusion + symbolic |
+| optional_rrf_symbolic | Optional Fusion | 0.5091 | +0.018 | +0.0237 | optional fusion + symbolic |
 
 ## Framing
 

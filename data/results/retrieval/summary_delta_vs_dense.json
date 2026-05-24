@@ -21,11 +21,11 @@
     "delta_NDCG": 0.0011
   },
   "hybrid_predicate_aware_filtering": {
-    "delta_Hit@1": 0.0,
-    "delta_Hit@5": 0.0,
+    "delta_Hit@1": 0.004,
+    "delta_Hit@5": 0.012,
     "delta_Hit@10": 0.0,
-    "delta_MRR": 0.0,
-    "delta_NDCG": 0.0
+    "delta_MRR": 0.0066,
+    "delta_NDCG": 0.0053
   },
   "optional_rrf_fusion": {
     "delta_Hit@1": 0.0,
@@ -35,10 +35,10 @@
     "delta_NDCG": 0.0108
   },
   "optional_rrf_symbolic": {
-    "delta_Hit@1": 0.0,
-    "delta_Hit@5": 0.014,
+    "delta_Hit@1": 0.018,
+    "delta_Hit@5": 0.03,
     "delta_Hit@10": 0.02,
-    "delta_MRR": 0.008,
-    "delta_NDCG": 0.0108
+    "delta_MRR": 0.0244,
+    "delta_NDCG": 0.0237
   }
 }

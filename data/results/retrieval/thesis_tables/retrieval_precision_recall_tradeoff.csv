@@ -2,6 +2,6 @@ method,Hit@1,Hit@10,gap_Hit10_minus_Hit1,interpretation
 pure_semantic_dense,0.378,0.598,0.22,precision baseline
 hybrid_type_filtering,0.378,0.598,0.22,type-control
 hybrid_type_onehop_filtering,0.38,0.598,0.218,graph-neighbourhood hybrid
-hybrid_predicate_aware_filtering,0.378,0.598,0.22,predicate-aware hybrid
+hybrid_predicate_aware_filtering,0.382,0.598,0.216,predicate-aware hybrid
 optional_rrf_fusion,0.378,0.618,0.24,optional recall fusion
-optional_rrf_symbolic,0.378,0.618,0.24,optional fusion + symbolic
+optional_rrf_symbolic,0.396,0.618,0.222,optional fusion + symbolic
