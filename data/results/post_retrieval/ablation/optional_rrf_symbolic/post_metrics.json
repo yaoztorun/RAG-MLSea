@@ -1,0 +1,14 @@
+{
+  "method_name": "optional_rrf_symbolic",
+  "input_path": "C:\\Users\\esati\\thesis-rag-llm-project\\RAG-MLSea-github\\data\\results\\retrieval\\optional_rrf_symbolic\\results.json",
+  "output_dir": "C:\\Users\\esati\\thesis-rag-llm-project\\RAG-MLSea-github\\data\\results\\post_retrieval\\ablation\\optional_rrf_symbolic",
+  "total_questions": 280,
+  "top_k": 3,
+  "min_retrieval_score": 0.0,
+  "cross_encoder_used": false,
+  "elapsed_seconds": 0.11,
+  "gold_in_input_candidates": 173,
+  "gold_in_selected_top_k": 74,
+  "recall_at_input": 0.6179,
+  "recall_at_top_k_selected": 0.2643
+}
