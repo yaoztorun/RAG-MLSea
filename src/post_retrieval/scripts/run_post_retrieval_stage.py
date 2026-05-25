@@ -92,7 +92,19 @@ def _process_question(
     question_id = entry.get("question_id", "")
     question = entry.get("question", "")
     target_iri = entry.get("target_entity_iri", "")
+    
+    # Handle both adapter 'results' format and raw 'candidates' format
     results = entry.get("results", [])
+    if not results and "candidates" in entry:
+        for c in entry["candidates"]:
+            results.append({
+                "paper_id": c.get("entity_id", ""),
+                "score": c.get("method_score", 0.0),
+                "source_text": c.get("metadata", {}).get("source_text", ""),
+                "entity_type": c.get("entity_type", ""),
+                "representation_type": c.get("representation_source", ""),
+                "title": c.get("title_or_label", "")
+            })
 
     payload = build_context_payload(
         question,
@@ -167,7 +179,10 @@ def run_stage(
         if method_name is None:
             print("ERROR: provide --method or --input", file=sys.stderr)
             sys.exit(1)
+        # Try adapter path first, then raw retrieval path
         input_path = _POST_INPUT_BASE / f"{method_name}_post_input.json"
+        if not (REPO_ROOT / input_path).exists():
+            input_path = REPO_ROOT / f"data/results/retrieval/{method_name}/results.json"
     if output_dir is None:
         resolved_method = method_name or input_path.parent.name
         output_dir = _POST_OUTPUT_BASE / resolved_method
