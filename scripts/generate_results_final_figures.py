@@ -507,7 +507,14 @@ def make_fig_C(force: bool) -> None:
                           key=lambda q: -float(dense_ndcg.get(q, 0)))
 
     methods     = [m for m in DISTINCT_METHODS if m in df["method"].unique()]
-    short_m     = [METHOD_SHORT[m] for m in methods]
+    _HEATMAP_LABEL = {
+        "pure_semantic_dense":              "Dense",
+        "hybrid_type_onehop_filtering":     "OneHop",
+        "hybrid_predicate_aware_filtering": "Predicate",
+        "optional_rrf_fusion":              "RRF-Fusion",
+        "optional_rrf_symbolic":            "RRF-Symbolic",
+    }
+    short_m = [_HEATMAP_LABEL.get(m, METHOD_SHORT[m]) for m in methods]
 
     data = np.full((len(valid_qtypes), len(methods)), np.nan)
     for ri, qt in enumerate(valid_qtypes):
@@ -528,11 +535,11 @@ def make_fig_C(force: bool) -> None:
     cmap = plt.cm.RdYlGn
 
     fig_h = max(5.5, len(valid_qtypes) * 0.5)
-    fig, ax = plt.subplots(figsize=(6.5, fig_h))
+    fig, ax = plt.subplots(figsize=(7.0, fig_h))
     im = ax.imshow(data, cmap=cmap, norm=norm, aspect="auto")
 
     ax.set_xticks(range(len(short_m)))
-    ax.set_xticklabels(short_m, fontsize=FS)
+    ax.set_xticklabels(short_m, rotation=30, ha='right', fontsize=FS - 1)
     ax.set_yticks(range(len(qt_labels)))
     ax.set_yticklabels(qt_labels, fontsize=FS - 1)
     ax.set_xlabel("Retrieval Method", fontsize=FS)

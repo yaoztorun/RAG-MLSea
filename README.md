@@ -1,154 +1,198 @@
-# RAG-MLSea: Retrieval-Augmented Generation for Machine Learning Question Answering
+# MLSea KG-RAG Retrieval Pipeline
 
-A master thesis repository implementing a three-stage Retrieval-Augmented Generation (RAG) pipeline
-over the MLSea knowledge graph. The system builds entity-centric text representations for papers,
-datasets, and models from RDF data, evaluates retrieval strategies across a 500-question machine
-learning QA benchmark, and produces ranked candidate lists for downstream post-retrieval processing.
+A master thesis project implementing a Retrieval-Augmented Generation pipeline over the [MLSea](https://mlsea.eu) knowledge graph. The system builds entity-centric text representations for paper, dataset, and model entities from local RDF data, embeds them into ChromaDB, and evaluates six retrieval strategies on a 500-question machine-learning QA benchmark. Retrieved candidates are prepared as structured inputs for downstream post-retrieval processing.
 
 ---
 
-## Pipeline Overview
+## Pipeline
 
-### Pre-Retrieval
-
-Constructs and evaluates text representations for three entity types — papers, datasets, and models —
-extracted from the MLSea RDF dump. Fourteen representation strategies are built, embedded using
-`sentence-transformers/all-MiniLM-L6-v2`, stored in ChromaDB, and evaluated using ranked retrieval
-metrics. The best-performing representations per entity type are selected to serve as the dense
-retrieval basis.
-
-Selected representations:
-
-| Entity type | Representations used                          |
-|-------------|-----------------------------------------------|
-| Papers      | `predicate_filtered`, `enriched_metadata`     |
-| Datasets    | `dataset_metadata`                            |
-| Models      | `model_metadata`, `model_predicate_filtered`  |
-
-### Retrieval
-
-Six retrieval strategies are evaluated using the selected pre-retrieval representations:
-
-| Method                             | Description                                              |
-|------------------------------------|----------------------------------------------------------|
-| `pure_semantic_dense`              | Dense retrieval using the best representation (baseline) |
-| `hybrid_type_filtering`            | Entity-type-aware score filtering                        |
-| `hybrid_type_onehop_filtering`     | Type filtering with graph-neighbourhood boost            |
-| `hybrid_predicate_aware_filtering` | Predicate-aware score adjustment                         |
-| `optional_rrf_fusion`              | Reciprocal Rank Fusion over selected representations     |
-| `optional_rrf_symbolic`            | RRF followed by symbolic type and predicate filtering    |
-
-Each method produces `results.json` and `metrics.json` under `data/results/retrieval/{method}/`.
-Aggregate summaries across methods are generated automatically.
-
-### Post-Retrieval
-
-Retrieval outputs are adapted into the post-retrieval input schema via
-`src/post_retrieval/adapters/retrieval_adapter.py`. The adapter remaps field names and renames
-the candidate list from `candidates` to `results` without modifying either the retrieval or
-post-retrieval pipeline. The post-retrieval stage operates only on the fixed top-10 retrieval
-candidates and does not query the corpus again.
+1. Parse local MLSea/Papers-with-Code RDF data and build canonical entity records
+2. Construct entity-centric textual representations (multiple strategies per entity type)
+3. Generate embeddings and populate ChromaDB vector indexes
+4. Run retrieval experiments (dense, hybrid, and RRF-based methods)
+5. Evaluate and export retrieval results, figures, and LaTeX tables
+6. Adapt retrieval outputs into post-retrieval input format
 
 ---
 
 ## Repository Structure
 
 ```text
-config/                          # pipeline configuration (pre_retrieval_config.json)
+config/                      # pipeline configuration (pre_retrieval_config.json)
 data/
-  intermediate/                  # ChromaDB store, raw extracted records, representations
-  questions/                     # 500-question ML QA benchmark dataset
-  raw/                           # source RDF dump (pwc_1.nt)
+  raw/                       # source RDF dump — not tracked in Git
+  intermediate/              # ChromaDB indexes, extracted records, representations
+  questions/                 # 500-question ML QA benchmark
   results/
-    pre_retrieval/               # per-representation evaluation results (results.json, top10.json)
-    retrieval/                   # per-method retrieval results and aggregate summaries
-    post_retrieval/              # post-retrieval inputs and reranking outputs
-scripts/                         # standalone artifact and dataset generation scripts
+    pre_retrieval/           # per-representation evaluation results
+    retrieval/               # per-method retrieval results and aggregate summaries
+    post_retrieval/          # post-retrieval input files and outputs
+scripts/                     # standalone artifact and figure generation scripts
 src/
-  pre_retrieval/                 # representation construction and evaluation (papers, datasets, models)
-  retrieval/                     # six retrieval methods, config, evaluation pipeline
-  post_retrieval/                # schema adapter, reranking, context construction
+  pre_retrieval/             # representation construction and evaluation
+  retrieval/                 # six retrieval methods, config, evaluation pipeline
+  post_retrieval/            # schema adapter, reranking, context construction
+figs/results_final/          # final PDF/PNG figures and LaTeX snippets
+docs/chapter4_artifacts/     # thesis tables and supporting artifacts
 ```
 
----
-
-## Evaluation Metrics
-
-All retrieval stages are evaluated using:
-
-- Hit@1, Hit@5, Hit@10
-- Mean Reciprocal Rank (MRR)
-- Normalized Discounted Cumulative Gain (NDCG)
-
-Metrics are segmented by entity type, question difficulty (easy / medium / hard), and question
-category. Only questions whose target entity type matches the retrieval scope contribute to
-per-type metrics.
-
----
-
-## Thesis Artifacts
-
-Pre-retrieval and retrieval results are exported as:
-
-- PDF figures (overall, by difficulty, by category)
-- LaTeX tables (booktabs format)
-- CSV and JSON summaries
-
-Artifact generation scripts are in `scripts/`.
-
----
-
-## Running the Pipeline
-
-### Requirements
-
-```bash
-pip install -r requirements.txt
-```
-
-ChromaDB must be running before any pre-retrieval embedding or evaluation step:
-
-```bash
-chroma run --path data/intermediate/chroma
-```
-
-### Pre-Retrieval Evaluation
-
-Run all representations for each entity type:
-
-```bash
-python -m src.pre_retrieval.papers.scripts.run_all_experiments
-python -m src.pre_retrieval.datasets.scripts.run_evaluate_datasets --representation all
-python -m src.pre_retrieval.models.scripts.run_evaluate_models --representation all
-```
-
-Generate thesis artifacts:
-
-```bash
-python scripts/build_pre_retrieval_result_artifacts.py
-```
-
-### Retrieval Evaluation
-
-```bash
-python -m src.retrieval.scripts.run_all_retrieval_experiments
-python scripts/build_retrieval_result_artifacts.py
-```
-
-### Retrieval → Post-Retrieval Adapter
-
-```bash
-python -m src.post_retrieval.adapters.retrieval_adapter --method pure_semantic_dense
-```
-
-Replace `pure_semantic_dense` with any method name from the retrieval stage. Output is written to
-`data/results/post_retrieval/inputs/{method}_post_input.json`.
+> Large raw RDF data, ChromaDB indexes, and generated result files are not tracked in Git.
 
 ---
 
 ## Requirements
 
 - Python 3.10+
-- `sentence-transformers` (model: `sentence-transformers/all-MiniLM-L6-v2`)
-- `chromadb`
-- `rdflib`, `numpy`, `scikit-learn`, `matplotlib`, `tqdm`
+- Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+Key packages: `chromadb`, `sentence-transformers`, `rdflib`, `numpy`, `scikit-learn`, `matplotlib`, `tqdm`.
+
+The embedding model used throughout is `sentence-transformers/all-MiniLM-L6-v2`.
+
+---
+
+## Data Setup
+
+The raw MLSea/Papers-with-Code RDF dump is expected at:
+
+```
+data/raw/pwc_1.nt
+```
+
+This file is not included in the repository. The questions benchmark is at:
+
+```
+data/questions/ml_questions_dataset.json
+```
+
+---
+
+## Running the Pipeline
+
+### Start ChromaDB
+
+ChromaDB runs as a local HTTP server on port 8000. Start it before any embedding or evaluation step and keep it running in a separate terminal:
+
+```
+chroma run --path data/intermediate/chroma
+```
+
+---
+
+### 1. Build pre-retrieval representations and embeddings
+
+Run the full pre-retrieval pipeline for each entity type. This step is expensive on first run — it builds textual representations, generates embeddings, and stores them in ChromaDB.
+
+```
+py -m src.pre_retrieval.papers.scripts.run_all_experiments
+py -m src.pre_retrieval.datasets.scripts.run_evaluate_datasets --representation all
+py -m src.pre_retrieval.models.scripts.run_evaluate_models --representation all
+```
+
+Generate pre-retrieval thesis artifacts (figures, tables, CSVs):
+
+```
+py scripts/build_pre_retrieval_result_artifacts.py
+```
+
+---
+
+### 2. Run retrieval experiments
+
+Runs all six retrieval methods and writes results under `data/results/retrieval/`:
+
+```
+py -m src.retrieval.scripts.run_all_retrieval_experiments --force
+```
+
+Key outputs per method: `results.json`, `metrics.json`. Aggregate outputs: `summary.csv`, `summary_by_entity_type.json`, `summary_by_difficulty.json`, `summary_by_question_type.json`.
+
+---
+
+### 3. Generate retrieval figures
+
+```
+py scripts/generate_results_final_figures.py --force
+```
+
+Outputs written to `figs/results_final/` (PDF + PNG figures, `LATEX_SNIPPETS.tex`, `FIGURE_AUDIT.md`).
+
+---
+
+### 4. Generate post-retrieval inputs
+
+Convert a single method's retrieval output into the post-retrieval input schema:
+
+```
+py -m src.post_retrieval.adapters.retrieval_adapter --method pure_semantic_dense
+```
+
+To convert all six methods (PowerShell):
+
+```powershell
+$methods = @(
+  "pure_semantic_dense",
+  "hybrid_type_filtering",
+  "hybrid_type_onehop_filtering",
+  "hybrid_predicate_aware_filtering",
+  "optional_rrf_fusion",
+  "optional_rrf_symbolic"
+)
+foreach ($m in $methods) {
+  Write-Host "`n=== $m ==="
+  py -m src.post_retrieval.adapters.retrieval_adapter --method $m
+}
+```
+
+Output files: `data/results/post_retrieval/inputs/{method}_post_input.json`.
+
+---
+
+### 5. Post-retrieval evaluation
+
+Post-retrieval answer generation and evaluation scripts are located under `src/post_retrieval/` (`scripts/`, `evaluation/`, `generation/`, `pipeline/` subdirectories).
+
+---
+
+## Retrieval Methods
+
+| Method | Description |
+|---|---|
+| `pure_semantic_dense` | Dense semantic retrieval over the best representation per entity type (baseline) |
+| `hybrid_type_filtering` | Structural control — entity-type collections already enforce type specificity, so this is equivalent to the dense baseline |
+| `hybrid_type_onehop_filtering` | Extends the dense baseline with a one-hop graph-neighbourhood richness boost |
+| `hybrid_predicate_aware_filtering` | Soft reranking using lexical overlap between the question and entity predicate fields (ε = 0.02) |
+| `optional_rrf_fusion` | Reciprocal Rank Fusion (k = 60) over multiple representation indexes for improved top-10 recall |
+| `optional_rrf_symbolic` | RRF fusion followed by symbolic predicate-aware reranking; strongest overall method by NDCG |
+
+---
+
+## Outputs
+
+| Output | Location |
+|---|---|
+| ChromaDB vector indexes | `data/intermediate/chroma/` |
+| Pre-retrieval evaluation results | `data/results/pre_retrieval/` |
+| Retrieval results and summaries | `data/results/retrieval/` |
+| Post-retrieval input files | `data/results/post_retrieval/inputs/` |
+| Final figures (PDF/PNG) | `figs/results_final/` |
+| LaTeX figure snippets | `figs/results_final/LATEX_SNIPPETS.tex` |
+| Thesis tables (LaTeX) | `docs/chapter4_artifacts/tables/` |
+
+---
+
+## Reproducibility Notes
+
+- All results depend on the local RDF dump, the question dataset, the representation scripts, the embedding model, and the ChromaDB collections.
+- If only retrieval reranking logic changes, embeddings do not need to be regenerated — rerun retrieval experiments and the post-retrieval adapter.
+- If representations or embeddings change, a full rebuild (embed → retrieval → adapter) is required.
+
+---
+
+## Thesis Context
+
+This repository supports a master thesis on knowledge-graph-based retrieval for machine-learning question answering over the MLSea RDF dataset.
