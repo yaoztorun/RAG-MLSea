@@ -69,15 +69,18 @@ Checked values:
 - **A** — the 3-panel horizontal bar is the clearest way to show all representation
   strategies per entity type and identify the best one for each. Supports RQ1 directly.
 
-- **B** — the 6-method comparison with hatching on no-op methods and ≡-annotations is
-  the only figure that honestly communicates the verification finding: three methods
-  are structurally identical to their baselines. This is the central RQ2 result.
+- **B** — the 6-method comparison with hatching on the single no-op method (Hybrid-Type)
+  and ≡-annotation directly communicates the structural redundancy finding: one method is
+  identical to the Dense baseline because entity-type specificity is already enforced
+  upstream by the collection design. The four remaining non-Dense methods (OneHop,
+  Predicate, RRF-Fusion, RRF-Symbolic) are each behaviourally distinct and show a clear
+  performance progression up to NDCG +0.024. This is the central RQ2 result figure.
 
-- **C** — the question-type heatmap (3 methods only) shows which question categories
-  benefit from OneHop or RRF and which remain weak across all methods. Essential for
+- **C** — the question-type heatmap (5 distinct methods) shows which question categories
+  benefit from OneHop, Predicate, or RRF methods, and which remain weak. Essential for
   understanding where the pipeline succeeds and fails.
 
-- **E** — the difficulty bar chart (3 methods only) shows that easy questions benefit
+- **E** — the difficulty bar chart (5 distinct methods) shows that easy questions benefit
   most from RRF while medium questions are the weakest segment across all methods.
   This supports the discussion of query difficulty as a systematic factor.
 

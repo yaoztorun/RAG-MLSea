@@ -453,6 +453,11 @@ def make_fig_B(force: bool) -> None:
                color=c_h10, alpha=0.88, edgecolor="white", linewidth=0.4,
                hatch=hatch)
 
+        # Numeric value labels above each bar
+        label_kw = dict(ha="center", va="bottom", fontsize=FS - 3, color="#333333")
+        ax.text(x[i] - bar_width / 2, ndcg_val + 0.004, f"{ndcg_val:.3f}", **label_kw)
+        ax.text(x[i] + bar_width / 2, h10_val  + 0.004, f"{h10_val:.3f}",  **label_kw)
+
         # Annotate no-op methods
         if is_noop:
             top = max(ndcg_val, h10_val) + 0.012
@@ -467,14 +472,16 @@ def make_fig_B(force: bool) -> None:
     ax.yaxis.grid(True, linestyle="--", alpha=0.35)
     ax.set_axisbelow(True)
 
-    ndcg_patch  = mpatches.Patch(color=C_HYBRID,   label="NDCG (hybrid)")
-    h10_patch   = mpatches.Patch(color=C_HIT,      label="Hit@10 (hybrid)")
-    rrf_patch   = mpatches.Patch(color=C_RRF,      label="NDCG (RRF-Fusion)")
-    base_patch  = mpatches.Patch(color=C_BASELINE, label="Dense baseline")
-    noop_patch  = mpatches.Patch(facecolor="#DDDDDD", hatch="///", edgecolor="#999999",
-                                  label="No-op (collapsed to baseline / RRF-Fusion)")
-    ax.legend(handles=[base_patch, ndcg_patch, h10_patch, rrf_patch, noop_patch],
-              fontsize=FS - 1, frameon=False, ncol=2,
+    ndcg_patch    = mpatches.Patch(color=C_HYBRID,   label="NDCG (hybrid)")
+    h10_patch     = mpatches.Patch(color=C_HIT,      label="Hit@10 (hybrid)")
+    rrf_patch     = mpatches.Patch(color=C_RRF,      label="NDCG (RRF methods)")
+    rrf_h10_patch = mpatches.Patch(color=C_RRF_HIT,  label="Hit@10 (RRF methods)")
+    base_patch    = mpatches.Patch(color=C_BASELINE, label="Dense baseline")
+    noop_patch    = mpatches.Patch(facecolor="#DDDDDD", hatch="///", edgecolor="#999999",
+                                    label="Structural no-op (Hybrid-Type ≡ Dense)")
+    ax.legend(handles=[base_patch, ndcg_patch, h10_patch,
+                       rrf_patch, rrf_h10_patch, noop_patch],
+              fontsize=FS - 1, frameon=False, ncol=3,
               loc="upper left", bbox_to_anchor=(0.01, 0.99))
 
     fig.tight_layout()
@@ -482,7 +489,7 @@ def make_fig_B(force: bool) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Figure C — Question-type NDCG heatmap (3 distinct methods only)
+# Figure C — Question-type NDCG heatmap (5 distinct methods)
 # ---------------------------------------------------------------------------
 
 def make_fig_C(force: bool) -> None:
@@ -549,7 +556,7 @@ def make_fig_C(force: bool) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Figure D — Retrieval NDCG by entity type (3 distinct methods only)
+# Figure D — Retrieval NDCG by entity type (5 distinct methods)
 # ---------------------------------------------------------------------------
 
 def make_fig_D(force: bool) -> None:
@@ -596,7 +603,7 @@ def make_fig_D(force: bool) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Figure E — Retrieval NDCG by difficulty (3 distinct methods, grouped bars)
+# Figure E — Retrieval NDCG by difficulty (5 distinct methods, grouped bars)
 # ---------------------------------------------------------------------------
 
 def make_fig_E(force: bool) -> None:
@@ -792,15 +799,18 @@ def write_audit_report() -> None:
     - **A** — the 3-panel horizontal bar is the clearest way to show all representation
       strategies per entity type and identify the best one for each. Supports RQ1 directly.
 
-    - **B** — the 6-method comparison with hatching on no-op methods and ≡-annotations is
-      the only figure that honestly communicates the verification finding: three methods
-      are structurally identical to their baselines. This is the central RQ2 result.
+    - **B** — the 6-method comparison with hatching on the single no-op method (Hybrid-Type)
+      and ≡-annotation directly communicates the structural redundancy finding: one method is
+      identical to the Dense baseline because entity-type specificity is already enforced
+      upstream by the collection design. The four remaining non-Dense methods (OneHop,
+      Predicate, RRF-Fusion, RRF-Symbolic) are each behaviourally distinct and show a clear
+      performance progression up to NDCG +0.024. This is the central RQ2 result figure.
 
-    - **C** — the question-type heatmap (3 methods only) shows which question categories
-      benefit from OneHop or RRF and which remain weak across all methods. Essential for
+    - **C** — the question-type heatmap (5 distinct methods) shows which question categories
+      benefit from OneHop, Predicate, or RRF methods, and which remain weak. Essential for
       understanding where the pipeline succeeds and fails.
 
-    - **E** — the difficulty bar chart (3 methods only) shows that easy questions benefit
+    - **E** — the difficulty bar chart (5 distinct methods) shows that easy questions benefit
       most from RRF while medium questions are the weakest segment across all methods.
       This supports the discussion of query difficulty as a systematic factor.
 
@@ -892,12 +902,17 @@ def write_latex_snippets() -> None:
       \centering
       \includegraphics[width=\linewidth]{figs/results_final/02_retrieval_method_comparison.pdf}
       \caption{%
-        NDCG and Hit@10 scores for all six retrieval methods.
-        Hatched bars (\(\equiv\) annotations) indicate methods that are
-        implementation no-ops: Hybrid-Type and Hybrid-Predicate produce output
-        identical to the Dense baseline; RRF-Symbolic produces output identical
-        to RRF-Fusion. The only genuine improvements over the Dense baseline are
-        Hybrid-OneHop (marginal) and RRF-Fusion (Hit@10 +0.020, NDCG +0.011).
+        NDCG and Hit@10 scores for all six retrieval methods evaluated on
+        500 answerable questions.
+        The hatched bar (\(\equiv\) annotation) indicates \texttt{hybrid\_type\_filtering},
+        which is a structural no-op: the pre-retrieval stage already queries
+        entity-type-specific collections, so type filtering removes no candidates.
+        Of the five behaviourally distinct methods, Hybrid-OneHop yields a marginal
+        gain (NDCG\,+0.0011), Hybrid-Predicate improves ordering within the
+        top-10 list (NDCG\,+0.0053), RRF-Fusion achieves the largest top-10
+        recall improvement (Hit@10\,+0.020, NDCG\,+0.011), and RRF-Symbolic
+        achieves the strongest overall result (NDCG\,+0.024, Hit@1\,+0.018
+        over the Dense baseline).
       }
       \label{fig:retrieval_method_comparison}
     \end{figure}
@@ -909,8 +924,9 @@ def write_latex_snippets() -> None:
       \centering
       \includegraphics[width=\linewidth]{figs/results_final/03_retrieval_question_type_heatmap.pdf}
       \caption{%
-        NDCG by question type for the three behaviourally distinct retrieval
-        methods. Rows are sorted by Dense baseline NDCG (descending); N gives the
+        NDCG by question type for the five behaviourally distinct retrieval
+        methods (Dense, OneHop, Predicate-Aware, RRF-Fusion, RRF-Symbolic).
+        Rows are sorted by Dense baseline NDCG (descending); N gives the
         number of questions per type. High-confidence title-lookup questions
         (\emph{Title$\to$Entity}) reach NDCG $>$ 0.90, while low-resource
         multi-hop types (\emph{Task$\to$Paper}, \emph{Author$\to$Paper}) remain
@@ -926,8 +942,9 @@ def write_latex_snippets() -> None:
       \centering
       \includegraphics[width=0.85\linewidth]{figs/results_final/05_retrieval_ndcg_by_difficulty.pdf}
       \caption{%
-        NDCG broken down by question difficulty for the three behaviourally
-        distinct retrieval methods. Easy questions benefit most from RRF-Fusion
+        NDCG broken down by question difficulty for the five behaviourally
+        distinct retrieval methods (Dense, OneHop, Predicate-Aware, RRF-Fusion,
+        RRF-Symbolic). Easy questions benefit most from RRF-Fusion
         (NDCG\,=\,0.6904 vs.\ 0.6652 for Dense). Medium questions remain the
         weakest segment (NDCG\,$\leq$\,0.34) across all methods, indicating that
         multi-constraint queries present a persistent retrieval challenge
@@ -958,10 +975,12 @@ def write_latex_snippets() -> None:
     %   \includegraphics[width=\linewidth]{figs/results_final/06_retrieval_hit_gap_optional.pdf}
     %   \caption{%
     %     Hit@1 and Hit@10 for all six retrieval methods, with the recoverability
-    %     gap annotated above each pair. The gap is consistent across methods
-    %     (0.218--0.240), confirming that ranking position within the top-10 window
-    %     is the main differentiating factor rather than the presence or absence of
-    %     the gold entity in the candidate list.
+    %     gap (Hit@10$-$Hit@1) annotated above each bar pair.
+    %     RRF-Fusion improves top-10 coverage (Hit@10\,=\,0.618, gap\,=\,+0.240),
+    %     indicating that multi-representation fusion brings new gold entities into
+    %     the top-10 pool. RRF-Symbolic additionally improves top-1 ranking
+    %     (Hit@1\,=\,0.396), narrowing the gap to +0.222 while maintaining the
+    %     same top-10 coverage as RRF-Fusion.
     %   }
     %   \label{fig:retrieval_hit_gap}
     % \end{figure}

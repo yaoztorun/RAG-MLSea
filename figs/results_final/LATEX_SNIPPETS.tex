@@ -53,12 +53,17 @@
   \centering
   \includegraphics[width=\linewidth]{figs/results_final/02_retrieval_method_comparison.pdf}
   \caption{%
-    NDCG and Hit@10 scores for all six retrieval methods.
-    Hatched bars (\(\equiv\) annotations) indicate methods that are
-    implementation no-ops: Hybrid-Type and Hybrid-Predicate produce output
-    identical to the Dense baseline; RRF-Symbolic produces output identical
-    to RRF-Fusion. The only genuine improvements over the Dense baseline are
-    Hybrid-OneHop (marginal) and RRF-Fusion (Hit@10 +0.020, NDCG +0.011).
+    NDCG and Hit@10 scores for all six retrieval methods evaluated on
+    500 answerable questions.
+    The hatched bar (\(\equiv\) annotation) indicates \texttt{hybrid\_type\_filtering},
+    which is a structural no-op: the pre-retrieval stage already queries
+    entity-type-specific collections, so type filtering removes no candidates.
+    Of the five behaviourally distinct methods, Hybrid-OneHop yields a marginal
+    gain (NDCG\,+0.0011), Hybrid-Predicate improves ordering within the
+    top-10 list (NDCG\,+0.0053), RRF-Fusion achieves the largest top-10
+    recall improvement (Hit@10\,+0.020, NDCG\,+0.011), and RRF-Symbolic
+    achieves the strongest overall result (NDCG\,+0.024, Hit@1\,+0.018
+    over the Dense baseline).
   }
   \label{fig:retrieval_method_comparison}
 \end{figure}
@@ -70,8 +75,9 @@
   \centering
   \includegraphics[width=\linewidth]{figs/results_final/03_retrieval_question_type_heatmap.pdf}
   \caption{%
-    NDCG by question type for the three behaviourally distinct retrieval
-    methods. Rows are sorted by Dense baseline NDCG (descending); N gives the
+    NDCG by question type for the five behaviourally distinct retrieval
+    methods (Dense, OneHop, Predicate-Aware, RRF-Fusion, RRF-Symbolic).
+    Rows are sorted by Dense baseline NDCG (descending); N gives the
     number of questions per type. High-confidence title-lookup questions
     (\emph{Title$\to$Entity}) reach NDCG $>$ 0.90, while low-resource
     multi-hop types (\emph{Task$\to$Paper}, \emph{Author$\to$Paper}) remain
@@ -87,8 +93,9 @@
   \centering
   \includegraphics[width=0.85\linewidth]{figs/results_final/05_retrieval_ndcg_by_difficulty.pdf}
   \caption{%
-    NDCG broken down by question difficulty for the three behaviourally
-    distinct retrieval methods. Easy questions benefit most from RRF-Fusion
+    NDCG broken down by question difficulty for the five behaviourally
+    distinct retrieval methods (Dense, OneHop, Predicate-Aware, RRF-Fusion,
+    RRF-Symbolic). Easy questions benefit most from RRF-Fusion
     (NDCG\,=\,0.6904 vs.\ 0.6652 for Dense). Medium questions remain the
     weakest segment (NDCG\,$\leq$\,0.34) across all methods, indicating that
     multi-constraint queries present a persistent retrieval challenge
@@ -119,10 +126,12 @@
 %   \includegraphics[width=\linewidth]{figs/results_final/06_retrieval_hit_gap_optional.pdf}
 %   \caption{%
 %     Hit@1 and Hit@10 for all six retrieval methods, with the recoverability
-%     gap annotated above each pair. The gap is consistent across methods
-%     (0.218--0.240), confirming that ranking position within the top-10 window
-%     is the main differentiating factor rather than the presence or absence of
-%     the gold entity in the candidate list.
+%     gap (Hit@10$-$Hit@1) annotated above each bar pair.
+%     RRF-Fusion improves top-10 coverage (Hit@10\,=\,0.618, gap\,=\,+0.240),
+%     indicating that multi-representation fusion brings new gold entities into
+%     the top-10 pool. RRF-Symbolic additionally improves top-1 ranking
+%     (Hit@1\,=\,0.396), narrowing the gap to +0.222 while maintaining the
+%     same top-10 coverage as RRF-Fusion.
 %   }
 %   \label{fig:retrieval_hit_gap}
 % \end{figure}
