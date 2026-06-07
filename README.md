@@ -1,4 +1,3 @@
-````md
 <h1 align="center">MLSea KG-RAG Retrieval Pipeline</h1>
 
 <p align="center">
@@ -11,7 +10,7 @@
   <a href="#quick-start">Quick Start</a> ·
   <a href="#repository-structure">Structure</a> ·
   <a href="#retrieval-methods">Retrieval Methods</a> ·
-  <a href="#thesis-context">Thesis Context</a>
+  <a href="#authors">Authors</a>
 </p>
 
 <p align="center">
@@ -44,13 +43,13 @@ The retrieved candidates are exported in a structured format for downstream post
 
 The pipeline follows three main stages:
 
-1. **Pre-retrieval**  
+1. **Pre-retrieval**
    Local MLSea RDF data is parsed and transformed into entity-centric textual representations for papers, datasets, and models. These representations are embedded and indexed in ChromaDB.
 
-2. **Retrieval**  
+2. **Retrieval**
    Natural-language questions are embedded and matched against the indexed representations using dense retrieval, hybrid filtering, and reciprocal-rank-fusion-based methods.
 
-3. **Post-retrieval**  
+3. **Post-retrieval**
    Retrieved candidates are filtered, reranked, converted into context, and prepared for downstream answer generation and evaluation.
 
 ---
@@ -75,7 +74,7 @@ src/
 
 figs/results_final/          # Final thesis figures and LaTeX snippets
 assets/                      # README figures and project images
-````
+```
 
 Large raw data files, ChromaDB indexes, intermediate representations, and generated experiment outputs are intentionally not tracked in Git.
 
@@ -239,8 +238,8 @@ The project focuses on how entities from the MLSea knowledge graph can be repres
 
 This project was developed by:
 
-- **Yigit Alp OZTORUN**
-- **Esat CAGLAYAN**
+* **Yigit Alp OZTORUN**
+* **Esat CAGLAYAN**
 
 as part of a master thesis project on retrieval-augmented generation over knowledge graphs for machine-learning question answering.
 
