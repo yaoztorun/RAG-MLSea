@@ -247,8 +247,7 @@ as part of a master thesis project on retrieval-augmented generation over knowle
 
 ## Acknowledgements
 
-This project uses the [MLSea](https://mlsea.eu) knowledge graph as its main data source.
+This project uses the [MLSea](https://zenodo.org/records/17954333) knowledge graph as its main data source.
 
 Official MLSea-KG resource code: [dtai-kg/MLSea-KGC](https://github.com/dtai-kg/MLSea-KGC)
 
----
